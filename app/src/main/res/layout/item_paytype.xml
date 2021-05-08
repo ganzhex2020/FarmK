@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="5dp"
+    android:paddingEnd="5dp"
+    >
+
+    <TextView
+        android:id="@+id/tv_paytype"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pay Online"
+        android:textColor="@color/color_common_tv"
+        android:textSize="14sp"
+        android:fontFamily="@font/fzlty"
+        android:shadowRadius="5"
+        android:shadowDy="1"
+        android:shadowDx="1"
+        android:shadowColor="@color/black"
+        />
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_height="5dp"
+        android:background="@mipmap/paytype_line"
+        />
+
+
+</LinearLayout>

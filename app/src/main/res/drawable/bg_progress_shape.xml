@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--<item android:id="@android:id/background" android:drawable="@drawable/ic_jdt01" />-->
+
+
+    <!-- 设置背景色 灰色-->
+
+    <item android:id="@android:id/background">
+
+        <shape>
+
+            <corners android:radius="10dp"></corners>
+            <solid android:color="#f1d38d"></solid>
+            <!--<gradient
+                android:angle="0"
+                android:startColor="#AF8166"
+                android:endColor="#E5BFA1">
+            </gradient>-->
+
+        </shape>
+
+    </item>
+
+    <item android:id="@android:id/secondaryProgress" android:drawable="@drawable/ic_jdt02" />`
+    <item android:id="@android:id/progress" android:drawable="@drawable/ic_jdt02" />
+
+    <!-- 设置进度条颜色（红色） -->
+
+    <!--<item android:id="@android:id/progress">
+
+        <clip>
+            <shape>
+
+               &lt;!&ndash; <gradient
+                    android:angle="0"
+                    android:startColor="#DAA48F"
+                    android:endColor="@color/base_white">
+                </gradient>&ndash;&gt;
+                <corners android:radius="10dp"></corners>
+                <solid android:color="@color/dark_main"></solid>
+
+            </shape>
+
+        </clip>
+
+    </item>-->
+
+</layer-list>

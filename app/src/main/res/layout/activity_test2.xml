@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rvDish"
+        android:layout_centerVertical="true"
+        android:layout_width="400dp"
+        android:layout_height="400dp">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ebooks_disk_background"
+            android:id="@+id/ivDish"
+            />
+        <ImageView
+            android:layout_width="124dp"
+            android:layout_height="118dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ebooks_disk_check"
+            android:layout_alignParentRight="true"
+            />
+
+        <ImageView
+            android:id="@+id/ivScale"
+            android:layout_centerInParent="true"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:src="@mipmap/ebooks_disk_scale_white"
+            />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
+        android:id="@+id/recy1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_start1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rvDish"
+        android:layout_centerHorizontal="true"
+        android:text="渐变"
+        />
+    <Button
+        android:id="@+id/btn_start2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_start1"
+        android:layout_centerHorizontal="true"
+        android:text="缩放"
+        />
+
+    <Button
+        android:id="@+id/btn_start3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_start2"
+        android:layout_centerHorizontal="true"
+        android:text="旋转"
+        />
+
+</RelativeLayout>

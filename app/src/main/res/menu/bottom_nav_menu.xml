@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@mipmap/ic_market"
+        android:title="1" />
+
+    <item
+        android:id="@+id/muchang"
+        android:icon="@mipmap/ic_farm"
+        android:title="2" />
+    <item
+        android:id="@+id/zhuanpan"
+        android:icon="@mipmap/ic_luckdraw"
+        android:title="3"/>
+    <item
+        android:id="@+id/siliao"
+        android:icon="@mipmap/ic_fodder"
+        android:title="4" />
+    <item
+        android:id="@+id/mine"
+        android:icon="@mipmap/ic_mine"
+        android:title="5" />
+
+</menu>

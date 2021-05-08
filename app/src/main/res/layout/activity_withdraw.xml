@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@mipmap/ic_main_bg"
+    android:gravity="center_horizontal"
+    android:id="@+id/ll_parent"
+    android:orientation="vertical">
+    <include layout="@layout/layout_common_header"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_retc_recharge1"
+        android:padding="16dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose Bank Card"
+            android:textColor="@color/color_common_tv"
+            android:layout_marginStart="5dp"
+            android:textSize="14sp"
+            android:shadowRadius="5"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowColor="@color/black"
+            android:fontFamily="@font/fzlty"
+            />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="20dp"
+            android:background="@drawable/bg_retc_default_bankcard"
+            >
+            <ImageView
+                android:id="@+id/iv_bankcard_logo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@mipmap/ic_bankcard_default_logo"
+                />
+            <TextView
+                android:id="@+id/tv_bank_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/iv_bankcard_logo"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="中国建设银行"
+                />
+            <ImageView
+                android:id="@+id/iv_bankcard_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingBottom="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@mipmap/ic_right"
+                />
+            <TextView
+                android:id="@+id/tv_bankcard_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@+id/tv_bank_name"
+                app:layout_constraintTop_toBottomOf="@+id/iv_bankcard_logo"
+                android:text="**** **** **** 1888"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_retc_recharge2"
+        android:padding="16dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter LC Amount"
+            android:textColor="@color/color_common_tv"
+            android:layout_marginStart="5dp"
+            android:textSize="14sp"
+            android:shadowRadius="5"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowColor="@color/black"
+            android:fontFamily="@font/fzlty"
+            />
+
+        <TextView
+            android:id="@+id/tv_withdraw_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="History"
+            android:layout_alignParentEnd="true"
+            android:textStyle="bold"
+            android:textColor="#ff5e1c"
+            android:textSize="14sp"
+            />
+
+        <EditText
+            android:id="@+id/et_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_withdraw_history"
+            android:textColor="#ffeecb"
+            android:textColorHint="#ffeecb"
+            android:backgroundTint="#ffeecb"
+            android:inputType="number"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/bg_retc_recharge2"
+        android:padding="16dp"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fund Password"
+            android:textColor="@color/color_common_tv"
+            android:layout_marginStart="5dp"
+            android:textSize="14sp"
+            android:shadowRadius="5"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowColor="@color/black"
+            android:fontFamily="@font/fzlty"
+            />
+
+
+
+        <EditText
+            android:id="@+id/et_fundpwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_withdraw_history"
+            android:textColor="#ffeecb"
+            android:textColorHint="#ffeecb"
+            android:backgroundTint="#ffeecb"
+            android:inputType="number"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_submit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_submit"
+        />
+
+</LinearLayout>

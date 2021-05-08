@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.jony.farm"
+    android:requestLegacyExternalStorage="true"
+    >
+
+    <application
+        android:name=".app.MyApp"
+        android:allowBackup="true"
+        tools:replace="android:name,android:label,android:allowBackup"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        >
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.4" />
+
+        <activity android:name=".ui.activity.MainActivity" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.activity.FarmActivity"/>
+        <activity android:name=".ui.activity.Test1Activity"/>
+        <activity android:name=".ui.activity.Test2Activity"/>
+        <activity android:name=".ui.activity.LoginActivity" android:launchMode="singleTask"/>
+        <activity android:name=".ui.activity.UserInfoActivity"/>
+        <activity android:name=".ui.activity.RechargeActivity"/>
+        <activity android:name=".ui.activity.WithDrawActivity"/>
+        <activity android:name=".ui.activity.BankCardListActivity"/>
+        <activity android:name=".ui.activity.BindCardActivity"/>
+        <activity android:name=".ui.activity.AnimalHistoryActivity"/>
+        <activity android:name=".ui.activity.FodderDetailActivity"/>
+        <activity android:name=".ui.activity.ChangePwdActivity"/>
+        <activity android:name=".ui.activity.InviteActivity"/>
+        <activity android:name=".ui.activity.FundDetailActivity"/>
+        <activity android:name=".ui.activity.TeamActivity"/>
+        <activity android:name=".ui.activity.TeamFundActivity"/>
+        <activity android:name=".ui.activity.AgencyIncomeActivity"/>
+        
+    </application>
+
+</manifest>

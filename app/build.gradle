@@ -1,0 +1,162 @@
+apply plugin:'com.android.application'
+apply plugin:'kotlin-android'
+apply plugin:'kotlin-kapt'
+apply plugin:'kotlin-android-extensions'
+apply plugin: 'com.xiaojinzi.component.plugin'
+apply plugin: 'com.mob.sdk'
+
+android {
+    signingConfigs {
+        config {
+            storeFile file('/Users/jony/AndroidStudioProjects/farm.jks')
+            storePassword 'Jony@5422'
+            keyAlias 'farm'
+            keyPassword 'Jony@5422'
+        }
+
+    }
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+    defaultConfig {
+        applicationId "com.jony.farmK"
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                // 配置业务模块的模块名称
+                arguments = ["HOST": "app"]
+            }
+        }
+        //
+        versionCode 100
+        versionName "1.0.0"
+        resValue "string", "app_name", "FarmK"
+        buildConfigField "int", "APP_ID", "24"
+        buildConfigField "String", "COMPANY", "\"HENGDAKG\""
+        buildConfigField "String", "BASE_URL", "\"http://160.19.50.103:808/api/\""
+        buildConfigField "String", "SOCKET_URL", "\"wss://socket.bauru8.com/wsapp?user=\""
+        buildConfigField "String", "IMAGE_URL", "\"https://image.tx1882.com/api/manage/promotion/imgupload\""
+        /*flavorDimensions "flavor"
+        productFlavors{
+            farmK{
+                dimension 'flavor'
+                applicationIdSuffix ".farmK"
+                versionCode 100
+                versionName "1.0.0"
+                resValue "string", "app_name", "FarmK"
+                buildConfigField "int", "APP_ID", "24"
+                buildConfigField "String", "COMPANY", "\"HENGDAKG\""
+                buildConfigField "String", "BASE_URL", "\"http://160.19.50.103:808/api/\""
+                buildConfigField "String", "SOCKET_URL", "\"wss://socket.bauru8.com/wsapp?user=\""
+                buildConfigField "String", "IMAGE_URL", "\"https://image.tx1882.com/api/manage/promotion/imgupload\""
+            }
+        }*/
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+
+
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation rootProject.ext.supportx["appcompat"]
+    implementation rootProject.ext.supportx["core_ktx"]
+    implementation rootProject.ext.supportx["constraintlayout"]
+
+
+
+    testImplementation rootProject.ext.supportx["junit"]
+    androidTestImplementation rootProject.ext.supportx["test_ext_junit"]
+    androidTestImplementation rootProject.ext.supportx["espresso_core"]
+    androidTestImplementation "org.mockito:mockito-android:3.5.15"
+    androidTestImplementation "androidx.arch.core:core-testing:2.0.0"
+
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3'
+    testImplementation "org.mockito:mockito-core:3.5.15"
+
+
+    implementation rootProject.ext.dependencies["component_impl_rx"]
+    kapt rootProject.ext.dependencies["component_compiler"]
+
+    kapt rootProject.ext.dependencies["room_compiler"]
+    implementation rootProject.ext.dependencies["room_runtime"]
+    implementation rootProject.ext.dependencies["room_ktx"]
+
+
+    implementation rootProject.ext.dependencies["paging_runtime"]
+    implementation rootProject.ext.dependencies["paging_runtime_ktx"]
+
+    //  kapt rootProject.ext.dependencies["room_compiler"]
+    implementation project(path: ':basemodule')
+
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.6.0'
+    implementation 'com.afollestad.assent:core:3.0.0-RC4'
+    implementation 'com.google.zxing:core:3.4.0'
+    implementation 'cn.hutool:hutool-all:5.6.3'
+
+
+    // 基础依赖包，必须要依赖
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
+// fragment快速实现（可选）
+    implementation 'com.gyf.immersionbar:immersionbar-components:3.0.0'
+// kotlin扩展（可选）
+    implementation 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'
+}
+
+MobSDK {
+
+    appKey "32c3c14a16df2"
+    appSecret "c45fe5249d4589ca1380d15186311f60"
+    ShareSDK {
+        loopShare true
+        devInfo {
+            Facebook {
+                appKey "4105471782838742"
+                appSecret "1cfbdf51dd3c0e7ea689b0f88d2a66c4"
+                callbackUri "https://mob.com"
+                officialVersion "default"
+                faceBookLoginProtocolScheme "fb1412473428822331"
+                shareByAppClient true
+            }
+            Twitter {
+                appKey "1VzzquvD7DRcaAUd2kWBvaRUp"
+                appSecret "kB5nRKXIhSPujPkFhj0AOjV38sUnTZclroxVJbqlstayHmtuQE"
+                callbackUri "http://mob.com"
+                shareByAppClient true
+                bypassApproval true
+                enable true
+            }
+            WhatsApp {
+                enable true
+            }
+            Telegram {
+                appId "3947212"
+                appKey "9eadc59e10bd15d33307b29e47de1cc2"
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CusBoderTextView">
+        <attr name="cbt_stroke_width" format="dimension" />
+        <attr name="cbt_stroke_color" format="color" />
+        <attr name="cbt_solid_color" format="color" />
+        <attr name="cbt_tv_str" format="string" />
+
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="overlay_dark_50">#40000000</color>
+    <color name="always_white_text">#FFFFFF</color>
+    <color name="material_blue">#6452f0</color>
+    <color name="material_blue_dark">#806452f0</color>
+    <color name="grey_10">#e6e6e6</color>
+    <color name="grey_80">#333232</color>
+    <color name="green_success">#155724</color>
+    <color name="light_green">#FF08B32F</color>
+    <color name="colorPrimaryNight">#263238</color>
+    <color name="colorPrimaryDarkNight">#141d26</color>
+    <color name="scrim">#99323232</color>
+    <color name="dark">#000000</color>
+    <color name="bluebackground">#0091EA</color>
+    <color name="color_divider">#efecec</color>
+
+    <color name="color_333">#333333</color>//透明
+    <color name="color_666">#666666</color>//透明
+    <color name="color_999">#999999</color>//透明
+    <color name="color_00000000">#00000000</color>//透明
+    <color name="color_000000">#000000</color>//黑色
+    <color name="color_DE000000">#DE000000</color>//主要黑色文字颜色
+    <color name="color_8A000000">#8A000000</color>//次等黑色文字颜色
+    <color name="color_42000000">#42000000</color>//禁用/提示黑色文字颜色
+    <color name="color_1F000000">#1F000000</color>//黑色分割颜色
+    <color name="color_FFFFFF">#FFFFFF</color>//白色背景或文字
+    <color name="color_B3_F">#B3FFFFFF</color>//次等白色文字颜色
+    <color name="color_4D_F">#4DFFFFFF</color>//禁用/提示白色文字颜色
+    <color name="color_1F_F">#1FFFFFFF</color>//白色分割线颜色
+
+    <color name="color_page_bg">#F5F5F5</color>//灰色背景
+    <color name="color_item_bg">#FFFFFF</color>//白色背景
+    <color name="bgColorThird">#E8E8E8</color>
+
+    <color name="color_theme_text">#FFFFFF</color>//亮色主题白色文字
+    <color name="color_on_theme_text">#CC000000</color>//黑色
+
+    <color name="accent_red">#FFDB4437</color>//红色
+    <color name="accent_pink">#FB7299</color>//粉色
+    <color name="accent_orange">#FFFF9800</color>//橙
+    <color name="accent_pale_blue">#FF2196F3</color>//蓝
+    <color name="accent_green">#FF0F9D58</color>//绿
+    <color name="accent_cyan">#FF00BCD4</color>//青
+    <color name="accent_indigo">#FF3F51B5</color>//靛蓝
+    <color name="accent_purple">#ff9c27b0</color>//紫
+    <color name="accent_brown">#FF795548</color>//灰色
+    <color name="accent_white">#ffffffff</color>
+
+    <color name="dark_red">#ffc53929</color>
+    <color name="dark_pink">#ffd66182</color>
+    <color name="dark_orange">#fff57c00</color>
+    <color name="dark_blue">#ff1976d2</color>
+    <color name="dark_green">#ff0c7e46</color>
+    <color name="dark_cyan">#ff0097a7</color>
+    <color name="dark_indigo">#ff303f9f</color>
+    <color name="dark_purple">#ff7b1fa2</color>
+    <color name="dark_dark">#ff000000</color>
+    <color name="dark_brown">#ff5d4037</color>
+    <color name="dark_white">#ff2d2d2d</color>
+    <color name="dark_main">#a74d00</color>
+
+</resources>
