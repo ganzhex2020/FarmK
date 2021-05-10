@@ -44,6 +44,7 @@
         <activity android:name=".ui.activity.TeamActivity"/>
         <activity android:name=".ui.activity.TeamFundActivity"/>
         <activity android:name=".ui.activity.AgencyIncomeActivity"/>
+        <activity android:name=".ui.activity.RegisterActivity"/>
         
     </application>
 

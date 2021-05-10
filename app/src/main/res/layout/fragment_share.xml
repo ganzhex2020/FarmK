@@ -111,7 +111,7 @@
 
         </RelativeLayout>
         <RelativeLayout
-            android:id="@+id/rl_chatgroup"
+            android:id="@+id/rl_whatsapp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@mipmap/ic_anniu03"
@@ -125,7 +125,38 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textColor="@color/white"
-                android:text="Refer Chat Group"
+                android:text="Share to WhatsApp"
+                android:layout_centerInParent="true"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="3"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:background="@mipmap/ic_djs"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_telegram"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_anniu03"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:paddingEnd="10dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:text="Share to Telegram"
                 android:layout_centerInParent="true"
                 />
             <TextView

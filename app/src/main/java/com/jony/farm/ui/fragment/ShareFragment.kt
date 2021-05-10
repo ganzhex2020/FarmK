@@ -89,7 +89,18 @@ class ShareFragment : BaseVMFragment<ShareViewModel>() {
             }
             mViewModel.getSharefodder(4)
         }
-        rl_chatgroup.setOnClickListener {
+        rl_whatsapp.setOnClickListener {
+            if (shareCountEntity == null) {
+                toast("请刷新")
+                return@setOnClickListener
+            }
+            if (shareCountEntity!!.ctApp == 0) {
+                toast("今日WhatsApp分享次数已用完")
+                return@setOnClickListener
+            }
+            shareText(ShareSDK.getPlatform(WhatsApp.NAME))
+        }
+        rl_telegram.setOnClickListener {
             if (shareCountEntity == null) {
                 toast("请刷新")
                 return@setOnClickListener
@@ -98,7 +109,7 @@ class ShareFragment : BaseVMFragment<ShareViewModel>() {
                 toast("今日Telegram分享次数已用完")
                 return@setOnClickListener
             }
-            shareText(ShareSDK.getPlatform(Telegram.NAME))
+            shareText(ShareSDK.getPlatform(WhatsApp.NAME))
         }
     }
 

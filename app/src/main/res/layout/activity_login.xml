@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@mipmap/ic_login_bj"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:id="@+id/ll_parent"
-    >
+    android:id="@+id/ll_parent">
 
 
     <LinearLayout
@@ -40,7 +39,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:text="ganzhe777"
                 android:fontFamily="@font/fzlty"
                 android:textColor="@color/white"
                 android:paddingStart="10dp"
@@ -72,7 +70,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="123456"
                 android:inputType="textPassword"
                 android:textSize="16sp"
                 android:textColor="@color/white"
@@ -81,15 +78,85 @@
                 android:background="@mipmap/ic_login_input"
                 />
         </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            >
+            <CheckBox
+                android:id="@+id/cb_rember"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@mipmap/ic_login_input"
+                android:button="@drawable/pwd_rember_selector"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Remember Me"
+                android:textColor="@color/white"
+                android:fontFamily="@font/fzlty"
+                />
 
-        <CheckBox
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="60dp"
-            android:background="@mipmap/ic_login_input"
-            android:button="@drawable/pwd_rember_selector"
+        </LinearLayout>
 
-            />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="10dp"
+            >
+            <TextView
+                android:id="@+id/tv_newaccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="10dp"
+                android:text="New Account"
+                android:textColor="@color/white"
+                android:fontFamily="@font/fzlty"
+                />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/tv_newaccount"
+                app:layout_constraintEnd_toEndOf="@+id/tv_newaccount"
+                app:layout_constraintTop_toBottomOf="@+id/tv_newaccount"
+                />
+
+            <TextView
+                android:id="@+id/tv_forgetpwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="10dp"
+                android:text="Forget PWD"
+                android:textColor="@color/white"
+                android:fontFamily="@font/fzlty"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/tv_forgetpwd"
+                app:layout_constraintEnd_toEndOf="@+id/tv_forgetpwd"
+                app:layout_constraintTop_toBottomOf="@+id/tv_forgetpwd"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 
     </LinearLayout>
 

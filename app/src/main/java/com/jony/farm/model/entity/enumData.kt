@@ -62,3 +62,29 @@ enum class TradType(val id: Int,val tradeName: String){
     }
 
 }
+
+enum class TeamTrade(val id: Int,val tradeName: String){
+    RG(1,"人工存入"),
+    FY(5,"附言充值"),
+    FD(6,"返点"),
+    YJ(7,"佣金"),
+    ZXQK(8,"在线取款"),
+    RGCK(14,"人工出款"),
+    HD(17,"活动"),
+    DC(20,"多次出款费用"),
+    XZ(19,"修正"),
+    YHKZZ(26,"银行卡转账");
+
+
+    companion object{
+        fun getTradeName(id: Int):String{
+            TradType.values().forEach {
+                if (it.id == id){
+                    return it.tradeName
+                }
+            }
+            return ""
+        }
+    }
+
+}

@@ -107,6 +107,10 @@ class RemoteDataSource(private val serviceApi: ServiceApi) {
     suspend fun getAnimalList():SealedResult<List<KindEntity>> =
             callRequest { reqAnimalList() }
 
+    suspend fun register(requestBody: RequestBody):BaseResult<Any>{
+        return serviceApi.register(requestBody)
+    }
+
     /**
      * 登录
      */
@@ -289,5 +293,12 @@ class RemoteDataSource(private val serviceApi: ServiceApi) {
      */
     suspend fun gather(body: RequestBody):BaseResult<Any>{
         return serviceApi.gather(body)
+    }
+
+    /**
+     * 团队存取款
+     */
+    suspend fun teamcashtrade(pageIndex:Int,body: RequestBody):BaseResult<List<TeamTradeEntity>>{
+        return serviceApi.teamcashtrade(pageIndex,body)
     }
 }

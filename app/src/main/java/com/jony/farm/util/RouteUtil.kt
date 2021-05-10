@@ -6,6 +6,7 @@ import com.jony.farm.config.Const
 
 import com.jony.farm.ui.activity.FarmActivity
 import com.jony.farm.ui.activity.LoginActivity
+import com.jony.farm.ui.activity.RegisterActivity
 import com.xiaojinzi.component.impl.Router
 
 /**
@@ -29,6 +30,12 @@ object RouteUtil {
     fun start2Login(context: Context){
         val intent:Intent = Intent()
         intent.setClass(context,LoginActivity::class.java)
+        context.startActivity(intent)
+    }
+    @JvmStatic
+    fun start2Register(context: Context){
+        val intent:Intent = Intent()
+        intent.setClass(context,RegisterActivity::class.java)
         context.startActivity(intent)
     }
     @JvmStatic

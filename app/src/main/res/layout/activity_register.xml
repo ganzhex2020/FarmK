@@ -19,7 +19,7 @@
         android:background="@mipmap/ic_register_kuang"
         android:orientation="vertical"
         >
-      <!--  <RelativeLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
@@ -40,7 +40,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
-                android:text="ganzhe777"
                 android:fontFamily="@font/fzlty"
                 android:textColor="@color/white"
                 android:paddingStart="10dp"
@@ -50,19 +49,18 @@
                 />
 
         </RelativeLayout>
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="45dp"
+            android:layout_marginStart="50dp"
             android:layout_marginEnd="40dp"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:textColor="@color/white"
+                android:layout_centerVertical="true"
                 android:text="Password"
                 android:textSize="16sp"
                 android:fontFamily="@font/fzlty"
@@ -71,34 +69,102 @@
                 android:id="@+id/et_passwd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:text="123456"
+                android:textSize="16sp"
+                android:textColor="@color/white"
                 android:inputType="textPassword"
+                android:paddingStart="10dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/ic_login_input"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginEnd="40dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_centerVertical="true"
+                android:text="Confirm"
+                android:textSize="16sp"
+                android:fontFamily="@font/fzlty"
+                />
+
+            <EditText
+                android:id="@+id/et_repasswd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:background="@mipmap/ic_login_input"
+                android:inputType="textPassword"
+                android:paddingStart="10dp"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginEnd="40dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_centerVertical="true"
+                android:text="Inv code"
+                android:textSize="16sp"
+                android:fontFamily="@font/fzlty"
+                />
+            <EditText
+                android:id="@+id/et_invitecode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:textColor="@color/white"
                 android:paddingStart="10dp"
                 android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
                 android:background="@mipmap/ic_login_input"
                 />
+
         </RelativeLayout>
-
-        <CheckBox
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginStart="60dp"
-            android:background="@mipmap/ic_login_input"
-            android:button="@drawable/pwd_rember_selector"
-
-            />-->
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/iv_login_submit"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
         android:layout_marginTop="10dp"
-        android:src="@mipmap/ic_register_submit"
-        />
+        >
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_register_back"
+            />
+        <ImageView
+            android:id="@+id/iv_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_register_join"
+            android:layout_marginStart="10dp"
+            />
+
+
+
+
+    </LinearLayout>
 
 </LinearLayout>

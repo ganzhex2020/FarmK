@@ -220,4 +220,10 @@ interface ServiceApi {
     @POST("animals/gather")
     suspend fun gather(@Body body: RequestBody):BaseResult<Any>
 
+    /**
+     * 团队存取款
+     */
+    @POST("agentmanage/cashtrades/{pageIndex}")
+    suspend fun teamcashtrade(@Path("pageIndex")pageIndex:Int, @Body body: RequestBody):BaseResult<List<TeamTradeEntity>>
+
 }

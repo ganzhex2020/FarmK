@@ -13,6 +13,7 @@ object Constant{
     const val KEY_USER_ID = "key_user_id"
     const val KEY_USER_NAME = "key_user_name"
     const val KEY_USER_PWD = "key_user_pwd"
+    const val KEY_REMBER_PWD = "key_rember_pwd"
 
 
 

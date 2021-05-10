@@ -279,3 +279,15 @@ data class TeamMemberEntity(
         val Layer:Int,
         val AddTime:String
 )
+
+data class TeamTradeEntity(
+        val id:Int,
+        val orderNumber:String,
+        val userName:String,
+        val tradeAmount:Double,
+        val tradeFee:Double,
+        val concessionsAmount:Double,
+        val tradeItem:Int,
+        val state:Int,
+        val addTime:String
+)

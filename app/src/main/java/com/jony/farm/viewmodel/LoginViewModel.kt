@@ -6,6 +6,7 @@ import com.combodia.basemodule.base.BaseViewModel
 import com.combodia.basemodule.ext.toast
 import com.combodia.basemodule.utils.LogUtils
 import com.combodia.httplib.config.Constant.KEY_LOGIN_STATE
+import com.combodia.httplib.config.Constant.KEY_REMBER_PWD
 import com.combodia.httplib.config.Constant.KEY_TOKEN
 import com.combodia.httplib.config.Constant.KEY_USER_ID
 import com.combodia.httplib.config.Constant.KEY_USER_NAME
@@ -32,7 +33,7 @@ class LoginViewModel(private val remoteRepo: RemoteDataSource,private val localR
 
     val loginStateLiveData = MutableLiveData<Boolean>()
 
-    fun login(userName:String,passwd:String) {
+    fun login(userName:String,passwd:String,isRember:Boolean) {
 //        val userName = "ganzhe777"
 //        val passwd = "123456"
         val map = HashMap<String, Any>()
@@ -51,6 +52,7 @@ class LoginViewModel(private val remoteRepo: RemoteDataSource,private val localR
                 kv.encode(KEY_USER_ID,it.userID)
                 kv.encode(KEY_USER_NAME,userName)
                 kv.encode(KEY_USER_PWD,passwd)
+                kv.encode(KEY_REMBER_PWD,isRember)
                 kv.encode(KEY_LOGIN_STATE,true)
                 kv.encode(KEY_TOKEN,it.ticket)
                 withContext(Dispatchers.IO){
