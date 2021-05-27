@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="10dp"
-    android:background="@drawable/bg_retc_minecard_c10"
+    android:background="@drawable/bg_retc_recharge1"
     android:orientation="vertical"
     android:padding="13dp">
 

@@ -86,5 +86,29 @@ enum class TeamTrade(val id: Int,val tradeName: String){
             return ""
         }
     }
+}
+
+enum class StateTrade(val id: Int,val tradeName: String){
+    DCL(1,"待处理"),
+    SHZ(2,"审核中"),
+    YQX(3,"已取消"),
+    YRK(4,"已入款"),
+    SHCG(5,"审核成功"),
+    YCK(6,"已出款"),
+    JJCK(7,"拒绝出款"),
+    QXSB(8,"取消失败"),
+    WWCTJ(9,"未完成提交");
+
+
+    companion object{
+        fun getTradeName(id: Int):String{
+            TradType.values().forEach {
+                if (it.id == id){
+                    return it.tradeName
+                }
+            }
+            return ""
+        }
+    }
 
 }

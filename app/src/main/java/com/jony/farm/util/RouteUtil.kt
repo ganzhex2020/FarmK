@@ -144,7 +144,6 @@ object RouteUtil {
                 .with(context)
                 .host(Const.MODULE_HOST_APP)
                 .path(Const.MODULE_PATH_APP_TEAMMEMBER)
-
                 .forward()
     }
 
@@ -164,6 +163,72 @@ object RouteUtil {
                 .with(context)
                 .host(Const.MODULE_HOST_APP)
                 .path(Const.MODULE_PATH_APP_AGENCYINCOME)
+                .forward()
+    }
+
+    @JvmStatic
+    fun start2BlockNews(context: Context){
+        Router
+                .with(context)
+                .host(Const.MODULE_HOST_APP)
+                .path(Const.MODULE_PATH_APP_BLOCKNEWS)
+                .forward()
+    }
+
+    @JvmStatic
+    fun start2BlockNewsDetail(context: Context,Id:Int){
+        Router
+                .with(context)
+                .host(Const.MODULE_HOST_APP)
+                .path(Const.MODULE_PATH_APP_BLOCKNEWSDETAIL)
+                .putInt("Id",Id)
+                .forward()
+    }
+    @JvmStatic
+    fun start2Rank(context: Context){
+        Router
+                .with(context)
+                .host(Const.MODULE_HOST_APP)
+                .path(Const.MODULE_PATH_APP_RANK)
+                .forward()
+    }
+
+    @JvmStatic
+    fun start2Faq(context: Context){
+        Router
+                .with(context)
+                .host(Const.MODULE_HOST_APP)
+                .path(Const.MODULE_PATH_APP_FAQ)
+                .forward()
+    }
+
+    @JvmStatic
+    fun start2Luckdraw(context: Context){
+        Router
+                .with(context)
+                .host(Const.MODULE_HOST_APP)
+                .path(Const.MODULE_PATH_APP_LUCKDRAW)
+                .forward()
+    }
+
+    @JvmStatic
+    fun start2CommunityChat(context: Context){
+        Router
+                .with(context)
+                .host(Const.MODULE_HOST_APP)
+                .path(Const.MODULE_PATH_APP_COMMUNITYCHAT)
+                .forward()
+    }
+
+    @JvmStatic
+    fun start2SubFarm(context: Context,userId:Int,balance:Double,lc:Double){
+        Router
+                .with(context)
+                .host(Const.MODULE_HOST_APP)
+                .path(Const.MODULE_PATH_APP_SUBFARM)
+                .putInt("userId",userId)
+                .putDouble("balance",balance)
+                .putDouble("lc",lc)
                 .forward()
     }
 

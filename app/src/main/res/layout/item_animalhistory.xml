@@ -109,7 +109,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tv_endtime"
         app:layout_constraintStart_toStartOf="@+id/tv_endtime"
-        android:text="Begin Time"
+        android:text="End Time"
         android:textColor="@color/color_title2"
         android:textSize="14sp"
         />
@@ -155,7 +155,7 @@
         app:layout_constraintTop_toTopOf="@+id/tv_profit"
         app:layout_constraintBottom_toBottomOf="@+id/tv_profit"
         app:layout_constraintEnd_toStartOf="@+id/tv_rate"
-        android:text="Profit:"
+        android:text="Profit Rate:"
         android:textColor="@color/color_title2"
         />
 

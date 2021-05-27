@@ -50,7 +50,7 @@ class TeamFundActivity:BaseVMActivity<TeamFundViewModel>() {
         ll_parent.setPadding(0, statusBarHeight, 0, 0)
         iv_back.setOnClickListener { onBackPressed() }
         iv_title.setImageResource(R.mipmap.ic_title_teamfund)
-
+        
         initRecy()
         onClick()
     }

@@ -45,7 +45,14 @@
         <activity android:name=".ui.activity.TeamFundActivity"/>
         <activity android:name=".ui.activity.AgencyIncomeActivity"/>
         <activity android:name=".ui.activity.RegisterActivity"/>
-        
+        <activity android:name=".ui.activity.BlockNewsActivity"/>
+        <activity android:name=".ui.activity.BlockNewsDetailActivity"/>
+        <activity android:name=".ui.activity.RankActivity"/>
+        <activity android:name=".ui.activity.FAQActivity"/>
+        <activity android:name=".ui.activity.LuckDrawActivity"/>
+        <activity android:name=".ui.activity.CommunityActivity"/>
+        <activity android:name=".ui.activity.SubFarmActivity"/>
+
     </application>
 
 </manifest>

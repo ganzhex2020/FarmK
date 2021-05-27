@@ -38,6 +38,13 @@ object Const {
    const val MODULE_PATH_APP_TEAMMEMBER = "teammember"
    const val MODULE_PATH_APP_TEAMFUND = "teamfund"
    const val MODULE_PATH_APP_AGENCYINCOME = "agencyincome"
+   const val MODULE_PATH_APP_BLOCKNEWS = "blocknews"
+   const val MODULE_PATH_APP_BLOCKNEWSDETAIL = "blocknewsdetail"
+   const val MODULE_PATH_APP_RANK = "rank"
+   const val MODULE_PATH_APP_FAQ = "faq"
+   const val MODULE_PATH_APP_LUCKDRAW = "luckdraw"
+   const val MODULE_PATH_APP_COMMUNITYCHAT = "communitychat"
+   const val MODULE_PATH_APP_SUBFARM = "subfarm"
 
 
    ////==========================Interceptor============

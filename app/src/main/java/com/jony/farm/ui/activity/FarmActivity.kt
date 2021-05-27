@@ -1,10 +1,14 @@
 package com.jony.farm.ui.activity
 
-import android.graphics.BitmapFactory
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
+import androidx.core.animation.addListener
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.combodia.basemodule.base.BaseVMActivity
-import com.combodia.basemodule.ext.toast
+import com.combodia.basemodule.ext.visable
 import com.combodia.basemodule.utils.GlideUtils
 import com.combodia.basemodule.utils.LogUtils
 import com.combodia.httplib.config.Constant
@@ -15,11 +19,10 @@ import com.jony.farm.config.Const
 import com.jony.farm.model.entity.AnimalEntity
 import com.jony.farm.ui.adapter.AnimalAdapter
 import com.jony.farm.ui.adapter.FarmKindAdapter
+import com.jony.farm.ui.adapter.FilAdapter
 import com.jony.farm.util.DeviceUtil
 import com.jony.farm.util.MapJUtil
 import com.jony.farm.util.MathUtil
-import com.jony.farm.view.FarmSurfaceView
-import com.jony.farm.view.GameConfig
 import com.jony.farm.view.dialog.FeedAllDialog
 import com.jony.farm.view.dialog.FeedSingleDialog
 import com.jony.farm.viewmodel.FarmViewModel
@@ -44,6 +47,9 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
     private val kindAdapter by lazy { FarmKindAdapter() }
     private val animalAdapter by lazy { AnimalAdapter() }
 
+    private val showList = mutableListOf<AnimalEntity>()
+    private val filAdapter by lazy { FilAdapter(this,showList) }
+
 
     override fun initVM(): FarmViewModel = getViewModel()
 
@@ -53,6 +59,8 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
         immersionBar {
             statusBarColor(R.color.transparent)
         }
+
+
         ll_parent.setPadding(0, statusBarHeight, 0, 0)
 
         GlideUtils.loadRoundImage(iv_avatar, R.mipmap.ic_avatar_default)
@@ -97,10 +105,12 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
             adapter = animalAdapter
             layoutManager = GridLayoutManager(this@FarmActivity, 5)
         }
-        animalAdapter.setOnItemClickListener { _, _, position ->
+
+        animalAdapter.addChildClickViewIds(R.id.iv_state)
+        animalAdapter.setOnItemChildClickListener { _, _, position ->
             LogUtils.error("点击的位置：" + position + "动物kindId:" + animalAdapter.getItem(position).animalID)
             if (kindSelectIndex == -1) {
-                return@setOnItemClickListener
+                return@setOnItemChildClickListener
             }
             if (animalAdapter.getItem(position).leftSeconde <= 0) {
                 //售货它
@@ -120,6 +130,12 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
                 mViewModel.getBalance()
             }
         }
+
+        recy_fil.run {
+            adapter = filAdapter
+            layoutManager = LinearLayoutManager(this@FarmActivity)
+        }
+        recy_fil.start()
     }
 
     private fun onClick() {
@@ -150,6 +166,75 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
             map["AnimalID"] = kindAdapter.getItem(kindSelectIndex).animalID
             mViewModel.gather(map, gatherList)
         }
+
+        /**
+         * bord 操作
+         */
+        iv_show_bord.setOnClickListener {
+            iv_show_bord.visable(false)
+            val width = DeviceUtil.dip2px(this, 170f)
+            val objectAnimation1 =ObjectAnimator.ofInt(cl_bord, "translationX", 0, width)
+            objectAnimation1.duration = 1500
+            objectAnimation1.addUpdateListener(animationListener1)
+            objectAnimation1.addListener (object:AnimatorListenerAdapter(){
+                override fun onAnimationEnd(animation: Animator?) {
+                    val height1 = DeviceUtil.dip2px(this@FarmActivity, 50f)
+                    val height2 = DeviceUtil.dip2px(this@FarmActivity, 130f)
+                    val objectAnimation2 =ObjectAnimator.ofInt(cl_bord, "translationY", height1, height2)
+                    objectAnimation2.duration = 1500
+                    objectAnimation2.addUpdateListener(animationListener2)
+                    objectAnimation2.addListener(object:AnimatorListenerAdapter(){
+                        override fun onAnimationEnd(animation: Animator?) {
+                            super.onAnimationEnd(animation)
+                            iv_close.visable(true)
+                        }
+                    })
+                    objectAnimation2.start()
+                }
+            })
+            objectAnimation1.start()
+        }
+        //关闭
+        iv_close.setOnClickListener {
+            iv_close.visable(false)
+            val height1 = DeviceUtil.dip2px(this@FarmActivity, 130f)
+            val height2 = DeviceUtil.dip2px(this@FarmActivity, 50f)
+            val objectAnimation2 =ObjectAnimator.ofInt(cl_bord, "translationY", height1, height2)
+            objectAnimation2.duration = 1500
+            objectAnimation2.addUpdateListener(animationListener2)
+            objectAnimation2.addListener (object:AnimatorListenerAdapter(){
+                override fun onAnimationEnd(animation: Animator?) {
+                    val width1 = DeviceUtil.dip2px(this@FarmActivity, 170f)
+                    val width2 = DeviceUtil.dip2px(this@FarmActivity, 0f)
+                    val objectAnimation1 =ObjectAnimator.ofInt(cl_bord, "translationX", width1, width2)
+                    objectAnimation1.duration = 1500
+                    objectAnimation1.addUpdateListener(animationListener1)
+                    objectAnimation1.addListener(object:AnimatorListenerAdapter(){
+                        override fun onAnimationEnd(animation: Animator?) {
+                            super.onAnimationEnd(animation)
+                            iv_show_bord.visable(true)
+                        }
+                    })
+                    objectAnimation1.start()
+                }
+            })
+            objectAnimation2.start()
+        }
+
+    }
+
+
+    private val animationListener1 = ValueAnimator.AnimatorUpdateListener {
+        val value:Int = it.animatedValue as Int
+        val params = cl_bord.layoutParams
+        params.width = value
+        cl_bord.layoutParams = params
+    }
+    private val animationListener2 = ValueAnimator.AnimatorUpdateListener {
+        val value:Int = it.animatedValue as Int
+        val params = cl_bord.layoutParams
+        params.height = value
+        cl_bord.layoutParams = params
     }
 
     override fun initData() {
@@ -171,8 +256,12 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
                 allAnimalList.addAll(it)
             })
             //显示的动物
-            showAnimalLiveData.observe(this@FarmActivity, {
-                animalAdapter.setList(it)
+            showAnimalLiveData.observe(this@FarmActivity, {list ->
+                animalAdapter.setList(list)
+
+                showList.clear()
+                showList.addAll(list.filter { it.animalID != 0 })
+                filAdapter.notifyDataSetChanged()
             })
             //member 用户信息 livedata
             memberLiveData.observe(this@FarmActivity, { members ->
@@ -273,8 +362,8 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
             gatherLiveData.observe(this@FarmActivity, { list ->
                 LogUtils.error("收获的动物列表:$list")
                 MapJUtil.listRemove(allAnimalList, list)
-                MapJUtil.listRemove(animalAdapter.data, list)
-              /*  val it = allAnimalList.iterator()
+                MapJUtil.listRemoveJ(animalAdapter.data, list)
+                /*val it = allAnimalList.iterator()
                 for (i in list.indices) {
                     while (it.hasNext()) {
                         if (it.next().id == list[i].id) {
@@ -294,5 +383,15 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
             })
         }
 
+    }
+    override fun onResume() {
+        super.onResume()
+        recy_fil.start()
+    }
+
+
+    override fun onPause() {
+        super.onPause()
+        recy_fil.stop()
     }
 }

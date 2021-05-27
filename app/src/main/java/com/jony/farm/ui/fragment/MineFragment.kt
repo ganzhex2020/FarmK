@@ -32,7 +32,6 @@ class MineFragment:BaseVMFragment<MineViewModel>() {
     override fun initVM(): MineViewModel = getViewModel()
 
 
-
     override fun getLayoutResId(): Int = R.layout.fragment_mine
 
     override fun initView() {

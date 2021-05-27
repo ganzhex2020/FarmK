@@ -279,7 +279,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="金币余额"
+                                android:text="GC"
                                 android:textColor="@color/white"
                                 android:textSize="14sp" />
 
@@ -304,7 +304,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="卢比余额"
+                                android:text="LC"
                                 android:textColor="@color/white"
                                 android:textSize="14sp" />
 
@@ -329,7 +329,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="饲料余额"
+                                android:text="Fodder"
                                 android:textColor="@color/white"
                                 android:textSize="14sp"/>
 

@@ -6,10 +6,10 @@ import android.widget.TextView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.module.LoadMoreModule
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
-import com.combodia.basemodule.utils.GlideUtils
 import com.jony.farm.R
 import com.jony.farm.model.entity.AnimalEntity
 import com.jony.farm.util.CommonUtil
+import com.jony.farm.util.DateUtil
 
 /**
  *Author:ganzhe
@@ -30,11 +30,14 @@ class AnHistoryAdapter:BaseQuickAdapter<AnimalEntity,BaseViewHolder>(R.layout.it
         val tv_rate = holder.getView<TextView>(R.id.tv_rate)
         iv.setImageResource(CommonUtil.getImgByAnimalId(item.animalID))
         tv_name.text = item.animalName
-        tv_qc.text = item.price.toString()
-     //   tv_begintime.text = item.buyDate
+        tv_qc.text = "${item.price} QC"
+        tv_begintime.text = item.buyDate
      //   tv_endtime.text = item.buyDate
+        tv_lc.text = "${item.price*(1+item.profitRate/100)} LC"
         tv_circleday.text = "${item.cycleDay}Days"
-        tv_lc.text = ""
         tv_rate.text = "${item.profitRate}%"
+
+        tv_begintime.text = DateUtil.beginDate(DateUtil.str2date(item.buyDate))
+        tv_endtime.text = DateUtil.dateOff(DateUtil.str2date(item.buyDate),item.cycleDay)
     }
 }

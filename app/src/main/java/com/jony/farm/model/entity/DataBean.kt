@@ -153,7 +153,7 @@ OrderNumber
 订单号
  */
 data class AnimalEntity(
-        val animalID: Int = 0,
+        var animalID: Int = 0,
         val animalName: String = "",
         val buyDate: String = "",
         val cycleDay: Int =0,
@@ -271,13 +271,13 @@ data class AccountDetailEntity(
 )
 
 data class TeamMemberEntity(
-        val UserId:Int,
-        val UserName:String,
-        val MemberCount:Int,
-        val Balance:Double,
-        val TeamBalance:Double,
-        val Layer:Int,
-        val AddTime:String
+        val userId:Int,
+        val userName:String,
+        val memberCount:Int,
+        val balance:Double,
+        val lc:Double,
+        val layer:Int,
+        val addTime:String
 )
 
 data class TeamTradeEntity(
@@ -291,3 +291,33 @@ data class TeamTradeEntity(
         val state:Int,
         val addTime:String
 )
+
+
+data class HashRateEntity(
+    val allAccount: Int,
+    val allHash: Double,
+    val blockHigh: Int,
+    val foundVal: Double,
+    val hashProfit: Double,
+    val kuanggong: Int,
+    val timeVal: Double
+)
+
+data class RankEntity(
+    val headImg: String,
+    val showName: String,
+    val tradeAmount: Double
+)
+data class NewsEntity(
+    val addTime: String,
+    val content: String,
+    val id: Int,
+    val state: Int,
+    val subTitle: String,
+    val title: String
+)
+data class LinkEntity(
+    val url: String
+)
+
+

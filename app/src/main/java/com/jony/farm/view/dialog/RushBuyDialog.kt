@@ -8,11 +8,10 @@ import android.view.ViewGroup
 import androidx.lifecycle.*
 import com.combodia.basemodule.ext.toast
 import com.combodia.basemodule.ext.visable
-import com.combodia.basemodule.utils.LogUtils
 import com.jony.farm.R
 import com.jony.farm.util.CommonUtil
 import com.jony.farm.util.DeviceUtil
-import com.jony.farm.viewmodel.HomeViewModel
+import com.jony.farm.viewmodel.MarketViewModel
 import kotlinx.android.synthetic.main.dialog_rushbuy.*
 
 
@@ -21,7 +20,7 @@ import kotlinx.android.synthetic.main.dialog_rushbuy.*
  *时间:2020/12/25 11:09
  *描述:This is VersionUpdateDialog
  */
-class RushBuyDialog(viewModel: HomeViewModel, lifecycleOwner: LifecycleOwner, context: Context) :
+class RushBuyDialog(viewModel: MarketViewModel, lifecycleOwner: LifecycleOwner, context: Context) :
     Dialog(
         context,
         R.style.dialog_center_full

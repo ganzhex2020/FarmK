@@ -301,4 +301,44 @@ class RemoteDataSource(private val serviceApi: ServiceApi) {
     suspend fun teamcashtrade(pageIndex:Int,body: RequestBody):BaseResult<List<TeamTradeEntity>>{
         return serviceApi.teamcashtrade(pageIndex,body)
     }
+
+    /**
+     * 算力收益
+     */
+    private suspend fun reqHashRateAll() = handleResponse(serviceApi.hashrateall())
+    suspend fun getHashRateAll():SealedResult<HashRateEntity> =
+            callRequest { reqHashRateAll() }
+
+    /**
+     * 排行榜
+     */
+    suspend fun getLeaderboard(pageIndex:Int):BaseResult<List<RankEntity>>{
+        return serviceApi.getLeaderboard(pageIndex)
+    }
+    /**
+     * 新闻列表
+     */
+    suspend fun getNewsList(pageIndex: Int):BaseResult<List<NewsEntity>>{
+        return serviceApi.getNewsList(pageIndex)
+    }
+    /**
+     * 新闻详情
+     */
+    suspend fun getNewsDetail(Id:Int):BaseResult<NewsEntity>{
+        return serviceApi.getNewsDetail(Id)
+    }
+    /**
+     * 代理链接
+     */
+    suspend fun getLinks():BaseResult<LinkEntity>{
+        return serviceApi.getLinks()
+    }
+
+    /**
+     * 下级购买动物列表
+     */
+    suspend fun getSublineFarm(userId:Int):BaseResult<List<AnimalEntity>>{
+        return serviceApi.getSublineFarm(userId)
+    }
+
 }

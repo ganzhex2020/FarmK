@@ -2,38 +2,83 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp">
+    android:layout_height="40dp"
+    android:gravity="center_vertical"
+    android:divider="@drawable/vertical_xian"
+    android:showDividers = "middle"
+    >
 
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:textColor="#db9e72"
+        android:text="lolhaha"
+        android:gravity="center"
+        android:textSize="11sp"
         />
+
     <TextView
         android:id="@+id/tv_gc"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:textColor="#db9e72"
+        android:text="1000"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:textSize="11sp"
         />
     <TextView
         android:id="@+id/tv_lc"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:textColor="#db9e72"
+        android:text="1066"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:textSize="11sp"
         />
     <TextView
         android:id="@+id/tv_count"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="0.7"
+        android:textColor="#db9e72"
+        android:text="6"
+        android:gravity="center"
+        android:textSize="11sp"
         />
     <TextView
         android:id="@+id/tv_time"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_weight="1"
+        android:textColor="#db9e72"
+        android:text="2021/4/7"
+        android:gravity="center"
+        android:textSize="11sp"
         />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
+        <ImageView
+            android:id="@+id/iv_go"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/iv_go_farm"
+            />
+
+    </LinearLayout>
+
 
 
 </LinearLayout>

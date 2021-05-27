@@ -35,7 +35,7 @@ class FarmViewModel(private val remoteRepo: RemoteDataSource, private val localR
     val feedSingleStateLiveData = MutableLiveData<HashMap<String,Any>>()
     val gatherLiveData = MutableLiveData<List<AnimalEntity>>()
 
-    val TOTALAMOUNT = 20
+    val TOTALAMOUNT = 25
 
     val memberLiveData = localRepo.getMemberLiveData()
 
@@ -217,7 +217,6 @@ class FarmViewModel(private val remoteRepo: RemoteDataSource, private val localR
                     gatherLiveData.value = list
                     toast("收获成功")
                 }
-
 
         },isShowDiaLoading = true)
     }

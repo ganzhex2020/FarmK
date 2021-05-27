@@ -1,12 +1,10 @@
 package com.jony.farm
 
-import com.jony.farm.model.entity.AnimalType
-import com.jony.farm.model.entity.TradType
-import com.jony.farm.util.CommonUtil
-import org.junit.Test
 
+import com.jony.farm.util.DateUtil
 import org.junit.Assert.*
-import kotlin.random.Random
+import org.junit.Test
+import java.util.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -50,8 +48,18 @@ class ExampleUnitTest {
             }
 
         }*/
-        val tradType = TradType.values()
-        println(tradType)
+    //    val tradType = TradType.values()
+    //    println(tradType)
+      /*  val dateStr = "2017/03/01 15:30:00"
+        val date: Date = DateUtil.str2date(dateStr)
+        val dateOff = DateUtil.dateOff(date,3)
+        println(dateOff)*/
+       /* val list = listOf(1,2,3,4,5)
+        val l = list.takeLast(list.size-3)
+        println(l)*/
+
+        val date = DateUtil.str2date("2021/05/07 14:29:00")
+        println(date.time)
 
 
     }

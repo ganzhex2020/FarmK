@@ -19,8 +19,9 @@ class AnimalAdapter : BaseQuickAdapter<AnimalEntity, BaseViewHolder>(R.layout.it
     override fun convert(holder: BaseViewHolder, item: AnimalEntity) {
         val iv = holder.getView<ImageView>(R.id.iv_farm_animal)
         val iv_state = holder.getView<ImageView>(R.id.iv_state)
+        iv_state.setImageDrawable(null)
         if (item.animalID!=0){
-            val isMature = item.leftSeconde>0
+            val isMature = item.leftSeconde<=0
             val resId = CommonUtil.getFarmGif(item.animalID,isMature)
         //    iv.setImageResource(resId)
             Glide.with(context).asGif().load(resId).into(iv)

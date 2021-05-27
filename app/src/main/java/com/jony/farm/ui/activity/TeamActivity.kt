@@ -1,5 +1,6 @@
 package com.jony.farm.ui.activity
 
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.combodia.basemodule.base.BaseVMActivity
 import com.combodia.basemodule.utils.LogUtils
@@ -8,6 +9,9 @@ import com.gyf.immersionbar.ktx.statusBarHeight
 import com.jony.farm.R
 import com.jony.farm.config.Const
 import com.jony.farm.ui.adapter.TeamAdapter
+import com.jony.farm.util.DeviceUtil
+import com.jony.farm.util.RouteUtil
+import com.jony.farm.view.VerticalDecoration
 import com.jony.farm.viewmodel.TeamViewModel
 import com.xiaojinzi.component.anno.RouterAnno
 import kotlinx.android.synthetic.main.activity_funddetail.*
@@ -57,11 +61,20 @@ class TeamActivity : BaseVMActivity<TeamViewModel>() {
             adapter = teamAdapter
             layoutManager = LinearLayoutManager(this@TeamActivity)
         }
+        val mDivider = ContextCompat.getDrawable(this, R.drawable.horizonal_xian)
+        recy.addItemDecoration(VerticalDecoration(this, mDivider, DeviceUtil.dip2px(this, 0.5f)))
         teamAdapter.loadMoreModule.run {
             preLoadNumber = 3
             setOnLoadMoreListener {
                 pageIndex++
                 mViewModel.getTeamMemberList(pageSize, pageIndex, layer)
+            }
+        }
+        teamAdapter.addChildClickViewIds(R.id.iv_go)
+        teamAdapter.setOnItemChildClickListener { _, view, position ->
+            val itemData = teamAdapter.getItem(position)
+            if (view.id == R.id.iv_go){
+                RouteUtil.start2SubFarm(this,itemData.userId,itemData.balance,itemData.lc)
             }
         }
 

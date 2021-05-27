@@ -5,6 +5,7 @@ import com.chad.library.adapter.base.module.LoadMoreModule
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.jony.farm.R
 import com.jony.farm.model.entity.TeamMemberEntity
+import com.jony.farm.util.MathUtil
 
 /**
  *Author:ganzhe
@@ -14,10 +15,11 @@ import com.jony.farm.model.entity.TeamMemberEntity
 class TeamAdapter:BaseQuickAdapter<TeamMemberEntity,BaseViewHolder>(R.layout.item_teammember) ,LoadMoreModule{
 
     override fun convert(holder: BaseViewHolder, item: TeamMemberEntity) {
-        holder.setText(R.id.tv_name,item.UserName)
-                .setText(R.id.tv_gc,item.Balance.toString())
-                .setText(R.id.tv_lc,item.TeamBalance.toString())
-                .setText(R.id.tv_count,item.Layer.toString())
-                .setText(R.id.tv_time,item.AddTime)
+        holder.setText(R.id.tv_name,item.userName)
+                .setText(R.id.tv_gc,MathUtil.getTwoBigDecimal(item.balance))
+                .setText(R.id.tv_lc,MathUtil.getTwoBigDecimal(item.lc))
+                .setText(R.id.tv_count,item.layer.toString())
+                .setText(R.id.tv_time,item.addTime.take(9))
     }
+
 }

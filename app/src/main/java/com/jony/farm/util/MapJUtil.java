@@ -34,4 +34,17 @@ public class MapJUtil {
         }
 
     }
+
+    public static void listRemoveJ(List<AnimalEntity> allList, List<AnimalEntity> removeList) {
+
+        for (int i = 0; i < removeList.size(); i++) {
+            for (int j = 0; j < allList.size(); j++) {
+                if (removeList.get(i).getId() == allList.get(j).getId()){
+                    allList.get(j).setAnimalID(0);
+                    //  j--;
+                }
+            }
+        }
+
+    }
 }

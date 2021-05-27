@@ -10,7 +10,6 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.text.format.DateUtils
 import androidx.lifecycle.lifecycleScope
-import cn.hutool.core.date.DateUtil
 import com.afollestad.assent.Permission
 import com.afollestad.assent.runWithPermissions
 import com.combodia.basemodule.base.BaseVMActivity
@@ -22,6 +21,7 @@ import com.jony.farm.R
 import com.jony.farm.config.Const
 import com.jony.farm.config.Const.PATH_FILE_PICTURE
 import com.jony.farm.util.BitMapUtil
+import com.jony.farm.util.DateUtil
 import com.jony.farm.util.FileUtils
 import com.jony.farm.util.QRCodeEncoder.syncEncodeQRCode
 import com.jony.farm.viewmodel.InviteViewModel
@@ -47,7 +47,11 @@ import java.io.File
 )
 class InviteActivity :BaseVMActivity<InviteViewModel>(){
 
+
+    private var linkUrl = ""
+
     override fun initVM(): InviteViewModel = getViewModel()
+
 
 
     override fun getLayoutResId(): Int = R.layout.activity_invite
@@ -60,7 +64,6 @@ class InviteActivity :BaseVMActivity<InviteViewModel>(){
         iv_back.setOnClickListener { onBackPressed() }
         iv_title.setImageResource(R.mipmap.ic_title_animalhistory)
         onClick()
-
     }
 
     private fun onClick(){
@@ -70,7 +73,7 @@ class InviteActivity :BaseVMActivity<InviteViewModel>(){
 
         iv_copy.setOnClickListener {
             val cm = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-            cm.setPrimaryClip(ClipData.newPlainText(null, "xxxx"))
+            cm.setPrimaryClip(ClipData.newPlainText(null, linkUrl))
             toast("copy success")
         }
     }
@@ -83,7 +86,7 @@ class InviteActivity :BaseVMActivity<InviteViewModel>(){
                 withContext(Dispatchers.IO){
                     val bitmap = BitMapUtil.Image2Bitmap(iv_qrcode)
                //     val path = getExternalFilesDir("")?.absolutePath + File.separator + System.currentTimeMillis() + ".png"
-                    val fileName =  DateUtil.date().toString()
+                    val fileName =  DateUtil.currentDate()
 
                     BitMapUtil.saveBitmap(this@InviteActivity,fileName, bitmap)
                 }
@@ -94,19 +97,24 @@ class InviteActivity :BaseVMActivity<InviteViewModel>(){
     }
 
     override fun initData() {
-
+        mViewModel.getLinks()
     }
 
     override fun startObserve() {
-        lifecycleScope.launchWhenResumed {
-            launch(Dispatchers.Main) {
-                val bitmap = withContext(Dispatchers.IO){
-                    //    syncEncodeQRCode("${sysParam.frontDomain}&code=$inviteCode",150)
-                    syncEncodeQRCode("my link content", 150)
+
+        mViewModel.linkLiveData.observe(this,{ url ->
+            linkUrl = url
+            lifecycleScope.launchWhenResumed {
+                launch(Dispatchers.Main) {
+                    val bitmap = withContext(Dispatchers.IO){
+                        //    syncEncodeQRCode("${sysParam.frontDomain}&code=$inviteCode",150)
+                        syncEncodeQRCode(url, 150)
+                    }
+                    iv_qrcode.setImageBitmap(bitmap)
                 }
-                iv_qrcode.setImageBitmap(bitmap)
             }
-        }
+        })
+
     }
 
 

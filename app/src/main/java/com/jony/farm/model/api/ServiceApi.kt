@@ -77,6 +77,7 @@ interface ServiceApi {
     @GET("animals/anmbuyfeeding")
     suspend fun getFarmAllAnimal():BaseResult<List<AnimalEntity>>
 
+
     /**
      * 余额接口
      *
@@ -226,4 +227,39 @@ interface ServiceApi {
     @POST("agentmanage/cashtrades/{pageIndex}")
     suspend fun teamcashtrade(@Path("pageIndex")pageIndex:Int, @Body body: RequestBody):BaseResult<List<TeamTradeEntity>>
 
+    /**
+     * 算力收益
+     */
+    @GET("systemsets/hashrateall")
+    suspend fun hashrateall():BaseResult<HashRateEntity>
+
+    /**
+     * 排行榜
+     */
+    @GET("systemsets/leaderboard/{pageIndex}")
+    suspend fun getLeaderboard(@Path("pageIndex") pageIndex:Int):BaseResult<List<RankEntity>>
+
+    /**
+     * 新闻列表
+     */
+    @GET("announce/newslist/{pageIndex}")
+    suspend fun getNewsList(@Path("pageIndex") pageIndex:Int):BaseResult<List<NewsEntity>>
+
+    /**
+     * 新闻详情
+     */
+    @GET("announce/news")
+    suspend fun getNewsDetail(@Query("id") Id:Int):BaseResult<NewsEntity>
+
+    /**
+     * 代理链接
+     */
+    @GET("agentmanage/Links")
+    suspend fun getLinks():BaseResult<LinkEntity>
+
+    /**
+     * 下级购买动物列表
+     */
+    @GET("animals/sublinefarm/{userId}")
+    suspend fun getSublineFarm(@Path("userId")userId:Int):BaseResult<List<AnimalEntity>>
 }

@@ -116,7 +116,7 @@ dependencies {
     implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.6.0'
     implementation 'com.afollestad.assent:core:3.0.0-RC4'
     implementation 'com.google.zxing:core:3.4.0'
-    implementation 'cn.hutool:hutool-all:5.6.3'
+   // implementation 'cn.hutool:hutool-all:5.6.3'
 
 
     // 基础依赖包，必须要依赖
