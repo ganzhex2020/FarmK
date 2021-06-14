@@ -46,7 +46,7 @@ val viewModelModule = module {
     viewModel { FAQViewModel(get()) }
     viewModel { CommunityViewModel(get()) }
     viewModel { SubFarmViewModel(get()) }
-
+    viewModel { ChatViewModel(get()) }
 
 }
 

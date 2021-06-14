@@ -103,6 +103,8 @@ class InviteActivity :BaseVMActivity<InviteViewModel>(){
     override fun startObserve() {
 
         mViewModel.linkLiveData.observe(this,{ url ->
+            LogUtils.error(url)
+            tv_invitecode.text = url.substring(url.lastIndexOf("=")+1)
             linkUrl = url
             lifecycleScope.launchWhenResumed {
                 launch(Dispatchers.Main) {

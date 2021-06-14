@@ -58,8 +58,11 @@ class ExampleUnitTest {
         val l = list.takeLast(list.size-3)
         println(l)*/
 
-        val date = DateUtil.str2date("2021/05/07 14:29:00")
-        println(date.time)
+      //  val date = DateUtil.str2date("2021/05/07 14:29:00")
+      //  println(date.time)
+        //val str = "jjwchat.com/#/?rc=LC33309"
+        val str = "04-19 05:07"
+        println(str.substring(6))
 
 
     }

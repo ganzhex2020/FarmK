@@ -9,18 +9,18 @@
     <TextView
         android:id="@+id/tv_fil"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
+        android:layout_height="14dp"
         android:gravity="center_vertical"
-        android:textSize="11sp"
+        android:textSize="8sp"
         android:textColor="#eeeeee"
         android:fontFamily="@font/hkxzy"
         />
     <TextView
         android:id="@+id/tv_filtib"
         android:layout_width="wrap_content"
-        android:layout_height="20dp"
+        android:layout_height="14dp"
         android:gravity="center_vertical"
-        android:textSize="11sp"
+        android:textSize="8sp"
         android:textColor="#eeeeee"
         android:fontFamily="@font/hkxzy"
         />

@@ -10,7 +10,13 @@ import com.jony.farm.model.entity.ShareCountEntity
 import com.jony.farm.view.LuckPanAnimEndCallBack
 import com.jony.farm.viewmodel.LuckDrawViewModel
 import com.xiaojinzi.component.anno.RouterAnno
+import kotlinx.android.synthetic.main.activity_luckdraw.*
 import kotlinx.android.synthetic.main.fragment_luckdraw.*
+import kotlinx.android.synthetic.main.fragment_luckdraw.iv_go
+import kotlinx.android.synthetic.main.fragment_luckdraw.ll_parent
+import kotlinx.android.synthetic.main.fragment_luckdraw.luckView
+import kotlinx.android.synthetic.main.fragment_luckdraw.refreshLayout
+import kotlinx.android.synthetic.main.fragment_luckdraw.tv_leftCount
 import org.koin.android.viewmodel.ext.android.getViewModel
 
 /**
@@ -42,6 +48,10 @@ class LuckDrawActivity:BaseVMActivity<LuckDrawViewModel>() {
 
         luckView.setItems(numbers)
         luckView.luckPanAnimEndCallBack = LuckPanAnimEndCallBack { str -> toast("恭喜你获得$str") }
+
+        iv_back.setOnClickListener {
+            onBackPressed()
+        }
 
         iv_go.setOnClickListener {
             if (shareCountEntity == null){

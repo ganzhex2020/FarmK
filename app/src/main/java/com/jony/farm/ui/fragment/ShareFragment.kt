@@ -13,6 +13,7 @@ import com.combodia.basemodule.ext.toast
 import com.combodia.basemodule.utils.LogUtils
 import com.gyf.immersionbar.ktx.statusBarHeight
 import com.jony.farm.R
+import com.jony.farm.model.entity.ShareContentEntity
 import com.jony.farm.model.entity.ShareCountEntity
 import com.jony.farm.viewmodel.ShareViewModel
 import com.mob.MobSDK
@@ -27,6 +28,7 @@ import org.koin.android.viewmodel.ext.android.getViewModel
 class ShareFragment : BaseVMFragment<ShareViewModel>() {
 
     var shareCountEntity: ShareCountEntity? = null
+    var shareContentEntity: ShareContentEntity? = null
     //  val platforms = mutableListOf<String>()
 
 
@@ -122,12 +124,16 @@ class ShareFragment : BaseVMFragment<ShareViewModel>() {
 
         mViewModel.run {
             sharecountLiveData.observe(viewLifecycleOwner, {
-                shareCountEntity = it
+                setText(it)
+            })
+            shareContentLiveData.observe(viewLifecycleOwner,{
+                shareContentEntity = it
             })
             sharefodderLiveData.observe(viewLifecycleOwner, { map ->
                 val shareType = map["shareType"] as Int
                 val shaCount = map["shareCountEntity"] as ShareCountEntity
-                shareCountEntity = shaCount
+               // shareCountEntity = shaCount
+                setText(shaCount)
                 LogUtils.error("XXX:$shaCount")
                 if (shareType != 4) {
                     toast("分享成功")
@@ -136,6 +142,15 @@ class ShareFragment : BaseVMFragment<ShareViewModel>() {
                 }
             })
         }
+    }
+
+    private fun setText(it:ShareCountEntity){
+        shareCountEntity = it
+        tv_count_fb.text = it.fb.toString()
+        tv_count_tw.text = it.tiw.toString()
+        tv_count_checkin.text = it.sign.toString()
+        tv_count_whats.text = it.ctApp.toString()
+        tv_count_telegram.text = it.ctApp.toString()
     }
 
     private val shareCallback: PlatformActionListener = object : PlatformActionListener {
@@ -187,13 +202,18 @@ class ShareFragment : BaseVMFragment<ShareViewModel>() {
         // 启动分享GUI
         oks.callback = shareCallback
         oks.show(MobSDK.getContext())*/
+        if (shareContentEntity == null){
+            toast("请刷新")
+            return
+        }
+
         val shareParams = Platform.ShareParams()
-        shareParams.imageUrl = "https://hmls.hfbank.com.cn/hfapp-api/9.png"
+        shareParams.imageUrl = "https://hmls.hfbank.com.cn/hfapp-api/9.png"//shareContentEntity!!.shareImg
         //   shareParams.title = "测试话题分享"
         // shareParams.text = "测试话题我是共用的参数，这几个平台都有text参数要求，提取出来啦"
         //shareParams.kakaoWebUrl
         //shareParams.shareType = Platform.SHARE_IMAGE
-        shareParams.hashtag = "https://test1881.com I am so happy"
+        shareParams.hashtag = shareContentEntity!!.shareText+shareContentEntity!!.shareUrl//"https://test1881.com I am so happy"
         shareParams.shareType = Platform.SHARE_IMAGE
         platform.platformActionListener = shareCallback
         platform.share(shareParams)

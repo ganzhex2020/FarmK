@@ -12,6 +12,7 @@ import com.combodia.httplib.model.LoadState
 import com.combodia.httplib.model.LoadStateType
 import com.jony.farm.model.entity.AnimalEntity
 import com.jony.farm.model.entity.KindEntity
+import com.jony.farm.model.entity.QueuEntity
 import com.jony.farm.model.repository.LocalDataSource
 import com.jony.farm.model.repository.RemoteDataSource
 import com.jony.farm.util.MapUtils
@@ -34,6 +35,7 @@ class FarmViewModel(private val remoteRepo: RemoteDataSource, private val localR
     val feedAllStateLiveData = MutableLiveData<HashMap<String,Any>>()
     val feedSingleStateLiveData = MutableLiveData<HashMap<String,Any>>()
     val gatherLiveData = MutableLiveData<List<AnimalEntity>>()
+    val queueLiveData = MutableLiveData<QueuEntity>()
 
     val TOTALAMOUNT = 25
 
@@ -62,11 +64,23 @@ class FarmViewModel(private val remoteRepo: RemoteDataSource, private val localR
                     val kindEntity = KindEntity(animalID = it.animalID)
                     animalSet.add(kindEntity)
                 }
-                animalKindLiveData.value = animalSet.toList().sortedBy { it.animalID }
+                val kindList = mutableListOf<KindEntity>()
+                kindList.add(KindEntity(animalID = 8))
+                kindList.add(KindEntity(animalID = 1))
+                kindList.add(KindEntity(animalID = 2))
+                kindList.add(KindEntity(animalID = 3))
+                kindList.add(KindEntity(animalID = 4))
+                kindList.add(KindEntity(animalID = 5))
+                kindList.add(KindEntity(animalID = 6))
+                kindList.add(KindEntity(animalID = 7))
+
+
+                animalKindLiveData.value = kindList//animalSet.toList().sortedBy { it.animalID }
                 allAnimalLiveData.value = animals
-                if (animalSet.isNotEmpty()) {
+                getFarmAnimal(kindList.first().animalID, animals)
+                /*if (animalSet.isNotEmpty()) {
                     getFarmAnimal(animalSet.toList().first().animalID, animals)
-                }
+                }*/
 
             }
             balance.await().checkSuccess {
@@ -98,6 +112,9 @@ class FarmViewModel(private val remoteRepo: RemoteDataSource, private val localR
             tagList.add(0)
         }
         LogUtils.error("选中的动物数量:" + haveList.size)
+        if (haveList.isEmpty()){
+            showAnimalLiveData.value = emptyList()
+        }
         if (haveList.isNotEmpty()) {
             if (haveList.size >= TOTALAMOUNT - 2) {
                 haveList = haveList.subList(0, TOTALAMOUNT - 2)
@@ -219,6 +236,23 @@ class FarmViewModel(private val remoteRepo: RemoteDataSource, private val localR
                 }
 
         },isShowDiaLoading = true)
+    }
+
+    fun getQueue(anmID:Int){
+
+        launchUI({
+            val result = withContext(Dispatchers.IO){
+                remoteRepo.getQueue(anmID)
+            }
+            result.checkSuccess {
+                queueLiveData.value = it
+            }
+            result.checkError {
+                toast(it.errorMsg)
+            }
+
+        },isShowDiaLoading = true)
+
     }
 
 }

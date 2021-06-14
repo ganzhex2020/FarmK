@@ -52,6 +52,8 @@
         <activity android:name=".ui.activity.LuckDrawActivity"/>
         <activity android:name=".ui.activity.CommunityActivity"/>
         <activity android:name=".ui.activity.SubFarmActivity"/>
+        <activity android:name=".ui.activity.WebViewActivity"/>
+        <activity android:name=".ui.activity.ChatActivity"/>
 
     </application>
 

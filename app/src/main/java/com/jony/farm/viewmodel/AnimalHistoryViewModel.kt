@@ -26,7 +26,7 @@ class AnimalHistoryViewModel(private val remoteRepo: RemoteDataSource): BaseView
                 remoteRepo.getAnimalHistory(pageSize, pageIndex)
             }
             result.checkSuccess {
-
+                LogUtils.error(it)
                 animalHistoryLiveData.value = it
             }
             result.checkError {

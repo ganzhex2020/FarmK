@@ -15,11 +15,7 @@
         android:text="Pay Online"
         android:textColor="@color/color_common_tv"
         android:textSize="14sp"
-        android:fontFamily="@font/fzlty"
-        android:shadowRadius="5"
-        android:shadowDy="1"
-        android:shadowDx="1"
-        android:shadowColor="@color/black"
+        android:fontFamily="@font/arialbd"
         />
     <View
         android:id="@+id/view_line"

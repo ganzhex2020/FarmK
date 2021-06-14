@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@mipmap/ic_main_bg"
+    android:background="@mipmap/ic_main_bg1"
     >
 
     <com.scwang.smart.refresh.layout.SmartRefreshLayout
@@ -281,7 +281,9 @@
                                 android:layout_height="wrap_content"
                                 android:text="GC"
                                 android:textColor="@color/white"
-                                android:textSize="14sp" />
+                                android:textSize="14sp"
+                                android:fontFamily="@font/arialbd"
+                                />
 
                             <TextView
                                 android:id="@+id/tv_balance"
@@ -305,6 +307,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="LC"
+                                android:fontFamily="@font/arialbd"
                                 android:textColor="@color/white"
                                 android:textSize="14sp" />
 
@@ -330,6 +333,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Fodder"
+                                android:fontFamily="@font/arialbd"
                                 android:textColor="@color/white"
                                 android:textSize="14sp"/>
 

@@ -46,10 +46,12 @@
             <TextView
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="Mouse"
                 android:textColor="@color/color_333"
-                android:textSize="16sp" />
+                android:textSize="14sp"
+                android:fontFamily="@font/arialbd"
+                />
 
             <TextView
                 android:id="@+id/tv_price"
@@ -58,7 +60,9 @@
                 android:layout_marginStart="10dp"
                 android:text="Price:100"
                 android:textColor="@color/color_title1"
-                android:textSize="14sp" />
+                android:textSize="10sp"
+                android:fontFamily="@font/arialbd"
+                />
 
         </LinearLayout>
 
@@ -72,7 +76,8 @@
                 android:layout_height="wrap_content"
                 android:text="Profit:"
                 android:textColor="@color/color_title1"
-                android:textSize="14sp" />
+                android:textSize="10sp"
+                android:fontFamily="@font/arialbd" />
 
             <TextView
                 android:id="@+id/tv_profit"
@@ -81,7 +86,8 @@
                 android:layout_marginStart="5dp"
                 android:text="20%/7 Days(25 per day)"
                 android:textColor="@color/color_title1"
-                android:textSize="14sp" />
+                android:textSize="10sp"
+                android:fontFamily="@font/arialbd"/>
 
         </LinearLayout>
 
@@ -95,16 +101,18 @@
                 android:layout_height="wrap_content"
                 android:text="Sale:"
                 android:textColor="@color/color_title1"
-                android:textSize="14sp" />
+                android:textSize="10sp"
+                android:fontFamily="@font/arialbd" />
 
             <TextView
                 android:id="@+id/tv_sale"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginStart="5dp"
                 android:text="10:00~14:00"
                 android:textColor="@color/color_title1"
-                android:textSize="14sp" />
+                android:textSize="10sp"
+                android:fontFamily="@font/arialbd" />
 
 
         </LinearLayout>
@@ -119,16 +127,18 @@
                 android:layout_height="wrap_content"
                 android:text="Fodder:"
                 android:textColor="@color/color_title1"
-                android:textSize="14sp" />
+                android:textSize="10sp"
+                android:fontFamily="@font/arialbd" />
 
             <TextView
                 android:id="@+id/tv_fodder"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginStart="5dp"
                 android:text="1/Day"
                 android:textColor="@color/color_title1"
-                android:textSize="14sp" />
+                android:textSize="10sp"
+                android:fontFamily="@font/arialbd" />
 
 
         </LinearLayout>
@@ -143,7 +153,8 @@
                 android:layout_height="wrap_content"
                 android:text="Supply:"
                 android:textColor="@color/color_title1"
-                android:textSize="14sp" />
+                android:textSize="10sp"
+                android:fontFamily="@font/arialbd" />
 
             <TextView
                 android:id="@+id/tv_supply"
@@ -152,7 +163,8 @@
                 android:layout_marginStart="5dp"
                 android:text="500/Day"
                 android:textColor="@color/color_title1"
-                android:textSize="14sp" />
+                android:textSize="10sp"
+                android:fontFamily="@font/arialbd" />
 
 
         </LinearLayout>
@@ -173,7 +185,8 @@
         android:layout_marginTop="-20dp"
         android:background="@mipmap/ic_zikuang"
         android:text="Rush Buy"
-        android:fontFamily="@font/fzlty"
+        android:textSize="14sp"
+        android:fontFamily="@font/arialbd"
         />
 
 

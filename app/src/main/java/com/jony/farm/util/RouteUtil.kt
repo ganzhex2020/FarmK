@@ -7,6 +7,7 @@ import com.jony.farm.config.Const
 import com.jony.farm.ui.activity.FarmActivity
 import com.jony.farm.ui.activity.LoginActivity
 import com.jony.farm.ui.activity.RegisterActivity
+import com.jony.farm.ui.activity.WebViewActivity
 import com.xiaojinzi.component.impl.Router
 
 /**
@@ -17,29 +18,32 @@ import com.xiaojinzi.component.impl.Router
 
 object RouteUtil {
     @JvmStatic
-    fun start2Farm(context:Context,index: Int){
+    fun start2Farm(context: Context, index: Int) {
         val intent = Intent()
-        intent.setClass(context,FarmActivity::class.java)
-        intent.putExtra("index",index)
-       /* val bundle = Bundle()
-        bundle.putParcelable("article",article)
-        intent.putExtras(bundle)*/
+        intent.setClass(context, FarmActivity::class.java)
+        intent.putExtra("index", index)
+        /* val bundle = Bundle()
+         bundle.putParcelable("article",article)
+         intent.putExtras(bundle)*/
         context.startActivity(intent)
     }
+
     @JvmStatic
-    fun start2Login(context: Context){
-        val intent:Intent = Intent()
-        intent.setClass(context,LoginActivity::class.java)
+    fun start2Login(context: Context) {
+        val intent: Intent = Intent()
+        intent.setClass(context, LoginActivity::class.java)
         context.startActivity(intent)
     }
+
     @JvmStatic
-    fun start2Register(context: Context){
-        val intent:Intent = Intent()
-        intent.setClass(context,RegisterActivity::class.java)
+    fun start2Register(context: Context) {
+        val intent: Intent = Intent()
+        intent.setClass(context, RegisterActivity::class.java)
         context.startActivity(intent)
     }
+
     @JvmStatic
-    fun start2UserInfo(context: Context){
+    fun start2UserInfo(context: Context) {
         Router
             .with(context)
             .host(Const.MODULE_HOST_APP)
@@ -48,7 +52,7 @@ object RouteUtil {
     }
 
     @JvmStatic
-    fun start2Farm(context: Context){
+    fun start2Farm(context: Context) {
         Router
             .with(context)
             .host(Const.MODULE_HOST_APP)
@@ -57,43 +61,43 @@ object RouteUtil {
     }
 
     @JvmStatic
-    fun start2Recharge(context: Context){
+    fun start2Recharge(context: Context) {
         Router
-                .with(context)
-                .host(Const.MODULE_HOST_APP)
-                .path(Const.MODULE_PATH_APP_RECHARGE)
-                .forward()
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_RECHARGE)
+            .forward()
     }
 
     @JvmStatic
-    fun start2Withdraw(context: Context){
+    fun start2Withdraw(context: Context) {
         Router
-                .with(context)
-                .host(Const.MODULE_HOST_APP)
-                .path(Const.MODULE_PATH_APP_WITHDRAW)
-                .forward()
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_WITHDRAW)
+            .forward()
     }
 
     @JvmStatic
-    fun start2BankCardList(context: Context){
+    fun start2BankCardList(context: Context) {
         Router
-                .with(context)
-                .host(Const.MODULE_HOST_APP)
-                .path(Const.MODULE_PATH_APP_BANKCARDLIST)
-                .forward()
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_BANKCARDLIST)
+            .forward()
     }
 
     @JvmStatic
-    fun start2BindCard(context: Context){
+    fun start2BindCard(context: Context) {
         Router
-                .with(context)
-                .host(Const.MODULE_HOST_APP)
-                .path(Const.MODULE_PATH_APP_BINDCARD)
-                .forward()
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_BINDCARD)
+            .forward()
     }
 
     @JvmStatic
-    fun start2AnimalHistory(context: Context){
+    fun start2AnimalHistory(context: Context) {
         Router
             .with(context)
             .host(Const.MODULE_HOST_APP)
@@ -102,7 +106,7 @@ object RouteUtil {
     }
 
     @JvmStatic
-    fun start2ChangePwd(context: Context){
+    fun start2ChangePwd(context: Context) {
         Router
             .with(context)
             .host(Const.MODULE_HOST_APP)
@@ -111,127 +115,140 @@ object RouteUtil {
     }
 
     @JvmStatic
-    fun start2Invite(context: Context){
+    fun start2Invite(context: Context) {
         Router
-                .with(context)
-                .host(Const.MODULE_HOST_APP)
-                .path(Const.MODULE_PATH_APP_INVITE)
-                .forward()
-    }
-    @JvmStatic
-    fun start2Fund(context: Context,tradeType:Int){
-        Router
-                .with(context)
-                .host(Const.MODULE_HOST_APP)
-                .path(Const.MODULE_PATH_APP_FUNDDETAIL)
-                .putInt("tradeType",tradeType)
-                .forward()
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_INVITE)
+            .forward()
     }
 
     @JvmStatic
-    fun start2FodderDetail(context: Context,tradeType:Int){
+    fun start2Fund(context: Context, tradeType: Int) {
         Router
-                .with(context)
-                .host(Const.MODULE_HOST_APP)
-                .path(Const.MODULE_PATH_APP_FODDERDETAIL)
-                .putInt("tradeType",tradeType)
-                .forward()
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_FUNDDETAIL)
+            .putInt("tradeType", tradeType)
+            .forward()
     }
 
     @JvmStatic
-    fun start2MyTeam(context: Context){
+    fun start2FodderDetail(context: Context, tradeType: Int) {
         Router
-                .with(context)
-                .host(Const.MODULE_HOST_APP)
-                .path(Const.MODULE_PATH_APP_TEAMMEMBER)
-                .forward()
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_FODDERDETAIL)
+            .putInt("tradeType", tradeType)
+            .forward()
     }
 
     @JvmStatic
-    fun start2TeamFund(context: Context){
+    fun start2MyTeam(context: Context) {
         Router
-                .with(context)
-                .host(Const.MODULE_HOST_APP)
-                .path(Const.MODULE_PATH_APP_TEAMFUND)
-
-                .forward()
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_TEAMMEMBER)
+            .forward()
     }
 
     @JvmStatic
-    fun start2AgencyIncome(context: Context){
+    fun start2TeamFund(context: Context) {
         Router
-                .with(context)
-                .host(Const.MODULE_HOST_APP)
-                .path(Const.MODULE_PATH_APP_AGENCYINCOME)
-                .forward()
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_TEAMFUND)
+
+            .forward()
     }
 
     @JvmStatic
-    fun start2BlockNews(context: Context){
+    fun start2AgencyIncome(context: Context) {
         Router
-                .with(context)
-                .host(Const.MODULE_HOST_APP)
-                .path(Const.MODULE_PATH_APP_BLOCKNEWS)
-                .forward()
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_AGENCYINCOME)
+            .forward()
     }
 
     @JvmStatic
-    fun start2BlockNewsDetail(context: Context,Id:Int){
+    fun start2BlockNews(context: Context) {
         Router
-                .with(context)
-                .host(Const.MODULE_HOST_APP)
-                .path(Const.MODULE_PATH_APP_BLOCKNEWSDETAIL)
-                .putInt("Id",Id)
-                .forward()
-    }
-    @JvmStatic
-    fun start2Rank(context: Context){
-        Router
-                .with(context)
-                .host(Const.MODULE_HOST_APP)
-                .path(Const.MODULE_PATH_APP_RANK)
-                .forward()
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_BLOCKNEWS)
+            .forward()
     }
 
     @JvmStatic
-    fun start2Faq(context: Context){
+    fun start2BlockNewsDetail(context: Context, Id: Int) {
         Router
-                .with(context)
-                .host(Const.MODULE_HOST_APP)
-                .path(Const.MODULE_PATH_APP_FAQ)
-                .forward()
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_BLOCKNEWSDETAIL)
+            .putInt("Id", Id)
+            .forward()
     }
 
     @JvmStatic
-    fun start2Luckdraw(context: Context){
+    fun start2Rank(context: Context) {
         Router
-                .with(context)
-                .host(Const.MODULE_HOST_APP)
-                .path(Const.MODULE_PATH_APP_LUCKDRAW)
-                .forward()
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_RANK)
+            .forward()
     }
 
     @JvmStatic
-    fun start2CommunityChat(context: Context){
+    fun start2Faq(context: Context) {
         Router
-                .with(context)
-                .host(Const.MODULE_HOST_APP)
-                .path(Const.MODULE_PATH_APP_COMMUNITYCHAT)
-                .forward()
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_FAQ)
+            .forward()
     }
 
     @JvmStatic
-    fun start2SubFarm(context: Context,userId:Int,balance:Double,lc:Double){
+    fun start2Luckdraw(context: Context) {
         Router
-                .with(context)
-                .host(Const.MODULE_HOST_APP)
-                .path(Const.MODULE_PATH_APP_SUBFARM)
-                .putInt("userId",userId)
-                .putDouble("balance",balance)
-                .putDouble("lc",lc)
-                .forward()
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_LUCKDRAW)
+            .forward()
     }
 
+    @JvmStatic
+    fun start2CommunityChat(context: Context) {
+        Router
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_COMMUNITYCHAT)
+            .forward()
+    }
 
+    @JvmStatic
+    fun start2SubFarm(context: Context, userId: Int, balance: Double, lc: Double) {
+        Router
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_SUBFARM)
+            .putInt("userId", userId)
+            .putDouble("balance", balance)
+            .putDouble("lc", lc)
+            .forward()
+    }
+
+    @JvmStatic
+    fun go2WebView(context: Context, url: String?, title: String?) {
+        if (url != null) {
+            val intent = Intent(context, WebViewActivity::class.java)
+            intent.putExtra(
+                "webUrl",
+                if (url.startsWith("http://") || url.startsWith("https://")) url else "http://$url"
+            )
+            intent.putExtra("title", title)
+            context.startActivity(intent)
+        }
+    }
 
 }

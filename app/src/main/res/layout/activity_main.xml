@@ -29,10 +29,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="60dp"
         android:gravity="center_vertical"
         android:background="@mipmap/ic_main_tab_bg"
         >
+        <!---->
         <LinearLayout
             android:id="@+id/ll1"
             android:layout_width="0dp"

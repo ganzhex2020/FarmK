@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/ic_main_bg"
     android:fitsSystemWindows="true"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@mipmap/ic_main_bg1"
+    >
 
     <com.scwang.smart.refresh.layout.SmartRefreshLayout
         android:id="@+id/refreshLayout"
@@ -116,7 +117,7 @@
                                 android:text="Network Hashrate History"
                                 android:textColor="#bc5a37"
                                 android:textSize="14sp"
-                                android:textStyle="bold" />
+                                android:fontFamily="@font/arialbd" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -131,8 +132,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="0"
                                 android:textColor="#ff3202"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
+                                android:textSize="23sp"
+                                android:fontFamily="@font/arialbd" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -163,7 +164,9 @@
                                     android:text="Block Height:"
                                     android:textColor="#f47b00"
                                     android:textSize="12sp"
-                                    android:textStyle="bold" />
+                                    android:fontFamily="@font/arialbd"
+
+                                    />
 
                                 <TextView
                                     android:id="@+id/tv_blockHight"
@@ -173,7 +176,7 @@
                                     android:text="0"
                                     android:textColor="#ff3202"
                                     android:textSize="12sp"
-                                    android:textStyle="bold" />
+                                    android:fontFamily="@font/arialbd"/>
 
 
                             </LinearLayout>
@@ -192,7 +195,7 @@
                                     android:text="Comput Power:"
                                     android:textColor="#f47b00"
                                     android:textSize="12sp"
-                                    android:textStyle="bold" />
+                                    android:fontFamily="@font/arialbd"/>
 
                                 <TextView
                                     android:id="@+id/tv_hashProfit"
@@ -202,7 +205,7 @@
                                     android:text="0.0 FIL/TIB"
                                     android:textColor="#ff3202"
                                     android:textSize="12sp"
-                                    android:textStyle="bold" />
+                                    android:fontFamily="@font/arialbd" />
 
                             </LinearLayout>
 
@@ -226,7 +229,7 @@
                                     android:text="Accounts:"
                                     android:textColor="#f47b00"
                                     android:textSize="12sp"
-                                    android:textStyle="bold" />
+                                    android:fontFamily="@font/arialbd"/>
 
                                 <TextView
                                     android:id="@+id/tv_allAccount"
@@ -236,7 +239,7 @@
                                     android:text="0"
                                     android:textColor="#ff3202"
                                     android:textSize="12sp"
-                                    android:textStyle="bold" />
+                                    android:fontFamily="@font/arialbd" />
 
 
                             </LinearLayout>
@@ -254,7 +257,7 @@
                                     android:text="Active Miners:"
                                     android:textColor="#f47b00"
                                     android:textSize="12sp"
-                                    android:textStyle="bold" />
+                                    android:fontFamily="@font/arialbd" />
 
                                 <TextView
                                     android:id="@+id/tv_absenteeism"
@@ -264,7 +267,7 @@
                                     android:text="0"
                                     android:textColor="#ff3202"
                                     android:textSize="12sp"
-                                    android:textStyle="bold" />
+                                    android:fontFamily="@font/arialbd" />
 
                             </LinearLayout>
 
@@ -289,7 +292,7 @@
                                     android:text="Block Generation Time:"
                                     android:textColor="#f47b00"
                                     android:textSize="12sp"
-                                    android:textStyle="bold" />
+                                    android:fontFamily="@font/arialbd" />
 
                                 <TextView
                                     android:id="@+id/tv_timeVal"
@@ -299,7 +302,7 @@
                                     android:text="0.0 s"
                                     android:textColor="#85b000"
                                     android:textSize="12sp"
-                                    android:textStyle="bold" />
+                                    android:fontFamily="@font/arialbd" />
 
 
                             </LinearLayout>
@@ -318,7 +321,7 @@
                                     android:text="Block Coinbase:"
                                     android:textColor="#f47b00"
                                     android:textSize="12sp"
-                                    android:textStyle="bold" />
+                                    android:fontFamily="@font/arialbd" />
 
                                 <TextView
                                     android:id="@+id/tv_foundVal"
@@ -328,7 +331,7 @@
                                     android:text="0 FIL"
                                     android:textColor="#ff3202"
                                     android:textSize="12sp"
-                                    android:textStyle="bold" />
+                                    android:fontFamily="@font/arialbd" />
 
                             </LinearLayout>
 

@@ -262,4 +262,23 @@ interface ServiceApi {
      */
     @GET("animals/sublinefarm/{userId}")
     suspend fun getSublineFarm(@Path("userId")userId:Int):BaseResult<List<AnimalEntity>>
+
+    /**
+     * 获取公司信息
+     */
+    @GET("company")
+    suspend fun getCompany(@Query("id")id:Int):BaseResult<CompanyEntity>
+
+    /**
+     * 排队查询
+     */
+    @GET("animals/salestate/{anmID}")
+    suspend fun getQueue(@Path("anmID")anmID :Int):BaseResult<QueuEntity>
+
+    /**
+     * 分享内容
+     */
+    @GET("members/sharecontent")
+    suspend fun getShareContent():BaseResult<ShareContentEntity>
+
 }

@@ -17,7 +17,8 @@ enum class AnimalType(val id: Int) {
     Dog(4),
     Cow(5),
     Horse(6),
-    Tiger(7)
+    Tiger(7),
+    Mouse(8)
 
 
 }

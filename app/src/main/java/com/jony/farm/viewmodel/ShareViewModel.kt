@@ -5,6 +5,7 @@ import com.combodia.basemodule.base.BaseViewModel
 import com.combodia.basemodule.ext.toast
 import com.combodia.httplib.ext.checkError
 import com.combodia.httplib.ext.checkSuccess
+import com.jony.farm.model.entity.ShareContentEntity
 import com.jony.farm.model.entity.ShareCountEntity
 import com.jony.farm.model.repository.LocalDataSource
 import com.jony.farm.model.repository.RemoteDataSource
@@ -20,6 +21,7 @@ import kotlinx.coroutines.withContext
 class ShareViewModel(val remoteRepo: RemoteDataSource): BaseViewModel() {
 
     val sharecountLiveData = MutableLiveData<ShareCountEntity>()
+    val shareContentLiveData = MutableLiveData<ShareContentEntity>()
     val sharefodderLiveData = MutableLiveData<Map<String,Any>>()
 
     fun getShareCount(){
@@ -27,11 +29,20 @@ class ShareViewModel(val remoteRepo: RemoteDataSource): BaseViewModel() {
             val result = withContext(Dispatchers.IO){
                 remoteRepo.getShareCount()
             }
+            val shareContent = withContext(Dispatchers.IO){
+                remoteRepo.getShareContent()
+            }
             result.checkSuccess {
                 sharecountLiveData.value = it
             }
             result.checkError {
                 toast(it.errorMsg)
+            }
+            shareContent.checkSuccess {
+                shareContentLiveData.value = it
+            }
+            shareContent.checkError {
+                toast(it.errorMsg?:"${it.errCode}")
             }
         })
     }
@@ -44,6 +55,7 @@ class ShareViewModel(val remoteRepo: RemoteDataSource): BaseViewModel() {
             val result = withContext(Dispatchers.IO){
                 remoteRepo.getSharefodder(body)
             }
+
             result.checkSuccess {
                 val m = mapOf("shareType" to shareType,"shareCountEntity" to it)
                 sharefodderLiveData.value = m
@@ -51,7 +63,8 @@ class ShareViewModel(val remoteRepo: RemoteDataSource): BaseViewModel() {
             result.checkError {
                 toast(it.errorMsg?:"${it.errCode}")
             }
-        })
+
+        },isShowDiaLoading = true)
 
     }
 

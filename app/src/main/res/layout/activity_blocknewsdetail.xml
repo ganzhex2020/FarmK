@@ -33,6 +33,8 @@
                 android:textStyle="bold"
                 android:textColor="#bc5a37"
                 android:textSize="16sp"
+                android:maxLines="1"
+                android:ellipsize="end"
                 android:layout_centerVertical="true"
                 />
 
@@ -53,7 +55,7 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="3dp"
+            android:layout_height="2dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/bg_retc_blocknews_xu_c10"
             />
@@ -71,7 +73,10 @@
                     android:layout_height="match_parent"
                     android:layout_marginTop="10dp"
                     android:text="新版上线啦，邀请好友获得幸运抽奖红包噢"
-                    android:textColor="#bc5a37"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/arialbd"
                     />
 
             </LinearLayout>

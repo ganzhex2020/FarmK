@@ -21,12 +21,28 @@
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
-
-                <ImageView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:src="@mipmap/ic_luckdraw_banner" />
+                    >
+                    <ImageView
+                        android:id="@+id/iv_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_luckdraw_back"
+                        />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="20dp"
+                        android:src="@mipmap/ic_luckdraw_banner"
+                        android:scaleType="fitXY"
+                        />
+
+                </LinearLayout>
+
+
 
                 <TextView
                     android:id="@+id/tv_leftCount"

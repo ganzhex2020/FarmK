@@ -34,11 +34,8 @@
                 android:textColor="@color/color_common_tv"
                 android:layout_marginStart="5dp"
                 android:textSize="14sp"
-                android:shadowRadius="5"
-                android:shadowDx="1"
-                android:shadowDy="1"
                 android:shadowColor="@color/black"
-                android:fontFamily="@font/fzlty"
+                android:fontFamily="@font/arialbd"
                 />
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recy_bankcard"

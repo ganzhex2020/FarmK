@@ -4,6 +4,7 @@ package com.jony.farm.ui.activity
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.combodia.basemodule.base.BaseVMActivity
+import com.combodia.basemodule.utils.LogUtils
 import com.gyf.immersionbar.ktx.immersionBar
 import com.gyf.immersionbar.ktx.statusBarHeight
 import com.jony.farm.R

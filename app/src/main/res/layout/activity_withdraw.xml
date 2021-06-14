@@ -24,11 +24,7 @@
             android:textColor="@color/color_common_tv"
             android:layout_marginStart="5dp"
             android:textSize="14sp"
-            android:shadowRadius="5"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowColor="@color/black"
-            android:fontFamily="@font/fzlty"
+            android:fontFamily="@font/arialbd"
             />
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -88,7 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@drawable/bg_retc_recharge2"
+        android:background="@drawable/bg_retc_recharge1"
         android:padding="16dp"
         >
         <TextView
@@ -98,11 +94,7 @@
             android:textColor="@color/color_common_tv"
             android:layout_marginStart="5dp"
             android:textSize="14sp"
-            android:shadowRadius="5"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowColor="@color/black"
-            android:fontFamily="@font/fzlty"
+            android:fontFamily="@font/arialbd"
             />
 
         <TextView
@@ -121,8 +113,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_withdraw_history"
-            android:textColor="#ffeecb"
-            android:textColorHint="#ffeecb"
+            android:textColor="@color/color_common_tv"
+            android:textColorHint="@color/color_common_tv"
             android:backgroundTint="#ffeecb"
             android:inputType="number"
             />
@@ -133,7 +125,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@drawable/bg_retc_recharge2"
+        android:background="@drawable/bg_retc_recharge1"
         android:padding="16dp"
         android:orientation="vertical"
         >
@@ -144,24 +136,18 @@
             android:textColor="@color/color_common_tv"
             android:layout_marginStart="5dp"
             android:textSize="14sp"
-            android:shadowRadius="5"
-            android:shadowDx="1"
-            android:shadowDy="1"
-            android:shadowColor="@color/black"
-            android:fontFamily="@font/fzlty"
+            android:fontFamily="@font/arialbd"
             />
-
-
 
         <EditText
             android:id="@+id/et_fundpwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_withdraw_history"
-            android:textColor="#ffeecb"
-            android:textColorHint="#ffeecb"
+            android:textColor="@color/color_common_tv"
+            android:textColorHint="@color/color_common_tv"
             android:backgroundTint="#ffeecb"
-            android:inputType="number"
+            android:inputType="textPassword"
             />
 
     </LinearLayout>

@@ -50,9 +50,19 @@
             android:padding="30dp"
             android:background="@mipmap/ic_invite_kuang"
             />
+        <TextView
+            android:id="@+id/tv_invitecode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#e93743"
+            android:textSize="16sp"
+            android:fontFamily="@font/arialbd"
+            />
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:src="@mipmap/ic_invite_scanqrcode"
             />
 

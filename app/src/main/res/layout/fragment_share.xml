@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="140dp"
+                android:layout_marginTop="120dp"
                 android:layout_marginEnd="30dp"
                 android:background="@mipmap/ic_anniu01"
                 android:paddingEnd="10dp">
@@ -36,13 +36,14 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/tv_count_fb"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:background="@mipmap/ic_djs"
                     android:gravity="center"
-                    android:text="3"
+                    android:text="0"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -67,13 +68,14 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/tv_count_tw"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:background="@mipmap/ic_djs"
                     android:gravity="center"
-                    android:text="3"
+                    android:text="0"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -98,13 +100,14 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/tv_count_checkin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:background="@mipmap/ic_djs"
                     android:gravity="center"
-                    android:text="3"
+                    android:text="0"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -129,13 +132,14 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/tv_count_whats"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:background="@mipmap/ic_djs"
                     android:gravity="center"
-                    android:text="3"
+                    android:text="0"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -160,13 +164,14 @@
                     android:textSize="18sp" />
 
                 <TextView
+                    android:id="@+id/tv_count_telegram"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:background="@mipmap/ic_djs"
                     android:gravity="center"
-                    android:text="3"
+                    android:text="0"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
 
@@ -175,7 +180,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="18dp"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 

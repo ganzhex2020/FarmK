@@ -55,6 +55,12 @@ object CommonUtil {
                     false -> R.mipmap.tiger1
                 }
             }
+            AnimalType.Mouse.id-> {
+                when(isMature){
+                    true -> R.mipmap.mouse2
+                    false -> R.mipmap.mouse1
+                }
+            }
             else -> 0
         }
     }
@@ -70,6 +76,7 @@ object CommonUtil {
             AnimalType.Cow.id-> R.mipmap.ic_cow
             AnimalType.Horse.id-> R.mipmap.ic_house
             AnimalType.Tiger.id-> R.mipmap.ic_tiger
+            AnimalType.Mouse.id-> R.mipmap.ic_mouse
             else -> 0
         }
     }
@@ -84,6 +91,7 @@ object CommonUtil {
             AnimalType.Cow.id-> R.mipmap.ic_farm_cow
             AnimalType.Horse.id-> R.mipmap.ic_farm_house
             AnimalType.Tiger.id-> R.mipmap.ic_farm_tiger
+            AnimalType.Mouse.id-> R.mipmap.ic_farm_mouse
             else -> 0
         }
     }

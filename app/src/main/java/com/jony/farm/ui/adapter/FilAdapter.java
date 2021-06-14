@@ -53,11 +53,15 @@ public class FilAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull BaseViewHolder holder, int position) {
-        if (mList.size()==0){
-            return;
-        }
         TextView tv_fil = holder.getView(R.id.tv_fil);
         TextView tv_filtib = holder.getView(R.id.tv_filtib);
+
+        if (mList.size()==0){
+            tv_fil.setText("");
+            tv_filtib.setText("");
+            return;
+        }
+
         AnimalEntity animalEntity = mList.get(position%mList.size());
 
         try {

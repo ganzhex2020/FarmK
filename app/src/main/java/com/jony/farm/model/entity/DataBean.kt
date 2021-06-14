@@ -320,4 +320,30 @@ data class LinkEntity(
     val url: String
 )
 
+data class CompanyEntity(
+    val cName: String,
+    val cPrefix: String,
+    val disLogoImg: String,
+    val domain: String,
+    val email: String,
+    val hotLine: String,
+    val icpNumber: String,
+    val id: Int,
+    val logoImg: String,
+    val openTryPlay: Int,
+    val qq: String,
+    val serviceUrl: String,
+    val state: Int,
+    val weChat: String
+)
 
+data class QueuEntity(
+    val aheadCount: Int,
+    val needSecondes: Int
+)
+
+data class ShareContentEntity(
+    val shareImg: String,
+    val shareText: String,
+    val shareUrl: String
+)

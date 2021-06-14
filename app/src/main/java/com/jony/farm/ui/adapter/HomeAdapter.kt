@@ -32,7 +32,7 @@ class HomeAdapter :BaseQuickAdapter<KindEntity,BaseViewHolder>(R.layout.home_rec
         val tv_profit = holder.getView<TextView>(R.id.tv_profit)
         val tv_sale = holder.getView<TextView>(R.id.tv_sale)
         val tv_fodder = holder.getView<TextView>(R.id.tv_fodder)
-        val tv_supply = holder.getView<TextView>(R.id.tv_fodder)
+        val tv_supply = holder.getView<TextView>(R.id.tv_supply)
 
         tv_name.text = item.animalName
         tv_price.text = "Price:${item.price}"

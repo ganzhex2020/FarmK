@@ -4,6 +4,7 @@ import com.combodia.basemodule.base.BaseVMFragment
 import com.gyf.immersionbar.ktx.statusBarHeight
 import com.jony.farm.R
 import com.jony.farm.model.entity.BannerEntity
+import com.jony.farm.model.entity.CompanyEntity
 import com.jony.farm.ui.adapter.HomeBannerAdapter
 import com.jony.farm.util.RouteUtil
 import com.jony.farm.viewmodel.HomeViewModel
@@ -20,6 +21,8 @@ class HomeFragment :BaseVMFragment<HomeViewModel>(){
     private val bannerList by lazy { mutableListOf<BannerEntity>() }
     private val bannerAdapter by lazy { HomeBannerAdapter(bannerList) }
 
+    private var companyEntity:CompanyEntity? = null
+
     override fun initVM(): HomeViewModel = getViewModel()
 
     override fun getLayoutResId(): Int = R.layout.fragment_home
@@ -30,7 +33,7 @@ class HomeFragment :BaseVMFragment<HomeViewModel>(){
           home_banner.run {
             addBannerLifecycleObserver(viewLifecycleOwner)
         //    indicator = CircleIndicator(context)
-            setBannerRound2(10f)
+            setBannerRound2(20f)
             adapter = bannerAdapter
         }
          bannerAdapter.setOnBannerListener { _, position ->
@@ -57,7 +60,9 @@ class HomeFragment :BaseVMFragment<HomeViewModel>(){
             RouteUtil.start2Invite(requireContext())
         }
         iv_service.setOnClickListener {
-
+            if (companyEntity!=null&&companyEntity!!.serviceUrl.isNotEmpty()){
+                RouteUtil.go2WebView(requireContext(),companyEntity!!.serviceUrl,"Service")
+            }
         }
 
         rl_blocknews.setOnClickListener {
@@ -91,6 +96,9 @@ class HomeFragment :BaseVMFragment<HomeViewModel>(){
                     bannerList.addAll(it)
                     bannerAdapter.notifyDataSetChanged()
                 })
+            })
+            companyLiveData.observe(viewLifecycleOwner,{
+                companyEntity = it
             })
         }
     }

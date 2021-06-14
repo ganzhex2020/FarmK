@@ -45,6 +45,7 @@ object Const {
    const val MODULE_PATH_APP_LUCKDRAW = "luckdraw"
    const val MODULE_PATH_APP_COMMUNITYCHAT = "communitychat"
    const val MODULE_PATH_APP_SUBFARM = "subfarm"
+   const val MODULE_PATH_APP_CHAT = "chat"
 
 
    ////==========================Interceptor============

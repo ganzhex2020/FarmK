@@ -8,6 +8,7 @@ import androidx.core.animation.addListener
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.combodia.basemodule.base.BaseVMActivity
+import com.combodia.basemodule.ext.toast
 import com.combodia.basemodule.ext.visable
 import com.combodia.basemodule.utils.GlideUtils
 import com.combodia.basemodule.utils.LogUtils
@@ -25,6 +26,7 @@ import com.jony.farm.util.MapJUtil
 import com.jony.farm.util.MathUtil
 import com.jony.farm.view.dialog.FeedAllDialog
 import com.jony.farm.view.dialog.FeedSingleDialog
+import com.jony.farm.view.dialog.QueueDialog
 import com.jony.farm.viewmodel.FarmViewModel
 import com.tencent.mmkv.MMKV
 import com.xiaojinzi.component.anno.RouterAnno
@@ -120,7 +122,13 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
                 map["BuyID"] = animalAdapter.getItem(position).id
                 val list = mutableListOf<AnimalEntity>()
                 list.add(animalAdapter.getItem(position))
-                mViewModel.gather(map, list)
+
+                gaMap = map
+                gaList = list
+                mViewModel.getQueue(kindAdapter.getItem(kindSelectIndex).animalID)
+              //  mViewModel.gather(map, list)
+              //  val dialog = QueueDialog(this,list)
+              //  dialog.show()
             } else {
                 //单个喂养
                 val singleEntity = animalAdapter.getItem(position)
@@ -137,6 +145,9 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
         }
         recy_fil.start()
     }
+
+    private var gaMap:Map<String,Any>? = null
+    private var gaList:List<AnimalEntity>? = null
 
     private fun onClick() {
         iv_farm_back.setOnClickListener {
@@ -159,12 +170,24 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
             mViewModel.getBalance()
         }
         iv_farm_gatherall.setOnClickListener {
+
             val gatherList = allAnimalList.filter { it.animalID == kindAdapter.getItem(kindSelectIndex).animalID }
                     .filter { it.leftSeconde <= 0 }
             val map = HashMap<String, Any>()
             map["SaleType"] = 1
             map["AnimalID"] = kindAdapter.getItem(kindSelectIndex).animalID
-            mViewModel.gather(map, gatherList)
+
+            gaMap = map
+            gaList = gatherList
+            if (gatherList.isEmpty()){
+                toast("没有需要收获的")
+                return@setOnClickListener
+            }
+            mViewModel.getQueue(kindAdapter.getItem(kindSelectIndex).animalID)
+           // mViewModel.gather(map, gatherList)
+
+         //   val dialog = QueueDialog(this,gatherList)
+         //   dialog.show()
         }
 
         /**
@@ -172,16 +195,16 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
          */
         iv_show_bord.setOnClickListener {
             iv_show_bord.visable(false)
-            val width = DeviceUtil.dip2px(this, 170f)
+            val width = DeviceUtil.dip2px(this, 130f)
             val objectAnimation1 =ObjectAnimator.ofInt(cl_bord, "translationX", 0, width)
-            objectAnimation1.duration = 1500
+            objectAnimation1.duration = 1000
             objectAnimation1.addUpdateListener(animationListener1)
             objectAnimation1.addListener (object:AnimatorListenerAdapter(){
                 override fun onAnimationEnd(animation: Animator?) {
-                    val height1 = DeviceUtil.dip2px(this@FarmActivity, 50f)
-                    val height2 = DeviceUtil.dip2px(this@FarmActivity, 130f)
+                    val height1 = DeviceUtil.dip2px(this@FarmActivity, 30f)
+                    val height2 = DeviceUtil.dip2px(this@FarmActivity, 100f)
                     val objectAnimation2 =ObjectAnimator.ofInt(cl_bord, "translationY", height1, height2)
-                    objectAnimation2.duration = 1500
+                    objectAnimation2.duration = 1000
                     objectAnimation2.addUpdateListener(animationListener2)
                     objectAnimation2.addListener(object:AnimatorListenerAdapter(){
                         override fun onAnimationEnd(animation: Animator?) {
@@ -197,17 +220,17 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
         //关闭
         iv_close.setOnClickListener {
             iv_close.visable(false)
-            val height1 = DeviceUtil.dip2px(this@FarmActivity, 130f)
-            val height2 = DeviceUtil.dip2px(this@FarmActivity, 50f)
+            val height1 = DeviceUtil.dip2px(this@FarmActivity, 100f)
+            val height2 = DeviceUtil.dip2px(this@FarmActivity, 30f)
             val objectAnimation2 =ObjectAnimator.ofInt(cl_bord, "translationY", height1, height2)
-            objectAnimation2.duration = 1500
+            objectAnimation2.duration = 1000
             objectAnimation2.addUpdateListener(animationListener2)
             objectAnimation2.addListener (object:AnimatorListenerAdapter(){
                 override fun onAnimationEnd(animation: Animator?) {
-                    val width1 = DeviceUtil.dip2px(this@FarmActivity, 170f)
+                    val width1 = DeviceUtil.dip2px(this@FarmActivity, 130f)
                     val width2 = DeviceUtil.dip2px(this@FarmActivity, 0f)
                     val objectAnimation1 =ObjectAnimator.ofInt(cl_bord, "translationX", width1, width2)
-                    objectAnimation1.duration = 1500
+                    objectAnimation1.duration = 1000
                     objectAnimation1.addUpdateListener(animationListener1)
                     objectAnimation1.addListener(object:AnimatorListenerAdapter(){
                         override fun onAnimationEnd(animation: Animator?) {
@@ -260,7 +283,12 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
                 animalAdapter.setList(list)
 
                 showList.clear()
-                showList.addAll(list.filter { it.animalID != 0 })
+                if (list.isEmpty()){
+                    showList.addAll(list)
+                }else{
+                    showList.addAll(list.filter { it.animalID != 0 })
+                }
+
                 filAdapter.notifyDataSetChanged()
             })
             //member 用户信息 livedata
@@ -380,6 +408,15 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
                     }
                 }*/
                 animalAdapter.notifyDataSetChanged()
+            })
+            queueLiveData.observe(this@FarmActivity,{
+                val dialog = QueueDialog(this@FarmActivity,it)
+                dialog.setOnClickListener {
+                    if (gaMap!=null&&gaList!=null){
+                        mViewModel.gather(gaMap!!, gaList!!)
+                    }
+                }
+                dialog.show()
             })
         }
 

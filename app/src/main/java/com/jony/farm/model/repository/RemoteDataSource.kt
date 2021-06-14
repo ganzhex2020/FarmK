@@ -270,6 +270,13 @@ class RemoteDataSource(private val serviceApi: ServiceApi) {
     }
 
     /**
+     * 分享内容
+     */
+    suspend fun getShareContent():BaseResult<ShareContentEntity>{
+        return serviceApi.getShareContent()
+    }
+
+    /**
      * 账户资金明细流水
      */
     suspend fun getAccountDetail(pageIndex:Int,body: RequestBody):BaseResult<List<AccountDetailEntity>>{
@@ -339,6 +346,19 @@ class RemoteDataSource(private val serviceApi: ServiceApi) {
      */
     suspend fun getSublineFarm(userId:Int):BaseResult<List<AnimalEntity>>{
         return serviceApi.getSublineFarm(userId)
+    }
+
+    /**
+     * 获取公司信息
+     */
+    suspend fun reqCompany(companyId:Int) = handleResponse(serviceApi.getCompany(companyId))
+    suspend fun getCompany(companyId:Int):SealedResult<CompanyEntity> = callRequest { reqCompany(companyId) }
+
+    /**
+     * 排队
+     */
+    suspend fun getQueue(animalId: Int):BaseResult<QueuEntity>{
+        return serviceApi.getQueue(animalId)
     }
 
 }
