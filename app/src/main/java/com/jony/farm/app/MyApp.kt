@@ -1,26 +1,29 @@
 package com.jony.farm.app
 
 
+import android.app.Activity
 import android.content.Context
+import android.os.Build
+import android.os.Bundle
 import com.combodia.basemodule.base.BaseApplication
 import com.combodia.basemodule.utils.LogUtils
+import com.combodia.httplib.config.Constant.KEY_LANGUAGE
+import com.combodia.httplib.ext.LanguageUtil
 import com.jony.farm.BuildConfig
 import com.jony.farm.R
 import com.jony.farm.config.AuthonManager
 import com.jony.farm.di.appModule
-import com.jony.farm.socket.WsManager
-import com.jony.farm.socket.WsStatusListener
+import com.jony.farm.util.ActivityManager
 import com.mob.MobSDK
 import com.scwang.smart.refresh.header.ClassicsHeader
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
+import com.tencent.mmkv.MMKV
 import com.xiaojinzi.component.Component
 import com.xiaojinzi.component.Config
 import com.xiaojinzi.component.impl.application.ModuleManager
 import io.reactivex.exceptions.UndeliverableException
 import io.reactivex.plugins.RxJavaPlugins
-import okhttp3.OkHttpClient
-import okhttp3.Response
-import okio.ByteString
+import okhttp3.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
 import org.koin.android.ext.koin.androidLogger
@@ -47,6 +50,7 @@ class MyApp: BaseApplication() {
 
         initComponent()
         initKoin()
+        setLanguage()
         MobSDK.init(this)
         AuthonManager.authon()
         sexRxError()
@@ -56,6 +60,35 @@ class MyApp: BaseApplication() {
             ClassicsHeader(context) //.setTimeFormat(new DynamicTimeFormat("更新于 %s"));//指定为经典Header，默认是 贝塞尔雷达Header
         }
 
+        this.registerActivityLifecycleCallbacks(object:ActivityLifecycleCallbacks{
+            override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
+                ActivityManager.getInstance().addActivity(activity)
+            }
+
+            override fun onActivityStarted(activity: Activity) {
+
+            }
+
+            override fun onActivityResumed(activity: Activity) {
+
+            }
+
+            override fun onActivityPaused(activity: Activity) {
+
+            }
+
+            override fun onActivityStopped(activity: Activity) {
+
+            }
+
+            override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {
+
+            }
+
+            override fun onActivityDestroyed(activity: Activity) {
+                ActivityManager.getInstance().removeActivity(activity)
+            }
+        })
     }
 
     /**
@@ -107,17 +140,6 @@ class MyApp: BaseApplication() {
 
         }
     }
-    /*@Subscribe(threadMode = ThreadMode.MAIN)
-    fun getErrorCode(busevent: BusEvent){
-        LogUtils.error("${busevent.code} ${busevent.msg}")
-    }*/
-
-   /* private fun initRxBus(){
-        rxBus = RxBus.getIntanceBus()
-        registerRxBus(this, CusExceptionEvent::class.java) {
-            LogUtils.error("接收到的错误代码：$it")
-        }
-    }*/
 
     private fun sexRxError() {
         RxJavaPlugins.setErrorHandler {
@@ -126,6 +148,18 @@ class MyApp: BaseApplication() {
             } else {
                 LogUtils.error(it)
             }
+        }
+    }
+
+    /**
+     * 对于7.0以下，需要在Application创建的时候进行语言切换
+     */
+    private fun setLanguage(){
+        val kv = MMKV.defaultMMKV()
+        val language = LanguageUtil.getDefaultLanguage()
+        kv.encode(KEY_LANGUAGE,language)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+            LanguageUtil.changeAppLanguage(CONTEXT,language)
         }
     }
 

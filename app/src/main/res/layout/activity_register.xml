@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:layout_centerVertical="true"
-                android:text="UserName"
+                android:text="@string/login_username"
                 android:textSize="16sp"
                 android:fontFamily="@font/fzlty"
                 />
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:layout_centerVertical="true"
-                android:text="Password"
+                android:text="@string/login_password"
                 android:textSize="16sp"
                 android:fontFamily="@font/fzlty"
                 />
@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:layout_centerVertical="true"
-                android:text="Confirm"
+                android:text="@string/register_confirm"
                 android:textSize="16sp"
                 android:fontFamily="@font/fzlty"
                 />
@@ -121,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:layout_centerVertical="true"
-                android:text="Inv code"
+                android:text="@string/register_invcode"
                 android:textSize="16sp"
                 android:fontFamily="@font/fzlty"
                 />

@@ -20,7 +20,7 @@ class AmountAdapter:BaseQuickAdapter<AmountEntity,BaseViewHolder> (R.layout.item
         val ll_parent = holder.getView<LinearLayout>(R.id.ll_parent)
         val tv_amount = holder.getView<TextView>(R.id.tv_amount)
 
-        tv_amount.text = "${item.amount}元"
+        tv_amount.text = "${item.amount}"+context.getString(R.string.unit_yuan)
         ll_parent.isSelected = item.isSelect
         if (item.isSelect){
             tv_amount.setTextColor(ContextCompat.getColor(context,R.color.white))

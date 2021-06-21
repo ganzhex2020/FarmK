@@ -1,0 +1,20 @@
+<resources>
+    <string name="exception_msg1">Link error</string>
+    <string name="exception_msg2">network error</string>
+    <string name="exception_msg3">timeout</string>
+    <string name="exception_msg4">redirected</string>
+    <string name="exception_msg5">request error</string>
+    <string name="exception_msg6">auth expired</string>
+    <string name="exception_msg7">403 error</string>
+    <string name="exception_msg8">404 not found</string>
+    <string name="exception_msg9">others login</string>
+    <string name="exception_msg10">server error</string>
+    <string name="exception_msg11">server not support</string>
+    <string name="exception_msg12">gateway error</string>
+    <string name="exception_msg13">503 error</string>
+    <string name="exception_msg14">gateway timeout</string>
+    <string name="exception_msg15">not support protocal</string>
+    <string name="exception_msg16">parsing error</string>
+    <string name="exception_msg17">ssl error</string>
+    <string name="exception_msg18">network error</string>
+</resources>

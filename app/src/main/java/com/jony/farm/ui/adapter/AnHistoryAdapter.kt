@@ -9,6 +9,7 @@ import com.chad.library.adapter.base.module.LoadMoreModule
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.jony.farm.R
 import com.jony.farm.model.entity.AnimalEntity
+import com.jony.farm.model.entity.AnimalKindType
 import com.jony.farm.util.CommonUtil
 import com.jony.farm.util.DateUtil
 import com.jony.farm.util.MathUtil
@@ -34,12 +35,12 @@ class AnHistoryAdapter:BaseQuickAdapter<AnimalEntity,BaseViewHolder>(R.layout.it
         val tv_rate = holder.getView<TextView>(R.id.tv_rate)
         val tv_state = holder.getView<TextView>(R.id.tv_state)
         iv.setImageResource(CommonUtil.getImgByAnimalId(item.animalID))
-        tv_name.text = item.animalName
-        tv_qc.text = "${item.price} QC"
+        tv_name.text = context.getString(AnimalKindType.getAnimalLabel(item.animalID))//item.animalName
+        tv_qc.text = "${item.price} "+context.getString(R.string.fund_gc)
      //   tv_begintime.text = item.buyDate
      //   tv_endtime.text = item.buyDate
-        tv_lc.text = "${MathUtil.getTwoBigDecimal(item.price*(1+item.profitRate/100))} LC"
-        tv_circleday.text = "${item.cycleDay}Days"
+        tv_lc.text = "${MathUtil.getTwoBigDecimal(item.price*(1+item.profitRate/100))} "+context.getString(R.string.fund_lc)
+        tv_circleday.text = String.format(context.getString(R.string.anihis_days),item.cycleDay.toString())//"${item.cycleDay}Days"
         tv_rate.text = "${item.profitRate}%"
 
         try {
@@ -54,15 +55,15 @@ class AnHistoryAdapter:BaseQuickAdapter<AnimalEntity,BaseViewHolder>(R.layout.it
 
         when(item.state){
             0 ->{
-                tv_state.text = "Growing"
+                tv_state.text = context.getString(R.string.growing)
                 tv_state.background = ContextCompat.getDrawable(context,R.drawable.bg_retc_growing)
             }
             1 ->{
-                tv_state.text = "WaitingSale"
+                tv_state.text = context.getString(R.string.waitsale)
                 tv_state.background = ContextCompat.getDrawable(context,R.drawable.bg_retc_waiting)
             }
             2 ->{
-                tv_state.text = "Profited"
+                tv_state.text = context.getString(R.string.profited)
                 tv_state.background = ContextCompat.getDrawable(context,R.drawable.bg_retc_profited)
             }
         }

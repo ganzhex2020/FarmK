@@ -7,7 +7,9 @@ import com.combodia.basemodule.ext.toast
 import com.combodia.basemodule.utils.LogUtils
 import com.combodia.httplib.config.Constant.KEY_LOGIN_STATE
 import com.combodia.httplib.config.Constant.KEY_REMBER_PWD
+import com.combodia.httplib.config.Constant.KEY_SESSION_ID
 import com.combodia.httplib.config.Constant.KEY_TOKEN
+import com.combodia.httplib.config.Constant.KEY_USER_AVATAR
 import com.combodia.httplib.config.Constant.KEY_USER_ID
 import com.combodia.httplib.config.Constant.KEY_USER_NAME
 import com.combodia.httplib.config.Constant.KEY_USER_PWD
@@ -18,6 +20,7 @@ import com.jony.farm.config.Const
 import com.jony.farm.db.AppDatabase
 import com.jony.farm.model.repository.LocalDataSource
 import com.jony.farm.model.repository.RemoteDataSource
+import com.jony.farm.socket.WebSocketUtil
 import com.jony.farm.util.MapUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -50,7 +53,9 @@ class LoginViewModel(private val remoteRepo: RemoteDataSource,private val localR
             result.checkSuccess {
                 //LogUtils.error(it)
                 kv.encode(KEY_USER_ID,it.userID)
+                kv.encode(KEY_SESSION_ID,it.sessionID)
                 kv.encode(KEY_USER_NAME,userName)
+                kv.encode(KEY_USER_AVATAR,it.headImg)
                 kv.encode(KEY_USER_PWD,passwd)
                 kv.encode(KEY_REMBER_PWD,isRember)
                 kv.encode(KEY_LOGIN_STATE,true)
@@ -65,6 +70,8 @@ class LoginViewModel(private val remoteRepo: RemoteDataSource,private val localR
                 member.checkSuccess { memverEntiry ->
                     localRepo.insertMember(memverEntiry.copy(password = passwd))
                 }
+                //启动长连接
+                WebSocketUtil.longConnect(it.sessionID)
                 loginStateLiveData.value = true
             }
 

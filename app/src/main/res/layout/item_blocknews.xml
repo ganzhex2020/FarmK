@@ -84,7 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Detail"
+        android:text="@string/blocknew_detai"
         android:textColor="@color/white"
         app:rv_backgroundColor="#fdb301"
         android:paddingStart="12dp"

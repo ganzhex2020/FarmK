@@ -2,6 +2,8 @@ package com.jony.farm.model.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.chad.library.adapter.base.entity.MultiItemEntity
+import com.tencent.mmkv.MMKV
 
 @Entity(tableName = "userEntity")
 data class UserEntity(
@@ -65,6 +67,14 @@ data class BannerEntity(
     val startTime: Any,
     val subTitle: String,
     val title: String
+)
+
+data class AppVersion(
+    val versionCode:Int,
+    val versionName:String,
+    val downUrl:String,
+    val des:String,
+    val force:Boolean
 )
 
 /**
@@ -346,4 +356,28 @@ data class ShareContentEntity(
     val shareImg: String,
     val shareText: String,
     val shareUrl: String
+)
+
+data class SocketMsg(
+    val extendData: Int,
+    val fromSource: String,
+    val model: Int,
+    val msg: String,
+    var msgBean: MsgBean,
+    val msgType: Int,
+    val target: Target
+):MultiItemEntity{
+    override var itemType: Int = 0
+}
+data class MsgBean(
+    val name:String,
+    val content:String,
+    val betTime:String,
+    val headImg:String
+)
+
+data class Target(
+    val stargetID: Any,
+    val targetCategory: Int,
+    val targetValue: Int
 )

@@ -2,11 +2,18 @@ package com.jony.farm.ui.activity
 
 import androidx.fragment.app.Fragment
 import com.combodia.basemodule.base.BaseVMActivity
+import com.combodia.basemodule.ext.toast
+import com.combodia.httplib.config.Constant
 import com.gyf.immersionbar.ktx.immersionBar
 import com.jony.farm.R
+import com.jony.farm.socket.WebSocketUtil
 import com.jony.farm.ui.fragment.*
+import com.jony.farm.util.ActivityManager
+import com.jony.farm.util.CommonUtil
 import com.jony.farm.util.RouteUtil
+import com.jony.farm.view.dialog.UpgradeVersionDialog
 import com.jony.farm.viewmodel.MainViewModel
+import com.tencent.mmkv.MMKV
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
@@ -89,11 +96,21 @@ class MainActivity:BaseVMActivity<MainViewModel>() {
     }
 
     override fun initData() {
-
+        mViewModel.getVersion()
+        //启动长连接
+        val kv = MMKV.defaultMMKV()
+        val sessionId = kv.decodeString(Constant.KEY_SESSION_ID,"")
+        WebSocketUtil.longConnect(sessionId)
     }
 
     override fun startObserve() {
-
+        mViewModel.versionLiveData.observe(this,{
+            val remoteVersionName = it.versionName
+            val localVersionName = CommonUtil.getLocalVersionName(this)
+            if (remoteVersionName > localVersionName){
+                UpgradeVersionDialog(this,this,it).show()
+            }
+        })
     }
 
     private fun setSelectedFragment(position: Int){
@@ -136,4 +153,18 @@ class MainActivity:BaseVMActivity<MainViewModel>() {
     }
 
 
+    private var lastTime: Long = 0
+
+    override fun onBackPressed() {
+        back()
+    }
+
+    private fun back() {
+        if (System.currentTimeMillis() - lastTime < 2000) {
+            ActivityManager.getInstance().exitApp()
+        } else {
+            toast(getString(R.string.press_again_exit))
+        }
+        lastTime = System.currentTimeMillis()
+    }
 }

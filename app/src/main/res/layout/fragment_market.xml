@@ -114,7 +114,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="5dp"
-                                android:text="Network Hashrate History"
+                                android:text="@string/network_hashrate"
                                 android:textColor="#bc5a37"
                                 android:textSize="14sp"
                                 android:fontFamily="@font/arialbd" />
@@ -124,7 +124,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:gravity="center_horizontal">
+                            android:gravity="center"
+                            >
 
                             <TextView
                                 android:id="@+id/tv_allHash"
@@ -146,22 +147,23 @@
 
                         </LinearLayout>
 
-                        <RelativeLayout
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
+                            android:gravity="center_vertical"
                             >
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
                                 >
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Block Height:"
+                                    android:text="@string/block_height"
                                     android:textColor="#f47b00"
                                     android:textSize="12sp"
                                     android:fontFamily="@font/arialbd"
@@ -182,17 +184,15 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
-                                android:gravity="center"
-                                android:layout_alignParentEnd="true"
-                                android:layout_centerVertical="true"
                                 >
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Comput Power:"
+                                    android:text="@string/comput_power"
                                     android:textColor="#f47b00"
                                     android:textSize="12sp"
                                     android:fontFamily="@font/arialbd"/>
@@ -210,23 +210,25 @@
                             </LinearLayout>
 
 
-                        </RelativeLayout>
+                        </LinearLayout>
 
-                        <RelativeLayout
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp">
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_vertical"
+                            >
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
                                 android:gravity="center">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Accounts:"
+                                    android:text="@string/market_accounts"
                                     android:textColor="#f47b00"
                                     android:textSize="12sp"
                                     android:fontFamily="@font/arialbd"/>
@@ -245,16 +247,14 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_alignParentEnd="true"
-                                android:gravity="center">
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content">
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
-                                    android:text="Active Miners:"
+                                    android:text="@string/active_miners"
                                     android:textColor="#f47b00"
                                     android:textSize="12sp"
                                     android:fontFamily="@font/arialbd" />
@@ -272,24 +272,26 @@
                             </LinearLayout>
 
 
-                        </RelativeLayout>
+                        </LinearLayout>
 
-                        <RelativeLayout
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp">
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_vertical"
+                            >
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:layout_centerVertical="true"
                                 >
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Block Generation Time:"
+                                    android:text="@string/block_generation_time"
                                     android:textColor="#f47b00"
                                     android:textSize="12sp"
                                     android:fontFamily="@font/arialbd" />
@@ -308,17 +310,16 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
-                                android:layout_alignParentEnd="true"
-                                android:layout_centerVertical="true"
                                 >
 
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Block Coinbase:"
+                                    android:text="@string/block_coinbase"
                                     android:textColor="#f47b00"
                                     android:textSize="12sp"
                                     android:fontFamily="@font/arialbd" />
@@ -336,7 +337,7 @@
                             </LinearLayout>
 
 
-                        </RelativeLayout>
+                        </LinearLayout>
 
                     </LinearLayout>
 

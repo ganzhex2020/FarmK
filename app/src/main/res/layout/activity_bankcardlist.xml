@@ -30,7 +30,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="My Cards"
+                android:text="@string/bankcard_mycard"
                 android:textColor="@color/color_common_tv"
                 android:layout_marginStart="5dp"
                 android:textSize="14sp"
@@ -46,20 +46,40 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_add_card"
+        <LinearLayout
+            android:id="@+id/ll_add_card"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/bg_retc_default_bankcard"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="30dp"
+            android:background="@drawable/bg_retc_default_bankcard"
             android:gravity="center"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:text="添加银行卡"
-            />
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/ic_card_add"
+                />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:text="@string/bankcard_addcard"
+                />
+
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
 

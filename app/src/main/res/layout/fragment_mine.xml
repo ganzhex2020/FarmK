@@ -220,7 +220,7 @@
                     android:background="@drawable/bg_retc_transparent_50_c10"
                     android:padding="10dp">
 
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
@@ -230,13 +230,19 @@
                             android:id="@+id/iv_avatar"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
                             android:src="@mipmap/ic_avatar_default" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toEndOf="@+id/iv_avatar"
+                            app:layout_constraintTop_toTopOf="@+id/iv_avatar"
+                            app:layout_constraintBottom_toBottomOf="@+id/iv_avatar"
+                            >
 
                             <TextView
                                 android:id="@+id/tv_userName"
@@ -258,8 +264,18 @@
 
                         </LinearLayout>
 
+                        <ImageView
+                            android:id="@+id/iv_setting"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:src="@drawable/ic_svg_setting"
+                            app:tint="#ffffff"
+                            />
 
-                    </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -279,7 +295,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="GC"
+                                android:text="@string/mine_gc"
                                 android:textColor="@color/white"
                                 android:textSize="14sp"
                                 android:fontFamily="@font/arialbd"
@@ -306,7 +322,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="LC"
+                                android:text="@string/mine_lc"
                                 android:fontFamily="@font/arialbd"
                                 android:textColor="@color/white"
                                 android:textSize="14sp" />
@@ -332,7 +348,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Fodder"
+                                android:text="@string/mine_fodder"
                                 android:fontFamily="@font/arialbd"
                                 android:textColor="@color/white"
                                 android:textSize="14sp"/>

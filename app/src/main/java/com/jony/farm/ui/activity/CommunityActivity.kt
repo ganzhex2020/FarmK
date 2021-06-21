@@ -1,23 +1,31 @@
 package com.jony.farm.ui.activity
 
-import android.annotation.SuppressLint
-import android.content.Context
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.combodia.basemodule.base.BaseVMActivity
+import com.combodia.basemodule.ext.toast
 import com.combodia.basemodule.utils.LogUtils
+import com.combodia.httplib.config.Constant
+import com.combodia.httplib.config.Constant.KEY_USER_ID
 import com.gyf.immersionbar.ktx.immersionBar
 import com.gyf.immersionbar.ktx.statusBarHeight
 import com.jony.farm.R
 import com.jony.farm.config.Const
-import com.jony.farm.socket.WsManager
-import com.jony.farm.socket.WsStatusListener
+import com.jony.farm.model.entity.MsgBean
+import com.jony.farm.model.entity.SocketMsg
+import com.jony.farm.socket.WebSocketUtil
+import com.jony.farm.socket.WebSocketUtil.mWebSocket
+import com.jony.farm.ui.adapter.ChatAdapter
+import com.jony.farm.util.GsonHelper
+import com.jony.farm.util.bus.RxBus
+import com.jony.farm.util.bus.receiveEvent
 import com.jony.farm.viewmodel.CommunityViewModel
+import com.tencent.mmkv.MMKV
 import com.xiaojinzi.component.anno.RouterAnno
+import io.reactivex.functions.Consumer
 import kotlinx.android.synthetic.main.activity_community.*
 import kotlinx.android.synthetic.main.layout_common_header.*
-import okhttp3.*
-import okio.ByteString
+import org.json.JSONObject
 import org.koin.android.viewmodel.ext.android.getViewModel
-import kotlin.properties.Delegates
 
 /**
  *Author:ganzhe
@@ -26,11 +34,14 @@ import kotlin.properties.Delegates
  */
 @RouterAnno(host = Const.MODULE_HOST_APP, path = Const.MODULE_PATH_APP_COMMUNITYCHAT,interceptorNames = [Const.LOGININTERCEPTOR])
 class CommunityActivity:BaseVMActivity<CommunityViewModel>() {
-
-    companion object {
-        //var wsManager: WsManager? = null
-        var mWebSocket:WebSocket? = null
+    companion object{
+        val LEFT = 1 //非自己
+        val RIGHT = 2 //自己
     }
+    val userId = MMKV.defaultMMKV().decodeInt(KEY_USER_ID)
+    val chatList = mutableListOf<SocketMsg>()
+    val chatAdapter by lazy { ChatAdapter(chatList) }
+
 
 
     override fun initVM(): CommunityViewModel = getViewModel()
@@ -47,137 +58,92 @@ class CommunityActivity:BaseVMActivity<CommunityViewModel>() {
         iv_back.setOnClickListener { onBackPressed() }
         iv_title.setImageResource(R.mipmap.ic_title_communitychat)
 
-        btn_open.setOnClickListener {
-            longConnect()
+        initRecy()
+
+       /* btn_open.setOnClickListener {
+            val kv = MMKV.defaultMMKV()
+            val sessionId = kv.decodeString(Constant.KEY_SESSION_ID,"")
+            WebSocketUtil.longConnect(sessionId)
         }
         btn_send.setOnClickListener {
             if (mWebSocket !=null){
-                val isOk =  mWebSocket!!.send("我的android客户端 哈哈")
-                LogUtils.error("是否发送成功：$isOk")
+               // val isOk =  mWebSocket!!.send("我的android客户端 哈哈")
+               // LogUtils.error("是否发送成功：$isOk")
+
+
+                val isSend = WebSocketUtil.senChatMsg(24,"我的android客户端 哈哈")
+                LogUtils.error("发送是否成功:$isSend")
             }
         }
         btn_close.setOnClickListener {
             mWebSocket?.close(1000,"客户端主动关闭连接")
-        }
+        }*/
 
     }
 
-    override fun initData() {
+    fun initRecy(){
+        recy_chat.run {
+            adapter = chatAdapter
+            layoutManager = LinearLayoutManager(this@CommunityActivity)
+        }
+    }
 
+    override fun initData() {
+        val isSend = WebSocketUtil.sendMsg(2,"24_24_24")
+        LogUtils.error("进入房间:$isSend")
+
+        //接受事件
+        receiveEvent<String> {msg ->
+            //LogUtils.error(it)
+            val socketMsg = GsonHelper.convertEntity(msg,SocketMsg::class.java)
+            val msgBean = GsonHelper.convertEntity(socketMsg.msg,MsgBean::class.java)
+            socketMsg.msgBean = msgBean
+            if (socketMsg.extendData ==userId){
+                socketMsg.itemType = RIGHT
+            }else{
+                socketMsg.itemType = LEFT
+            }
+            LogUtils.error(socketMsg)
+            if (checkbox.isChecked){
+                chatList.add(socketMsg)
+                chatAdapter.notifyItemInserted(chatList.size-1)
+                recy_chat.scrollToPosition(chatList.size-1)
+            }else{
+                if (socketMsg.extendData!=0){
+                    chatList.add(socketMsg)
+                    chatAdapter.notifyItemInserted(chatList.size-1)
+                    recy_chat.scrollToPosition(chatList.size-1)
+                }
+            }
+
+        }
+//        val sub = RxBus.getInstance().toObservable().subscribe(Consumer {
+//            LogUtils.error(it)
+//        })
+
+        //发送消息
+        tv_send.setOnClickListener {
+            val msg = et_send.text.toString()
+            if (msg.isBlank()){
+                toast("请输入消息")
+                return@setOnClickListener
+            }
+            if (mWebSocket !=null){
+                val isSend = WebSocketUtil.senChatMsg(24,msg)
+                LogUtils.error("发送是否成功:$isSend")
+                if (isSend){
+                    et_send.setText("")
+                }
+            }
+        }
     }
 
     override fun startObserve() {
 
     }
 
-    private fun longConnect(){
-        val websockUrl = "ws://10.6.135.6:8070/websocket"
-        val okHttpClient = OkHttpClient().newBuilder()
-                //  .pingInterval(40, TimeUnit.SECONDS)
-                //    .connectionSpecs(Arrays.asList(ConnectionSpec.MODERN_TLS, ConnectionSpec.COMPATIBLE_TLS))
-                //  .sslSocketFactory(CertUtil.getSSlSocketFactory(), CertUtil.getX509())
-                //  .hostnameVerifier(CertUtil.getVertifer())
-                .retryOnConnectionFailure(true)
-                .build()
-        val request = Request.Builder()
-                .url(websockUrl)
-                .build()
-        mWebSocket = okHttpClient.newWebSocket(request, object:WebSocketListener(){
-            override fun onOpen(webSocket: WebSocket, response: Response) {
-                super.onOpen(webSocket, response)
-                LogUtils.error("onOpen ${response.code}")
-            }
-
-            override fun onMessage(webSocket: WebSocket, text: String) {
-                super.onMessage(webSocket, text)
-                LogUtils.error("onMessage1 $text")
-            }
-
-            override fun onMessage(webSocket: WebSocket, bytes: ByteString) {
-                super.onMessage(webSocket, bytes)
-                LogUtils.error("onMessage2 $bytes")
-            }
-
-
-            override fun onClosing(webSocket: WebSocket, code: Int, reason: String) {
-                super.onClosing(webSocket, code, reason)
-                LogUtils.error("onClosing $code $reason")
-            }
-            override fun onClosed(webSocket: WebSocket, code: Int, reason: String) {
-                super.onClosed(webSocket, code, reason)
-                LogUtils.error("onClosed $code $reason")
-            }
-
-            override fun onFailure(webSocket: WebSocket, t: Throwable, response: Response?) {
-                super.onFailure(webSocket, t, response)
-                LogUtils.error("onFailure $t $response")
-            }
-
-        })
-
+    override fun onDestroy() {
+        super.onDestroy()
+        WebSocketUtil.sendMsg(5,"")
     }
-
-
-    /*private fun longConnect(){
-        val okHttpClient = OkHttpClient().newBuilder() //  .pingInterval(40, TimeUnit.SECONDS)
-                //    .connectionSpecs(Arrays.asList(ConnectionSpec.MODERN_TLS, ConnectionSpec.COMPATIBLE_TLS))
-                //  .sslSocketFactory(CertUtil.getSSlSocketFactory(), CertUtil.getX509())
-                //  .hostnameVerifier(CertUtil.getVertifer())
-                .retryOnConnectionFailure(true)
-                .build()
-        wsManager = WsManager.Builder(this)
-                .client(okHttpClient)
-                .needReconnect(false)
-                .wsUrl("ws://10.6.135.6:8070/websocket") //    .wsUrl(SOCKET_URL)
-                .build()
-        wsManager?.setWsStatusListener(wsStatusListener)
-        wsManager?.startConnect()
-    }
-
-    private fun close(){
-        wsManager?.stopConnect()
-    }
-
-    private val wsStatusListener: WsStatusListener = object : WsStatusListener() {
-
-        override fun onOpen(response: Response?) {
-            super.onOpen(response)
-            LogUtils.error("WebSocket------onOpen")
-            tv.text = "连接打开:${response?.code}"
-        }
-
-        @SuppressLint("SetTextI18n")
-        override fun onMessage(text: String) {
-            super.onMessage(text)
-            LogUtils.error("WebSocket -- onMessage:$text")
-            tv.text = "接收的消息：$text"
-        }
-
-        override fun onMessage(bytes: ByteString?) {
-            super.onMessage(bytes)
-        }
-
-        override fun onReconnect() {
-            super.onReconnect()
-            LogUtils.error("WebSocket -- onReconnect:")
-        }
-
-        override fun onClosing(code: Int, reason: String) {
-            super.onClosing(code, reason)
-            LogUtils.error("WebSocket -- onClosing  code:" + code + "reson:" + reason)
-            tv.text = "连接关闭:$code $reason"
-        }
-
-        override fun onClosed(code: Int, reason: String) {
-            super.onClosed(code, reason)
-            LogUtils.error("WebSocket -- onClosed  code:" + code + "reson:" + reason)
-            tv.text = "连接关闭:$code $reason"
-        }
-
-        override fun onFailure(t: Throwable?, response: Response?) {
-            super.onFailure(t, response)
-            LogUtils.error("WebSocket -- onFailure:$t $response")
-            tv.text = "失败 已关闭连接"
-        }
-    }*/
 }

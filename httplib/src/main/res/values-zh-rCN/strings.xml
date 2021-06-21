@@ -1,0 +1,20 @@
+<resources>
+    <string name="exception_msg1">连接异常</string>
+    <string name="exception_msg2">网络连接错误</string>
+    <string name="exception_msg3">网络超时</string>
+    <string name="exception_msg4">资源重定向</string>
+    <string name="exception_msg5">请求语法错误</string>
+    <string name="exception_msg6">认证过期</string>
+    <string name="exception_msg7">403服务器已拒绝</string>
+    <string name="exception_msg8">404未发现资源</string>
+    <string name="exception_msg9">405异地登录</string>
+    <string name="exception_msg10">服务器内部错误</string>
+    <string name="exception_msg11">服务器不支持</string>
+    <string name="exception_msg12">网关错误</string>
+    <string name="exception_msg13">服务器超负载</string>
+    <string name="exception_msg14">网关超时</string>
+    <string name="exception_msg15">不支持协议</string>
+    <string name="exception_msg16">解析错误</string>
+    <string name="exception_msg17">ssl错误</string>
+    <string name="exception_msg18">网络错误</string>
+</resources>

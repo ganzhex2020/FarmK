@@ -10,9 +10,10 @@
     android:padding="13dp">
 
     <ImageView
+        android:id="@+id/iv_financilal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_financial_center" />
+        android:src="@drawable/ic_financial_center" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -23,14 +24,15 @@
             android:id="@+id/iv_qcdetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_qcdetail"
+            android:src="@drawable/ic_qcdetail"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
+
         <ImageView
             android:id="@+id/iv_fodderdetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_fodderdetail"
+            android:src="@drawable/ic_fodderdetail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,7 +40,7 @@
             android:id="@+id/iv_lcdetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_lcdetail"
+            android:src="@drawable/ic_lcdetail"
             app:layout_constraintStart_toEndOf="@+id/iv_qcdetail"
             app:layout_constraintEnd_toStartOf="@+id/iv_fodderdetail"
             app:layout_constraintTop_toTopOf="parent" />
@@ -48,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:src="@mipmap/ic_myanimals"
+            android:src="@drawable/ic_myanimals"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_qcdetail" />
 

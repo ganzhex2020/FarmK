@@ -4,12 +4,12 @@
 
     <item
         android:id="@+id/home"
-        android:icon="@mipmap/ic_market"
+        android:icon="@drawable/ic_market"
         android:title="1" />
 
     <item
         android:id="@+id/muchang"
-        android:icon="@mipmap/ic_farm"
+        android:icon="@drawable/ic_farm"
         android:title="2" />
     <item
         android:id="@+id/zhuanpan"
@@ -17,11 +17,11 @@
         android:title="3"/>
     <item
         android:id="@+id/siliao"
-        android:icon="@mipmap/ic_fodder"
+        android:icon="@drawable/ic_fodder"
         android:title="4" />
     <item
         android:id="@+id/mine"
-        android:icon="@mipmap/ic_mine"
+        android:icon="@drawable/ic_mine"
         android:title="5" />
 
 </menu>

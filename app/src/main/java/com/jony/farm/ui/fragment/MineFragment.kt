@@ -1,6 +1,7 @@
 package com.jony.farm.ui.fragment
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.lifecycle.lifecycleScope
 import com.combodia.basemodule.base.BaseVMFragment
 import com.combodia.basemodule.ext.visable
@@ -9,6 +10,7 @@ import com.combodia.httplib.config.Constant.KEY_LOGIN_STATE
 import com.combodia.httplib.config.Constant.KEY_USER_ID
 import com.gyf.immersionbar.ktx.statusBarHeight
 import com.jony.farm.R
+import com.jony.farm.ui.activity.LanguageActivity
 import com.jony.farm.util.MathUtil
 import com.jony.farm.util.RouteUtil
 import com.jony.farm.viewmodel.MineViewModel
@@ -93,6 +95,10 @@ class MineFragment:BaseVMFragment<MineViewModel>() {
         iv_agencyincome.setOnClickListener {
             RouteUtil.start2AgencyIncome(requireContext())
         }
+        iv_setting.setOnClickListener {
+            val intent = Intent(requireContext(), LanguageActivity::class.java)
+            requireContext().startActivity(intent)
+        }
     }
 
     /**
@@ -135,7 +141,7 @@ class MineFragment:BaseVMFragment<MineViewModel>() {
             signOutLiveData.observe(viewLifecycleOwner,{signOutState->
                 if (signOutState){
                     iv_signout.visable(false)
-                    tv_userName.text = "UnLogin"
+                    tv_userName.text = context?.getString(R.string.mine_unlogin)
                     tv_userId.text = ""
                     tv_balance.text = "0.00"
                     tv_lCoin.text = "0.00"

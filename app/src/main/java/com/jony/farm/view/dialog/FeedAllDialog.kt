@@ -75,7 +75,7 @@ class FeedAllDialog(private val viewModel: FarmViewModel, private val lifecycleO
             adapter = typeAdapter
             layoutManager = LinearLayoutManager(context)
         }
-        val list = listOf(TypeEntity("Feed All Need", true), TypeEntity("Feed Today Need", false))
+        val list = listOf(TypeEntity(context.getString(R.string.dialog_all_fodder), true), TypeEntity(context.getString(R.string.dialog_today_fodder), false))
         typeAdapter.setList(list)
 
         typeAdapter.setOnItemClickListener { _, _, position ->

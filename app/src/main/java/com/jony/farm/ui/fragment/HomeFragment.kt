@@ -1,6 +1,7 @@
 package com.jony.farm.ui.fragment
 
 import com.combodia.basemodule.base.BaseVMFragment
+import com.combodia.basemodule.utils.LogUtils
 import com.gyf.immersionbar.ktx.statusBarHeight
 import com.jony.farm.R
 import com.jony.farm.model.entity.BannerEntity
@@ -61,7 +62,7 @@ class HomeFragment :BaseVMFragment<HomeViewModel>(){
         }
         iv_service.setOnClickListener {
             if (companyEntity!=null&&companyEntity!!.serviceUrl.isNotEmpty()){
-                RouteUtil.go2WebView(requireContext(),companyEntity!!.serviceUrl,"Service")
+                RouteUtil.go2WebView(requireContext(),companyEntity!!.serviceUrl,context?.getString(R.string.kf))
             }
         }
 
@@ -79,6 +80,9 @@ class HomeFragment :BaseVMFragment<HomeViewModel>(){
         }
         rl_communitychat.setOnClickListener {
             RouteUtil.start2CommunityChat(requireContext())
+        }
+        iv_isagent.setOnClickListener {
+            mViewModel.isAgent()
         }
 
 
@@ -99,6 +103,13 @@ class HomeFragment :BaseVMFragment<HomeViewModel>(){
             })
             companyLiveData.observe(viewLifecycleOwner,{
                 companyEntity = it
+            })
+            isAgentLiveData.observe(viewLifecycleOwner,{
+                if (it){
+                    RouteUtil.start2TeamPromote(requireContext())
+                }else{
+                    RouteUtil.start2AgentArch(requireContext())
+                }
             })
         }
     }

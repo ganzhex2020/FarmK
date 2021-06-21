@@ -19,7 +19,29 @@ enum class AnimalType(val id: Int) {
     Horse(6),
     Tiger(7),
     Mouse(8)
+}
 
+enum class AnimalKindType(val id: Int,@StringRes val label: Int){
+    Hen(1,R.string.hen),
+    Rabbit(2,R.string.rabbit),
+    Sheep(3,R.string.sheep),
+    Dog(4,R.string.dog),
+    Cow(5,R.string.cow),
+    Horse(6,R.string.horse),
+    Tiger(7,R.string.tiger),
+    Mouse(8,R.string.mouse);
+
+    companion object{
+        @StringRes
+        fun getAnimalLabel(id: Int):Int{
+            AnimalKindType.values().forEach {
+                if (it.id == id){
+                    return it.label
+                }
+            }
+            return 0
+        }
+    }
 
 }
 
@@ -34,31 +56,32 @@ enum class BindCardType(val id:Int,val label:String){
     PICKPAY(5,"PICKPAY")
 }
 
-enum class TradType(val id: Int,val tradeName: String){
-    ANIMAL(1,"领养动物"),
-    DEPOSIT(2,"金币充值"),
-    PROMOTIONS(3,"彩金活动"),
-    CORRECT(4,"GC修正"),
-    COMMISSION(5,"佣金"),
-    LUCKDRAW(11,"转盘"),
-    WITHDRAW(12,"LC提现"),
-    PROFIT(13,"动物收益"),
-    CANCELWITH(14,"取消出款"),
-    CORRECTLC(15,"LC修正"),
-    SHAREFB(20,"分享FB"),
-    SHARETWITTER(21,"分享Twitter"),
-    SHAREGROUP(22,"分享Chat"),
-    FEED(23,"饲料投喂"),
-    SIGN(24,"每日签到");
+enum class TradType(val id: Int,@StringRes val tradeLabel: Int){
+    ANIMAL(1,R.string.fund_trad1),
+    DEPOSIT(2,R.string.fund_trad2),
+    PROMOTIONS(3,R.string.fund_trad3),
+    CORRECT(4,R.string.fund_trad4),
+    COMMISSION(5,R.string.fund_trad5),
+    LUCKDRAW(11,R.string.fund_trad6),
+    WITHDRAW(12,R.string.fund_trad7),
+    PROFIT(13,R.string.fund_trad8),
+    CANCELWITH(14,R.string.fund_trad9),
+    CORRECTLC(15,R.string.fund_trad10),
+    SHAREFB(20,R.string.fund_trad11),
+    SHARETWITTER(21,R.string.fund_trad12),
+    SHAREGROUP(22,R.string.fund_trad13),
+    FEED(23,R.string.fund_trad14),
+    SIGN(24,R.string.fund_trad15);
 
     companion object{
-        fun getTradeName(id: Int):String{
+
+        fun getTradLabel(id: Int):Int{
             TradType.values().forEach {
                 if (it.id == id){
-                    return it.tradeName
+                    return it.tradeLabel
                 }
             }
-            return ""
+            return 0
         }
     }
 
@@ -79,7 +102,7 @@ enum class TeamTrade(val id: Int,val tradeName: String){
 
     companion object{
         fun getTradeName(id: Int):String{
-            TradType.values().forEach {
+            TeamTrade.values().forEach {
                 if (it.id == id){
                     return it.tradeName
                 }
@@ -103,7 +126,7 @@ enum class StateTrade(val id: Int,val tradeName: String){
 
     companion object{
         fun getTradeName(id: Int):String{
-            TradType.values().forEach {
+            StateTrade.values().forEach {
                 if (it.id == id){
                     return it.tradeName
                 }
@@ -113,3 +136,4 @@ enum class StateTrade(val id: Int,val tradeName: String){
     }
 
 }
+

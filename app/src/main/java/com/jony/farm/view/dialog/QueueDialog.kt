@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Context
 import android.graphics.Paint
+import android.text.Html
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
@@ -53,8 +54,8 @@ class QueueDialog(context: Context, queuEntity: QueuEntity) :
                 ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
-        tv_count.text = queuEntity.aheadCount.toString()
-        tv_minutes.text = queuEntity.needSecondes.toString()
+        tv_count.text = Html.fromHtml(String.format(context.getString(R.string.farm_gather_ahead),queuEntity.aheadCount.toString()))//queuEntity.aheadCount.toString()
+        tv_minutes.text = Html.fromHtml(String.format(context.getString(R.string.farm_gather_minute),queuEntity.needSecondes.toString()))//queuEntity.needSecondes.toString()
 
         iv_cancle.setOnClickListener {
             dismiss()

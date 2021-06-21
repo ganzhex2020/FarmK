@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:layout_centerVertical="true"
-                android:text="UserName"
+                android:text="@string/login_username"
                 android:textSize="16sp"
                 android:fontFamily="@font/fzlty"
                 />
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:textColor="@color/white"
-                android:text="Password"
+                android:text="@string/login_password"
                 android:textSize="16sp"
                 android:fontFamily="@font/fzlty"
                 />
@@ -96,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Remember Me"
+                android:text="@string/login_rember"
                 android:textColor="@color/white"
                 android:fontFamily="@font/fzlty"
                 />
@@ -117,7 +117,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginStart="10dp"
-                android:text="New Account"
+                android:text="@string/login_register"
                 android:textColor="@color/white"
                 android:fontFamily="@font/fzlty"
                 />
@@ -137,7 +137,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginEnd="10dp"
-                android:text="Forget PWD"
+                android:text="@string/login_forget"
                 android:textColor="@color/white"
                 android:fontFamily="@font/fzlty"
                 />

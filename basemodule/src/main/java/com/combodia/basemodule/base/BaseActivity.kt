@@ -1,8 +1,10 @@
 package com.combodia.basemodule.base
 
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.combodia.basemodule.view.dialog.LoadingDialog
+import com.combodia.httplib.ext.LanguageUtil
 
 /**
  *Author:ganZhe
@@ -24,6 +26,20 @@ abstract class BaseActivity:AppCompatActivity() {
         initView()
         initData()
     }
+
+    override fun attachBaseContext(newBase: Context) {
+        //获取我们存储的语言环境 比如 "en","zh","hi",等等
+        val language: String = LanguageUtil.getDefaultLanguage()
+
+        super.attachBaseContext(LanguageUtil.attachBaseContext(newBase,language))
+
+    }
+
+    /*override fun onResume() {
+        super.onResume()
+        val language: String = LanguageUtil.getDefaultLanguage()
+        LanguageUtil.updateResources(this, language)
+    }*/
 
     abstract fun getLayoutResId(): Int
     abstract fun initView()

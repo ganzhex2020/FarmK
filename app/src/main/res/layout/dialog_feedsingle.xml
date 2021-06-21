@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@mipmap/ic_farm_feedall_tk"
+        android:background="@mipmap/ic_farm_feedsingle_tk"
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:padding="60dp"
@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:text="Inventory:"
+                android:text="@string/farm_feedall_left"
                 android:textColor="@color/color_title3"
                 />
             <ImageView
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:text="Type:"
+                android:text="@string/farm_feedall_type"
                 android:textColor="@color/color_title3"
                 />
             <LinearLayout
@@ -81,7 +81,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:text="Feed Today Need"
+                        android:text="@string/dialog_today_fodder"
                         android:gravity="center_vertical"
                         android:textColor="#d39526"
                         />
@@ -122,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:text="Need:"
+                android:text="@string/farm_feedall_need"
                 android:textColor="@color/color_title3"
                 />
             <ImageView
@@ -149,7 +149,7 @@
             android:id="@+id/iv_feednow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_feednow"
+            android:src="@mipmap/ic_feedall_now"
             android:layout_marginTop="20dp"
             />
 

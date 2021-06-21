@@ -31,7 +31,6 @@
                 android:orientation="horizontal">
 
 
-
                 <RadioButton
                     android:id="@+id/radio_btn1"
                     android:layout_width="0dp"
@@ -39,7 +38,7 @@
                     android:layout_weight="1"
                     android:button="@null"
                     android:gravity="center"
-                    android:text="Recharge(GC)"
+                    android:text="@string/fund_recharge"
                     android:checked="true"
                     android:textColor="@drawable/color_radiobutton_selector" />
 
@@ -50,7 +49,7 @@
                     android:layout_weight="1"
                     android:button="@null"
                     android:gravity="center"
-                    android:text="Withdraw(LC)"
+                    android:text="@string/fund_withdraw"
                     android:textColor="@drawable/color_radiobutton_selector" />
 
             </RadioGroup>

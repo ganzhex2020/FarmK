@@ -25,9 +25,9 @@
             android:gravity="center_vertical"
             >
             <TextView
-                android:layout_width="80dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="旧密码:"
+                android:text="@string/changepwd_oldpwd"
                 android:textColor="@color/color_title2"
                 android:textSize="14sp"
                 />
@@ -35,9 +35,10 @@
                 android:id="@+id/et1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_weight="1"
                 android:background="@null"
-                android:hint="请输入旧密码"
+                android:hint="@string/plenteroldpwd"
                 android:textColor="#ffbc9a"
                 android:textColorHint="#ffbc9a"
                 android:textSize="14sp"
@@ -63,9 +64,9 @@
             android:gravity="center_vertical"
             >
             <TextView
-                android:layout_width="80dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="新密码:"
+                android:text="@string/changepwd_newpwd"
                 android:textColor="@color/color_title2"
                 android:textSize="14sp"
                 />
@@ -73,9 +74,10 @@
                 android:id="@+id/et2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_weight="1"
                 android:background="@null"
-                android:hint="请输入新密码"
+                android:hint="@string/plenternewpwd"
                 android:textColor="#ffbc9a"
                 android:textColorHint="#ffbc9a"
                 android:textSize="14sp"
@@ -103,9 +105,9 @@
             android:gravity="center_vertical"
             >
             <TextView
-                android:layout_width="80dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="确认密码:"
+                android:text="@string/changepwd_confirm"
                 android:textColor="@color/color_title2"
                 android:textSize="14sp"
                 />
@@ -113,9 +115,10 @@
                 android:id="@+id/et3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:layout_weight="1"
                 android:background="@null"
-                android:hint="请再次确认密码"
+                android:hint="@string/plconfirmpwd"
                 android:textColor="#ffbc9a"
                 android:textColorHint="#ffbc9a"
                 android:textSize="14sp"
@@ -141,7 +144,7 @@
         android:id="@+id/iv_submit"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:src="@mipmap/ic_submit"
+        android:src="@mipmap/ic_submit_changepwd"
         android:scaleType="fitXY"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"

@@ -93,12 +93,20 @@ class RemoteDataSource(private val serviceApi: ServiceApi) {
         return serviceApi.getSystemClassify()
     }
 */
+    /**
+     * 版本检查
+     */
+    suspend fun getVersion():BaseResult<AppVersion>{
+        return serviceApi.getVersion()
+    }
 
     //获取首页banner
     private suspend fun reqBanner(appId: Int) =
             handleResponse(serviceApi.getBanner(appId))
     suspend fun getBanner(appId:Int): SealedResult<List<BannerEntity>> =
-            callRequest { reqBanner(appId) }
+            callRequest {
+                reqBanner(appId)
+            }
 
     /**
      * 动物列表
@@ -359,6 +367,13 @@ class RemoteDataSource(private val serviceApi: ServiceApi) {
      */
     suspend fun getQueue(animalId: Int):BaseResult<QueuEntity>{
         return serviceApi.getQueue(animalId)
+    }
+
+    /**
+     * 成为代理
+     */
+    suspend fun tobeAgent():BaseResult<String>{
+        return serviceApi.tobeAgent()
     }
 
 }

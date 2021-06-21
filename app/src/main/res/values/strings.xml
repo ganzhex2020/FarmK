@@ -1,19 +1,227 @@
 <resources>
     <!--<string name="app_name">FarmK</string>-->
 
-    <string name="home">市场</string>
-    <string name="muchang">牧场</string>
-    <string name="zhuanpan">转盘</string>
-    <string name="siliao">饲料</string>
-    <string name="mine">我的</string>
-    <string name="home_project">项目</string>
-    <string name="home_navigation">导航</string>
-    <string name="newest_project">最新项目</string>
-
-
+    <string name="language_setting">语言设置</string>
+    <string name="press_again_exit">Press again exit</string>
 
     <!--充值-->
     <string name="payonline">Pay Online</string>
     <string name="banktransfer">Bank Transfer</string>
+
+
+    <!--home页-->
+    <string name="block_community">Block Community</string>
+    <string name="block_news">Block News</string>
+    <string name="community_chat">Community Chat</string>
+    <string name="farm_community">Farm Community</string>
+    <string name="leaderbord">Leaderbord</string>
+    <string name="Lucky_draw">Lucky Draw</string>
+    <string name="faq">FAQ</string>
+
+    <!--market-->
+    <string name="network_hashrate">Newwork Hashrate History</string>
+    <string name="block_height">Block Height:</string>
+    <string name="comput_power">Comput Power:</string>
+    <string name="market_accounts">Accounts:</string>
+    <string name="active_miners">Active Miners:</string>
+    <string name="block_generation_time">Block Gen Time:</string>
+    <string name="block_coinbase">Block Coinbase:</string>
+
+    <string name="market_price">Price:</string>
+    <string name="market_profit">Profit:</string>
+    <string name="market_profit_content">%s %sDays(%s per day)</string>
+    <string name="market_sale">Sale:</string>
+    <string name="market_fodder">Fodder:</string>
+    <string name="market_supply">Supply:</string>
+    <string name="market_perday">%s/Day</string>
+    <string name="rush_buy">Rush Buy</string>
+    <string name="buy_success">Buy success</string>
+
+    <!--动物种类-->
+    <string name="hen">Hen</string>
+    <string name="rabbit">Rabbit</string>
+    <string name="sheep">Sheep</string>
+    <string name="dog">Dog</string>
+    <string name="cow">Cow</string>
+    <string name="horse">Horse</string>
+    <string name="tiger">Tiger</string>
+    <string name="mouse">Mouse</string>
+
+    <!--share 分享-->
+    <string name="share_to_facebook">Refer Facebook</string>
+    <string name="share_to_twitter">Refer Twitter</string>
+    <string name="share_daily_checkin">Daily Check-in</string>
+    <string name="share_to_whatsapp">Refer WhatsApp</string>
+    <string name="share_to_telegram">Refer Telegram</string>
+    <string name="share_des1">分享条件：注册会员每天可获得10次推荐分享的机会，每天零时将自动更新分享次数。</string>
+    <string name="share_des2">分享说明：会员完成分享，即可获得分享次数相应数量的“饲料”奖励，获得的奖励系统将自动派发到您的账户，可在“我的记录”里查看。</string>
+    <string name="pls_refresh">Please refresh</string>
+    <string name="share_success">Share Success</string>
+    <string name="sign_success">Sign Success</string>
+    <string name="sign_already">Sign already</string>
+    <string name="facebook_nocount">Facebook run out</string>
+    <string name="twitter_nocount">Twitter run out</string>
+    <string name="whatsapp_nocount">WhatsApp run out</string>
+    <string name="telegram_nocount">Telegram run out</string>
+
+    <!--用户个人信息userinfoActivity-->
+    <string name="userinfo_avatar">Photo:</string>
+    <string name="userinfo_name">User Name:</string>
+    <string name="userinfo_nickname">Nick Name:</string>
+    <string name="userinfo_phone">Cellphone:</string>
+    <string name="userinfo_email">Email:</string>
+    <string name="userinfo_facebook">FaceBook:</string>
+
+    <!--个人中心MineFragment-->
+    <string name="mine_unlogin">Unlogin</string>
+    <string name="mine_gc">GC</string>
+    <string name="mine_lc">LC</string>
+    <string name="mine_fodder">Fodder</string>
+
+    <!--资金明细-->
+    <string name="fund_gc">GC</string>
+    <string name="fund_lc">LC</string>
+    <string name="fund_fodder">Fodder</string>
+    <string name="fund_all">Detail</string>
+    <string name="fund_recharge">Recharge(GC)</string>
+    <string name="fund_withdraw">WithDraw(LC)</string>
+
+    <string name="fund_trad1">Adopt Animal</string>
+    <string name="fund_trad2">Deposit</string>
+    <string name="fund_trad3">Promotions</string>
+    <string name="fund_trad4">Correct</string>
+    <string name="fund_trad5">Commission</string>
+    <string name="fund_trad6">Luckdraw</string>
+    <string name="fund_trad7">Withdraw</string>
+    <string name="fund_trad8">Profit</string>
+    <string name="fund_trad9">Cancelwith</string>
+    <string name="fund_trad10">Correct LC</string>
+    <string name="fund_trad11">Share Facebook</string>
+    <string name="fund_trad12">Share Twitter</string>
+    <string name="fund_trad13">Share Group</string>
+    <string name="fund_trad14">Feed</string>
+    <string name="fund_trad15">Sign</string>
+
+    <!--购买动物历史-->
+    <string name="anihis_price">Price</string>
+    <string name="anihis_begin">Begin Time</string>
+    <string name="anihis_end">End Time</string>
+    <string name="anihis_profit">Profit:</string>
+    <string name="anihis_profitrate">Profit Rate:</string>
+    <string name="anihis_days">%s Days</string>
+
+    <string name="growing">Growing</string>
+    <string name="waitsale">WaitingSale</string>
+    <string name="profited">Profited</string>
+
+    <!--修改密码-->
+    <string name="changepwd_oldpwd">Old Password:</string>
+    <string name="changepwd_newpwd">New Password:</string>
+    <string name="changepwd_confirm">Confirm Password:</string>
+    <string name="plenteroldpwd">Please Enter Old Password</string>
+    <string name="plenternewpwd">Please Enter New Password</string>
+    <string name="plconfirmpwd">Please Confirm Password</string>
+
+    <!--银行卡列表banklistactivity-->
+    <string name="bankcard_mycard">My Cards</string>
+    <string name="bankcard_addcard">Add Card</string>
+    <string name="set_default_card">Set Default Card</string>
+
+    <!--blocknew-->
+    <string name="blocknew_detai">Detail</string>
+
+    <!--luckdraw-->
+    <string name="luckdraw_left">Free Times Todays:%s</string>
+    <string name="congratulations">Congratulations</string>
+    <string name="luckdraw_nocount">LuckDraw run out</string>
+
+    <!--teamdetailactivity-->
+    <string name="team_username">User</string>
+    <string name="team_gc">GC</string>
+    <string name="team_lc">LC</string>
+    <string name="team_subnum">Sub</string>
+    <string name="team_time">Time</string>
+    <string name="team_farm">Farm</string>
+
+    <!--LoginActivity-->
+    <string name="login_username">UserName</string>
+    <string name="login_password">Password</string>
+    <string name="login_rember">Remember Me</string>
+    <string name="login_register">New Account</string>
+    <string name="login_forget">Forget PWD</string>
+    <string name="register_confirm">Confirm</string>
+    <string name="register_invcode">Inv code</string>
+
+    <!--RechargeActivity-->
+    <string name="recharge_choose_amount">Choose Amount(GC)</string>
+    <string name="plenterrechargeamount">Please Enter Recharge Amount</string>
+
+    <!--WithDrawActivity-->
+    <string name="withdraw_choose_card">Choose Bank Card</string>
+    <string name="withdraw_enter_amount">Enter LC Amount</string>
+    <string name="withdraw_funderpwd">Fund Password</string>
+    <string name="withdraw_history">History</string>
+
+
+    <string name="unit_yuan"></string>
+    <string name="invite_expand">Expand your team!</string>
+    <string name="kf">Service</string>
+
+    <!--bankcard-->
+    <string name="pick_bankname">Bank Name</string>
+    <string name="pick_linkcode">Link Code</string>
+
+    <string name="owner">Owner</string>
+
+    <string name="toUpdate">立即升级</string>
+    <string name="imminstal">立即安装</string>
+    <string name="downloading">下载中</string>
+    <string name="download_complete">下载完成</string>
+    <string name="download_error">下载失败</string>
+
+
+    <!--FarmActivity-->
+    <string name="farm_feedall_left">Inventory:</string>
+    <string name="farm_feedall_type">Type:</string>
+    <string name="farm_feedall_need">Need:</string>
+    <string name="dialog_all_fodder">Feed All Nedd</string>
+    <string name="dialog_today_fodder">Feed Today Nedd</string>
+    <string name="farm_gather_title">Animal block settlement is queuing</string>
+    <string name="farm_gather_ahead"><Data><![CDATA[<font color="#ff5100">%s</font>ahead of you]]></Data></string>
+    <string name="farm_gather_minute"><Data><![CDATA[May take<font color="#ff5100">%s</font>minutes]]></Data></string>
+
+
+    <string name="dialog_rush_mained">Remained:</string>
+    <string name="dialog_rush_count">Count:</string>
+
+    <string name="credit_set_fund_passwd">Set fund password</string>
+    <string name="credit_pls_enter_real_name">Please enter real name</string>
+    <string name="credit_pls_enter_phone_num">Please enter phone number</string>
+    <string name="credit_pls_enter_fund_passwd">Please enter fund password</string>
+    <string name="credit_pls_confirm_fund_passwd">Please confirm fund password</string>
+    <string name="credit_submit">Submit</string>
+
+    <!--TeamPromote-->
+    <string name="teampromote_name">DEAR AGENT %s</string>
+    <string name="teampromote_tips1">1.You can now sharethe registration link to invite friends to join</string>
+    <string name="teampromote_tips2">2.You can get top-up commission from each level member of the team,the more member,the more commission</string>
+    <string name="teampromote_tips3">3.You can join the WhatsApp or Telegram group,and the professional instructor will guide you to make money quickly.We look forward to your joining</string>
+    <string name="save_success">save success</string>
+    <string name="copy_success">copy success</string>
+
+    <!--AgentArchActivity-->
+    <string name="agentarch_name">Become an agent,invite friends to frow your team and get generous commissions</string>
+    <string name="agentarch_tips1">1.Becoming an agent can get commisions from lower-level users deposits.</string>
+    <string name="agentarch_tips2">2.You can develop up level 1-level 3 and 3 downline members.</string>
+    <string name="agentarch_tips3">3.Professional team guidance,allowing you to quickly and easily develop offline and obtain generous commission income.</string>
+    <string name="agentarch_tips4">4.To become an agent,you must recharge 1,000 yuan</string>
+
+    <!--AgencyIncome-->
+    <string name="agencyincome_name">Promotional Terms &amp; Details:</string>
+    <string name="agencyincome_tips1">1.The bonus is given according to the first deposit amount of the referred member,and each referred member can only redeem once</string>
+    <string name="agencyincome_tips2">2.After receiving the bonus,the valid total bet(first time deposit amount+bonus)times 1 (minimum play through times) so that member can withdraw.</string>
+    <string name="agencyincome_tips3">3.Each member with the same IP address,e-mail address,phone number,and payment method(debit card/credit card/bank account)can only redeem the bonus once.If the member has cancel and/or forfeit the members bonus</string>
+
+
 
 </resources>

@@ -11,7 +11,7 @@
     <include layout="@layout/layout_common_header" />
 
 
-    <Button
+    <!--<Button
         android:id="@+id/btn_open"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,6 +37,83 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="O O"
-        />
+        />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="是否显示机器人:"
+                android:textColor="@color/white"
+                />
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recy_chat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_retc_chat_send"
+        android:layout_margin="10dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        >
+        <EditText
+            android:id="@+id/et_send"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="说说你的看法~"
+            android:textColorHint="#c49c84"
+            android:textColor="#bc5a37"
+            android:imeOptions="actionSend"
+            />
+
+        <TextView
+            android:id="@+id/tv_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送"
+            android:background="@drawable/bg_retc_white20"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            />
+
+
+    </LinearLayout>
+
+
+
+
+
 
 </LinearLayout>

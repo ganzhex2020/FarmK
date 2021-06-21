@@ -43,7 +43,7 @@ class BankCardListActivity :BaseVMActivity<BankCardListViewModel>(){
         iv_back.setOnClickListener { onBackPressed() }
         iv_title.setImageResource(R.mipmap.ic_title_bankcard)
 
-        tv_add_card.setOnClickListener { RouteUtil.start2BindCard(this) }
+        ll_add_card.setOnClickListener { RouteUtil.start2BindCard(this) }
 
         initRecy()
     }

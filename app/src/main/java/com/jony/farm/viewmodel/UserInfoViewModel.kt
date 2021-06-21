@@ -36,6 +36,7 @@ class UserInfoViewModel(val remoteRepo: RemoteDataSource, private val localRepo:
                 remoteRepo.getMembers()
             }
             reslut.checkSuccess {
+
                 withContext(Dispatchers.IO) {
                     localRepo.insertMember(it.copy(password = kv.decodeString(Constant.KEY_USER_PWD)))
                 }
@@ -82,6 +83,7 @@ class UserInfoViewModel(val remoteRepo: RemoteDataSource, private val localRepo:
                 data.checkSuccess { imgUrl ->
                     LogUtils.error(imgUrl)
                     toast("上传头像成功")
+                    kv.encode(Constant.KEY_USER_AVATAR,imgUrl)
                     localRepo.updateHeadImg(imgUrl,kv.decodeInt(Constant.KEY_USER_ID))
                 }
                 data.checkError { ex->

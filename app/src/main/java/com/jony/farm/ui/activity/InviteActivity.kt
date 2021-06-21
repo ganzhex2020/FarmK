@@ -62,7 +62,7 @@ class InviteActivity :BaseVMActivity<InviteViewModel>(){
         }
         ll_parent.setPadding(0, statusBarHeight, 0, 0)
         iv_back.setOnClickListener { onBackPressed() }
-        iv_title.setImageResource(R.mipmap.ic_title_animalhistory)
+        iv_title.setImageResource(R.mipmap.ic_title_invite)
         onClick()
     }
 
@@ -74,7 +74,7 @@ class InviteActivity :BaseVMActivity<InviteViewModel>(){
         iv_copy.setOnClickListener {
             val cm = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
             cm.setPrimaryClip(ClipData.newPlainText(null, linkUrl))
-            toast("copy success")
+            toast(getString(R.string.copy_success))
         }
     }
 
@@ -90,7 +90,7 @@ class InviteActivity :BaseVMActivity<InviteViewModel>(){
 
                     BitMapUtil.saveBitmap(this@InviteActivity,fileName, bitmap)
                 }
-                toast("save success")
+                toast(getString(R.string.save_success))
             }
 
         }

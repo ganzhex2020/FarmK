@@ -172,6 +172,24 @@ object RouteUtil {
     }
 
     @JvmStatic
+    fun start2TeamPromote(context: Context) {
+        Router
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_TEAMPROMOTE)
+            .forward()
+    }
+
+    @JvmStatic
+    fun start2AgentArch(context: Context) {
+        Router
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_AGENTARCH)
+            .forward()
+    }
+
+    @JvmStatic
     fun start2BlockNews(context: Context) {
         Router
             .with(context)
@@ -237,6 +255,8 @@ object RouteUtil {
             .putDouble("lc", lc)
             .forward()
     }
+
+
 
     @JvmStatic
     fun go2WebView(context: Context, url: String?, title: String?) {

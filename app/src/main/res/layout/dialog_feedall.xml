@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:text="Inventory:"
+                android:text="@string/farm_feedall_left"
                 android:textColor="@color/color_title3"
                 />
             <ImageView
@@ -56,9 +56,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:text="Type:"
+                android:text="@string/farm_feedall_type"
                 android:textColor="@color/color_title3"
                 />
             <LinearLayout
@@ -66,22 +67,25 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:orientation="vertical"
+
                 >
                 <LinearLayout
                     android:id="@+id/ll_type"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:background="@drawable/bk_yellow_c10"
-                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
+                    android:background="@drawable/bk_yellow_c10"
+                    android:orientation="horizontal"
                     android:gravity="center_vertical">
                     <TextView
                         android:id="@+id/tv_type"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Feed Today Need"
+                        android:text="@string/dialog_today_fodder"
                         android:gravity="center_vertical"
                         android:textColor="#d39526"
                         />
@@ -122,7 +126,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:text="Need:"
+                android:text="@string/farm_feedall_need"
                 android:textColor="@color/color_title3"
                 />
             <ImageView
@@ -149,7 +153,7 @@
             android:id="@+id/iv_feednow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_feednow"
+            android:src="@mipmap/ic_feedall_now"
             android:layout_marginTop="20dp"
             />
 

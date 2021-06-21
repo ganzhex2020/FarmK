@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/ic_main_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_common_header"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/bg_agentarch"
+        android:orientation="vertical"
+        android:padding="20dp"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_agentarch_notice"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:textColor="#bc5a37"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:text="@string/agentarch_name"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="#bc5a37"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:text="@string/agentarch_tips1"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="#bc5a37"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:text="@string/agentarch_tips2"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="#bc5a37"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:text="@string/agentarch_tips3"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="#bc5a37"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:text="@string/agentarch_tips4"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_goagent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_agentarch_banner"
+        android:scaleType="fitXY"
+        />
+
+
+
+
+</LinearLayout>

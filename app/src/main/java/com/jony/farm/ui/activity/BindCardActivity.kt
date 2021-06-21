@@ -51,7 +51,7 @@ class BindCardActivity : BaseVMActivity<BindCardViewModel>() {
 
     private fun initTabVp() {
 
-        titles.add(BindCardType.PICKPAY.label)
+     //   titles.add(BindCardType.PICKPAY.label)
         titles.forEach { title ->
             if (title == BindCardType.PICKPAY.label) {
                 val fragment = PickPayFragment()

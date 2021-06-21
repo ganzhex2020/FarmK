@@ -6,6 +6,7 @@ import android.widget.TextView
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.jony.farm.R
+import com.jony.farm.model.entity.AnimalKindType
 import com.jony.farm.model.entity.KindEntity
 import com.jony.farm.util.CommonUtil
 import com.jony.farm.util.MathUtil
@@ -34,12 +35,13 @@ class HomeAdapter :BaseQuickAdapter<KindEntity,BaseViewHolder>(R.layout.home_rec
         val tv_fodder = holder.getView<TextView>(R.id.tv_fodder)
         val tv_supply = holder.getView<TextView>(R.id.tv_supply)
 
-        tv_name.text = item.animalName
-        tv_price.text = "Price:${item.price}"
-        tv_profit.text = "${item.profitRate}%/${item.cycleDay}Days (${MathUtil.getTwoBigDecimal(item.profitRate*item.price/item.cycleDay)} per day)"
+        tv_name.text = context.getString(AnimalKindType.getAnimalLabel(item.animalID))//item.animalName
+        tv_price.text = "${context.getString(R.string.market_price)}${item.price}"
+        tv_profit.text = String.format(context.getString(R.string.market_profit_content),item.profitRate.toString()+"%/",item.cycleDay,
+            MathUtil.getTwoBigDecimal(item.profitRate*item.price/item.cycleDay))//"${item.profitRate}%/${item.cycleDay}Days (${MathUtil.getTwoBigDecimal(item.profitRate*item.price/item.cycleDay)} per day)"
         tv_sale.text = item.buyStartTime+"~"+item.buyEndTime
-        tv_fodder.text = item.needFodder.toString()+"/Day"
-        tv_supply.text = item.sellCount.toString()+"/Day"
+        tv_fodder.text = String.format(context.getString(R.string.market_perday),item.needFodder.toString())//item.needFodder.toString()
+        tv_supply.text = String.format(context.getString(R.string.market_perday,item.sellCount.toString()))//item.sellCount.toString()
 
         val resId = CommonUtil.getImgByAnimalId(item.animalID)
         iv_animal.setImageResource(resId)

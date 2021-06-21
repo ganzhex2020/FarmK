@@ -12,7 +12,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_security" />
+        android:src="@drawable/ic_security" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -23,14 +23,14 @@
             android:id="@+id/iv_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_password"
+            android:src="@drawable/ic_password"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <ImageView
             android:id="@+id/iv_personal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_personal"
+            android:src="@drawable/ic_personal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,7 +38,7 @@
             android:id="@+id/iv_bankcard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_bankcard"
+            android:src="@drawable/ic_bankcard"
             app:layout_constraintStart_toEndOf="@+id/iv_password"
             app:layout_constraintEnd_toStartOf="@+id/iv_personal"
             app:layout_constraintTop_toTopOf="parent" />

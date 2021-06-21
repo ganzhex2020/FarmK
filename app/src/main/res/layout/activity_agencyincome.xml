@@ -21,38 +21,39 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Promotional Teams &amp; Details:"
-            android:textSize="13sp"
+            android:text="@string/agencyincome_name"
+            android:textSize="16sp"
             android:textColor="#bc5a37"
-            android:fontFamily="@font/arialbd"
+            android:textStyle="bold"
             />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1.xxxx"
+            android:layout_marginTop="30dp"
+            android:text="@string/agencyincome_tips1"
             android:textColor="#bc5a37"
-            android:fontFamily="@font/arialbd"
-            android:textSize="10sp"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="2.xxxx"
-            android:textColor="#bc5a37"
-            android:fontFamily="@font/arialbd"
-            android:textSize="10sp"
+            android:textSize="14sp"
+            android:textStyle="bold"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="3.xxxx"
+            android:text="@string/agencyincome_tips2"
             android:textColor="#bc5a37"
-            android:fontFamily="@font/arialbd"
-            android:textSize="10sp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/agencyincome_tips3"
+            android:textColor="#bc5a37"
+            android:textSize="14sp"
+            android:textStyle="bold"
             />
 
 

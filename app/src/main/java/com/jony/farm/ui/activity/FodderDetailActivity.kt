@@ -57,7 +57,7 @@ class FodderDetailActivity:BaseVMActivity<FodderDetailViewModel>() {
         }
         ll_parent.setPadding(0, statusBarHeight, 0, 0)
         iv_back.setOnClickListener { onBackPressed() }
-        iv_title.setImageResource(R.mipmap.ic_title_foddedetails)
+        iv_title.setImageResource(R.mipmap.ic_title_fodderdetail)
 
         initRecy()
     }

@@ -9,19 +9,19 @@
     <LinearLayout
         android:id="@+id/ll_buy"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
         android:background="@mipmap/bg_rushbuy"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:paddingTop="40dp"
-        android:paddingStart="30dp"
-        android:paddingEnd="30dp"
-        android:paddingBottom="20dp"
+        android:paddingTop="80dp"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:paddingBottom="10dp"
         >
-        <LinearLayout
+       <!-- <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -41,16 +41,16 @@
                 android:textStyle="bold"
                 />
 
-        </LinearLayout>
+        </LinearLayout>-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Remained:"
+                android:text="@string/dialog_rush_mained"
                 android:textColor="@color/color_title2"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -68,14 +68,13 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_height="50dp"
             android:gravity="center_vertical"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Count:"
+                android:text="@string/dialog_rush_count"
                 android:textColor="@color/color_title2"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -112,9 +111,9 @@
 
         <ImageView
             android:id="@+id/iv_rush"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
             android:src="@mipmap/ic_rush"
             />
 

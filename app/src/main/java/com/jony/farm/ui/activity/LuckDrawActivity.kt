@@ -47,7 +47,7 @@ class LuckDrawActivity:BaseVMActivity<LuckDrawViewModel>() {
 
 
         luckView.setItems(numbers)
-        luckView.luckPanAnimEndCallBack = LuckPanAnimEndCallBack { str -> toast("恭喜你获得$str") }
+        luckView.luckPanAnimEndCallBack = LuckPanAnimEndCallBack { str -> toast("${getString(R.string.congratulations)}$str") }
 
         iv_back.setOnClickListener {
             onBackPressed()
@@ -55,11 +55,11 @@ class LuckDrawActivity:BaseVMActivity<LuckDrawViewModel>() {
 
         iv_go.setOnClickListener {
             if (shareCountEntity == null){
-                toast("请刷新")
+                toast(getString(R.string.pls_refresh))
                 return@setOnClickListener
             }
             if (shareCountEntity?.luckDraw==0){
-                toast("今日抽奖机会已用完")
+                toast(getString(R.string.luckdraw_nocount))
                 return@setOnClickListener
             }
             mViewModel.getSharefodder()
@@ -73,13 +73,13 @@ class LuckDrawActivity:BaseVMActivity<LuckDrawViewModel>() {
         mViewModel.run {
             sharecountLiveData.observe(this@LuckDrawActivity, {
                 shareCountEntity = it
-                tv_leftCount.text = "Free Times Todays:${it.luckDraw}/3"
+                tv_leftCount.text = String.format(this@LuckDrawActivity.getString(R.string.luckdraw_left),it.luckDraw.toString()+"/3")//"Free Times Todays:${it.luckDraw}/3"
             })
             sharefodderLiveData.observe(this@LuckDrawActivity, { map ->
                 val num = map["num"] as Int
                 val shaCount = map["shareCountEntity"] as ShareCountEntity
                 shareCountEntity = shaCount
-                tv_leftCount.text = "Free Times Todays:${shaCount.luckDraw}/3"
+                tv_leftCount.text = String.format(this@LuckDrawActivity.getString(R.string.luckdraw_left),shaCount.luckDraw.toString()+"/3")//"Free Times Todays:${shaCount.luckDraw}/3"
                 if (num in 1..8){
                     luckView.setLuckNumber(num-1)
                     luckView.startAnim()

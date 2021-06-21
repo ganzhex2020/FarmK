@@ -53,6 +53,9 @@ class WithDrawActivity : BaseVMActivity<WithDrawViewModel>() {
         iv_bankcard_right.setOnClickListener {
             RouteUtil.start2BankCardList(this)
         }
+        tv_withdraw_history.setOnClickListener {
+            RouteUtil.start2Fund(this,2)
+        }
     }
 
     private fun drawMoney(){

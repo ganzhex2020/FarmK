@@ -29,11 +29,11 @@ class FundDetailAdapter:BaseQuickAdapter<AccountDetailEntity,BaseViewHolder>(R.l
         val tv_money = holder.getView<TextView>(R.id.tv_money)
 
         when(tradeType){
-            1 ->{tv_type.text = "GC"}
-            2->{tv_type.text = "LC"}
-            3->{tv_type.text = "Fodder"}
+            1 ->{tv_type.text = context.getString(R.string.fund_gc)}
+            2->{tv_type.text = context.getString(R.string.fund_lc)}
+            3->{tv_type.text = context.getString(R.string.fund_fodder)}
         }
-        tv_name.text = TradType.getTradeName(item.tradeType)
+        tv_name.text = context.getString(TradType.getTradLabel(item.tradeType))
         tv_time.text = item.addTime
         tv_money.text = item.tradeAmount.toString()
     }

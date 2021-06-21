@@ -1,0 +1,25 @@
+[
+   {
+    "appid":31,
+    "urls":[
+          { 
+           "api":"api.mps12580.com",
+           "socket":"socket.mps12580.com"
+          },
+          { 
+           "api":"api.13mps14.com",
+           "socket":"socket.13mps14.com"
+          },
+          { 
+           "api":"api.mps68luck88.com",
+           "socket":"socket.mps68luck88.com"
+          },
+          { 
+           "api":"api.kst1881mps.com",
+           "socket":"socket.kst1881mps.com"
+          }
+    
+       ]
+
+   }
+  ]

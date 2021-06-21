@@ -49,7 +49,7 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:gravity="center"
-                android:hint="请输入真实姓名"
+                android:hint="@string/credit_set_fund_passwd"
                 android:singleLine="true"
                 android:textColor="#ff5a00"
                 android:textColorHint="#ff5a00"
@@ -81,7 +81,7 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:gravity="center"
-                android:hint="请输入手机号码"
+                android:hint="@string/credit_pls_enter_phone_num"
                 android:singleLine="true"
                 android:inputType="number"
                 android:textColor="#ff5a00"
@@ -114,7 +114,7 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:gravity="center"
-                android:hint="请输入资金密码"
+                android:hint="@string/credit_pls_enter_fund_passwd"
                 android:singleLine="true"
                 android:inputType="numberPassword"
                 android:textColor="#ff5a00"
@@ -147,12 +147,12 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:gravity="center"
-                android:hint="请确认资金密码"
+                android:hint="@string/credit_pls_confirm_fund_passwd"
                 android:singleLine="true"
                 android:inputType="numberPassword"
                 android:textColor="#ff5a00"
                 android:textColorHint="#ff5a00"
-                android:textSize="14sp" />
+                android:textSize="14sp"/>
 
 
         </LinearLayout>
@@ -166,11 +166,10 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/bg_gradient_credit20"
-            android:text="Submit"
+            android:text="@string/credit_submit"
             android:gravity="center"
             android:textSize="18sp"
-            android:textColor="@color/white"
-            />
+            android:textColor="@color/white"/>
 
 
     </LinearLayout>

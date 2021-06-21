@@ -21,7 +21,8 @@ interface ServiceApi {
     @GET("/banner/json")
     suspend fun getBanner(): BaseResult<List<BannerEntity>>*/
 
-
+    @GET("api/getversion")
+    suspend fun getVersion():BaseResult<AppVersion>
 
     /**
      * 注册
@@ -280,5 +281,11 @@ interface ServiceApi {
      */
     @GET("members/sharecontent")
     suspend fun getShareContent():BaseResult<ShareContentEntity>
+
+    /**
+     * 成为代理
+     */
+    @GET("members/tobeagent")
+    suspend fun tobeAgent():BaseResult<String>
 
 }

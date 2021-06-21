@@ -21,7 +21,7 @@ val commonModule = module {
 
 val viewModelModule = module {
     viewModel { MainViewModel(get()) }
-    viewModel { HomeViewModel(get()) }
+    viewModel { HomeViewModel(get(),get()) }
     viewModel { MarketViewModel(get()) }
     viewModel { LuckDrawViewModel(get()) }
     viewModel { FarmViewModel(get(),get()) }
@@ -41,18 +41,19 @@ val viewModelModule = module {
     viewModel { FundDetailViewModel(get()) }
     viewModel { TeamViewModel(get()) }
     viewModel { TeamFundViewModel(get()) }
-    viewModel { BlockNewsViewModel(get()) }
+    viewModel { BlockNewsViewModel(get())}
     viewModel { RankViewModel(get()) }
     viewModel { FAQViewModel(get()) }
     viewModel { CommunityViewModel(get()) }
     viewModel { SubFarmViewModel(get()) }
     viewModel { ChatViewModel(get()) }
+    viewModel { TeamPromoteViewModel(get(),get()) }
+    viewModel { AgentRecrViewModel(get(),get()) }
 
 }
 
 val repositoryModule = module {
     single { RemoteDataSource(get()) }
     single { LocalDataSource() }
-
 }
 val appModule = listOf(commonModule, viewModelModule, repositoryModule)

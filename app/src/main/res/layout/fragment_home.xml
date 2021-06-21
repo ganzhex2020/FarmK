@@ -79,6 +79,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <ImageView
+                    android:id="@+id/iv_isagent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/ic_home_share"
@@ -108,15 +109,15 @@
                             android:layout_height="15dp"
                             android:background="@drawable/bg_gradient_hometips"
                             />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
-                            android:text="Block Community"
+                            android:text="@string/block_community"
                             android:textColor="#bc5a37"
                             android:textSize="14sp"
-                            android:textStyle="bold"
-                            />
+                            android:textStyle="bold"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -139,7 +140,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Block News"
+                                android:text="@string/block_news"
                                 android:layout_margin="10dp"
                                 android:textColor="@color/white"
                                 android:textStyle="bold"
@@ -162,7 +163,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Community Chat"
+                                android:text="@string/community_chat"
                                 android:layout_margin="10dp"
                                 android:textColor="@color/white"
                                 android:textStyle="bold"
@@ -200,7 +201,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="5dp"
-                            android:text="Farm Community"
+                            android:text="@string/farm_community"
                             android:textColor="#bc5a37"
                             android:textSize="14sp"
                             android:textStyle="bold"
@@ -232,7 +233,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="10dp"
                                 android:layout_centerHorizontal="true"
-                                android:text="Lucky Draw"
+                                android:text="@string/Lucky_draw"
                                 android:textStyle="bold"
                                 android:textColor="@color/white"
                                 />
@@ -256,7 +257,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Leaderbord"
+                                android:text="@string/leaderbord"
                                 android:layout_marginStart="10dp"
                                 android:layout_marginTop="10dp"
                                 android:textColor="@color/white"
@@ -284,7 +285,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="FAQ"
+                                android:text="@string/faq"
                                 android:layout_marginStart="10dp"
                                 android:layout_marginTop="10dp"
                                 android:textColor="@color/white"

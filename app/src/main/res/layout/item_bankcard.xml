@@ -50,7 +50,7 @@
         android:paddingTop="3dp"
         android:paddingRight="8dp"
         android:paddingBottom="3dp"
-        android:text="设置默认卡"
+        android:text="@string/set_default_card"
         android:textColor="#FFDF04"
         android:textSize="12sp"
         />

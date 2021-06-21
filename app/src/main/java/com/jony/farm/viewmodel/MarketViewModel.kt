@@ -9,6 +9,7 @@ import com.combodia.httplib.ext.checkError
 import com.combodia.httplib.ext.checkSuccess
 import com.combodia.httplib.model.LoadState
 import com.combodia.httplib.model.LoadStateType
+import com.jony.farm.R
 import com.jony.farm.config.Const
 
 import com.jony.farm.model.entity.KindEntity
@@ -19,6 +20,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import zlc.season.claritypotion.ClarityPotion
 
 /**
  *Author:ganzhe
@@ -111,7 +113,7 @@ class MarketViewModel(private val remoteRepo: RemoteDataSource) : BaseViewModel(
                 remoteRepo.buyAnimal(animalId, count)
             }
             result.checkSuccess {
-                toast("buy success")
+                toast(ClarityPotion.clarityPotion.getString(R.string.buy_success))
                 buyStateLiveData.value = true
             }
             result.checkError {

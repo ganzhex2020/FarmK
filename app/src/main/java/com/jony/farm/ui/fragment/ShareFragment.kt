@@ -60,55 +60,55 @@ class ShareFragment : BaseVMFragment<ShareViewModel>() {
          */
         rl_facebook.setOnClickListener {
             if (shareCountEntity == null) {
-                toast("请刷新")
+                toast(requireContext().getString(R.string.pls_refresh))
                 return@setOnClickListener
             }
             if (shareCountEntity!!.fb == 0) {
-                toast("今日facebook分享次数已用完")
+                toast(requireContext().getString(R.string.facebook_nocount))
                 return@setOnClickListener
             }
             shareText(ShareSDK.getPlatform(Facebook.NAME))
         }
         rl_twitter.setOnClickListener {
             if (shareCountEntity == null) {
-                toast("请刷新")
+                toast(requireContext().getString(R.string.pls_refresh))
                 return@setOnClickListener
             }
             if (shareCountEntity!!.tiw == 0) {
-                toast("今日twitter分享次数已用完")
+                toast(requireContext().getString(R.string.twitter_nocount))
                 return@setOnClickListener
             }
             shareText(ShareSDK.getPlatform(Twitter.NAME))
         }
         rl_checkin.setOnClickListener {
             if (shareCountEntity == null) {
-                toast("请刷新")
+                toast(requireContext().getString(R.string.pls_refresh))
                 return@setOnClickListener
             }
             if (shareCountEntity!!.sign == 0) {
-                toast("今日已签到")
+                toast(requireContext().getString(R.string.sign_already))
                 return@setOnClickListener
             }
             mViewModel.getSharefodder(4)
         }
         rl_whatsapp.setOnClickListener {
             if (shareCountEntity == null) {
-                toast("请刷新")
+                toast(requireContext().getString(R.string.pls_refresh))
                 return@setOnClickListener
             }
             if (shareCountEntity!!.ctApp == 0) {
-                toast("今日WhatsApp分享次数已用完")
+                toast(requireContext().getString(R.string.whatsapp_nocount))
                 return@setOnClickListener
             }
             shareText(ShareSDK.getPlatform(WhatsApp.NAME))
         }
         rl_telegram.setOnClickListener {
             if (shareCountEntity == null) {
-                toast("请刷新")
+                toast(requireContext().getString(R.string.pls_refresh))
                 return@setOnClickListener
             }
             if (shareCountEntity!!.ctApp == 0) {
-                toast("今日Telegram分享次数已用完")
+                toast(requireContext().getString(R.string.telegram_nocount))
                 return@setOnClickListener
             }
             shareText(ShareSDK.getPlatform(WhatsApp.NAME))
@@ -136,9 +136,9 @@ class ShareFragment : BaseVMFragment<ShareViewModel>() {
                 setText(shaCount)
                 LogUtils.error("XXX:$shaCount")
                 if (shareType != 4) {
-                    toast("分享成功")
+                    toast(requireContext().getString(R.string.share_success))
                 } else {
-                    toast("签到成功")
+                    toast(requireContext().getString(R.string.sign_success))
                 }
             })
         }
@@ -203,7 +203,7 @@ class ShareFragment : BaseVMFragment<ShareViewModel>() {
         oks.callback = shareCallback
         oks.show(MobSDK.getContext())*/
         if (shareContentEntity == null){
-            toast("请刷新")
+            toast(requireContext().getString(R.string.pls_refresh))
             return
         }
 

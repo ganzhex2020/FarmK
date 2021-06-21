@@ -1,6 +1,7 @@
 package com.combodia.httplib.ext
 
 
+import com.combodia.httplib.R
 import com.combodia.httplib.config.Constant
 import com.combodia.httplib.config.Constant.HTTP_SUCCESS_CODE
 import com.combodia.httplib.model.BaseResult
@@ -11,6 +12,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.coroutineScope
 import org.json.JSONException
 import retrofit2.HttpException
+import zlc.season.claritypotion.ClarityPotion
 import java.net.ConnectException
 import java.net.SocketException
 import java.net.SocketTimeoutException
@@ -24,45 +26,45 @@ fun handleException(throwable: Throwable): ResultException {
     when (throwable) {
         is ConnectException -> {
             errorCode = StatusCode.Unknown.code
-            errorMessage = "连接异常"
+            errorMessage = ClarityPotion.clarityPotion.getString(R.string.exception_msg1)
         }
         is SocketException -> {
             errorCode = StatusCode.Unknown.code
-            errorMessage = "网络连接错误"
+            errorMessage = ClarityPotion.clarityPotion.getString(R.string.exception_msg2)
         }
         is SocketTimeoutException -> {
             errorCode = StatusCode.Unknown.code
-            errorMessage = "网络超时"
+            errorMessage = ClarityPotion.clarityPotion.getString(R.string.exception_msg3)
         }
         is HttpException -> {
             errorCode = throwable.code()
             when (throwable.code()) {
-                300, 301, 302, 303, 304, 305, 306, 307 -> errorMessage = "资源被重定向"
-                400 -> errorMessage = "请求语法错误"
-                401 -> errorMessage = "身份认证过期"
-                403 -> errorMessage = "服务器已拒绝，请先登录"
-                404 -> errorMessage = "服务器未发现资源"
-                405 -> errorMessage = "异地登录"
-                500 -> errorMessage = "服务器内部错误"
-                501 -> errorMessage = "服务器不支持"
-                502 -> errorMessage = "网关错误"
-                503 -> errorMessage = "服务器超负载"
-                504 -> errorMessage = "服务器网关超时"
-                505 -> errorMessage = "服务器不支持请求的协议"
+                300, 301, 302, 303, 304, 305, 306, 307 -> errorMessage = ClarityPotion.clarityPotion.getString(R.string.exception_msg4)
+                400 -> errorMessage = ClarityPotion.clarityPotion.getString(R.string.exception_msg5)
+                401 -> errorMessage = ClarityPotion.clarityPotion.getString(R.string.exception_msg6)
+                403 -> errorMessage = ClarityPotion.clarityPotion.getString(R.string.exception_msg7)
+                404 -> errorMessage = ClarityPotion.clarityPotion.getString(R.string.exception_msg8)
+                405 -> errorMessage = ClarityPotion.clarityPotion.getString(R.string.exception_msg9)
+                500 -> errorMessage = ClarityPotion.clarityPotion.getString(R.string.exception_msg10)
+                501 -> errorMessage = ClarityPotion.clarityPotion.getString(R.string.exception_msg11)
+                502 -> errorMessage = ClarityPotion.clarityPotion.getString(R.string.exception_msg12)
+                503 -> errorMessage = ClarityPotion.clarityPotion.getString(R.string.exception_msg13)
+                504 -> errorMessage = ClarityPotion.clarityPotion.getString(R.string.exception_msg14)
+                505 -> errorMessage = ClarityPotion.clarityPotion.getString(R.string.exception_msg15)
                 else -> throwable.message()
             }
         }
         is JSONException -> {
             errorCode = StatusCode.Unknown.code
-            errorMessage = "解析异常"
+            errorMessage = ClarityPotion.clarityPotion.getString(R.string.exception_msg16)
         }
         is SSLException -> {
             errorCode = StatusCode.Unknown.code
-            errorMessage = "数字格式化异常"
+            errorMessage = ClarityPotion.clarityPotion.getString(R.string.exception_msg17)
         }
         is UnknownHostException -> {
             errorCode = StatusCode.Unknown.code
-            errorMessage = "网络异常"
+            errorMessage = ClarityPotion.clarityPotion.getString(R.string.exception_msg18)
         }
         else -> {
             errorCode = StatusCode.Unknown.code

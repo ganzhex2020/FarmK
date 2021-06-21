@@ -40,7 +40,7 @@ class RushBuyDialog(viewModel: MarketViewModel, lifecycleOwner: LifecycleOwner, 
         window?.setContentView(view)
         window?.setGravity(Gravity.CENTER)
         window?.setLayout(
-            DeviceUtil.getScreenW(context) - DeviceUtil.dip2px(context, 80f),
+            DeviceUtil.getScreenW(context) - DeviceUtil.dip2px(context, 40f),
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
@@ -97,14 +97,13 @@ class RushBuyDialog(viewModel: MarketViewModel, lifecycleOwner: LifecycleOwner, 
                     if (mLeftCount > 0) {
                         ll_soldout.visable(false)
                         ll_buy.visable(true)
-                        tv_animalName.text = CommonUtil.getNameByAnimalId(animalId)
+                     //   tv_animalName.text = CommonUtil.getNameByAnimalId(animalId)
                         tv_leftCount.text = mLeftCount.toString()
                         leftCount = mLeftCount
                     } else {
                         ll_soldout.visable(true)
                         ll_buy.visable(false)
                     }
-
                 }
             })
             buyStateLiveData.observe(lifecycleOwner, Observer { buyState ->
