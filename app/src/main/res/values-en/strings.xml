@@ -4,6 +4,10 @@
 	<string name="language_setting">Language Setting</string>
 	<string name="press_again_exit">Press again exit</string>
 
+	<!--UpVersion-->
+	<string name="upversion_newversion">New Version</string>
+	<string name="no_presission">No Premission</string>
+
 	<string name="payonline">Pay Online</string>
 	<string name="banktransfer">Bank Transfer</string>
 
@@ -69,6 +73,10 @@
 	<string name="userinfo_phone">Cellphone:</string>
 	<string name="userinfo_email">Email:</string>
 	<string name="userinfo_facebook">FaceBook:</string>
+	<string name="userinfo_confirm">Confirm</string>
+	<string name="userinfo_cancel">Cancel</string>
+	<string name="userinfo_setnickname">Set NickName</string>
+	<string name="userinfo_setfacebook">Set FaceBook</string>
 
 	<!--个人中心MineFragment-->
 	<string name="mine_unlogin">Unlogin</string>
@@ -170,11 +178,11 @@
 
 	<string name="owner">Owner</string>
 
-	<string name="toUpdate">立即升级</string>
-	<string name="imminstal">立即安装</string>
-	<string name="downloading">下载中</string>
-	<string name="download_complete">下载完成</string>
-	<string name="download_error">下载失败</string>
+	<string name="toUpdate">Upgrade</string>
+	<string name="imminstal">Install</string>
+	<string name="downloading">Downloading</string>
+	<string name="download_complete">Download Complete</string>
+	<string name="download_error">Download Fail</string>
 
 	<!--FarmActivity-->
 	<string name="farm_feedall_left">Inventory:</string>

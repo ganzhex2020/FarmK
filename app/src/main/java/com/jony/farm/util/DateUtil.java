@@ -18,8 +18,6 @@ import java.util.GregorianCalendar;
 
 public class DateUtil{
 
-	
-
 
 	public static Date str2date(String str) throws ParseException {
 

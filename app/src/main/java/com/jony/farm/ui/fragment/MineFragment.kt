@@ -1,6 +1,7 @@
 package com.jony.farm.ui.fragment
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import androidx.lifecycle.lifecycleScope
 import com.combodia.basemodule.base.BaseVMFragment
@@ -11,8 +12,10 @@ import com.combodia.httplib.config.Constant.KEY_USER_ID
 import com.gyf.immersionbar.ktx.statusBarHeight
 import com.jony.farm.R
 import com.jony.farm.ui.activity.LanguageActivity
+import com.jony.farm.util.DeviceUtil
 import com.jony.farm.util.MathUtil
 import com.jony.farm.util.RouteUtil
+import com.jony.farm.view.pop.LanguagePop
 import com.jony.farm.viewmodel.MineViewModel
 import com.tencent.mmkv.MMKV
 import kotlinx.android.synthetic.main.fragment_mine.*
@@ -28,6 +31,8 @@ import org.koin.android.viewmodel.ext.android.getViewModel
  *描述:This is MineFragment
  */
 class MineFragment:BaseVMFragment<MineViewModel>() {
+
+    private lateinit var languagePop:LanguagePop
 
     private val kv = MMKV.defaultMMKV()
 
@@ -95,9 +100,18 @@ class MineFragment:BaseVMFragment<MineViewModel>() {
         iv_agencyincome.setOnClickListener {
             RouteUtil.start2AgencyIncome(requireContext())
         }
-        iv_setting.setOnClickListener {
+        /*iv_setting.setOnClickListener {
             val intent = Intent(requireContext(), LanguageActivity::class.java)
             requireContext().startActivity(intent)
+        }*/
+        tv_setting.setOnClickListener {
+            if (!this::languagePop.isInitialized){
+                languagePop = LanguagePop(context as Activity)
+            }
+            val setWidth = tv_setting.width
+            val xOff = setWidth - DeviceUtil.dip2px(requireContext(),100f)
+            languagePop.showAsDropDown(tv_setting,xOff,0)
+            DeviceUtil.setBackgroundAlpha(context as Activity,0.5f)
         }
     }
 

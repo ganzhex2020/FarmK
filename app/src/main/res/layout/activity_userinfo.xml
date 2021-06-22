@@ -88,6 +88,7 @@
             android:background="#ffeecb"
             />
         <LinearLayout
+            android:id="@+id/ll_nickname"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center_vertical"
@@ -181,6 +182,7 @@
             android:background="#ffeecb"
             />
         <LinearLayout
+            android:id="@+id/ll_facebook"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center_vertical"

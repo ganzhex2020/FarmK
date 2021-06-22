@@ -14,6 +14,7 @@ import com.jony.farm.config.Const.MODULE_HOST_APP
 import com.jony.farm.config.Const.MODULE_PATH_APP_USERINFO
 import com.jony.farm.util.FileUtils
 import com.jony.farm.util.GlideEngine
+import com.jony.farm.view.dialog.SetConfigDialog
 import com.jony.farm.viewmodel.UserInfoViewModel
 import com.luck.picture.lib.PictureSelector
 import com.luck.picture.lib.config.PictureConfig
@@ -57,19 +58,33 @@ class UserInfoActivity:BaseVMActivity<UserInfoViewModel>(){
         rl_head.setOnClickListener {
             uploadHead()
         }
+        ll_nickname.setOnClickListener {
+            val setConfig = SetConfigDialog(this,getString(R.string.userinfo_setnickname),tv_nickname.text.toString())
+            setConfig.setOnClickListener {
+                tv_nickname.text = it
+            }
+            setConfig.show()
+        }
+        ll_facebook.setOnClickListener {
+            val setConfig = SetConfigDialog(this,getString(R.string.userinfo_setfacebook),tv_facebook.text.toString())
+            setConfig.setOnClickListener {
+                tv_facebook.text = it
+            }
+            setConfig.show()
+        }
     }
 
     private fun updateUserInfo(){
         val email = tv_email.text.toString().trim()
         val nickName = tv_nickname.text.toString().trim()
         val tel = tv_phone.text.toString().trim()
-        val qq = tv_facebook.text.toString().trim()
+        val facebook = tv_facebook.text.toString().trim()
 
         val map = HashMap<String, Any>()
         map["email"] = email
         map["nickName"] = nickName
         map["tel"] = tel
-        map["qq"] = qq
+        map["qq"] = facebook
 
         mViewModel.updateUserInfo(map)
     }

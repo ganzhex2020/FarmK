@@ -46,8 +46,8 @@ class UpgradeVersionDialog(context: Context,activity: Activity, appVersion: AppV
         window?.setContentView(view)
         window?.setGravity(Gravity.CENTER)
         window?.setLayout(
-            DeviceUtil.getScreenW(context) - DeviceUtil.dip2px(context, 40f),
-            ViewGroup.LayoutParams.WRAP_CONTENT
+            DeviceUtil.getScreenW(context) - DeviceUtil.dip2px(context, 80f),
+            DeviceUtil.dip2px(context, 400f)
         )
 
         tvContent.text = appVersion.des
@@ -60,10 +60,9 @@ class UpgradeVersionDialog(context: Context,activity: Activity, appVersion: AppV
                     if (aBoolean) {
                         downApk(appVersion)
                     } else {
-                        toast("没有权限")
+                        toast(context.getString(R.string.no_presission))
                     }
                 }
-
         }
 
     }

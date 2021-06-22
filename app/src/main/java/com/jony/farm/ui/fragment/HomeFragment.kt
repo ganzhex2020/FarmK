@@ -1,7 +1,6 @@
 package com.jony.farm.ui.fragment
 
 import com.combodia.basemodule.base.BaseVMFragment
-import com.combodia.basemodule.utils.LogUtils
 import com.gyf.immersionbar.ktx.statusBarHeight
 import com.jony.farm.R
 import com.jony.farm.model.entity.BannerEntity
@@ -46,7 +45,12 @@ class HomeFragment :BaseVMFragment<HomeViewModel>(){
             it.finishRefresh(2000)
         }
         onClick()
+
+        tv_marquee.setText("依据赫兹接触强度计算理论，着重研究了圆柱滚子轴承内、外圈及滚动体的接触应力")
+
     }
+
+
 
     private fun onClick(){
 
@@ -112,5 +116,15 @@ class HomeFragment :BaseVMFragment<HomeViewModel>(){
                 }
             })
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        tv_marquee.startScroll()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        tv_marquee.stopScroll()
     }
 }

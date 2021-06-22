@@ -4,6 +4,10 @@
 	<string name="language_setting">语言设置</string>
 	<string name="press_again_exit">再次点击退出</string>
 
+	<!--UpVersion-->
+	<string name="upversion_newversion">发现新版本</string>
+	<string name="no_presission">没有权限</string>
+
 	<string name="payonline">在线支付</string>
 	<string name="banktransfer">银行转账</string>
 
@@ -69,6 +73,10 @@
 	<string name="userinfo_phone">电话:</string>
 	<string name="userinfo_email">邮箱:</string>
 	<string name="userinfo_facebook">FaceBook:</string>
+	<string name="userinfo_confirm">确定</string>
+	<string name="userinfo_cancel">取消</string>
+	<string name="userinfo_setnickname">设置昵称</string>
+	<string name="userinfo_setfacebook">设置Facebook</string>
 
 	<!--个人中心MineFragment-->
 	<string name="mine_unlogin">未登陆</string>
