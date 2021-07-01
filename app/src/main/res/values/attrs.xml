@@ -24,4 +24,15 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="ArcMenuView">
+        <attr name="spread_radius" format="dimension" />
+        <attr name="menu_width" format="dimension" />
+        <attr name="menu_item_width" format="dimension" />
+        <attr name="durations" format="integer"/>
+        <attr name="can_rotate" format="boolean" />
+        <attr name="menu_drawables" format="reference" />
+        <attr name="initIsopen" format="boolean"/>
+
+    </declare-styleable>
+
 </resources>

@@ -3,6 +3,7 @@
 
     <string name="language_setting">Language Setting</string>
     <string name="press_again_exit">Press again exit</string>
+    <string name="checknetwork">Please check network</string>
 
     <!--UpVersion-->
     <string name="upversion_newversion">New Version</string>
@@ -101,7 +102,7 @@
     <string name="fund_trad3">Promotions</string>
     <string name="fund_trad4">Correct</string>
     <string name="fund_trad5">Commission</string>
-    <string name="fund_trad6">Luckdraw</string>
+    <string name="fund_trad6">Agent</string>
     <string name="fund_trad7">Withdraw</string>
     <string name="fund_trad8">Profit</string>
     <string name="fund_trad9">Cancelwith</string>
@@ -111,6 +112,35 @@
     <string name="fund_trad13">Share Group</string>
     <string name="fund_trad14">Feed</string>
     <string name="fund_trad15">Sign</string>
+    <string name="fund_trad25">Correct</string>
+    <string name="fund_trad26">Luck Draw</string>
+
+    <string name="fund_item1">银行转账</string>
+    <string name="fund_item4">在线支付</string>
+    <string name="fund_item5">附言充值</string>
+    <string name="fund_item6">返点</string>
+    <string name="fund_item7">佣金</string>
+    <string name="fund_item8">在线取款</string>
+    <string name="fund_item14">人工出款</string>
+    <string name="fund_item17">活动</string>
+    <string name="fund_item19">修正</string>
+    <string name="fund_item20">多次出款费用</string>
+    <string name="fund_item26">银行卡转账</string>
+    <string name="fund_item31">日出资</string>
+    <string name="fund_item32">契约分红</string>
+    <string name="fund_item34">转账</string>
+
+    <string name="fund_state1">待处理</string>
+    <string name="fund_state2">审核中</string>
+    <string name="fund_state3">已取消</string>
+    <string name="fund_state4">已入款</string>
+    <string name="fund_state5">审核成功</string>
+    <string name="fund_state6">已出款</string>
+    <string name="fund_state7">拒绝出款</string>
+    <string name="fund_state8">取消失败</string>
+    <string name="fund_state9">未完成提交</string>
+    <string name="fund_state10">已发放</string>
+    <string name="fund_state100">出款中</string>
 
     <!--购买动物历史-->
     <string name="anihis_price">Price</string>
@@ -128,14 +158,17 @@
     <string name="changepwd_oldpwd">Old Password:</string>
     <string name="changepwd_newpwd">New Password:</string>
     <string name="changepwd_confirm">Confirm Password:</string>
+    <string name="plenterloginpwd">Please Enter Login Password</string>
     <string name="plenteroldpwd">Please Enter Old Password</string>
     <string name="plenternewpwd">Please Enter New Password</string>
     <string name="plconfirmpwd">Please Confirm Password</string>
+    <string name="pwdenternotequal">两次密码输入不一致</string>
 
     <!--银行卡列表banklistactivity-->
     <string name="bankcard_mycard">My Cards</string>
     <string name="bankcard_addcard">Add Card</string>
     <string name="set_default_card">Set Default Card</string>
+    <string name="modify">Modify</string>
 
     <!--blocknew-->
     <string name="blocknew_detai">Detail</string>
@@ -194,13 +227,13 @@
     <string name="farm_feedall_left">Inventory:</string>
     <string name="farm_feedall_type">Type:</string>
     <string name="farm_feedall_need">Need:</string>
-    <string name="dialog_all_fodder">Feed All Nedd</string>
-    <string name="dialog_today_fodder">Feed Today Nedd</string>
+    <string name="dialog_all_fodder">Feed All</string>
+    <string name="dialog_today_fodder">Feed Today</string>
     <string name="farm_gather_title">Animal block settlement is queuing</string>
     <string name="farm_gather_ahead"><Data><![CDATA[<font color="#ff5100">%s</font>ahead of you]]></Data></string>
     <string name="farm_gather_minute"><Data><![CDATA[May take<font color="#ff5100">%s</font>minutes]]></Data></string>
 
-
+    <string name="dialog_rush_name">Name:</string>
     <string name="dialog_rush_mained">Remained:</string>
     <string name="dialog_rush_count">Count:</string>
 
@@ -232,6 +265,28 @@
     <string name="agencyincome_tips2">2.After receiving the bonus,the valid total bet(first time deposit amount+bonus)times 1 (minimum play through times) so that member can withdraw.</string>
     <string name="agencyincome_tips3">3.Each member with the same IP address,e-mail address,phone number,and payment method(debit card/credit card/bank account)can only redeem the bonus once.If the member has cancel and/or forfeit the members bonus</string>
 
+    <!--BindCardActivity-->
+    <string name="mainland">MainLand</string>
+    <string name="pickpay">PickPay</string>
+    <string name="mainlan_tips1">1.请根据您在上一步中填写的真实姓名，绑定一致姓名开发的银行卡即可（务必真实）</string>
+    <string name="mainlan_tips2">2.如您在绑卡页面出现错误提示或者无法绑卡的情况，请您第一时间联系在线客服为您处理</string>
+    <string name="mainlan_tips3">3.网站支持同时绑定多张银行卡以便您的提款</string>
 
+    <!--SettingActivity-->
+    <string name="switch_language">Switch Language</string>
+    <string name="check_version">Check Version</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="setting_cancel">Cancel</string>
+    <string name="setting_confirm">Confirm</string>
+    <string name="already_new_version">Already new version</string>
+
+    <!--MsgActivity-->
+    <string name="msg_detail">Detail</string>
+    <string name="msg_read">Read</string>
+    <string name="msg_unread">Unread</string>
+
+    <!--CommunityActity-->
+    <string name="community_send">Send</string>
+    <string name="community_saysay">Say Say your xiang fa</string>
 
 </resources>

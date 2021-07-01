@@ -7,6 +7,7 @@ import com.gyf.immersionbar.ktx.immersionBar
 import com.gyf.immersionbar.ktx.statusBarHeight
 import com.jony.farm.R
 import com.jony.farm.config.Const
+import com.jony.farm.ui.adapter.FodderDetailAdapter
 import com.jony.farm.ui.adapter.FundDetailAdapter
 import com.jony.farm.viewmodel.FodderDetailViewModel
 import com.xiaojinzi.component.Component
@@ -30,17 +31,17 @@ class FodderDetailActivity:BaseVMActivity<FodderDetailViewModel>() {
 
 
 
-    @JvmField
-    @AttrValueAutowiredAnno("tradeType")
-    var tradeType: Int = 0
+//    @JvmField
+//    @AttrValueAutowiredAnno("tradeType")
+//    var tradeType: Int = 0
     private var pageIndex = 1
 
-    private val accountDetailAdapter by lazy{ FundDetailAdapter() }
+    private val fodderDetailAdapter by lazy{ FodderDetailAdapter() }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+ /*   override fun onCreate(savedInstanceState: Bundle?) {
         Component.inject(this)
         super.onCreate(savedInstanceState)
-    }
+    }*/
 
 
     override fun initVM(): FodderDetailViewModel = getViewModel()
@@ -50,7 +51,7 @@ class FodderDetailActivity:BaseVMActivity<FodderDetailViewModel>() {
 
     override fun initView() {
 
-        FundDetailAdapter.tradeType = tradeType
+        //FundDetailAdapter.tradeType = tradeType
 
         immersionBar {
             statusBarColor(R.color.transparent)
@@ -64,33 +65,33 @@ class FodderDetailActivity:BaseVMActivity<FodderDetailViewModel>() {
 
     private fun initRecy(){
         recy.run {
-            adapter = accountDetailAdapter
+            adapter = fodderDetailAdapter
             layoutManager = LinearLayoutManager(this@FodderDetailActivity)
         }
-        accountDetailAdapter.loadMoreModule.run {
+        fodderDetailAdapter.loadMoreModule.run {
             preLoadNumber = 3
             setOnLoadMoreListener{
                 pageIndex++
-                mViewModel.getFodderDetail(pageIndex,tradeType)
+                mViewModel.getFodderDetail(pageIndex)
             }
         }
     }
 
     override fun initData() {
-        mViewModel.getFodderDetail(pageIndex, tradeType)
+        mViewModel.getFodderDetail(pageIndex)
     }
 
     override fun startObserve() {
         mViewModel.accountDetailLiveData.observe(this,{
             if (pageIndex == 1){
-                accountDetailAdapter.setList(it)
+                fodderDetailAdapter.setList(it)
             }else{
-                accountDetailAdapter.addData(it)
+                fodderDetailAdapter.addData(it)
             }
-            if (it.size < 30) {
-                accountDetailAdapter.loadMoreModule.loadMoreEnd()
+            if (it.size < 15) {
+                fodderDetailAdapter.loadMoreModule.loadMoreEnd()
             } else {
-                accountDetailAdapter.loadMoreModule.loadMoreComplete()
+                fodderDetailAdapter.loadMoreModule.loadMoreComplete()
             }
         })
     }

@@ -1,9 +1,12 @@
 package com.jony.farm.model.entity
 
+import android.os.Parcel
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.tencent.mmkv.MMKV
+import kotlinx.android.parcel.Parcelize
 
 @Entity(tableName = "userEntity")
 data class UserEntity(
@@ -25,6 +28,7 @@ data class UserEntity(
     val userName: String,
     val userType: Int
 )
+
 @Entity(tableName = "memberEntity")
 data class MemberEntity(
     @PrimaryKey
@@ -70,11 +74,11 @@ data class BannerEntity(
 )
 
 data class AppVersion(
-    val versionCode:Int,
-    val versionName:String,
-    val downUrl:String,
-    val des:String,
-    val force:Boolean
+    val versionCode: Int,
+    val versionName: String,
+    val downUrl: String,
+    val des: String,
+    val force: Boolean
 )
 
 /**
@@ -108,21 +112,21 @@ SaleState
  */
 
 data class KindEntity(
-    val addTime: String="",
-    val animalID: Int=0,
-    val animalName: String="",
-    val buyEndTime: String="",
-    val buyStartTime: String="",
-    val cycleDay: Int=0,
-    val discreption: String="",
-    val needFodder: Int=0,
-    val price: Int=0,
-    val profitRate: Double=0.0,
-    val saleState: Int=0,
-    val sellCount: Int=0,
-    val sellType: Int=0,
-    val showOrder: Int=0,
-    val state: Int=0
+    val addTime: String = "",
+    val animalID: Int = 0,
+    val animalName: String = "",
+    val buyEndTime: String = "",
+    val buyStartTime: String = "",
+    val cycleDay: Int = 0,
+    val discreption: String = "",
+    val needFodder: Int = 0,
+    val price: Int = 0,
+    val profitRate: Double = 0.0,
+    val saleState: Int = 0,
+    val sellCount: Int = 0,
+    val sellType: Int = 0,
+    val showOrder: Int = 0,
+    val state: Int = 0
 )/*{
     constructor() : this("")
 }*/
@@ -163,22 +167,22 @@ OrderNumber
 订单号
  */
 data class AnimalEntity(
-        var animalID: Int = 0,
-        val animalName: String = "",
-        val buyDate: String = "",
-        val cycleDay: Int =0,
-        val feedTime: Int=0,
-        val id: Int=0,
-        var needFeedToday: Boolean=false,
-        val needFodder: Int=0,
-        val orderNumber: String="",
-        val price: Int=0,
-        val leftSeconde:Double = 0.0,
-        val profitRate: Double=0.0,
-        val state: Int=0,
-        val userID: Int=0,
-        val userName: String="",
-        var isFull:Boolean = false
+    var animalID: Int = 0,
+    val animalName: String = "",
+    val buyDate: String = "",
+    val cycleDay: Int = 0,
+    val feedTime: Int = 0,
+    val id: Int = 0,
+    var needFeedToday: Boolean = false,
+    val needFodder: Int = 0,
+    val orderNumber: String = "",
+    val price: Int = 0,
+    val leftSeconde: Double = 0.0,
+    val profitRate: Double = 0.0,
+    val state: Int = 0,
+    val userID: Int = 0,
+    val userName: String = "",
+    var isFull: Boolean = false
 )
 
 data class YueEntity(
@@ -193,8 +197,9 @@ data class YueEntity(
 data class PayTypeEntity(
     val payList: List<PayEntity> = emptyList(),
     val payType: Int = 0,
-    var isSelect:Boolean = false
+    var isSelect: Boolean = false
 )
+
 /**
  * 支付小类
  */
@@ -214,35 +219,37 @@ data class PayEntity(
     val tradeFeeRate: Int,
     val type: Int,
     val usePlatForm: Int,
-    var isSelect:Boolean = false
+    var isSelect: Boolean = false
 )
 
 
-data class AmountEntity(val amount:Int,var isSelect:Boolean)
+data class AmountEntity(val amount: Int, var isSelect: Boolean)
 
-data class OnLinePayEntity(val jumpUrl:String)
+data class OnLinePayEntity(val jumpUrl: String)
 
+@Parcelize
 data class BankCardEntity(
     val addTime: String,
     val bankAccount: String,
     val bankAddress: String,
-    val bankCode: Any,
+    val bankCode: Int = 0,
     val bankID: Int,
     val bankName: String,
     val bankNumber: String,
     val city: String,
-    val disBack: String,
-    val disLogo: String,
+    var disBack: String="",
+    var disLogo: String="",
     val id: Int,
     var isDefault: Boolean,
     val isWithdrawal: Int,
-    val path: Any,
+    var path: String = "",
     val province: String,
     val siteNumber: Int,
     val state: Int,
     val updateTime: String,
     val userName: String
-)
+):Parcelable
+
 
 /**
  *
@@ -276,30 +283,31 @@ data class AccountDetailEntity(
     val path: String,
     val tradeAmount: Double,
     val tradeType: Int,
+    val tradeItem:Int, //只有账户存取款有此字段
     val userName: String,
     val userType: Int
 )
 
 data class TeamMemberEntity(
-        val userId:Int,
-        val userName:String,
-        val memberCount:Int,
-        val balance:Double,
-        val lc:Double,
-        val layer:Int,
-        val addTime:String
+    val userId: Int,
+    val userName: String,
+    val memberCount: Int,
+    val balance: Double,
+    val lc: Double,
+    val layer: Int,
+    val addTime: String
 )
 
 data class TeamTradeEntity(
-        val id:Int,
-        val orderNumber:String,
-        val userName:String,
-        val tradeAmount:Double,
-        val tradeFee:Double,
-        val concessionsAmount:Double,
-        val tradeItem:Int,
-        val state:Int,
-        val addTime:String
+    val id: Int,
+    val orderNumber: String,
+    val userName: String,
+    val tradeAmount: Double,
+    val tradeFee: Double,
+    val concessionsAmount: Double,
+    val tradeItem: Int,
+    val state: Int,
+    val addTime: String
 )
 
 
@@ -318,6 +326,7 @@ data class RankEntity(
     val showName: String,
     val tradeAmount: Double
 )
+
 data class NewsEntity(
     val addTime: String,
     val content: String,
@@ -326,6 +335,7 @@ data class NewsEntity(
     val subTitle: String,
     val title: String
 )
+
 data class LinkEntity(
     val url: String
 )
@@ -366,18 +376,60 @@ data class SocketMsg(
     var msgBean: MsgBean,
     val msgType: Int,
     val target: Target
-):MultiItemEntity{
+) : MultiItemEntity {
     override var itemType: Int = 0
 }
+
 data class MsgBean(
-    val name:String,
-    val content:String,
-    val betTime:String,
-    val headImg:String
+    val name: String,
+    val content: String,
+    val betTime: String,
+    val headImg: String
 )
 
 data class Target(
     val stargetID: Any,
     val targetCategory: Int,
     val targetValue: Int
+)
+
+data class LuckResultEntity(
+    val date: String,
+    val drawResult: Int
+)
+
+data class AnnounceEntity(
+    val addTime: String,
+    val announceContent: String,
+    val announceName: String,
+    val announceType: Int,
+    val id: Int,
+    val siteNumber: Int,
+    val state: Int,
+    val useType: Int
+)
+@Parcelize
+data class ZnxEntity(
+    val id:Int,
+    val toUserNames:String,
+    val readUserNames:String,
+    val appID:Int,
+    val messageTitle:String,
+    val messageContent:String,
+    val type:Int,
+    var readed:Int,
+    val addTime:String
+):Parcelable
+
+data class SafeInfoEntity(
+    val isBankAccount: Int,
+    val isCredentials: Int,
+    val isEmail: Int,
+    val isSafeQuestions: Int,
+    val isTelephone: Int,
+    val isWithPwd: Int,
+    val loginPassLevel: Int,
+    val safeLevel: Int,
+    val tradePassLevel: Int,
+    val trueName: String
 )

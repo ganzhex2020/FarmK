@@ -8,11 +8,11 @@
 
     <ImageView
         android:id="@+id/iv_type"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/color_333"
         />
 
     <TextView
@@ -33,7 +33,7 @@
         app:layout_constraintStart_toEndOf="@+id/iv_type"
         app:layout_constraintTop_toBottomOf="@+id/tv_type"
         android:layout_marginStart="10dp"
-        android:text="彩票投注"
+
         android:textColor="#db9e72"
         android:textSize="12sp"
         />

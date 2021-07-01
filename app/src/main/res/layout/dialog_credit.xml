@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:text="Set fund password"
+            android:text="@string/credit_set_fund_passwd"
             android:textColor="#ff5a00"
             android:textSize="18sp"/>
 
@@ -49,7 +49,7 @@
                 android:layout_height="match_parent"
                 android:background="@null"
                 android:gravity="center"
-                android:hint="@string/credit_set_fund_passwd"
+                android:hint="@string/credit_pls_enter_real_name"
                 android:singleLine="true"
                 android:textColor="#ff5a00"
                 android:textColorHint="#ff5a00"

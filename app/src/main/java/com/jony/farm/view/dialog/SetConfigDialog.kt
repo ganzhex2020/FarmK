@@ -36,7 +36,7 @@ class SetConfigDialog(context: Context, title: String, content: String) : Dialog
                 dismiss()
             }
         }
-        btnSure.setOnClickListener {
+        btnCancel.setOnClickListener {
             dismiss()
         }
 

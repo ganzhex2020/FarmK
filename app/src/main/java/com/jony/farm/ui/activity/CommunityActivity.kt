@@ -18,6 +18,7 @@ import com.jony.farm.ui.adapter.ChatAdapter
 import com.jony.farm.util.GsonHelper
 import com.jony.farm.util.bus.RxBus
 import com.jony.farm.util.bus.receiveEvent
+import com.jony.farm.util.gone
 import com.jony.farm.viewmodel.CommunityViewModel
 import com.tencent.mmkv.MMKV
 import com.xiaojinzi.component.anno.RouterAnno
@@ -51,6 +52,9 @@ class CommunityActivity:BaseVMActivity<CommunityViewModel>() {
     override fun getLayoutResId(): Int = R.layout.activity_community
 
     override fun initView() {
+
+        ll_auto.gone()
+
         immersionBar {
             statusBarColor(R.color.transparent)
         }

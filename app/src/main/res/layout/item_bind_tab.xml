@@ -17,6 +17,7 @@
         android:textColor="@color/color_333"
         android:gravity="center"
         android:textSize="14sp"
+        android:background="@drawable/bg_retc_white20"
         />
 
 

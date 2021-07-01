@@ -27,7 +27,7 @@ class AgentRecrViewModel(private val remoteRepo: RemoteDataSource,private val lo
                         withContext(Dispatchers.IO) {
                             localRepo.insertMember(it.copy(password = kv.decodeString(Constant.KEY_USER_PWD)))
                         }
-                        toast("成为会员成功")
+                        toast("恭喜你成为会员成功")
                     }
                 }
 

@@ -40,6 +40,8 @@ import org.koin.android.viewmodel.ext.android.getViewModel
 )
 class UserInfoActivity:BaseVMActivity<UserInfoViewModel>(){
 
+    var clickable = false
+
     override fun initVM(): UserInfoViewModel = getViewModel()
 
     override fun getLayoutResId(): Int = R.layout.activity_userinfo
@@ -52,25 +54,34 @@ class UserInfoActivity:BaseVMActivity<UserInfoViewModel>(){
         iv_back.setOnClickListener { onBackPressed() }
         iv_title.setImageResource(R.mipmap.ic_title_personaldata)
 
+
         iv_submit.setOnClickListener {
-            updateUserInfo()
+          //  updateUserInfo()
+            clickable = !clickable
         }
         rl_head.setOnClickListener {
             uploadHead()
         }
         ll_nickname.setOnClickListener {
-            val setConfig = SetConfigDialog(this,getString(R.string.userinfo_setnickname),tv_nickname.text.toString())
-            setConfig.setOnClickListener {
-                tv_nickname.text = it
+            if (clickable){
+                val setConfig = SetConfigDialog(this,getString(R.string.userinfo_setnickname),tv_nickname.text.toString())
+                setConfig.setOnClickListener {
+                    tv_nickname.text = it
+                    updateUserInfo()
+                }
+                setConfig.show()
             }
-            setConfig.show()
+
         }
         ll_facebook.setOnClickListener {
-            val setConfig = SetConfigDialog(this,getString(R.string.userinfo_setfacebook),tv_facebook.text.toString())
-            setConfig.setOnClickListener {
-                tv_facebook.text = it
+            if (clickable){
+                val setConfig = SetConfigDialog(this,getString(R.string.userinfo_setfacebook),tv_facebook.text.toString())
+                setConfig.setOnClickListener {
+                    tv_facebook.text = it
+                    updateUserInfo()
+                }
+                setConfig.show()
             }
-            setConfig.show()
         }
     }
 

@@ -1,5 +1,5 @@
 package com.jony.farm.view;
 
 public interface LuckPanAnimEndCallBack {
-    void onAnimEnd(String str);
+    void onAnimEnd(int index);
 }

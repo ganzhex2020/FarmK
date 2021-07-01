@@ -17,6 +17,7 @@ public class Animal {
 
 
     public void swing(Canvas canvas, Paint paint){
+
         canvas.drawBitmap(GameConfig.animalFrame[frameIndex],locationX,locationY,paint);
         frameIndex = (++frameIndex)%3;
     }

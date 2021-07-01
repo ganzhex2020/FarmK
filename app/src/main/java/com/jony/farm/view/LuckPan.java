@@ -118,7 +118,7 @@ public class LuckPan extends View {
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
                 if(luckPanAnimEndCallBack!=null){
-                    luckPanAnimEndCallBack.onAnimEnd(mItemStrs[mLuckNum]);
+               //     luckPanAnimEndCallBack.onAnimEnd(mItemStrs[mLuckNum]);
                 }
             }
         });

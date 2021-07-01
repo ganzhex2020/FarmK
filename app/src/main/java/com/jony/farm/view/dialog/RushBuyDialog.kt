@@ -9,6 +9,7 @@ import androidx.lifecycle.*
 import com.combodia.basemodule.ext.toast
 import com.combodia.basemodule.ext.visable
 import com.jony.farm.R
+import com.jony.farm.model.entity.AnimalKindType
 import com.jony.farm.util.CommonUtil
 import com.jony.farm.util.DeviceUtil
 import com.jony.farm.viewmodel.MarketViewModel
@@ -97,7 +98,7 @@ class RushBuyDialog(viewModel: MarketViewModel, lifecycleOwner: LifecycleOwner, 
                     if (mLeftCount > 0) {
                         ll_soldout.visable(false)
                         ll_buy.visable(true)
-                     //   tv_animalName.text = CommonUtil.getNameByAnimalId(animalId)
+                        tv_animalName.text = context.getString(AnimalKindType.getAnimalLabel(animalId))//CommonUtil.getNameByAnimalId(animalId)
                         tv_leftCount.text = mLeftCount.toString()
                         leftCount = mLeftCount
                     } else {

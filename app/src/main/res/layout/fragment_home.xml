@@ -28,34 +28,50 @@
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
                     android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp" />
+                    android:layout_marginEnd="10dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:background="@drawable/bg_retc_gg_c10"
                     >
+
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/ic_svg_platnotice"
-                        app:tint="@color/white"
+                        android:src="@drawable/ic_marquee_laba"
                         />
 
-                    <com.jony.farm.view.MarqueeView
+                    <!--<com.jony.farm.view.marqueeview.MarqueeView
                         android:id="@+id/tv_marquee"
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:layout_marginStart="10dp"
+                        android:paddingTop="3dp"
                         android:layout_gravity="center_vertical"
                         app:direction="left"
                         app:isRepeat="true"
                         app:speed="20"
                         app:startPoint="end"
                         app:textSize="14sp"
-                        app:textcolor="@color/white"
+                        app:textcolor="#ff6d2a"
+                        />-->
+                    <com.jony.farm.view.marqueeview.AutoScrollTextView
+                        android:id="@+id/tv_auto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:maxLines="1"
+                        android:textSize="14sp"
                         />
 
 
@@ -239,22 +255,74 @@
                             />
                     </LinearLayout>
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            >
+
+                            <RelativeLayout
+                                android:id="@+id/rl_leaderbord"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                >
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/ic_leaderboard" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text="@string/leaderbord"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/rl_faq"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/ic_faq" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text="@string/faq"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold" />
+
+                            </RelativeLayout>
+                        </LinearLayout>
+
                         <RelativeLayout
                             android:id="@+id/rl_luckdraw"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp"
-                            android:layout_alignParentEnd="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginStart="10dp">
 
                             <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:scaleType="fitXY"
                                 android:src="@mipmap/ic_luckydraw" />
 
@@ -269,56 +337,8 @@
 
                         </RelativeLayout>
 
-                        <RelativeLayout
-                            android:id="@+id/rl_leaderbord"
-                            android:layout_width="match_parent"
-                            android:layout_height="70dp"
-                            android:layout_toStartOf="@+id/rl_luckdraw">
 
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:scaleType="fitXY"
-                                android:src="@mipmap/ic_leaderboard" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginTop="10dp"
-                                android:text="@string/leaderbord"
-                                android:textColor="@color/white"
-                                android:textStyle="bold" />
-
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:id="@+id/rl_faq"
-                            android:layout_width="match_parent"
-                            android:layout_height="70dp"
-                            android:layout_below="@+id/rl_leaderbord"
-                            android:layout_marginTop="10dp"
-                            android:layout_toStartOf="@+id/rl_luckdraw">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:scaleType="fitXY"
-                                android:src="@mipmap/ic_faq" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginTop="10dp"
-                                android:text="@string/faq"
-                                android:textColor="@color/white"
-                                android:textStyle="bold" />
-
-                        </RelativeLayout>
-
-
-                    </RelativeLayout>
+                    </LinearLayout>
 
 
                 </LinearLayout>

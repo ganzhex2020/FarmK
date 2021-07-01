@@ -35,9 +35,11 @@ class MineViewModel(val remoteRepo:RemoteDataSource,val localRepo:LocalDataSourc
             }
         }
     }
-    val signOutLiveData = MutableLiveData<Boolean>()
-   // val userInfoLiveData = localrepo.getUserInfo()
+    //val signOutLiveData = MutableLiveData<Boolean>()
+    // val userInfoLiveData = localrepo.getUserInfo()
     val memberLiveData = localRepo.getMemberLiveData()
+
+    val unReadLiveData = MutableLiveData<Double>()
 
     fun getData(){
         viewModelScope.launch {
@@ -56,19 +58,30 @@ class MineViewModel(val remoteRepo:RemoteDataSource,val localRepo:LocalDataSourc
         }
     }
 
-    fun signOut(){
+    /*fun signOut(){
         launchUI({
             val result = withContext(Dispatchers.IO){
                 remoteRepo.signOut()
             }
             result.checkSuccess {
-                /**
+                *//**
                  * 退出登录 修改缓存登录标志
-                 */
+                 *//*
                 kv.encode(KEY_LOGIN_STATE,false)
 
                 signOutLiveData.value = true
             }
         },isShowDiaLoading = true)
+    }*/
+
+    fun getMsgList(){
+        launchUI({
+            val result = withContext(Dispatchers.IO){
+                remoteRepo.getZnMsg(1,15)
+            }
+            result.checkSuccess {
+                unReadLiveData.value = result.extendData as Double
+            }
+        })
     }
 }

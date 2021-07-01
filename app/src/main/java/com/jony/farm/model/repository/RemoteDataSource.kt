@@ -108,6 +108,14 @@ class RemoteDataSource(private val serviceApi: ServiceApi) {
                 reqBanner(appId)
             }
 
+    //获取首页banner
+    private suspend fun reqAnnounce(appId: Int,pageIndex: Int) =
+        handleResponse(serviceApi.getAnnounce(appId,pageIndex))
+    suspend fun getAnnounce(appId:Int,pageIndex: Int): SealedResult<List<AnnounceEntity>> =
+        callRequest {
+            reqAnnounce(appId,pageIndex)
+        }
+
     /**
      * 动物列表
      */
@@ -221,6 +229,14 @@ class RemoteDataSource(private val serviceApi: ServiceApi) {
 
     suspend fun createBankCard(requestBody: RequestBody):BaseResult<Any>{
         return serviceApi.createBankCard(requestBody)
+    }
+
+    /**
+     * 修改银行卡
+     */
+
+    suspend fun modifyCard(requestBody: RequestBody):BaseResult<Any>{
+        return serviceApi.modifyCard(requestBody)
     }
 
     /**
@@ -374,6 +390,44 @@ class RemoteDataSource(private val serviceApi: ServiceApi) {
      */
     suspend fun tobeAgent():BaseResult<String>{
         return serviceApi.tobeAgent()
+    }
+
+    /**
+     * 轮盘历史数据
+     */
+    suspend fun getLuckREsult(pageIndex:Int):BaseResult<List<LuckResultEntity>>{
+        return serviceApi.getLuckREsult(pageIndex)
+    }
+
+    /**
+     * 站内信
+     */
+    suspend fun getZnMsg(pageIndex: Int,pageSize: Int):BaseResult<List<ZnxEntity>>{
+        return serviceApi.getZnMsg(pageIndex, pageSize)
+    }
+
+    suspend fun getSafeCheck():BaseResult<List<SafeInfoEntity>>{
+        return serviceApi.getSafeCheck()
+    }
+
+    /**
+     * 修改资金密码
+     */
+    suspend fun changeFundPwd(body: RequestBody):BaseResult<Any>{
+        return serviceApi.changgeFundPwd(body)
+    }
+    /**
+     * 设置资金密码
+     */
+    suspend fun setFundPwd(body: RequestBody):BaseResult<Any>{
+        return serviceApi.setFundPwd(body)
+    }
+
+    /**
+     * 设置未读消息
+     */
+    suspend fun setRead(id:Int):BaseResult<Any>{
+        return serviceApi.setRead(id)
     }
 
 }

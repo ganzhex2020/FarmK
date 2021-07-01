@@ -6,6 +6,7 @@ import com.jony.farm.R
 import com.jony.farm.model.entity.BannerEntity
 import com.jony.farm.model.entity.CompanyEntity
 import com.jony.farm.ui.adapter.HomeBannerAdapter
+import com.jony.farm.util.DeviceUtil
 import com.jony.farm.util.RouteUtil
 import com.jony.farm.viewmodel.HomeViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -46,10 +47,26 @@ class HomeFragment :BaseVMFragment<HomeViewModel>(){
         }
         onClick()
 
-        tv_marquee.setText("依据赫兹接触强度计算理论，着重研究了圆柱滚子轴承内、外圈及滚动体的接触应力")
+
+//        tv_marquee.setText("11111111111111122222222222222222223333333333333333 444444444444 5555555")
+//        tv_marquee.addMarqueeLifecycleObserver(viewLifecycleOwner)
+//        tv_marquee.startScroll()
+        val params = rl_luckdraw.layoutParams
+        params.width = (DeviceUtil.getScreenW(requireContext()) - DeviceUtil.dip2px(requireContext(),54f))/2
+        params.height = (DeviceUtil.getScreenW(requireContext()) - DeviceUtil.dip2px(requireContext(),54f))/2
+        rl_luckdraw.layoutParams = params
+
+        val params1 = rl_leaderbord.layoutParams
+        params1.width = (DeviceUtil.getScreenW(requireContext()) - DeviceUtil.dip2px(requireContext(),54f))/2
+        params1.height = ((DeviceUtil.getScreenW(requireContext()) - DeviceUtil.dip2px(requireContext(),54f))/2 - DeviceUtil.dip2px(requireContext(),10f))/2
+        rl_leaderbord.layoutParams = params1
+
+        val params2 = rl_faq.layoutParams
+        params2.width = (DeviceUtil.getScreenW(requireContext()) - DeviceUtil.dip2px(requireContext(),54f))/2
+        params2.height = ((DeviceUtil.getScreenW(requireContext()) - DeviceUtil.dip2px(requireContext(),54f))/2 - DeviceUtil.dip2px(requireContext(),10f))/2
+        rl_faq.layoutParams = params2
 
     }
-
 
 
     private fun onClick(){
@@ -108,6 +125,18 @@ class HomeFragment :BaseVMFragment<HomeViewModel>(){
             companyLiveData.observe(viewLifecycleOwner,{
                 companyEntity = it
             })
+            announceLiveData.observe(viewLifecycleOwner,{ list ->
+                val stringBuffer = StringBuffer()
+                list.map {
+                    if (it.announceType == 1){
+                        stringBuffer.append(it.announceContent+" ")
+                    }
+                }
+                tv_auto.text = stringBuffer.toString()
+                tv_auto.speed = 2f //滚动速度
+                tv_auto.init(350f) // width通常就是屏幕宽！
+                tv_auto.startScroll()
+            })
             isAgentLiveData.observe(viewLifecycleOwner,{
                 if (it){
                     RouteUtil.start2TeamPromote(requireContext())
@@ -115,16 +144,8 @@ class HomeFragment :BaseVMFragment<HomeViewModel>(){
                     RouteUtil.start2AgentArch(requireContext())
                 }
             })
+
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        tv_marquee.startScroll()
-    }
-
-    override fun onStop() {
-        super.onStop()
-        tv_marquee.stopScroll()
-    }
 }

@@ -28,9 +28,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="80dp"
             android:textColor="#bc5a37"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             android:text="@string/agentarch_name"
             />
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textColor="#bc5a37"
-            android:textSize="13sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:text="@string/agentarch_tips1"
             />
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textColor="#bc5a37"
-            android:textSize="13sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:text="@string/agentarch_tips2"
             />
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textColor="#bc5a37"
-            android:textSize="13sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:text="@string/agentarch_tips3"
             />
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:textColor="#bc5a37"
-            android:textSize="13sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:text="@string/agentarch_tips4"
             />
@@ -81,7 +81,6 @@
         android:src="@mipmap/ic_agentarch_banner"
         android:scaleType="fitXY"
         />
-
 
 
 

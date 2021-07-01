@@ -3,6 +3,8 @@ package com.jony.farm.util
 import android.content.Context
 import android.content.Intent
 import com.jony.farm.config.Const
+import com.jony.farm.model.entity.BankCardEntity
+import com.jony.farm.model.entity.ZnxEntity
 
 import com.jony.farm.ui.activity.FarmActivity
 import com.jony.farm.ui.activity.LoginActivity
@@ -106,11 +108,28 @@ object RouteUtil {
     }
 
     @JvmStatic
+    fun start2Sms(context: Context) {
+        Router
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_SMS)
+            .forward()
+    }
+
+    @JvmStatic
     fun start2ChangePwd(context: Context) {
         Router
             .with(context)
             .host(Const.MODULE_HOST_APP)
             .path(Const.MODULE_PATH_APP_CHANGEPWD)
+            .forward()
+    }
+    @JvmStatic
+    fun start2FundPwd(context: Context) {
+        Router
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_FUNDPWD)
             .forward()
     }
 
@@ -124,12 +143,21 @@ object RouteUtil {
     }
 
     @JvmStatic
-    fun start2Fund(context: Context, tradeType: Int) {
+    fun start2GcDetail(context: Context) {
         Router
             .with(context)
             .host(Const.MODULE_HOST_APP)
-            .path(Const.MODULE_PATH_APP_FUNDDETAIL)
-            .putInt("tradeType", tradeType)
+            .path(Const.MODULE_PATH_APP_GCDETAIL)
+          //  .putInt("tradeType", tradeType)
+            .forward()
+    }
+    @JvmStatic
+    fun start2LcDetail(context: Context) {
+        Router
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_LCDETAIL)
+            //  .putInt("tradeType", tradeType)
             .forward()
     }
 
@@ -245,6 +273,15 @@ object RouteUtil {
     }
 
     @JvmStatic
+    fun start2Setting(context: Context) {
+        Router
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_SETTING)
+            .forward()
+    }
+
+    @JvmStatic
     fun start2SubFarm(context: Context, userId: Int, balance: Double, lc: Double) {
         Router
             .with(context)
@@ -255,6 +292,36 @@ object RouteUtil {
             .putDouble("lc", lc)
             .forward()
     }
+
+    @JvmStatic
+    fun start2ModifyCard(context: Context,bankCardEntity: BankCardEntity) {
+        if (bankCardEntity.path.isNullOrEmpty()){
+            bankCardEntity.path = ""
+        }
+        if (bankCardEntity.disBack.isNullOrEmpty()){
+            bankCardEntity.disBack = ""
+        }
+        if (bankCardEntity.disLogo.isNullOrEmpty()){
+            bankCardEntity.disLogo = ""
+        }
+        Router
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_MODIFYBANKCARD)
+            .putParcelable("bankCard",bankCardEntity)
+            .forward()
+    }
+
+    @JvmStatic
+    fun start2MsgDetail(context: Context,znx: ZnxEntity) {
+        Router
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_MSGDETAIL)
+            .putParcelable("znx",znx)
+            .forward()
+    }
+
 
 
 

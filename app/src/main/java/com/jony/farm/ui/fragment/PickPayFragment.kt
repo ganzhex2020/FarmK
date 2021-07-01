@@ -3,8 +3,11 @@ package com.jony.farm.ui.fragment
 import android.text.TextUtils
 import com.combodia.basemodule.base.BaseVMFragment
 import com.combodia.basemodule.ext.toast
+import com.combodia.basemodule.utils.LogUtils
+import com.combodia.httplib.config.Constant
 import com.jony.farm.R
 import com.jony.farm.viewmodel.BindCardViewModel
+import com.tencent.mmkv.MMKV
 import kotlinx.android.synthetic.main.fragment_pickpay.*
 import org.koin.android.viewmodel.ext.android.getSharedViewModel
 
@@ -62,6 +65,11 @@ class PickPayFragment:BaseVMFragment<BindCardViewModel>() {
 
 
     override fun startObserve() {
-
+        mViewModel.memberLiveData.observe(viewLifecycleOwner,{ list ->
+            list.filter { it.userID == MMKV.defaultMMKV().decodeInt(Constant.KEY_USER_ID) }
+                .map {
+                    LogUtils.error("MainLand:owner")
+                }
+        })
     }
 }

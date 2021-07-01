@@ -3,6 +3,7 @@
 
 	<string name="language_setting">语言设置</string>
 	<string name="press_again_exit">再次点击退出</string>
+	<string name="checknetwork">请检查网络</string>
 
 	<!--UpVersion-->
 	<string name="upversion_newversion">发现新版本</string>
@@ -39,8 +40,8 @@
 	<string name="rush_buy">领养</string>
 	<string name="buy_success">购买成功</string>
 	<string name="pls_refresh">请刷新</string>
-	<string name="share_success">分享成功</string>
-	<string name="sign_success">签到成功</string>
+	<string name="share_success">分享成功，所得饲料即到你的账户</string>
+	<string name="sign_success">签到成功，所得饲料即到你的账户</string>
 	<string name="sign_already">今日已签到</string>
 	<string name="facebook_nocount">今日Facebook次数已用完</string>
 	<string name="twitter_nocount">今日Twitter次数已用完</string>
@@ -60,7 +61,7 @@
 	<!--share 分享-->
 	<string name="share_to_facebook">分享Facebook</string>
 	<string name="share_to_twitter">分享Twitter</string>
-	<string name="share_daily_checkin">每日签到</string>
+	<string name="share_daily_checkin">立刻签到</string>
 	<string name="share_to_whatsapp">分享WhatsApp</string>
 	<string name="share_to_telegram">分享Telegram</string>
 	<string name="share_des1">分享条件：注册会员每天可获得10次推荐分享的机会，每天零时将自动更新分享次数。</string>
@@ -81,7 +82,7 @@
 	<!--个人中心MineFragment-->
 	<string name="mine_unlogin">未登陆</string>
 	<string name="mine_gc">金币余额</string>
-	<string name="mine_lc">卢比余额</string>
+	<string name="mine_lc">LC余额</string>
 	<string name="mine_fodder">饲料余额</string>
 
 	<!--资金明细-->
@@ -97,7 +98,7 @@
 	<string name="fund_trad3">彩金活动</string>
 	<string name="fund_trad4">修正</string>
 	<string name="fund_trad5">佣金</string>
-	<string name="fund_trad6">转盘</string>
+	<string name="fund_trad6">代理招募</string>
 	<string name="fund_trad7">LC提现</string>
 	<string name="fund_trad8">动物收益</string>
 	<string name="fund_trad9">取消出款</string>
@@ -107,6 +108,35 @@
 	<string name="fund_trad13">分享聊天组</string>
 	<string name="fund_trad14">饲料喂养</string>
 	<string name="fund_trad15">每日签到</string>
+	<string name="fund_trad25">饲料修正</string>
+	<string name="fund_trad26">幸运轮盘</string>
+
+	<string name="fund_item1">银行转账</string>
+	<string name="fund_item4">在线支付</string>
+	<string name="fund_item5">附言充值</string>
+	<string name="fund_item6">返点</string>
+	<string name="fund_item7">佣金</string>
+	<string name="fund_item8">在线取款</string>
+	<string name="fund_item14">人工出款</string>
+	<string name="fund_item17">活动</string>
+	<string name="fund_item19">修正</string>
+	<string name="fund_item20">多次出款费用</string>
+	<string name="fund_item26">银行卡转账</string>
+	<string name="fund_item31">日出资</string>
+	<string name="fund_item32">契约分红</string>
+	<string name="fund_item34">转账</string>
+
+	<string name="fund_state1">待处理</string>
+	<string name="fund_state2">审核中</string>
+	<string name="fund_state3">已取消</string>
+	<string name="fund_state4">已入款</string>
+	<string name="fund_state5">审核成功</string>
+	<string name="fund_state6">已出款</string>
+	<string name="fund_state7">拒绝出款</string>
+	<string name="fund_state8">取消失败</string>
+	<string name="fund_state9">未完成提交</string>
+	<string name="fund_state10">已发放</string>
+	<string name="fund_state100">出款中</string>
 
 	<!--购买动物历史-->
 	<string name="anihis_price">价格</string>
@@ -124,14 +154,17 @@
 	<string name="changepwd_oldpwd">旧密码:</string>
 	<string name="changepwd_newpwd">新密码:</string>
 	<string name="changepwd_confirm">确认密码:</string>
+	<string name="plenterloginpwd">请输入登录密码</string>
 	<string name="plenteroldpwd">请输入旧密码</string>
 	<string name="plenternewpwd">请输入新密码</string>
 	<string name="plconfirmpwd">请确认密码</string>
+	<string name="pwdenternotequal">两次密码输入不一致</string>
 
 	<!--银行卡列表banklistactivity-->
 	<string name="bankcard_mycard">我的卡</string>
 	<string name="bankcard_addcard">添加银行卡</string>
 	<string name="set_default_card">设置默认卡</string>
+	<string name="modify">修改</string>
 
 	<!--blocknew-->
 	<string name="blocknew_detai">查看更多</string>
@@ -190,13 +223,13 @@
 	<string name="farm_feedall_type">喂养类型:</string>
 	<string name="farm_feedall_need">所需饲料:</string>
 
-	<string name="dialog_all_fodder">所有的饲料</string>
-	<string name="dialog_today_fodder">今天所需要的饲料</string>
+	<string name="dialog_all_fodder">喂养所有</string>
+	<string name="dialog_today_fodder">喂养今天</string>
 	<string name="farm_gather_title">动物区块结算排队中</string>
 	<string name="farm_gather_ahead"><Data><![CDATA[您前面还有<font color="#ff5100">%s</font>位]]></Data></string>
 	<string name="farm_gather_minute"><Data><![CDATA[大概需要<font color="#ff5100">%s</font>分钟]]></Data></string>
 
-
+	<string name="dialog_rush_name">动物名:</string>
 	<string name="dialog_rush_mained">剩余:</string>
 	<string name="dialog_rush_count">数量:</string>
 
@@ -227,5 +260,30 @@
 	<string name="agencyincome_tips1">1.The bonus is given according to the first deposit amount of the referred member,and each referred member can only redeem once</string>
 	<string name="agencyincome_tips2">2.After receiving the bonus,the valid total bet(first time deposit amount+bonus)times 1 (minimum play through times) so that member can withdraw.</string>
 	<string name="agencyincome_tips3">3.Each member with the same IP address,e-mail address,phone number,and payment method(debit card/credit card/bank account)can only redeem the bonus once.If the member has cancel and/or forfeit the members bonus</string>
+
+
+	<!--BindCardActivity-->
+	<string name="mainland">大陆</string>
+	<string name="pickpay">PickPay</string>
+	<string name="mainlan_tips1">1.请根据您在上一步中填写的真实姓名，绑定一致姓名开发的银行卡即可（务必真实）</string>
+	<string name="mainlan_tips2">2.如您在绑卡页面出现错误提示或者无法绑卡的情况，请您第一时间联系在线客服为您处理</string>
+	<string name="mainlan_tips3">3.网站支持同时绑定多张银行卡以便您的提款</string>
+
+	<!--SettingActivity-->
+	<string name="switch_language">切换语言</string>
+	<string name="check_version">检查版本</string>
+	<string name="sign_out">退出系统</string>
+	<string name="setting_cancel">取消</string>
+	<string name="setting_confirm">确定</string>
+	<string name="already_new_version">已是最新版本</string>
+
+	<!--MsgActivity-->
+	<string name="msg_detail">详情</string>
+	<string name="msg_read">已读</string>
+	<string name="msg_unread">未读</string>
+
+	<!--CommunityActity-->
+	<string name="community_send">发送</string>
+	<string name="community_saysay">说说你的看法</string>
 
 </resources>

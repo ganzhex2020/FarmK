@@ -94,7 +94,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
-                        <com.jony.farm.view.LuckDrawView
+                        <com.jony.farm.view.LuckView
                             android:id="@+id/luckView"
                             android:layout_width="200dp"
                             android:layout_height="200dp"
@@ -148,6 +148,7 @@
 
 
                 <ImageView
+                    android:id="@+id/iv_record"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -166,22 +167,52 @@
                         android:layout_marginStart="15dp"
                         android:src="@mipmap/ic_drawrule" />
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="20dp"
-                        android:background="@drawable/bg_retc_transparent_50_c10"
-                        android:paddingStart="10dp"
-                        android:paddingTop="30dp"
-                        android:paddingEnd="10dp"
-                        android:text="1.当XXXX元，即可获得一次抽奖机会\n
-2.相同IP只有一个账号可以参与活动\n
-3.xXXXXx\n
-4.XXXX
-"
-                        android:textColor="#895733" />
+                        android:layout_marginBottom="10dp"
+                        android:padding="10dp"
+                        android:background="@drawable/bg_retc_bg_luck_des"
+                        android:orientation="vertical"
+                        >
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="抽奖条件:"
+                            android:textSize="15sp"
+                            android:textColor="#ff0d0d"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="注册会员每天可获得3次免费抽奖机会，每天零时将自动更新抽奖次数。"
+                            android:textSize="15sp"
+                            android:textColor="#895733"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="抽奖条件:"
+                            android:textSize="15sp"
+                            android:textColor="#ff0d0d"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:text="会员获得的奖品，系统系统将自动派发到您的账户，可在'我的记录'里查看；所获得的奖品不可以进行交易或者赠予。"
+                            android:textSize="15sp"
+                            android:textColor="#895733"
+                            />
+
+
+                    </LinearLayout>
+
 
 
                 </LinearLayout>

@@ -1,9 +1,11 @@
 package com.jony.farm.ui.activity
 
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.combodia.basemodule.base.BaseVMActivity
 import com.combodia.basemodule.ext.toast
+import com.combodia.basemodule.utils.LogUtils
 import com.gyf.immersionbar.ktx.immersionBar
 import com.gyf.immersionbar.ktx.statusBarHeight
 import com.jony.farm.R
@@ -11,6 +13,7 @@ import com.jony.farm.config.Const
 import com.jony.farm.ui.adapter.BankCardListAdapter
 import com.jony.farm.util.DeviceUtil
 import com.jony.farm.util.RouteUtil
+import com.jony.farm.view.GamItemTouchCallback
 import com.jony.farm.view.VerticalDecoration
 import com.jony.farm.viewmodel.BankCardListViewModel
 import com.xiaojinzi.component.anno.RouterAnno
@@ -31,10 +34,11 @@ class BankCardListActivity :BaseVMActivity<BankCardListViewModel>(){
     override fun initVM(): BankCardListViewModel = getViewModel()
 
 
-
     override fun getLayoutResId(): Int = R.layout.activity_bankcardlist
 
     override fun initView() {
+
+
 
         immersionBar {
             statusBarColor(R.color.transparent)
@@ -49,24 +53,44 @@ class BankCardListActivity :BaseVMActivity<BankCardListViewModel>(){
     }
 
     private fun initRecy(){
+
+
         recy_bankcard.run {
             adapter = bankCardListAdapter
             layoutManager = LinearLayoutManager(this@BankCardListActivity)
         }
         val mDivider = ContextCompat.getDrawable(this, R.color.transparent)
         recy_bankcard.addItemDecoration(VerticalDecoration(this, mDivider, DeviceUtil.dip2px(this, 10f)))
-        bankCardListAdapter.addChildClickViewIds(R.id.tv_set_default)
+        val callback = GamItemTouchCallback(bankCardListAdapter,DeviceUtil.dip2px(this,60f))
+        val itemTouchHelper = ItemTouchHelper(callback)
+        itemTouchHelper.attachToRecyclerView(recy_bankcard)
+        bankCardListAdapter.addChildClickViewIds(R.id.tv_bank_modify)
         bankCardListAdapter.setOnItemChildClickListener { _, view, position ->
-            if (view.id == R.id.tv_set_default){
+            /*if (view.id == R.id.tv_set_default){
                 val map = HashMap<String,Any>()
                 map["isDefault"] = 1
                 map["bankID"] = bankCardListAdapter.data[position].bankID
                 mViewModel.setDefaultCard(position,map)
+            }*/
+            if (view.id == R.id.tv_bank_modify){
+                LogUtils.info("修改银行卡 $position")
+                val holder = recy_bankcard.findViewHolderForAdapterPosition(position)
+                holder?.itemView?.scrollTo(0, 0)
+                RouteUtil.start2ModifyCard(this,bankCardListAdapter.data[position])
             }
         }
+
+
+
+
     }
 
     override fun initData() {
+
+    }
+
+    override fun onResume() {
+        super.onResume()
         mViewModel.getBankCardList()
     }
 
@@ -84,7 +108,6 @@ class BankCardListActivity :BaseVMActivity<BankCardListViewModel>(){
                     bankCardListAdapter.data[position].isDefault = true
                     bankCardListAdapter.notifyDataSetChanged()
                 }
-
             })
         }
     }

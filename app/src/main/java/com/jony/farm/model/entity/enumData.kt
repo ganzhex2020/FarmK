@@ -52,8 +52,9 @@ enum class PayType(val id:Int,@StringRes val label:Int){
 
 }
 
-enum class BindCardType(val id:Int,val label:String){
-    PICKPAY(5,"PICKPAY")
+enum class BindCardType(val id:Int,@StringRes val label:Int){
+    MAINLAND(2,R.string.mainland),
+    PICKPAY(5,R.string.pickpay)
 }
 
 enum class TradType(val id: Int,@StringRes val tradeLabel: Int){
@@ -62,7 +63,7 @@ enum class TradType(val id: Int,@StringRes val tradeLabel: Int){
     PROMOTIONS(3,R.string.fund_trad3),
     CORRECT(4,R.string.fund_trad4),
     COMMISSION(5,R.string.fund_trad5),
-    LUCKDRAW(11,R.string.fund_trad6),
+    AGENT(6,R.string.fund_trad6),
     WITHDRAW(12,R.string.fund_trad7),
     PROFIT(13,R.string.fund_trad8),
     CANCELWITH(14,R.string.fund_trad9),
@@ -71,7 +72,10 @@ enum class TradType(val id: Int,@StringRes val tradeLabel: Int){
     SHARETWITTER(21,R.string.fund_trad12),
     SHAREGROUP(22,R.string.fund_trad13),
     FEED(23,R.string.fund_trad14),
-    SIGN(24,R.string.fund_trad15);
+    SIGN(24,R.string.fund_trad15),
+    SLXZ(25,R.string.fund_trad25),
+    LUCKDRAW(26,R.string.fund_trad26);
+
 
     companion object{
 
@@ -84,8 +88,67 @@ enum class TradType(val id: Int,@StringRes val tradeLabel: Int){
             return 0
         }
     }
-
 }
+
+enum class TradItem(val id: Int,@StringRes val tradeLabel: Int){
+    ITEM1(1,R.string.fund_item1),
+    ITEM4(4,R.string.fund_item4),
+    ITEM5(5,R.string.fund_item5),
+    ITEM6(6,R.string.fund_item6),
+    ITEM7(7,R.string.fund_item7),
+    ITEM8(8,R.string.fund_item8),
+    ITEM14(14,R.string.fund_item14),
+    ITEM17(17,R.string.fund_item17),
+    ITEM19(19,R.string.fund_item19),
+    ITEM20(20,R.string.fund_item20),
+    ITEM26(26,R.string.fund_item26),
+    ITEM31(31,R.string.fund_item31),
+    ITEM32(32,R.string.fund_item32),
+    ITEM34(34,R.string.fund_item34);
+
+
+    companion object{
+
+        fun getTradItemLabel(id: Int):Int{
+            TradItem.values().forEach {
+                if (it.id == id){
+                    return it.tradeLabel
+                }
+            }
+            return 0
+        }
+    }
+}
+
+enum class TradState(val id: Int,@StringRes val tradeLabel: Int){
+    STATE1(1,R.string.fund_state1),
+    STATE2(2,R.string.fund_state2),
+    STATE3(3,R.string.fund_state3),
+    STATE4(4,R.string.fund_state4),
+    STATE5(5,R.string.fund_state5),
+    STATE6(6,R.string.fund_state6),
+    STATE7(7,R.string.fund_state7),
+    STATE8(8,R.string.fund_state8),
+    STATE9(9,R.string.fund_state9),
+    STATE10(10,R.string.fund_state10),
+    STATE100(100,R.string.fund_state100);
+
+
+    companion object{
+
+        fun getTradStateLabel(id: Int):Int{
+            TradState.values().forEach {
+                if (it.id == id){
+                    return it.tradeLabel
+                }
+            }
+            return 0
+        }
+    }
+}
+
+
+
 
 enum class TeamTrade(val id: Int,val tradeName: String){
     RG(1,"人工存入"),

@@ -9,6 +9,7 @@ import com.combodia.httplib.config.Constant
 import com.combodia.httplib.ext.checkError
 import com.combodia.httplib.ext.checkSuccess
 import com.jony.farm.config.Const
+import com.jony.farm.model.entity.AnnounceEntity
 import com.jony.farm.model.entity.BannerEntity
 import com.jony.farm.model.entity.CompanyEntity
 import com.jony.farm.model.repository.LocalDataSource
@@ -27,6 +28,7 @@ import kotlinx.coroutines.withContext
 class HomeViewModel(private val remoteRepo: RemoteDataSource,private val localRepo:LocalDataSource):BaseViewModel() {
 
     val bannerLiveData = MutableLiveData<List<BannerEntity>>()
+    val announceLiveData = MutableLiveData<List<AnnounceEntity>>()
     val companyLiveData = MutableLiveData<CompanyEntity>()
     val isAgentLiveData = MutableLiveData<Boolean>()
 
@@ -40,6 +42,10 @@ class HomeViewModel(private val remoteRepo: RemoteDataSource,private val localRe
                 remoteRepo.getCompany(Const.APP_ID)
             }
 
+            val announce = async(Dispatchers.IO){
+                remoteRepo.getAnnounce(Const.APP_ID,1)
+            }
+
             banners.await().checkSuccess {
                 bannerLiveData.value = it
             }
@@ -51,6 +57,12 @@ class HomeViewModel(private val remoteRepo: RemoteDataSource,private val localRe
                 companyLiveData.value = it
             }
             company.await().checkError {
+                toast(it.errorMsg)
+            }
+            announce.await().checkSuccess {
+                announceLiveData.value = it
+            }
+            announce.await().checkError {
                 toast(it.errorMsg)
             }
 

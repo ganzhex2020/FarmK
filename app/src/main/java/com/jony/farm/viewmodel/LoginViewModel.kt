@@ -76,7 +76,8 @@ class LoginViewModel(private val remoteRepo: RemoteDataSource,private val localR
             }
 
             result.checkError {
-                LogUtils.error(it.errorMsg)
+                //LogUtils.error(it.errorMsg)
+                toast(it.errorMsg)
             }
         }, isShowDiaLoading = true)
     }

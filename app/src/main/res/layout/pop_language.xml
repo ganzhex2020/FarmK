@@ -2,26 +2,58 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="100dp"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_retc_recharge1"
+    android:background="@drawable/ic_bg_language"
     android:orientation="vertical"
+    android:paddingTop="20dp"
+    android:paddingBottom="10dp"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
     >
 
-    <TextView
-        android:id="@+id/tv_chinese"
+    <LinearLayout
+        android:id="@+id/ll_chinese"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:text="中文"
-        android:textColor="@color/color_title2"
-        android:gravity="center"
-        />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_language_chinese"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="中文"
+            android:layout_marginStart="10dp"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            />
 
-    <TextView
-        android:id="@+id/tv_english"
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_english"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:text="EN"
-        android:textColor="@color/color_title2"
-        android:gravity="center"
-        />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        >
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_language_english"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="English"
+            android:layout_marginStart="10dp"
+            android:textSize="14sp"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
 
 </LinearLayout>

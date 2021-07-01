@@ -20,10 +20,10 @@ class FodderDetailViewModel(val remoteRepo: RemoteDataSource):BaseViewModel()  {
 
     val accountDetailLiveData = MutableLiveData<List<AccountDetailEntity>>()
 
-    fun getFodderDetail(pageIndex:Int,tradeType:Int){
+    fun getFodderDetail(pageIndex:Int){
         launchUI({
             val map = HashMap<String,Int>()
-            map["tradeType"] = tradeType
+            map["tradeType"] = 3
             val body = MapUtils.map2JsonRequestBody(map)
 
             val result = withContext(Dispatchers.IO) {

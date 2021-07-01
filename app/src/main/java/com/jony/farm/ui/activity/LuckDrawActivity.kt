@@ -8,15 +8,12 @@ import com.jony.farm.R
 import com.jony.farm.config.Const
 import com.jony.farm.model.entity.ShareCountEntity
 import com.jony.farm.view.LuckPanAnimEndCallBack
+import com.jony.farm.view.dialog.LuckResultDialog
+import com.jony.farm.view.dialog.LuckTipDialog
 import com.jony.farm.viewmodel.LuckDrawViewModel
 import com.xiaojinzi.component.anno.RouterAnno
 import kotlinx.android.synthetic.main.activity_luckdraw.*
-import kotlinx.android.synthetic.main.fragment_luckdraw.*
-import kotlinx.android.synthetic.main.fragment_luckdraw.iv_go
-import kotlinx.android.synthetic.main.fragment_luckdraw.ll_parent
-import kotlinx.android.synthetic.main.fragment_luckdraw.luckView
-import kotlinx.android.synthetic.main.fragment_luckdraw.refreshLayout
-import kotlinx.android.synthetic.main.fragment_luckdraw.tv_leftCount
+
 import org.koin.android.viewmodel.ext.android.getViewModel
 
 /**
@@ -27,7 +24,16 @@ import org.koin.android.viewmodel.ext.android.getViewModel
 @RouterAnno(host = Const.MODULE_HOST_APP, path = Const.MODULE_PATH_APP_LUCKDRAW,interceptorNames = [Const.LOGININTERCEPTOR])
 class LuckDrawActivity:BaseVMActivity<LuckDrawViewModel>() {
 
-    private val numbers = arrayOf("10$", "11$", "12$", "13$", "14$", "15$", "16$", "17$")
+    //private val numbers = arrayOf("10$", "11$", "12$", "13$", "14$", "15$", "16$", "17$")
+
+
+
+    enum class BackState{
+        OUT,
+        WZJ,
+        ZJ
+    }
+
     var shareCountEntity: ShareCountEntity?=null
 
     override fun initVM(): LuckDrawViewModel = getViewModel()
@@ -46,8 +52,19 @@ class LuckDrawActivity:BaseVMActivity<LuckDrawViewModel>() {
         }
 
 
-        luckView.setItems(numbers)
-        luckView.luckPanAnimEndCallBack = LuckPanAnimEndCallBack { str -> toast("${getString(R.string.congratulations)}$str") }
+      //  luckView.setItems(numbers)
+        luckView.luckPanAnimEndCallBack = LuckPanAnimEndCallBack { index ->
+            when(index){
+                0 ->{
+                    val luckTipDialog = LuckTipDialog(this,"很遗憾未中奖!","",BackState.WZJ)
+                    luckTipDialog.show()
+                }
+                else ->{
+                    val luckTipDialog = LuckTipDialog(this,"恭喜您!","抽奖奖励",BackState.ZJ)
+                    luckTipDialog.show()
+                }
+            }
+        }
 
         iv_back.setOnClickListener {
             onBackPressed()
@@ -59,10 +76,19 @@ class LuckDrawActivity:BaseVMActivity<LuckDrawViewModel>() {
                 return@setOnClickListener
             }
             if (shareCountEntity?.luckDraw==0){
-                toast(getString(R.string.luckdraw_nocount))
+                //toast(getString(R.string.luckdraw_nocount))
+                val luckTipDialog = LuckTipDialog(this,"今日抽奖次数已用完!","明日再来噢!",BackState.OUT)
+                luckTipDialog.show()
                 return@setOnClickListener
             }
             mViewModel.getSharefodder()
+
+        }
+
+        iv_record.setOnClickListener {
+            mViewModel.getLuckResult(1)
+            val recordDialog = LuckResultDialog(this,mViewModel,this)
+            recordDialog.show()
         }
     }
 
@@ -82,10 +108,11 @@ class LuckDrawActivity:BaseVMActivity<LuckDrawViewModel>() {
                 tv_leftCount.text = String.format(this@LuckDrawActivity.getString(R.string.luckdraw_left),shaCount.luckDraw.toString()+"/3")//"Free Times Todays:${shaCount.luckDraw}/3"
                 if (num in 1..8){
                     luckView.setLuckNumber(num-1)
-                    luckView.startAnim()
+                    luckView.startGo()
                 }
 
             })
+
         }
     }
 }

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="12dp"
+    android:background="@drawable/bg_retc_recharge1"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            >
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="15dp"
+                android:background="@drawable/bg_gradient_hometips"
+                android:layout_centerVertical="true"
+                />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="新游戏上线"
+                android:layout_marginStart="10dp"
+                android:textStyle="bold"
+                android:textColor="#bc5a37"
+                android:textSize="16sp"
+                android:layout_centerVertical="true"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical|right"
+            >
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="更新时间:0000-00-00"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:textColor="#bc5a37"
+                />
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_retc_blocknews_xu_c10"
+        />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:textColor="#bc5a37"
+        android:maxLines="1"
+        android:ellipsize="end"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.combodia.basemodule.view.roundview.RoundTextView
+            android:id="@+id/tv_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/msg_detail"
+            android:textColor="@color/white"
+            app:rv_backgroundColor="#fdb301"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:textSize="14sp"
+            app:rv_cornerRadius="5dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_read"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="@string/msg_read"
+            android:textSize="14sp"
+            />
+
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>

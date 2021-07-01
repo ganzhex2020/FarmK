@@ -16,6 +16,7 @@ import com.jony.farm.R;
 import com.jony.farm.model.entity.AnimalEntity;
 import com.jony.farm.util.DateUtil;
 
+import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -33,7 +34,6 @@ public class FilAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     private Context mContext;
     private List<AnimalEntity> mList;
-
 
     public FilAdapter(Context mContext, List<AnimalEntity> mList) {
         this.mContext = mContext;
@@ -67,9 +67,12 @@ public class FilAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         try {
             long time = DateUtil.str2date(animalEntity.getBuyDate()).getTime();
           //  tv_fil.setText("FIL:"+time);
-            long hour = ((System.currentTimeMillis() - DateUtil.str2date(animalEntity.getBuyDate()).getTime())/1000*60*60/100000);
-            tv_filtib.setText(hour+" FIL/Tib");
-            LogUtils.error("time:"+time+" hour:"+hour);
+            long hour = ((System.currentTimeMillis() - DateUtil.str2date(animalEntity.getBuyDate()).getTime())/1000/60/60);
+            BigDecimal a = new BigDecimal(hour);
+            BigDecimal b = new BigDecimal(10000);
+            BigDecimal c=a.divide(b);
+            tv_filtib.setText(c+" FIL/Tib");
+            LogUtils.error("time:"+time+" hour:"+c);
 
             Flowable.intervalRange(0,time,0,1, TimeUnit.MILLISECONDS)
                     .observeOn(AndroidSchedulers.mainThread())

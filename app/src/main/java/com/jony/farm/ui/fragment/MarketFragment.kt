@@ -6,10 +6,8 @@ import com.combodia.basemodule.base.BaseVMFragment
 import com.combodia.basemodule.utils.LogUtils
 import com.jony.farm.R
 import com.jony.farm.model.entity.BannerEntity
-import com.jony.farm.ui.adapter.HomeAdapter
-import com.jony.farm.ui.adapter.HomeBannerAdapter
+import com.jony.farm.ui.adapter.MarketAdapter
 import com.jony.farm.util.DeviceUtil
-import com.jony.farm.util.RouteUtil
 import com.jony.farm.view.GridSpaceItemDecoration
 import com.jony.farm.view.dialog.RushBuyDialog
 import com.jony.farm.viewmodel.MarketViewModel
@@ -27,7 +25,7 @@ class MarketFragment :BaseVMFragment<MarketViewModel>() {
     private val bannerList by lazy { mutableListOf<BannerEntity>() }
  //   private val bannerAdapter by lazy { HomeBannerAdapter(bannerList) }
 
-    private val homeAdapter by lazy { HomeAdapter() }
+    private val marketAdapter by lazy { MarketAdapter() }
     private var rushBuyDialog :RushBuyDialog? = null
 
 
@@ -50,20 +48,20 @@ class MarketFragment :BaseVMFragment<MarketViewModel>() {
 
         home_recy.run {
             layoutManager = GridLayoutManager(context, 2)
-            adapter = homeAdapter
+            adapter = marketAdapter
         }
         val gridSpaceItemDecoration = GridSpaceItemDecoration(DeviceUtil.dip2px(requireContext(), 10f), DeviceUtil.dip2px(requireContext(), 0f))
         home_recy.addItemDecoration(gridSpaceItemDecoration)
-        homeAdapter.addChildClickViewIds(R.id.tv_rushbuy)
+        marketAdapter.addChildClickViewIds(R.id.tv_rushbuy)
 
-        homeAdapter.setOnItemClickListener { _, _, position ->
-            LogUtils.error(homeAdapter.data[position])
+        marketAdapter.setOnItemClickListener { _, _, position ->
+            LogUtils.error(marketAdapter.data[position])
        //     RouteUtil.start2Farm(home_recy.context,position)
         //    ShareUtil.shareText()
          }
-        homeAdapter.setOnItemChildClickListener { _, view, position ->
+        marketAdapter.setOnItemChildClickListener { _, view, position ->
             if (view.id == R.id.tv_rushbuy){
-                mViewModel.getAnimalLeft(homeAdapter.getItem(position).animalID)
+                mViewModel.getAnimalLeft(marketAdapter.getItem(position).animalID)
             }
         }
 
@@ -96,7 +94,7 @@ class MarketFragment :BaseVMFragment<MarketViewModel>() {
                  bannerAdapter.notifyDataSetChanged()
             })*/
             animalLiveData.observe(viewLifecycleOwner, {
-                homeAdapter.setList(it)
+                marketAdapter.setList(it)
             })
             animalLeftLiveData.observe(viewLifecycleOwner,{
                 it?.let {

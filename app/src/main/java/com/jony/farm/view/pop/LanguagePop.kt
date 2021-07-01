@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Build
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.TextView
 import com.combodia.httplib.config.Constant
@@ -33,14 +34,14 @@ class LanguagePop(activity:Activity): PopupWindow() {
             DeviceUtil.setBackgroundAlpha(activity,1f)
         }
 
-        val tv_chinese = view.findViewById<TextView>(R.id.tv_chinese)
-        val tv_english = view.findViewById<TextView>(R.id.tv_english)
+        val ll_chinese = view.findViewById<LinearLayout>(R.id.ll_chinese)
+        val ll_english = view.findViewById<LinearLayout>(R.id.ll_english)
 
-        tv_chinese.setOnClickListener {
+        ll_chinese.setOnClickListener {
             changeLanguage(activity, LanguageType.CHINESE.language)
             dismiss()
         }
-        tv_english.setOnClickListener {
+        ll_english.setOnClickListener {
             changeLanguage(activity, LanguageType.ENGLISH.language)
             dismiss()
         }

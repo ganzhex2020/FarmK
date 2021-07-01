@@ -4,6 +4,7 @@ package com.jony.farm
 import com.jony.farm.util.DateUtil
 import org.junit.Assert.*
 import org.junit.Test
+import java.math.BigDecimal
 import java.util.*
 
 /**
@@ -15,6 +16,10 @@ class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
+        val a = BigDecimal(1180)
+        val b = BigDecimal(10000)
+        val c: BigDecimal = a.divide(b)
+        println(c)
     }
 
     @Test

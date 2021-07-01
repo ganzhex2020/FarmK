@@ -21,6 +21,7 @@ object Const {
    val IMAGE_URL = BuildConfig.IMAGE_URL
    val SOCKET_URL = BuildConfig.SOCKET_URL
    ////
+   val TOTALAMOUNT = 25
 
 
    //=======================app=============
@@ -33,7 +34,8 @@ object Const {
    const val MODULE_PATH_APP_BINDCARD = "bindcard"
    const val MODULE_PATH_APP_ANIMALHISTORY = "animalhistory"
    const val MODULE_PATH_APP_FODDERDETAIL = "fodderdetail"
-   const val MODULE_PATH_APP_FUNDDETAIL = "funddetail"
+   const val MODULE_PATH_APP_GCDETAIL = "gcdetail"
+   const val MODULE_PATH_APP_LCDETAIL = "lcdetail"
    const val MODULE_PATH_APP_CHANGEPWD = "changepwd"
    const val MODULE_PATH_APP_INVITE = "invite"
    const val MODULE_PATH_APP_TEAMMEMBER = "teammember"
@@ -50,6 +52,11 @@ object Const {
    const val MODULE_PATH_APP_LANGUAGE = "chat"
    const val MODULE_PATH_APP_TEAMPROMOTE = "teampromote"
    const val MODULE_PATH_APP_AGENTARCH = "agentarch"
+   const val MODULE_PATH_APP_MODIFYBANKCARD = "modifybankcard"
+   const val MODULE_PATH_APP_SMS = "sms"
+   const val MODULE_PATH_APP_FUNDPWD = "fundpwd"
+   const val MODULE_PATH_APP_SETTING = "setting"
+   const val MODULE_PATH_APP_MSGDETAIL = "msgdetail"
 
 
    ////==========================Interceptor============

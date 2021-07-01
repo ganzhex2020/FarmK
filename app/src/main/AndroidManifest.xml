@@ -17,7 +17,7 @@
         >
         <meta-data
             android:name="android.max_aspect"
-            android:value="2.4" />
+            android:value="2.4"/>
 
         <provider
             android:name=".util.ApkFileProvider"
@@ -50,7 +50,8 @@
         <activity android:name=".ui.activity.FodderDetailActivity"/>
         <activity android:name=".ui.activity.ChangePwdActivity"/>
         <activity android:name=".ui.activity.InviteActivity"/>
-        <activity android:name=".ui.activity.FundDetailActivity"/>
+        <activity android:name=".ui.activity.GcDetailActivity"/>
+        <activity android:name=".ui.activity.LcDetailActivity"/>
         <activity android:name=".ui.activity.TeamActivity"/>
         <activity android:name=".ui.activity.TeamFundActivity"/>
         <activity android:name=".ui.activity.AgencyIncomeActivity"/>
@@ -60,13 +61,18 @@
         <activity android:name=".ui.activity.RankActivity"/>
         <activity android:name=".ui.activity.FAQActivity"/>
         <activity android:name=".ui.activity.LuckDrawActivity"/>
-        <activity android:name=".ui.activity.CommunityActivity"/>
+        <activity android:name=".ui.activity.CommunityActivity" android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".ui.activity.SubFarmActivity"/>
         <activity android:name=".ui.activity.WebViewActivity"/>
         <activity android:name=".ui.activity.ChatActivity"/>
         <activity android:name=".ui.activity.LanguageActivity"/>
         <activity android:name=".ui.activity.TeamPromoteActivity"/>
         <activity android:name=".ui.activity.AgentRecrActivity"/>
+        <activity android:name=".ui.activity.ModifyBankCardActivity"/>
+        <activity android:name=".ui.activity.SmsActivity"/>
+        <activity android:name=".ui.activity.FundPwdActivity"/>
+        <activity android:name=".ui.activity.SettingActivity"/>
+        <activity android:name=".ui.activity.MsgDetailActivity"/>
 
     </application>
 

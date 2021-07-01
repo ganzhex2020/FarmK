@@ -10,6 +10,7 @@ import com.combodia.httplib.ext.checkError
 import com.combodia.httplib.ext.checkSuccess
 import com.combodia.httplib.model.LoadState
 import com.combodia.httplib.model.LoadStateType
+import com.jony.farm.config.Const.TOTALAMOUNT
 import com.jony.farm.model.entity.AnimalEntity
 import com.jony.farm.model.entity.KindEntity
 import com.jony.farm.model.entity.QueuEntity
@@ -37,7 +38,7 @@ class FarmViewModel(private val remoteRepo: RemoteDataSource, private val localR
     val gatherLiveData = MutableLiveData<List<AnimalEntity>>()
     val queueLiveData = MutableLiveData<QueuEntity>()
 
-    val TOTALAMOUNT = 25
+
 
     val memberLiveData = localRepo.getMemberLiveData()
 

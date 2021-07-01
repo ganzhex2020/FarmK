@@ -55,7 +55,17 @@ class UserInfoViewModel(val remoteRepo: RemoteDataSource, private val localRepo:
                 remoteRepo.updateUserInfo(body)
             }
             result.checkSuccess {
-                toast("success")
+                toast("更新个人信息成功")
+
+                val member = withContext(Dispatchers.IO) {
+                    remoteRepo.getMembers()
+                }
+                member.checkSuccess {
+
+                    withContext(Dispatchers.IO) {
+                        localRepo.insertMember(it.copy(password = kv.decodeString(Constant.KEY_USER_PWD)))
+                    }
+                }
             }
             result.checkError {
                 toast(it.errorMsg)

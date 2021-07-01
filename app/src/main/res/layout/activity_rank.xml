@@ -42,17 +42,18 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="130dp"
                         android:background="@drawable/bg_gradient_rank2"
                         android:orientation="vertical"
                         android:gravity="center_horizontal"
-                        android:padding="20dp"
+
                         >
 
                         <com.combodia.basemodule.view.CircleImageView
                             android:id="@+id/iv_rank2"
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
                             android:src="@mipmap/ic_avatar_default"
                             />
 
@@ -99,17 +100,17 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="140dp"
                         android:background="@drawable/bg_gradient_rank1"
                         android:orientation="vertical"
                         android:gravity="center_horizontal"
-                        android:padding="20dp"
                         >
 
                         <com.combodia.basemodule.view.CircleImageView
                             android:id="@+id/iv_rank1"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:layout_marginTop="10dp"
                             android:src="@mipmap/ic_avatar_default"
                             />
 
@@ -154,17 +155,17 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="120dp"
                         android:background="@drawable/bg_gradient_rank3"
                         android:orientation="vertical"
                         android:gravity="center_horizontal"
-                        android:padding="20dp"
                         >
 
                         <com.combodia.basemodule.view.CircleImageView
                             android:id="@+id/iv_rank3"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
+                            android:layout_marginTop="10dp"
                             android:src="@mipmap/ic_avatar_default"
                             />
 

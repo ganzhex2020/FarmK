@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/ic_main_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_common_header"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_switch_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/bg_retc_setting"
+        android:padding="10dp"
+        >
+        <ImageView
+            android:id="@+id/iv_switch_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_switch_language"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv_switch_language"
+            android:layout_marginStart="10dp"
+            android:text="@string/switch_language"
+            android:textColor="#bc5a37"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_language_xl"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            />
+
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_check_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_retc_setting"
+        android:padding="10dp"
+        >
+        <ImageView
+            android:id="@+id/iv_check_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_check_version"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv_check_version"
+            android:layout_marginStart="10dp"
+            android:text="@string/check_version"
+            android:textColor="#bc5a37"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:id="@+id/tv_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:textColor="#bc5a37"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/rl_tcxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_retc_setting"
+        android:padding="10dp"
+        >
+        <ImageView
+            android:id="@+id/iv_tcxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_tcxt"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/iv_tcxt"
+            android:layout_marginStart="10dp"
+            android:text="@string/sign_out"
+            android:textColor="#bc5a37"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

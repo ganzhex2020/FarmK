@@ -2,13 +2,13 @@ package com.jony.farm.ui.adapter
 
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.module.LoadMoreModule
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.jony.farm.R
 import com.jony.farm.model.entity.AccountDetailEntity
 import com.jony.farm.model.entity.TradType
-import com.jony.farm.ui.activity.FundDetailActivity
 
 /**
  *Author:ganzhe
@@ -33,8 +33,22 @@ class FundDetailAdapter:BaseQuickAdapter<AccountDetailEntity,BaseViewHolder>(R.l
             2->{tv_type.text = context.getString(R.string.fund_lc)}
             3->{tv_type.text = context.getString(R.string.fund_fodder)}
         }
-        tv_name.text = context.getString(TradType.getTradLabel(item.tradeType))
         tv_time.text = item.addTime
         tv_money.text = item.tradeAmount.toString()
+
+        if (item.tradeAmount>0){
+            iv_type.background = ContextCompat.getDrawable(context,R.drawable.bg_cricle_fundadd)
+            iv_type.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_funddetail_jia))
+        }else{
+            iv_type.background = ContextCompat.getDrawable(context,R.drawable.bg_cricle_fundsub)
+            iv_type.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_funddetail_jian))
+        }
+
+        try {
+            tv_name.text = context.getString(TradType.getTradLabel(item.tradeType))
+        }catch (e :Exception){
+        }
+
+
     }
 }

@@ -46,6 +46,7 @@
         android:orientation="vertical"
         >
         <LinearLayout
+            android:id="@+id/ll_auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -90,7 +91,7 @@
             android:layout_weight="1"
             android:background="@null"
             android:gravity="center_vertical"
-            android:hint="说说你的看法~"
+            android:hint="@string/community_saysay"
             android:textColorHint="#c49c84"
             android:textColor="#bc5a37"
             android:imeOptions="actionSend"
@@ -100,7 +101,7 @@
             android:id="@+id/tv_send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="发送"
+            android:text="@string/community_send"
             android:background="@drawable/bg_retc_white20"
             android:paddingStart="14dp"
             android:paddingEnd="14dp"

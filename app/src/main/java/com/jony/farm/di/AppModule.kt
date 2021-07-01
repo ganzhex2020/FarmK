@@ -32,13 +32,14 @@ val viewModelModule = module {
     viewModel { RechargeViewModel(get()) }
     viewModel { WithDrawViewModel(get()) }
     viewModel { BankCardListViewModel(get()) }
-    viewModel { BindCardViewModel(get()) }
+    viewModel { BindCardViewModel(get(),get()) }
     viewModel { AnimalHistoryViewModel(get()) }
     viewModel { FodderDetailViewModel(get()) }
     viewModel { ChangePwdViewModel(get()) }
     viewModel { InviteViewModel(get()) }
     viewModel { RegisterViewModel(get()) }
-    viewModel { FundDetailViewModel(get()) }
+    viewModel { GcDetailViewModel(get()) }
+    viewModel { LcDetailViewModel(get()) }
     viewModel { TeamViewModel(get()) }
     viewModel { TeamFundViewModel(get()) }
     viewModel { BlockNewsViewModel(get())}
@@ -49,6 +50,9 @@ val viewModelModule = module {
     viewModel { ChatViewModel(get()) }
     viewModel { TeamPromoteViewModel(get(),get()) }
     viewModel { AgentRecrViewModel(get(),get()) }
+    viewModel { SmsViewModel(get()) }
+    viewModel { FundPwdViewModel(get(),get()) }
+    viewModel { SettingViewModel(get()) }
 
 }
 

@@ -1,5 +1,6 @@
 package com.jony.farm.ui.activity
 
+import android.content.Intent
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import com.combodia.basemodule.base.BaseVMActivity
@@ -106,6 +107,8 @@ class ChangePwdActivity:BaseVMActivity<ChangePwdViewModel>() {
     override fun startObserve() {
         mViewModel.updateLiveData.observe(this,{
             if (it){
+                val intent = Intent(this,LoginActivity::class.java)
+                startActivity(intent)
                 finish()
             }
         })

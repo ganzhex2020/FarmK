@@ -115,7 +115,7 @@ interface ServiceApi {
     /**
      * 银行卡列表
      */
-    @GET("banks/getall")
+    @GET("bankaccounts")
     suspend fun getBankCardList():BaseResult<List<BankCardEntity>>
 
     /**
@@ -135,6 +135,12 @@ interface ServiceApi {
      */
     @POST("bankaccounts")
     suspend fun createBankCard(@Body requestBody: RequestBody):BaseResult<Any>
+
+    /**
+     * 修改银行卡
+     */
+    @POST("bankaccounts/renew")
+    suspend fun modifyCard(@Body requestBody: RequestBody):BaseResult<Any>
 
     /**
      * 真实身份认证
@@ -287,5 +293,50 @@ interface ServiceApi {
      */
     @GET("members/tobeagent")
     suspend fun tobeAgent():BaseResult<String>
+
+    @POST("bankaccounts/renew")
+    suspend fun modifyBankCard(@Body body: RequestBody):BaseResult<Any>
+
+    /**
+     * 轮盘抽奖记录
+     */
+    @GET("members/luckdraw/{pageIndex}")
+    suspend fun getLuckREsult(@Path("pageIndex")pageIndex:Int):BaseResult<List<LuckResultEntity>>
+
+    /**
+     * 公告
+     */
+    @GET("members/GetAnnounceByPage/{appID}/{pageIndex}")
+    suspend fun getAnnounce(@Path("appID")appID:Int,@Path("pageIndex")pageIndex:Int):BaseResult<List<AnnounceEntity>>
+
+    /**
+     * 站内信
+     */
+    @GET("announce/msglst/{pageIndex}/{pageSize}")
+    suspend fun getZnMsg(@Path("pageIndex")pageIndex:Int,@Path("pageSize")pageSize:Int):BaseResult<List<ZnxEntity>>
+
+    /**
+     * 安全信息检查
+     */
+    @GET("members/SafeSetsChecks")
+    suspend fun getSafeCheck():BaseResult<List<SafeInfoEntity>>
+
+    /**
+     * 修改资金密码
+     */
+    @PUT("members/WithDrawalPassword")
+    suspend fun changgeFundPwd(@Body body: RequestBody):BaseResult<Any>
+
+    /**
+     * 设置资金密码
+     */
+    @PUT("members/withdrawalpasswordnew")
+    suspend fun setFundPwd(@Body body: RequestBody):BaseResult<Any>
+
+    /**
+     * 设置未读消息
+     */
+    @GET("announce/message/setread/{id}")
+    suspend fun setRead(@Path("id")id: Int):BaseResult<Any>
 
 }

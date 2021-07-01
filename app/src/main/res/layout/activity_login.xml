@@ -22,17 +22,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
-            android:layout_marginStart="45dp"
+            android:layout_marginStart="55dp"
             android:layout_marginEnd="40dp"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="#fef9d2"
                 android:layout_centerVertical="true"
                 android:text="@string/login_username"
                 android:textSize="16sp"
                 android:fontFamily="@font/fzlty"
+
                 />
             <EditText
                 android:id="@+id/et_username"
@@ -53,14 +54,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="45dp"
+            android:layout_marginStart="55dp"
             android:layout_marginEnd="40dp"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:textColor="@color/white"
+                android:textColor="#fef9d2"
                 android:text="@string/login_password"
                 android:textSize="16sp"
                 android:fontFamily="@font/fzlty"
@@ -97,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="@string/login_rember"
-                android:textColor="@color/white"
+                android:textColor="#fef9d2"
                 android:fontFamily="@font/fzlty"
                 />
 
@@ -118,7 +119,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginStart="10dp"
                 android:text="@string/login_register"
-                android:textColor="@color/white"
+                android:textColor="#fef9d2"
                 android:fontFamily="@font/fzlty"
                 />
             <View
@@ -138,7 +139,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginEnd="10dp"
                 android:text="@string/login_forget"
-                android:textColor="@color/white"
+                android:textColor="#fef9d2"
                 android:fontFamily="@font/fzlty"
                 />
 

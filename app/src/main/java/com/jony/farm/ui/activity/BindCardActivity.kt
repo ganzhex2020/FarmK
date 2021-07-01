@@ -14,6 +14,7 @@ import com.gyf.immersionbar.ktx.statusBarHeight
 import com.jony.farm.R
 import com.jony.farm.config.Const
 import com.jony.farm.model.entity.BindCardType
+import com.jony.farm.ui.fragment.MainLandFragment
 import com.jony.farm.ui.fragment.PickPayFragment
 import com.jony.farm.viewmodel.BindCardViewModel
 import com.xiaojinzi.component.anno.RouterAnno
@@ -51,9 +52,18 @@ class BindCardActivity : BaseVMActivity<BindCardViewModel>() {
 
     private fun initTabVp() {
 
-     //   titles.add(BindCardType.PICKPAY.label)
+        titles.add(getString(BindCardType.MAINLAND.label))
+        titles.add(getString(BindCardType.PICKPAY.label))
         titles.forEach { title ->
-            if (title == BindCardType.PICKPAY.label) {
+            if (title == getString(BindCardType.MAINLAND.label)) {
+                val fragment = MainLandFragment()
+                val bundle = Bundle()
+                bundle.putString("title",title)
+                fragment.arguments = bundle
+                fragments.add(fragment)
+            }
+
+            if (title == getString(BindCardType.PICKPAY.label)) {
                 val fragment = PickPayFragment()
                 val bundle = Bundle()
                 bundle.putString("title",title)
@@ -93,7 +103,7 @@ class BindCardActivity : BaseVMActivity<BindCardViewModel>() {
             override fun onTabUnselected(tab: TabLayout.Tab) {
                 val tv = tab.customView!!.findViewById<TextView>(R.id.tv_tab_item)
                 tv.setTextColor(ContextCompat.getColor(this@BindCardActivity, R.color.color_333))
-                tv.setBackgroundColor(ContextCompat.getColor(this@BindCardActivity, R.color.white))
+                tv.background = (ContextCompat.getDrawable(this@BindCardActivity, R.drawable.bg_retc_white20))
             }
 
             override fun onTabReselected(tab: TabLayout.Tab) {}

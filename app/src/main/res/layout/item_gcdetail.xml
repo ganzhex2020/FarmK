@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    >
+
+    <ImageView
+        android:id="@+id/iv_type"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tv_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/iv_type"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:textSize="16sp"
+        android:textColor="#882e01"
+        android:text="GC"
+        />
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/iv_type"
+        app:layout_constraintTop_toBottomOf="@+id/tv_type"
+        android:layout_marginStart="10dp"
+        android:textColor="#db9e72"
+        android:textSize="12sp"
+        />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/iv_type"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name"
+        android:layout_marginStart="10dp"
+        android:text="2020-12-3 17:16:30"
+        android:textColor="#db9e72"
+        android:textSize="12sp"
+        />
+
+    <TextView
+        android:id="@+id/tv_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="600.00"
+        android:textSize="16sp"
+        android:textColor="#ff5e1c"
+        />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_money"
+        android:textSize="16sp"
+        android:textColor="#ff5e1c"
+        android:visibility="gone"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

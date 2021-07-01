@@ -83,6 +83,7 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
         //   val gameView = FarmSurfaceView(this)
         //    mycusview.addView(gameView)
         initRecy()
+        initMenu()
         onClick()
 
     }
@@ -146,6 +147,44 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
         recy_fil.start()
     }
 
+    private fun initMenu(){
+        val menuItems = mutableListOf(R.mipmap.ic_farm_help,R.mipmap.ic_farm_gatherall,R.mipmap.ic_farm_feedall)
+        archMenu.setMenuItems(menuItems)
+        archMenu.setClickItemListener { resId ->
+            when(resId){
+                R.mipmap.ic_farm_help ->{
+
+                }
+                R.mipmap.ic_farm_gatherall ->{
+                    val gatherList = allAnimalList.filter { it.animalID == kindAdapter.getItem(kindSelectIndex).animalID }
+                        .filter { it.leftSeconde <= 0 }
+                    val map = HashMap<String, Any>()
+                    map["SaleType"] = 1
+                    map["AnimalID"] = kindAdapter.getItem(kindSelectIndex).animalID
+
+                    gaMap = map
+                    gaList = gatherList
+                    if (gatherList.isEmpty()){
+                        toast("没有需要收获的")
+                        return@setClickItemListener
+                    }
+                    mViewModel.getQueue(kindAdapter.getItem(kindSelectIndex).animalID)
+                }
+                R.mipmap.ic_farm_feedall ->{
+                    if (kindSelectIndex == -1) {
+                        return@setClickItemListener
+                    }
+                    val kindAnimals = allAnimalList.filter { it.animalID == kindAdapter.getItem(kindSelectIndex).animalID }
+                    feedAllDialog = FeedAllDialog(mViewModel, this@FarmActivity, this, kindAnimals)
+                    feedAllDialog?.show()
+                    //查询一次余额
+                    mViewModel.getBalance()
+                }
+            }
+
+        }
+    }
+
     private var gaMap:Map<String,Any>? = null
     private var gaList:List<AnimalEntity>? = null
 
@@ -153,7 +192,7 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
         iv_farm_back.setOnClickListener {
             onBackPressed()
         }
-        iv_farm_fodder.setOnClickListener {
+      /*  iv_farm_fodder.setOnClickListener {
 
         }
         iv_farm_help.setOnClickListener {
@@ -184,11 +223,8 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
                 return@setOnClickListener
             }
             mViewModel.getQueue(kindAdapter.getItem(kindSelectIndex).animalID)
-           // mViewModel.gather(map, gatherList)
 
-         //   val dialog = QueueDialog(this,gatherList)
-         //   dialog.show()
-        }
+        }*/
 
         /**
          * bord 操作
