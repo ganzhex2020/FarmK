@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.module.LoadMoreModule
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.jony.farm.R
 import com.jony.farm.model.entity.LuckResultEntity
@@ -35,30 +36,44 @@ class LuckResultDialog(context: Context,private val luckDrawViewModel: LuckDrawV
             DeviceUtil.dip2px(context,450f)
         )
 
-        tv_more.setOnClickListener {
+        /*tv_more.setOnClickListener {
             pageIndex ++
             luckDrawViewModel.getLuckResult(pageIndex)
-        }
+        }*/
+
 
         val mAdapter = ResultAdapter()
         recy_luckresult.adapter = mAdapter
         recy_luckresult.layoutManager = LinearLayoutManager(context)
+        mAdapter.loadMoreModule.run {
+                preLoadNumber = 3
+                setOnLoadMoreListener {
+                    pageIndex++
+                    luckDrawViewModel.getLuckResult(pageIndex)
+                }
+            }
 
         luckDrawViewModel.luckResultLiveData.observe(lifecycleOwner,{
             if (pageIndex == 1){
                 if (it.isEmpty()){
-                    ll1.gone()
-                    ll2.visible()
+                  //  ll1.gone()
+                 //   ll2.visible()
+                    mAdapter.setEmptyView(R.layout.layout_luckdraw_empty)
                 }else{
                     mAdapter.setList(it)
                 }
             }else{
                 mAdapter.addData(it)
             }
+            if (it.size<15){
+                mAdapter.loadMoreModule.loadMoreEnd()
+            }else{
+                mAdapter.loadMoreModule.loadMoreComplete()
+            }
         })
     }
 
-    class ResultAdapter:BaseQuickAdapter<LuckResultEntity,BaseViewHolder>(R.layout.item_luckresult){
+    class ResultAdapter:BaseQuickAdapter<LuckResultEntity,BaseViewHolder>(R.layout.item_luckresult),LoadMoreModule{
         override fun convert(holder: BaseViewHolder, item: LuckResultEntity) {
             val tv_time = holder.getView<TextView>(R.id.tv_time)
             val iv_result = holder.getView<ImageView>(R.id.iv_result)
