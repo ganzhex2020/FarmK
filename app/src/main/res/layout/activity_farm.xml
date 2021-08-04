@@ -274,7 +274,65 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll_head" />
 
-    <com.jony.farm.view.YArcMenuView
+    <ImageView
+        android:id="@+id/iv_farm_fodder"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_farm_fodder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_childMenu"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:translationX="-130dp"
+        android:translationY="130dp"
+        >
+        <ImageView
+            android:id="@+id/iv_farm_help"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="90dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@mipmap/ic_farm_help"
+            />
+
+        <ImageView
+            android:id="@+id/iv_farm_feedall"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@mipmap/ic_farm_feedall"
+            />
+
+        <ImageView
+            android:id="@+id/iv_farm_gatherall"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="90dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@mipmap/ic_farm_gatherall"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--<com.jony.farm.view.YArcMenuView
         android:id="@+id/archMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -289,7 +347,7 @@
         app:can_rotate="false"
         app:menu_drawables = "@mipmap/ic_farm_fodder"
         app:initIsopen = "true"
-        />
+        />-->
 
 
    <!-- <androidx.constraintlayout.widget.ConstraintLayout

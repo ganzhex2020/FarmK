@@ -234,17 +234,20 @@ public class YArcMenuView extends FrameLayout implements View.OnClickListener {
         int count = mMenuItemResIds.size();
         List<Animator> animators = new ArrayList<>();
         for (int i = 0; i < count; i++) {
-            double a = Math.toRadians(90 * i / (count - 1));
-            int tranX = (int) (mRadius * Math.sin(a));
-            int tranY = -(int) (mRadius * Math.cos(a));
+            double a_a = Math.toRadians(90 * i / (count - 1));
+            int a = 90 * i / (count - 1);
+            int tranX = (int) (mRadius * Math.sin(a_a));
+            int tranY = -(int) (mRadius * Math.cos(a_a));
             ObjectAnimator animatorX = ObjectAnimator.ofFloat(mImgViews.get(i), "translationX", 0f, tranX);
             ObjectAnimator animatorY = ObjectAnimator.ofFloat(mImgViews.get(i), "translationY", 0f, tranY);
+            ObjectAnimator rotation = ObjectAnimator.ofFloat(mImgViews.get(i), "rotation", -90+a, a);
             ObjectAnimator alpha = ObjectAnimator.ofFloat(mImgViews.get(i), "alpha", 0, 1);
             ObjectAnimator scaleX = ObjectAnimator.ofFloat(mImgViews.get(i), "scaleX", 0.1f, 1);
             ObjectAnimator scaleY = ObjectAnimator.ofFloat(mImgViews.get(i), "scaleY", 0.1f, 1);
 
             animators.add(animatorX);
             animators.add(animatorY);
+            animators.add(rotation);
             animators.add(alpha);
             animators.add(scaleX);
             animators.add(scaleY);
@@ -263,17 +266,20 @@ public class YArcMenuView extends FrameLayout implements View.OnClickListener {
         int count = mMenuItemResIds.size();
         List<Animator> animators = new ArrayList<>();
         for (int i = 0; i < count; i++) {
-            double a = Math.toRadians(90 * i / (count - 1));
-            int tranX = (int) (mRadius * Math.sin(a));
-            int tranY = -(int) (mRadius * Math.cos(a));
+            double a_a = Math.toRadians(90 * i / (count - 1));
+            int a = 90 * i / (count - 1);
+            int tranX = (int) (mRadius * Math.sin(a_a));
+            int tranY = -(int) (mRadius * Math.cos(a_a));
             ObjectAnimator animatorX = ObjectAnimator.ofFloat(mImgViews.get(i), "translationX", tranX, 0f);
             ObjectAnimator animatorY = ObjectAnimator.ofFloat(mImgViews.get(i), "translationY", tranY, 0f);
+            ObjectAnimator rotation = ObjectAnimator.ofFloat(mImgViews.get(i), "rotation", a, -90+a);
             ObjectAnimator alpha = ObjectAnimator.ofFloat(mImgViews.get(i), "alpha", 1, 0);
             ObjectAnimator scaleX = ObjectAnimator.ofFloat(mImgViews.get(i), "scaleX", 1, 0.3f);
             ObjectAnimator scaleY = ObjectAnimator.ofFloat(mImgViews.get(i), "scaleY", 1, 0.3f);
 
             animators.add(animatorX);
             animators.add(animatorY);
+            animators.add(rotation);
             animators.add(alpha);
             animators.add(scaleX);
             animators.add(scaleY);

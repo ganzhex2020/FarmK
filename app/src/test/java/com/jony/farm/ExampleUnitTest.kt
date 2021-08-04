@@ -43,8 +43,8 @@ class ExampleUnitTest {
 //
 //        val str = GsonHelper.object2JsonStr(list)
 //        println(str)
-
-
+        val a = Math.toRadians((90 * 2 / 2).toDouble())
+        println(a)
     }
 
     @Test

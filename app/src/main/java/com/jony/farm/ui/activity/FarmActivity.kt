@@ -1,11 +1,7 @@
 package com.jony.farm.ui.activity
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
-import android.animation.ObjectAnimator
-import android.animation.ValueAnimator
+import android.animation.*
 import android.view.View
-import android.view.animation.DecelerateInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.animation.ScaleInAnimation
@@ -34,6 +30,9 @@ import com.jony.farm.viewmodel.FarmViewModel
 import com.xiaojinzi.component.anno.RouterAnno
 import kotlinx.android.synthetic.main.activity_farm.*
 import org.koin.android.viewmodel.ext.android.getViewModel
+import java.util.*
+import kotlin.collections.HashMap
+import kotlin.collections.set
 
 /**
  *Author:ganzhe
@@ -152,21 +151,68 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
 
     private fun clickKindAnim(view: View,mFrom:Float){
         val scaleX = ObjectAnimator.ofFloat(view, "scaleX", mFrom, 1.5f,1f)
-        scaleX.duration = 300L
-        scaleX.interpolator = DecelerateInterpolator()
-
-
         val scaleY = ObjectAnimator.ofFloat(view, "scaleY", mFrom, 1.5f,1f)
-        scaleY.duration = 300L
-        scaleY.interpolator = DecelerateInterpolator()
 
-        scaleX.start()
-        scaleY.start()
+//        scaleX.duration = 300L
+//        scaleX.interpolator = DecelerateInterpolator()
+//        scaleY.duration = 300L
+//        scaleY.interpolator = DecelerateInterpolator()
+        val animators = mutableListOf<Animator>()
+        animators.add(scaleX)
+        animators.add(scaleY)
+
+        val animatorSet = AnimatorSet()
+        animatorSet.duration = 500
+        animatorSet.playTogether(animators)
+        animatorSet.start()
 
     }
-
+    private var isOpen = true
     private fun initMenu(){
-        val menuItems = mutableListOf(R.mipmap.ic_farm_help,R.mipmap.ic_farm_feedall,R.mipmap.ic_farm_gatherall)
+        iv_farm_fodder.setOnClickListener {
+            if (isOpen){
+                val animator: ObjectAnimator = ObjectAnimator.ofFloat(cl_childMenu, "rotation", 0f, 180f)
+                animator.duration = 500
+                animator.start()
+                isOpen = false
+
+            }else{
+                val animator: ObjectAnimator = ObjectAnimator.ofFloat(cl_childMenu, "rotation", 180f, 0f)
+                animator.duration = 500
+                animator.start()
+                isOpen = true
+            }
+        }
+        iv_farm_help.setOnClickListener {
+            val helpDialog = HelpDialog(FarmActivity@this)
+            helpDialog.show()
+        }
+        iv_farm_feedall.setOnClickListener {
+            val gatherList = allAnimalList.filter { it.animalID == kindAdapter.getItem(kindSelectIndex).animalID }
+                .filter { it.leftSeconde <= 0 }
+            val map = HashMap<String, Any>()
+            map["SaleType"] = 1
+            map["AnimalID"] = kindAdapter.getItem(kindSelectIndex).animalID
+
+            gaMap = map
+            gaList = gatherList
+            if (gatherList.isEmpty()){
+                toast("没有需要收获的")
+                return@setOnClickListener
+            }
+            mViewModel.getQueue(kindAdapter.getItem(kindSelectIndex).animalID)
+        }
+        iv_farm_gatherall.setOnClickListener {
+            if (kindSelectIndex == -1) {
+                return@setOnClickListener
+            }
+            val kindAnimals = allAnimalList.filter { it.animalID == kindAdapter.getItem(kindSelectIndex).animalID }
+            feedAllDialog = FeedAllDialog(mViewModel, this@FarmActivity, this, kindAnimals)
+            feedAllDialog?.show()
+            //查询一次余额
+            mViewModel.getBalance()
+        }
+        /*val menuItems = mutableListOf(R.mipmap.ic_farm_help,R.mipmap.ic_farm_feedall,R.mipmap.ic_farm_gatherall)
         archMenu.setMenuItems(menuItems)
         archMenu.setClickItemListener { resId ->
             when(resId){
@@ -201,7 +247,7 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
                 }
             }
 
-        }
+        }*/
     }
 
     private var gaMap:Map<String,Any>? = null
