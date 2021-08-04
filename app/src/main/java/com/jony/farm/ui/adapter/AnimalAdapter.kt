@@ -8,7 +8,6 @@ import com.jony.farm.R
 import com.jony.farm.model.entity.AnimalEntity
 import com.jony.farm.util.CommonUtil
 
-
 /**
  *Author:ganzhe
  *时间:2021/4/19 15:16
@@ -36,13 +35,10 @@ class AnimalAdapter : BaseQuickAdapter<AnimalEntity, BaseViewHolder>(R.layout.it
                 }
             }
 
-
-
         }else{
             iv.setImageDrawable(null)
             iv_state.setImageDrawable(null)
         }
-
 
     }
 }

@@ -10,7 +10,7 @@ import com.jony.farm.ui.activity.LuckDrawActivity
 import com.jony.farm.util.DeviceUtil
 import kotlinx.android.synthetic.main.dialog_lucktip.*
 
-class LuckTipDialog(context: Context,title:String,content:String,backState:LuckDrawActivity.BackState): Dialog(
+class LuckTipDialog(context: Context,title:String,index:Int,backState:LuckDrawActivity.BackState): Dialog(
 context,
 R.style.dialog_center_full
 ) {
@@ -27,7 +27,23 @@ R.style.dialog_center_full
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         tv_title.text = title
-        tv_content.text = content
+      //  tv_content.text = content
+        when(backState){
+            LuckDrawActivity.BackState.WZJ ->{tv_content.text = ""}
+            LuckDrawActivity.BackState.ZJ ->{
+                tv_content.text = "抽中奖励"
+                when(index){
+                    1 ->{iv_content.setImageResource(R.drawable.ic_luckdraw_bg2)}
+                    2 ->{iv_content.setImageResource(R.drawable.ic_luckdraw_bg3)}
+                    3 ->{iv_content.setImageResource(R.drawable.ic_luckdraw_bg4)}
+                    4 ->{iv_content.setImageResource(R.drawable.ic_luckdraw_bg5)}
+                    5 ->{iv_content.setImageResource(R.drawable.ic_luckdraw_bg6)}
+                    6 ->{iv_content.setImageResource(R.drawable.ic_luckdraw_bg7)}
+                    7 ->{iv_content.setImageResource(R.drawable.ic_luckdraw_bg8)}
+                }
+            }
+            LuckDrawActivity.BackState.OUT ->{tv_content.text = "明日再来噢"}
+        }
 
         tv_confirm.setOnClickListener {
             dismiss()

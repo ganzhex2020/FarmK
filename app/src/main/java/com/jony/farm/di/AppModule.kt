@@ -28,7 +28,7 @@ val viewModelModule = module {
     viewModel { MineViewModel(get(),get()) }
     viewModel { LoginViewModel(get(),get()) }
     viewModel { UserInfoViewModel(get(),get()) }
-    viewModel { ShareViewModel(get()) }
+    viewModel { ShareViewModel(get(),get()) }
     viewModel { RechargeViewModel(get()) }
     viewModel { WithDrawViewModel(get()) }
     viewModel { BankCardListViewModel(get()) }
@@ -53,6 +53,7 @@ val viewModelModule = module {
     viewModel { SmsViewModel(get()) }
     viewModel { FundPwdViewModel(get(),get()) }
     viewModel { SettingViewModel(get()) }
+    viewModel { LcBankViewModel(get(),get()) }
 
 }
 

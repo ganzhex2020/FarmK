@@ -339,4 +339,17 @@ interface ServiceApi {
     @GET("announce/message/setread/{id}")
     suspend fun setRead(@Path("id")id: Int):BaseResult<Any>
 
+    //获取LC兑换汇率和转盘抽奖收费
+    @GET("systemsets/currencyset?rate=1")
+    suspend fun getRate():BaseResult<RateEntity>
+
+    //lc兑换
+    @POST("members/LCExchange")
+    suspend fun lcDh(@Body body: RequestBody):BaseResult<Any>
+
+    //lc转账
+    @POST("members/TradeTransfer")
+    suspend fun lcZz(@Body body: RequestBody):BaseResult<Any>
+
+
 }

@@ -59,28 +59,28 @@ public class DateUtil{
 		return calStr;
 	}
 
-	/**
-	 * 旋转
-	 *
-	 * @param type : 1.向上 2.向下
-	 */
-	public static void rote(Context context, int type, ImageView iv) {
-		try {
-			Animation animation = null;
-			if (1 == type) {
-				animation = AnimationUtils.loadAnimation(context, R.anim.rote_playtype_up);
-			} else if (2 == type) {
-				animation = AnimationUtils.loadAnimation(context, R.anim.rote_playtype_down);
-			}
-			LinearInterpolator lin = new LinearInterpolator();
-			animation.setInterpolator(lin);
-			animation.setFillAfter(true);
-			if (iv != null) {
-				iv.startAnimation(animation);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+//	/**
+//	 * 旋转
+//	 *
+//	 * @param type : 1.向上 2.向下
+//	 */
+//	public static void rote(Context context, int type, ImageView iv) {
+//		try {
+//			Animation animation = null;
+//			if (1 == type) {
+//				animation = AnimationUtils.loadAnimation(context, R.anim.rote_playtype_up);
+//			} else if (2 == type) {
+//				animation = AnimationUtils.loadAnimation(context, R.anim.rote_playtype_down);
+//			}
+//			LinearInterpolator lin = new LinearInterpolator();
+//			animation.setInterpolator(lin);
+//			animation.setFillAfter(true);
+//			if (iv != null) {
+//				iv.startAnimation(animation);
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 }

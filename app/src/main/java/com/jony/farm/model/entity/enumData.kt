@@ -31,6 +31,7 @@ enum class AnimalKindType(val id: Int,@StringRes val label: Int){
     Tiger(7,R.string.tiger),
     Mouse(8,R.string.mouse);
 
+
     companion object{
         @StringRes
         fun getAnimalLabel(id: Int):Int{

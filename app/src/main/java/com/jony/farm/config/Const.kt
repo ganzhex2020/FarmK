@@ -57,6 +57,7 @@ object Const {
    const val MODULE_PATH_APP_FUNDPWD = "fundpwd"
    const val MODULE_PATH_APP_SETTING = "setting"
    const val MODULE_PATH_APP_MSGDETAIL = "msgdetail"
+   const val MODULE_PATH_APP_LCBANK = "lcbank"
 
 
    ////==========================Interceptor============

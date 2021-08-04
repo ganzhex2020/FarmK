@@ -106,7 +106,6 @@ class HomeFragment :BaseVMFragment<HomeViewModel>(){
             mViewModel.isAgent()
         }
 
-
     }
 
     override fun initData() {

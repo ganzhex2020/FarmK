@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.jony.farm.model.entity.MemberEntity
 import com.jony.farm.model.entity.UserEntity
+import com.jony.farm.model.entity.YueEntity
 
 /**
  *Author:ganzhe
@@ -13,11 +14,12 @@ import com.jony.farm.model.entity.UserEntity
  *描述:This is AppDatabase
  */
 
-@Database(entities = [UserEntity::class,MemberEntity::class], version = 1,exportSchema = false)
+@Database(entities = [UserEntity::class,MemberEntity::class,YueEntity::class], version = 1,exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserInfoDao
     abstract fun memberDao(): MemberDao
+    abstract fun yueDao(): YueDao
 
 
     companion object {

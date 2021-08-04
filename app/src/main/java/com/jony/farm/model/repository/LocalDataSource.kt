@@ -5,6 +5,7 @@ import com.jony.farm.app.MyApp
 import com.jony.farm.db.AppDatabase
 import com.jony.farm.model.entity.MemberEntity
 import com.jony.farm.model.entity.UserEntity
+import com.jony.farm.model.entity.YueEntity
 
 /**
  *Author:ganzhe
@@ -52,6 +53,18 @@ class LocalDataSource {
 
     suspend fun deleteAllMember(){
         appDatabase.memberDao().deleteAll()
+    }
+
+    suspend fun insertYue(yueEntity: YueEntity){
+        appDatabase.yueDao().insertYue(yueEntity)
+    }
+
+    suspend fun deleteYue(){
+        appDatabase.yueDao().deleteAll()
+    }
+
+    fun getYueLiveData(): LiveData<List<YueEntity>> {
+        return appDatabase.yueDao().getYueLiveData()
     }
 
 //    //通过获取userId 判断是否登录

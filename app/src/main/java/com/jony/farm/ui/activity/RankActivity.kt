@@ -86,17 +86,20 @@ class RankActivity:BaseVMActivity<RankViewModel>() {
                 if (list.isNotEmpty()){
                     tv_rank1_name.text = list[0].showName
                     tv_rank1_amount.text = "$"+list[0].tradeAmount.toString()
-                    GlideUtils.loadAvatar(iv_rank1,list[0].headImg,R.mipmap.ic_avatar_default)
+                 //   GlideUtils.loadAvatar(iv_rank1,list[0].headImg,R.mipmap.ic_avatar_default)
+                    tv_rank1.text = list[0].showName.take(1)
                 }
                 if (list.size>=2){
                     tv_rank2_name.text = list[1].showName
                     tv_rank2_amount.text = "$"+list[1].tradeAmount.toString()
-                    GlideUtils.loadAvatar(iv_rank2,list[1].headImg,R.mipmap.ic_avatar_default)
+                 //   GlideUtils.loadAvatar(iv_rank2,list[1].headImg,R.mipmap.ic_avatar_default)
+                    tv_rank2.text = list[1].showName.take(1)
                 }
                 if (list.size>=3){
                     tv_rank3_name.text = list[2].showName
                     tv_rank3_amount.text = "$"+list[2].tradeAmount.toString()
-                    GlideUtils.loadAvatar(iv_rank3,list[2].headImg,R.mipmap.ic_avatar_default)
+                    //GlideUtils.loadAvatar(iv_rank3,list[2].headImg,R.mipmap.ic_avatar_default)
+                    tv_rank3.text = list[2].showName.take(1)
                 }
                 //设置列表数据
                 if (list.size>3){

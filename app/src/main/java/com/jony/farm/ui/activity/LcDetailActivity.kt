@@ -57,8 +57,8 @@ class LcDetailActivity : BaseVMActivity<LcDetailViewModel>() {
             adapter = lcAdapter
             layoutManager = LinearLayoutManager(this@LcDetailActivity)
         }
-        val mDivider = ContextCompat.getDrawable(this, R.color.transparent)
-        recy.addItemDecoration(VerticalDecoration(this, mDivider, DeviceUtil.dip2px(this, 10f)))
+        val mDivider = ContextCompat.getDrawable(this, R.color.color_diver)
+        recy.addItemDecoration(VerticalDecoration(this, mDivider, DeviceUtil.dip2px(this, 0.5f)))
         lcAdapter.loadMoreModule.run {
             preLoadNumber = 3
             setOnLoadMoreListener {

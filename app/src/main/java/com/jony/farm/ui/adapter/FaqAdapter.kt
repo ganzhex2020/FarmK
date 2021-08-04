@@ -8,6 +8,7 @@ import com.chad.library.adapter.base.module.LoadMoreModule
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.combodia.basemodule.ext.visable
 import com.jony.farm.R
+import com.jony.farm.util.CommonUtil
 import com.jony.farm.util.DateUtil
 
 /**
@@ -26,9 +27,9 @@ class FaqAdapter:BaseQuickAdapter<Int,BaseViewHolder>(R.layout.item_faq),LoadMor
         iv_show.setOnClickListener {
             tv_content.visable(!tv_content.isVisible)
             if(tv_content.isVisible){
-                DateUtil.rote(context,1,iv_show)
+                CommonUtil.rote(1,iv_show)
             }else{
-                DateUtil.rote(context,2,iv_show)
+                CommonUtil.rote(2,iv_show)
             }
 
         }

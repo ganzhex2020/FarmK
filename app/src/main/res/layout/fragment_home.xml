@@ -87,6 +87,7 @@
                         android:id="@+id/iv_recharge"
                         android:layout_width="90dp"
                         android:layout_height="50dp"
+                        android:layout_marginTop="2dp"
                         android:src="@mipmap/ic_recharge"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/iv_withdraw"
@@ -108,6 +109,7 @@
                         android:layout_width="90dp"
                         android:layout_height="50dp"
                         android:src="@mipmap/ic_invite"
+                        android:layout_marginTop="3dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/iv_service"
                         app:layout_constraintStart_toEndOf="@+id/iv_withdraw"
@@ -117,6 +119,7 @@
                         android:id="@+id/iv_service"
                         android:layout_width="90dp"
                         android:layout_height="50dp"
+                        android:paddingBottom="1dp"
                         android:src="@mipmap/ic_service"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -198,7 +201,7 @@
                             android:id="@+id/rl_communitychat"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
+                            android:layout_marginStart="10dp"
                             android:layout_weight="1">
 
                             <ImageView

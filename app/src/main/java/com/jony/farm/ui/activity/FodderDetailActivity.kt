@@ -1,6 +1,7 @@
 package com.jony.farm.ui.activity
 
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.combodia.basemodule.base.BaseVMActivity
 import com.gyf.immersionbar.ktx.immersionBar
@@ -9,11 +10,16 @@ import com.jony.farm.R
 import com.jony.farm.config.Const
 import com.jony.farm.ui.adapter.FodderDetailAdapter
 import com.jony.farm.ui.adapter.FundDetailAdapter
+import com.jony.farm.util.DeviceUtil
+import com.jony.farm.view.VerticalDecoration
 import com.jony.farm.viewmodel.FodderDetailViewModel
 import com.xiaojinzi.component.Component
 import com.xiaojinzi.component.anno.AttrValueAutowiredAnno
 import com.xiaojinzi.component.anno.RouterAnno
 import kotlinx.android.synthetic.main.activity_fodderdetail.*
+import kotlinx.android.synthetic.main.activity_fodderdetail.ll_parent
+import kotlinx.android.synthetic.main.activity_fodderdetail.recy
+import kotlinx.android.synthetic.main.activity_funddetail.*
 import kotlinx.android.synthetic.main.layout_common_header.*
 import org.koin.android.viewmodel.ext.android.getViewModel
 
@@ -68,6 +74,8 @@ class FodderDetailActivity:BaseVMActivity<FodderDetailViewModel>() {
             adapter = fodderDetailAdapter
             layoutManager = LinearLayoutManager(this@FodderDetailActivity)
         }
+        val mDivider = ContextCompat.getDrawable(this, R.color.color_diver)
+        recy.addItemDecoration(VerticalDecoration(this, mDivider, DeviceUtil.dip2px(this, 0.5f)))
         fodderDetailAdapter.loadMoreModule.run {
             preLoadNumber = 3
             setOnLoadMoreListener{

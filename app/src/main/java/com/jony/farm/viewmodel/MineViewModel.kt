@@ -38,6 +38,7 @@ class MineViewModel(val remoteRepo:RemoteDataSource,val localRepo:LocalDataSourc
     //val signOutLiveData = MutableLiveData<Boolean>()
     // val userInfoLiveData = localrepo.getUserInfo()
     val memberLiveData = localRepo.getMemberLiveData()
+    val yueLiveData = localRepo.getYueLiveData()
 
     val unReadLiveData = MutableLiveData<Double>()
 
@@ -46,10 +47,17 @@ class MineViewModel(val remoteRepo:RemoteDataSource,val localRepo:LocalDataSourc
             val reslut = withContext(Dispatchers.IO){
                 remoteRepo.getMembers()
             }
+            val yue = withContext(Dispatchers.IO){
+                remoteRepo.getYue()
+            }
             reslut.checkSuccess {
                 withContext(Dispatchers.IO){
                     localRepo.insertMember(it.copy(password = kv.decodeString(Constant.KEY_USER_PWD)))
                 }
+            }
+            yue.checkSuccess {
+                localRepo.deleteYue()
+                localRepo.insertYue(it)
             }
             reslut.checkError {
                 toast(it.errorMsg)

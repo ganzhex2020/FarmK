@@ -54,7 +54,7 @@
                     android:paddingTop="15dp"
                     android:paddingEnd="20dp"
                     android:paddingBottom="15dp"
-                    android:text="Free Times Todays:2/3"
+                    android:text="@string/luckdraw_left"
                     android:textColor="#1e6304"
                     android:textSize="14sp" />
 
@@ -205,7 +205,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
 
-                            android:text="会员获得的奖品，系统系统将自动派发到您的账户，可在'我的记录'里查看；所获得的奖品不可以进行交易或者赠予。"
+                            android:text="会员获得的奖品，系统系统将自动派发到您的账户，可在'中奖记录'里查看；所获得的奖品不可以进行交易或者赠予。"
                             android:textSize="15sp"
                             android:textColor="#895733"
                             />

@@ -1,8 +1,10 @@
 package com.jony.farm.viewmodel
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.combodia.basemodule.base.BaseViewModel
 import com.combodia.basemodule.ext.toast
+import com.combodia.httplib.config.Constant
 import com.combodia.httplib.ext.checkError
 import com.combodia.httplib.ext.checkSuccess
 import com.jony.farm.model.entity.ShareContentEntity
@@ -11,6 +13,7 @@ import com.jony.farm.model.repository.LocalDataSource
 import com.jony.farm.model.repository.RemoteDataSource
 import com.jony.farm.util.MapUtils
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 /**
@@ -18,11 +21,14 @@ import kotlinx.coroutines.withContext
  *时间:2021/4/23 20:16
  *描述:This is ShareViewModel
  */
-class ShareViewModel(val remoteRepo: RemoteDataSource): BaseViewModel() {
+class ShareViewModel(val remoteRepo: RemoteDataSource,val  localRepo:LocalDataSource): BaseViewModel() {
 
     val sharecountLiveData = MutableLiveData<ShareCountEntity>()
     val shareContentLiveData = MutableLiveData<ShareContentEntity>()
     val sharefodderLiveData = MutableLiveData<Map<String,Any>>()
+
+    //val memberLiveData = localRepo.getMemberLiveData()
+    val yueLiveData = localRepo.getYueLiveData()
 
     fun getShareCount(){
         launchUI({
@@ -59,6 +65,7 @@ class ShareViewModel(val remoteRepo: RemoteDataSource): BaseViewModel() {
             result.checkSuccess {
                 val m = mapOf("shareType" to shareType,"shareCountEntity" to it)
                 sharefodderLiveData.value = m
+                getYue()
             }
             result.checkError {
                 toast(it.errorMsg?:"${it.errCode}")
@@ -66,6 +73,22 @@ class ShareViewModel(val remoteRepo: RemoteDataSource): BaseViewModel() {
 
         },isShowDiaLoading = true)
 
+    }
+
+    fun getYue(){
+        viewModelScope.launch {
+            val reslut = withContext(Dispatchers.IO){
+                remoteRepo.getYue()
+            }
+            reslut.checkSuccess {
+               localRepo.deleteYue()
+               localRepo.insertYue(it)
+            }
+            reslut.checkError {
+                toast(it.errorMsg)
+            }
+
+        }
     }
 
 }

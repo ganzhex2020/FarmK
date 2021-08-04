@@ -131,17 +131,19 @@ public class LuckView extends View {
             mPaintArc.setColor(Color.parseColor("#feec91"));
             divisionPaint.setColor(Color.parseColor("#f8d17a"));
             // 设置绘制图片的区域
-            Rect rect = new Rect((int) (cX + mRadius/2),
-                    (int)(cY + Math.sin(180/mItemRes.length * Math.PI / 180) + 15),
-                    (int) (cX + mRadius /2 + 70),
-                    (int)(cY + Math.sin(180/mItemRes.length * Math.PI / 180) + 85));
+            Rect rect = new Rect((int) (cX + mRadius/2-20),
+                    (int)(cY + Math.sin(180/mItemRes.length * Math.PI / 180) + 5),
+                    (int) (cX + mRadius /2 + 80),
+                    (int)(cY + Math.sin(180/mItemRes.length * Math.PI / 180) + 105));
+            //Rect rect = new Rect((int) (mRadius*0.2),10,(int) (mRadius*0.9),110);
 
             canvas.drawArc(f, 0, mItemAnge, true, mPaintArc);
             canvas.drawLine(cX, cY, cX + mRadius, cY, divisionPaint);
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), mItemRes[i]);
-//            bitmap = DeviceUtil.resizeBitmap(bitmap,100,100);
-            bitmap = rotateBitmap(bitmap,15f);
+            bitmap = rotateBitmap(bitmap,20f);
             canvas.drawBitmap(bitmap, null, rect, null);
+//            divisionPaint.setColor(Color.parseColor("#ff0000"));
+//            canvas.drawRect(rect,divisionPaint);
 
             canvas.rotate(mItemAnge, cX, cY);
         }

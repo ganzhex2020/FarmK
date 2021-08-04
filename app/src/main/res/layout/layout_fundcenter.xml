@@ -28,8 +28,8 @@
 
             <ImageView
                 android:id="@+id/iv_qcdetail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
                 android:src="@drawable/ic_qcdetail"/>
 
         </LinearLayout>
@@ -41,8 +41,8 @@
             >
             <ImageView
                 android:id="@+id/iv_lcdetail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
                 android:src="@drawable/ic_lcdetail"
                 />
 
@@ -55,14 +55,15 @@
             >
 
             <ImageView
-                android:id="@+id/iv_fodderdetail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_fodderdetail"
+                android:id="@+id/iv_lcbank"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_lcbank"
                 />
 
 
         </LinearLayout>
+
 
     </LinearLayout>
 
@@ -72,6 +73,23 @@
         android:orientation="horizontal"
         android:layout_marginTop="10dp"
         >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            >
+
+            <ImageView
+                android:id="@+id/iv_fodderdetail"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_fodderdetail"
+                />
+
+
+        </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -81,8 +99,8 @@
 
             <ImageView
                 android:id="@+id/iv_myanimals"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
                 android:src="@drawable/ic_myanimals" />
 
         </LinearLayout>
@@ -94,8 +112,8 @@
             >
             <ImageView
                 android:id="@+id/iv_sms"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -115,14 +133,7 @@
                 />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            >
 
-        </LinearLayout>
 
     </LinearLayout>
 

@@ -2,7 +2,7 @@
 <resources>
 
     <!--feed back-->
-    <string name="error_message">发生了一些错误</string>
-    <string name="empty_message">没有数据哎~</string>
+    <string name="error_message" translatable="false">发生了一些错误</string>
+    <string name="empty_message" translatable="false">没有数据哎~</string>
 
 </resources>

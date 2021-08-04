@@ -21,21 +21,21 @@ import kotlinx.android.synthetic.main.dialog_rushbuy.*
  *时间:2020/12/25 11:09
  *描述:This is VersionUpdateDialog
  */
-class RushBuyDialog(viewModel: MarketViewModel, lifecycleOwner: LifecycleOwner, context: Context) :
+class RushBuyDialog(viewModel: MarketViewModel, context: Context,animalId:Int,name:String,leftCount:Int,haveCount:Int) :
     Dialog(
         context,
         R.style.dialog_center_full
     )/*, LifecycleObserver */ {
 
-    private var animalId: Int = 0
-    private var leftCount = 0
+    //private var animalId: Int = 0
+    //private var leftCount = 0
 
 
 
     init {
         //   lifecycleOwner.lifecycle.addObserver(this)
-        setCanceledOnTouchOutside(true)
-        setCanceledOnTouchOutside(true)
+        setCanceledOnTouchOutside(false)
+        setCancelable(false)
         val view = View.inflate(context, R.layout.dialog_rushbuy, null)
         val window = window
         window?.setContentView(view)
@@ -44,6 +44,9 @@ class RushBuyDialog(viewModel: MarketViewModel, lifecycleOwner: LifecycleOwner, 
             DeviceUtil.getScreenW(context) - DeviceUtil.dip2px(context, 40f),
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
+
+        tv_animalName.text = name
+        tv_leftCount.text = leftCount.toString()
 
         iv_sub.setOnClickListener {
             var count = et_count.text.toString().trim()
@@ -73,21 +76,26 @@ class RushBuyDialog(viewModel: MarketViewModel, lifecycleOwner: LifecycleOwner, 
             et_count.setSelection(count.length)
         }
 
-
-
         iv_rush.setOnClickListener {
             val count = et_count.text.toString().trim()
             if (count.isBlank()) {
-                toast("please enter buy count")
+                toast("请输入购买数量")
+                return@setOnClickListener
+            }
+            if (count.toInt()>(23-haveCount)){
+                toast("总共能买${23-haveCount}只")
                 return@setOnClickListener
             }
             viewModel.buyAnimal(animalId, count.toInt())
-
+            //dialog 消失
+            dismiss()
+        }
+        iv_delete.setOnClickListener {
+            dismiss()
         }
 
-
-        viewModel.run {
-            animalLeftLiveData.observe(lifecycleOwner, Observer { map ->
+     //   viewModel.run {
+            /*animalLeftLiveData.observe(lifecycleOwner, Observer { map ->
 
                 et_count.setText("1")
 
@@ -96,13 +104,13 @@ class RushBuyDialog(viewModel: MarketViewModel, lifecycleOwner: LifecycleOwner, 
 
                 if (mLeftCount != null) {
                     if (mLeftCount > 0) {
-                        ll_soldout.visable(false)
+                 //       ll_soldout.visable(false)
                         ll_buy.visable(true)
                         tv_animalName.text = context.getString(AnimalKindType.getAnimalLabel(animalId))//CommonUtil.getNameByAnimalId(animalId)
                         tv_leftCount.text = mLeftCount.toString()
                         leftCount = mLeftCount
                     } else {
-                        ll_soldout.visable(true)
+                //        ll_soldout.visable(true)
                         ll_buy.visable(false)
                     }
                 }
@@ -111,8 +119,8 @@ class RushBuyDialog(viewModel: MarketViewModel, lifecycleOwner: LifecycleOwner, 
                 if (buyState) {
                     dismiss()
                 }
-            })
-        }
+            })*/
+     //   }
 
     }
 

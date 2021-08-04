@@ -2,10 +2,7 @@ package com.jony.farm
 
 
 import com.jony.farm.util.DateUtil
-import org.junit.Assert.*
 import org.junit.Test
-import java.math.BigDecimal
-import java.util.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -15,11 +12,39 @@ import java.util.*
 class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
-        val a = BigDecimal(1180)
-        val b = BigDecimal(10000)
-        val c: BigDecimal = a.divide(b)
-        println(c)
+//        assertEquals(4, 2 + 2)
+//        val a = BigDecimal(1180)
+//        val b = BigDecimal(10000)
+//        val c: BigDecimal = a.divide(b)
+//        println(c)
+//        val str:String = "母鸡|Hen"
+//        val arry = str.split("|").toTypedArray()
+//        println(arry)
+//        val str1 = MD5Util.getMD5("jonyzmi123456")
+//        val str2 = MD5Util.getMD5Str("jonyzmi123456")
+//        println(str1)
+//        println(str2)
+//        val str = "欢迎666"
+//        val index =str.indexOfLast {
+//            it == '迎'
+//        }
+//        println(str.substring(index))
+
+//        val bean1 = ContactBean()
+//        bean1.name = "张三"
+//        bean1.phone = "123456"
+//        val bean2 = ContactBean()
+//        bean2.name = "李四"
+//        bean2.phone = "654321"
+//
+//        val list = mutableListOf<ContactBean>()
+//        list.add(bean1)
+//        list.add(bean2)
+//
+//        val str = GsonHelper.object2JsonStr(list)
+//        println(str)
+
+
     }
 
     @Test

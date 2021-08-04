@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/ll_parent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,117 +8,442 @@
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
-    <include layout="@layout/layout_common_header"/>
+    <include layout="@layout/layout_common_header" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@mipmap/bg1_teampromote"
-        android:padding="20dp"
-        >
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="10dp"
-            android:src="@mipmap/ic_teampromote_notice"
-            />
-
-        <TextView
-            android:id="@+id/tv_agentname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:textColor="#bc5a37"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textColor="#bc5a37"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:text="@string/teampromote_tips1"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textColor="#bc5a37"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:text="@string/teampromote_tips2"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textColor="#bc5a37"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:text="@string/teampromote_tips3"
-            />
-
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/bg_teampromote_banner"
-        android:padding="10dp"
-        >
-
-        <ImageView
-            android:id="@+id/iv_qrcode"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:padding="5dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
-            android:background="@mipmap/ic_invite_kuang"
-            />
-
-
-    </RelativeLayout>
-
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/bg_teampromote"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@mipmap/ic_teampromote_notice" />
+
+                <TextView
+                    android:id="@+id/tv_agentname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:textColor="#bc5a37"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/teampromote_tips1"
+                    android:textColor="#bc5a37"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_qrcode"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@mipmap/ic_invite_kuang"
+                        android:padding="20dp"
+                        android:scaleType="fitXY" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_save"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/ic_invite_save" />
+
+                        <ImageView
+                            android:id="@+id/iv_copy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/ic_invite_copy" />
 
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        >
-        <ImageView
-            android:id="@+id/iv_save"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:src="@mipmap/ic_invite_save"
-            android:scaleType="fitXY"
-            />
-        <ImageView
-            android:id="@+id/iv_copy"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:scaleType="fitXY"
-            android:layout_marginStart="20dp"
-            android:src="@mipmap/ic_invite_copy"
-            />
-
-    </LinearLayout>
+                    </LinearLayout>
 
 
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/ic_invite_scanqrcode"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    >
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_teampromote" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/teampromote_title1"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#bc5a37"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/teampromote_title1_1"
+                    android:textColor="#ff570a"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/teampromote_title1_2"
+                    android:textColor="#bc5a37"
+                    android:textSize="14sp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/teampromote_title2"
+                    android:textColor="#bc5a37"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/teampromote_title3"
+                        android:textColor="#bc5a37"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="10dp"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/teampromote_title3_1"
+                            android:textColor="#ff570a"
+                            android:textSize="14sp"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/teampromote_title3_2"
+                            android:textColor="#ff570a"
+                            android:textSize="14sp"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/teampromote_title3_3"
+                            android:textColor="#ff570a"
+                            android:textSize="14sp"
+                            android:textStyle="bold"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/teampromote_title4"
+                    android:textColor="#bc5a37"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/teampromote_title5"
+                        android:textColor="#bc5a37"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:layout_marginStart="10dp"
+                        >
+                        <View
+                            android:layout_width="2dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="4dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:background="#bc5a37"
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:gravity="center_vertical"
+                                >
+                                <com.combodia.basemodule.view.roundview.RoundTextView
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    app:rv_cornerRadius="50dp"
+                                    app:rv_backgroundColor="#ff570a"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="@string/teampromote_title5_1"
+                                    android:textColor="#ff570a"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:gravity="center_vertical"
+                                >
+                                <com.combodia.basemodule.view.roundview.RoundTextView
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    app:rv_cornerRadius="50dp"
+                                    app:rv_backgroundColor="#ff570a"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="@string/teampromote_title5_2"
+                                    android:textColor="#ff570a"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:gravity="center_vertical"
+                                >
+                                <com.combodia.basemodule.view.roundview.RoundTextView
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    app:rv_cornerRadius="50dp"
+                                    app:rv_backgroundColor="#ff570a"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="@string/teampromote_title5_3"
+                                    android:textColor="#ff570a"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"/>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/teampromote_title6"
+                    android:textColor="#bc5a37"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+
+
+
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_hqsq"
+                />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="vertical"
+         android:background="@mipmap/bg1_teampromote"
+         android:padding="20dp"
+         >
+         <ImageView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="20dp"
+             android:layout_marginStart="10dp"
+             android:src="@mipmap/ic_teampromote_notice"
+             />
+
+         <TextView
+             android:id="@+id/tv_agentname"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="60dp"
+             android:textColor="#bc5a37"
+             android:textSize="16sp"
+             android:textStyle="bold"
+             />
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="10dp"
+             android:textColor="#bc5a37"
+             android:textSize="13sp"
+             android:textStyle="bold"
+             android:text="@string/teampromote_tips1"
+             />
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="10dp"
+             android:textColor="#bc5a37"
+             android:textSize="13sp"
+             android:textStyle="bold"
+             android:text="@string/teampromote_tips2"
+             />
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="10dp"
+             android:textColor="#bc5a37"
+             android:textSize="13sp"
+             android:textStyle="bold"
+             android:text="@string/teampromote_tips3"
+             />
+
+
+     </LinearLayout>
+
+     <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:background="@mipmap/bg_teampromote_banner"
+         android:padding="10dp"
+         >
+
+         <ImageView
+             android:id="@+id/iv_qrcode"
+             android:layout_width="60dp"
+             android:layout_height="60dp"
+             android:padding="5dp"
+             android:layout_centerVertical="true"
+             android:layout_alignParentEnd="true"
+             android:background="@mipmap/ic_invite_kuang"
+             />
+
+
+     </RelativeLayout>
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content">
+
+
+
+     </LinearLayout>
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="20dp"
+         >
+         <ImageView
+             android:id="@+id/iv_save"
+             android:layout_width="0dp"
+             android:layout_height="50dp"
+             android:layout_weight="1"
+             android:src="@mipmap/ic_invite_save"
+             android:scaleType="fitXY"
+             />
+         <ImageView
+             android:id="@+id/iv_copy"
+             android:layout_width="0dp"
+             android:layout_height="50dp"
+             android:layout_weight="1"
+             android:scaleType="fitXY"
+             android:layout_marginStart="20dp"
+             android:src="@mipmap/ic_invite_copy"
+             />
+
+     </LinearLayout>-->
 
 
 </LinearLayout>

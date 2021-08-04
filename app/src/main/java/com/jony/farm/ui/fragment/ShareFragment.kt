@@ -11,12 +11,14 @@ import cn.sharesdk.whatsapp.WhatsApp
 import com.combodia.basemodule.base.BaseVMFragment
 import com.combodia.basemodule.ext.toast
 import com.combodia.basemodule.utils.LogUtils
+import com.combodia.httplib.config.Constant
 import com.gyf.immersionbar.ktx.statusBarHeight
 import com.jony.farm.R
 import com.jony.farm.model.entity.ShareContentEntity
 import com.jony.farm.model.entity.ShareCountEntity
 import com.jony.farm.viewmodel.ShareViewModel
 import com.mob.MobSDK
+import com.tencent.mmkv.MMKV
 import kotlinx.android.synthetic.main.fragment_share.*
 import org.koin.android.viewmodel.ext.android.getViewModel
 
@@ -140,6 +142,12 @@ class ShareFragment : BaseVMFragment<ShareViewModel>() {
                 } else {
                     toast(requireContext().getString(R.string.sign_success))
                 }
+            })
+            yueLiveData.observe(viewLifecycleOwner,{list ->
+                if (list !=null&&list.isNotEmpty()){
+                    tv_siliao_count.text = "X"+list[0].item3.toInt()
+                }
+
             })
         }
     }

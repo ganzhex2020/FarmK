@@ -30,23 +30,22 @@
 	<string name="block_generation_time">平均出块时间:</string>
 	<string name="block_coinbase">平均出块奖励:</string>
 
+	<string name="market_level">级别:</string>
 	<string name="market_price">价格:</string>
 	<string name="market_profit">收益:</string>
 	<string name="market_profit_content">%s %s天(%s 每天)</string>
-	<string name="market_sale">领养时间:</string>
+	<string name="market_sale">售卖段:</string>
 	<string name="market_fodder">饲料:</string>
 	<string name="market_supply">供应:</string>
 	<string name="market_perday">%s/天</string>
 	<string name="rush_buy">领养</string>
 	<string name="buy_success">购买成功</string>
-	<string name="pls_refresh">请刷新</string>
-	<string name="share_success">分享成功，所得饲料即到你的账户</string>
-	<string name="sign_success">签到成功，所得饲料即到你的账户</string>
-	<string name="sign_already">今日已签到</string>
-	<string name="facebook_nocount">今日Facebook次数已用完</string>
-	<string name="twitter_nocount">今日Twitter次数已用完</string>
-	<string name="whatsapp_nocount">今日WhatsApp次数已用完</string>
-	<string name="telegram_nocount">今日Telegram次数已用完</string>
+	<string name="market_animal_normal">普通</string>
+
+
+
+
+
 
 	<!--动物种类-->
 	<string name="hen">鸡</string>
@@ -66,6 +65,14 @@
 	<string name="share_to_telegram">分享Telegram</string>
 	<string name="share_des1">分享条件：注册会员每天可获得10次推荐分享的机会，每天零时将自动更新分享次数。</string>
 	<string name="share_des2">分享说明：会员完成分享，即可获得分享次数相应数量的“饲料”奖励，获得的奖励系统将自动派发到您的账户，可在“我的记录”里查看。</string>
+	<string name="pls_refresh">请刷新</string>
+	<string name="share_success">分享成功，所得饲料即到你的账户</string>
+	<string name="sign_success">签到成功，所得饲料即到你的账户</string>
+	<string name="sign_already">今日已签到</string>
+	<string name="facebook_nocount">今日Facebook次数已用完</string>
+	<string name="twitter_nocount">今日Twitter次数已用完</string>
+	<string name="whatsapp_nocount">今日WhatsApp次数已用完</string>
+	<string name="telegram_nocount">今日Telegram次数已用完</string>
 
 	<!--个人中心-->
 	<string name="userinfo_avatar">头像:</string>
@@ -161,7 +168,7 @@
 	<string name="pwdenternotequal">两次密码输入不一致</string>
 
 	<!--银行卡列表banklistactivity-->
-	<string name="bankcard_mycard">我的卡</string>
+	<string name="bankcard_mycard">我的银行卡</string>
 	<string name="bankcard_addcard">添加银行卡</string>
 	<string name="set_default_card">设置默认卡</string>
 	<string name="modify">修改</string>
@@ -181,6 +188,9 @@
 	<string name="team_subnum">下级个数</string>
 	<string name="team_time">注册时间</string>
 	<string name="team_farm">农场</string>
+	<string name="team_level1">一级</string>
+	<string name="team_level2">二级</string>
+	<string name="team_level3">三级</string>
 
 	<!--LoginActivity-->
 	<string name="login_username">账号</string>
@@ -230,8 +240,8 @@
 	<string name="farm_gather_minute"><Data><![CDATA[大概需要<font color="#ff5100">%s</font>分钟]]></Data></string>
 
 	<string name="dialog_rush_name">动物名:</string>
-	<string name="dialog_rush_mained">剩余:</string>
-	<string name="dialog_rush_count">数量:</string>
+	<string name="dialog_rush_mained">库存数量:</string>
+	<string name="dialog_rush_count">领养个数:</string>
 
 	<string name="credit_set_fund_passwd">设置资金密码</string>
 	<string name="credit_pls_enter_real_name">请输入真实姓名</string>
@@ -239,21 +249,42 @@
 	<string name="credit_pls_enter_fund_passwd">请输入资金密码</string>
 	<string name="credit_pls_confirm_fund_passwd">请确认资金密码</string>
 	<string name="credit_submit">提交</string>
+	<string name="marquee_tip1">记得每天都要喂养您的宠物哦!*^____^*</string>
+	<string name="marquee_tip2">多多分享好友，获得充足饲料储备噢...</string>
+	<string name="marquee_tip3">主人我饿了/(ㄒoㄒ)/，今天还没有喂我呢-_-</string>
+	<string name="marquee_tip4">参加幸运转盘，可抽取大量饲料奖品哦</string>
+	<string name="marquee_tip5">准备充足饲料及时喂养，否则会影响收益!</string>
+	<string name="marquee_tip6">主人，不要忘记每日完成分享任务哦</string>
 
 	<!--TeamPromote-->
-	<string name="teampromote_name">尊敬的代理%s您好</string>
-	<string name="teampromote_tips1">1.您现在可以分享注册链接来邀请好友了！</string>
+	<string name="teampromote_name">尊敬的代理%s您好!</string>
+	<string name="teampromote_tips1">您现在可以分享注册链接来邀请好友了！</string>
 	<string name="teampromote_tips2">2.您可以从团队每个级别会员获得充值佣金，会员越多，佣金越多。</string>
 	<string name="teampromote_tips3">3.您可以加入WhatsApp或者Telegram群，专业的指导老师指导您快速盈利，期待您的加入！</string>
 	<string name="save_success">保持成功</string>
 	<string name="copy_success">复制成功</string>
+	<string name="teampromote_title1">代理收入</string>
+	<string name="teampromote_title1_1">下级充值返佣  8%  4%  2%</string>
+	<string name="teampromote_title1_2">您可以邀请好友作为1级代理，您的1级代理可以邀请好友作为您的2级代理，同样您可以邀请到最高3级下级代理</string>
+	<string name="teampromote_title2">每一个下级充值您都将获得相应比例的充值佣金</string>
+	<string name="teampromote_title3">例如你有:</string>
+	<string name="teampromote_title3_1">10个1级下级</string>
+	<string name="teampromote_title3_2">100个2级下级</string>
+	<string name="teampromote_title3_3">1000个3级下级</string>
+	<string name="teampromote_title4">如果每个下级充值10000，那么:</string>
+	<string name="teampromote_title5">您的佣金来源</string>
+	<string name="teampromote_title5_1">1级: 10000*10*8%=8000</string>
+	<string name="teampromote_title5_2">2级: 10000*100*4%=40000</string>
+	<string name="teampromote_title5_3">3级: 10000*1000*2%=200000</string>
+	<string name="teampromote_title6">获得总佣金:8000+40000+200000=248000</string>
 
 	<!--AgentArchActivity-->
-	<string name="agentarch_name">成为代理,邀请好友来壮大你的团队并获得丰厚佣金</string>
-	<string name="agentarch_tips1">1.成为代理可以获得下级用户存款的佣金</string>
-	<string name="agentarch_tips2">2.你最多可以发展等级1-等级3 3级下线会员</string>
-	<string name="agentarch_tips3">3.专业团队指导,让您更快速,轻松发展下线并且获得丰厚佣金收益</string>
-	<string name="agentarch_tips4">4.成为代理必须充值1000元</string>
+	<string name="agentarch_name">你的圈子无限大，预测未来，不如亲手创造未来！ </string>
+	<string name="agentarch_tips1">1.您的投入：只要有手机和社交人脉，每天三十分钟，分享十至二十条信息。</string>
+	<string name="agentarch_tips2">2.如何赚钱：分享好友共识发展，团队裂变拿高额佣金提成。</string>
+	<string name="agentarch_tips3">3.「代理特权」加入社区计划，由业内金融导师提供全套技术保障，当日加入当天收益。
+		适合所有人，专职兼职均可，零风险，永久收益，您只需坚持执行，月入过万无上限。轻松实现财务自由，你的未来已经近在眼前。</string>
+	<string name="agentarch_tips4">4.加入条件：报名费10GC币，名额有限。</string>
 
 	<!--AgencyIncome-->
 	<string name="agencyincome_name">Promotional Terms &amp; Details:</string>

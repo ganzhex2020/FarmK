@@ -73,6 +73,7 @@
         <activity android:name=".ui.activity.FundPwdActivity"/>
         <activity android:name=".ui.activity.SettingActivity"/>
         <activity android:name=".ui.activity.MsgDetailActivity"/>
+        <activity android:name=".ui.activity.LcBankActivity"/>
 
     </application>
 

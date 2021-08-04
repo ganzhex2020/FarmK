@@ -38,13 +38,12 @@ class SettingActivity:BaseVMActivity<SettingViewModel>() {
         iv_title.setImageResource(R.mipmap.ic_title_setting)
         tv_version.text = CommonUtil.getLocalVersionName(this)
 
-        val isLogin = kv.encode(Constant.KEY_LOGIN_STATE,false)
+        val isLogin = kv.decodeBool(Constant.KEY_LOGIN_STATE,false)
         if (isLogin){
             rl_tcxt.visible()
         }else{
             rl_tcxt.gone()
         }
-
     }
 
     override fun initData() {

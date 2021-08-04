@@ -27,8 +27,9 @@
 
             <ImageView
                 android:id="@+id/iv_myteam"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="2dp"
                 android:src="@drawable/ic_myteam"/>
 
         </LinearLayout>
@@ -40,9 +41,10 @@
             >
             <ImageView
                 android:id="@+id/iv_teamfunds"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
                 android:src="@drawable/ic_teamfunds"
+                android:layout_marginBottom="3dp"
                 />
 
         </LinearLayout>
@@ -55,11 +57,11 @@
 
             <ImageView
                 android:id="@+id/iv_invitefriends"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="5dp"
                 android:src="@drawable/ic_invitefriends"
                 />
-
 
         </LinearLayout>
 
@@ -80,8 +82,8 @@
 
             <ImageView
                 android:id="@+id/iv_agencyincome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
                 android:src="@drawable/ic_agencyincome"
                 />
 

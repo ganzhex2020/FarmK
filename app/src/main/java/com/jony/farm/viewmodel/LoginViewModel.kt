@@ -67,8 +67,15 @@ class LoginViewModel(private val remoteRepo: RemoteDataSource,private val localR
                 val member = withContext(Dispatchers.IO){
                     remoteRepo.getMembers()
                 }
+                val yue = withContext(Dispatchers.IO){
+                    remoteRepo.getYue()
+                }
                 member.checkSuccess { memverEntiry ->
                     localRepo.insertMember(memverEntiry.copy(password = passwd))
+                }
+                yue.checkSuccess { yueEntity ->
+                    localRepo.deleteYue()
+                    localRepo.insertYue(yueEntity)
                 }
                 //启动长连接
                 WebSocketUtil.longConnect(it.sessionID)

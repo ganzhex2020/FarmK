@@ -101,7 +101,7 @@ class TeamPromoteActivity:BaseVMActivity<TeamPromoteViewModel>() {
                 launch(Dispatchers.Main) {
                     val bitmap = withContext(Dispatchers.IO){
                         //    syncEncodeQRCode("${sysParam.frontDomain}&code=$inviteCode",150)
-                        QRCodeEncoder.syncEncodeQRCode(url, 40)
+                        QRCodeEncoder.syncEncodeQRCode(url, 180)
                     }
                     iv_qrcode.setImageBitmap(bitmap)
                 }

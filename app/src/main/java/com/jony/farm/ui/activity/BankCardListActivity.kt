@@ -13,6 +13,7 @@ import com.jony.farm.config.Const
 import com.jony.farm.ui.adapter.BankCardListAdapter
 import com.jony.farm.util.DeviceUtil
 import com.jony.farm.util.RouteUtil
+import com.jony.farm.util.visible
 import com.jony.farm.view.GamItemTouchCallback
 import com.jony.farm.view.VerticalDecoration
 import com.jony.farm.viewmodel.BankCardListViewModel
@@ -48,7 +49,7 @@ class BankCardListActivity :BaseVMActivity<BankCardListViewModel>(){
         iv_title.setImageResource(R.mipmap.ic_title_bankcard)
 
         ll_add_card.setOnClickListener { RouteUtil.start2BindCard(this) }
-
+        ll_add_card.visible()
         initRecy()
     }
 
@@ -61,23 +62,24 @@ class BankCardListActivity :BaseVMActivity<BankCardListViewModel>(){
         }
         val mDivider = ContextCompat.getDrawable(this, R.color.transparent)
         recy_bankcard.addItemDecoration(VerticalDecoration(this, mDivider, DeviceUtil.dip2px(this, 10f)))
-        val callback = GamItemTouchCallback(bankCardListAdapter,DeviceUtil.dip2px(this,60f))
-        val itemTouchHelper = ItemTouchHelper(callback)
-        itemTouchHelper.attachToRecyclerView(recy_bankcard)
-        bankCardListAdapter.addChildClickViewIds(R.id.tv_bank_modify)
+//        val callback = GamItemTouchCallback(bankCardListAdapter,DeviceUtil.dip2px(this,60f))
+//        val itemTouchHelper = ItemTouchHelper(callback)
+//        itemTouchHelper.attachToRecyclerView(recy_bankcard)
+ //       bankCardListAdapter.addChildClickViewIds(R.id.tv_bank_modify)
+        bankCardListAdapter.addChildClickViewIds(R.id.tv_set_default)
         bankCardListAdapter.setOnItemChildClickListener { _, view, position ->
-            /*if (view.id == R.id.tv_set_default){
+            if (view.id == R.id.tv_set_default){
                 val map = HashMap<String,Any>()
                 map["isDefault"] = 1
                 map["bankID"] = bankCardListAdapter.data[position].bankID
                 mViewModel.setDefaultCard(position,map)
-            }*/
-            if (view.id == R.id.tv_bank_modify){
+            }
+   /*         if (view.id == R.id.tv_bank_modify){
                 LogUtils.info("修改银行卡 $position")
                 val holder = recy_bankcard.findViewHolderForAdapterPosition(position)
                 holder?.itemView?.scrollTo(0, 0)
                 RouteUtil.start2ModifyCard(this,bankCardListAdapter.data[position])
-            }
+            }*/
         }
 
 

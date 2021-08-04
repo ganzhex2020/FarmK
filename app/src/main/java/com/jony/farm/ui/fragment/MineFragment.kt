@@ -3,6 +3,7 @@ package com.jony.farm.ui.fragment
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import com.combodia.basemodule.base.BaseVMFragment
 import com.combodia.basemodule.ext.visable
@@ -17,6 +18,7 @@ import com.gyf.immersionbar.ktx.statusBarHeight
 import com.jony.farm.R
 import com.jony.farm.ui.activity.LanguageActivity
 import com.jony.farm.util.*
+import com.jony.farm.util.bus.receiveEvent
 import com.jony.farm.view.pop.LanguagePop
 import com.jony.farm.viewmodel.MineViewModel
 import com.tencent.mmkv.MMKV
@@ -34,44 +36,46 @@ import org.koin.android.viewmodel.ext.android.getViewModel
  *时间:2021/4/15 14:45
  *描述:This is MineFragment
  */
-class MineFragment:BaseVMFragment<MineViewModel>() {
+class MineFragment : BaseVMFragment<MineViewModel>() {
 
-    private lateinit var languagePop:LanguagePop
+    private lateinit var languagePop: LanguagePop
 
     private val kv = MMKV.defaultMMKV()
 
-    override fun initVM(): MineViewModel = getViewModel()
+    private var unRead: Int = 0
 
+    override fun initVM(): MineViewModel = getViewModel()
 
     override fun getLayoutResId(): Int = R.layout.fragment_mine
 
     override fun initView() {
 
-        ll_parent.setPadding(0,statusBarHeight,0,0)
+        ll_parent.setPadding(0, statusBarHeight, 0, 0)
 
-       /* if (kv.decodeBool(KEY_LOGIN_STATE,false)){
-            iv_signout.visable(true)
-        }else{
-            iv_signout.visable(false)
-        }*/
+        /* if (kv.decodeBool(KEY_LOGIN_STATE,false)){
+             iv_signout.visable(true)
+         }else{
+             iv_signout.visable(false)
+         }*/
 
 
         refreshLayout.setOnRefreshListener {
             mViewModel.getData()
+            mViewModel.getMsgList()
             it.finishRefresh(2000)
         }
-      /*  if (LanguageUtil.getDefaultLanguage()== LanguageType.CHINESE.language){
-            iv_language.setImageResource(R.drawable.ic_language_chinese)
-            tv_language.text = "中文"
-        }else{
-            iv_language.setImageResource(R.drawable.ic_language_english)
-            tv_language.text = "English"
-        }*/
+        /*  if (LanguageUtil.getDefaultLanguage()== LanguageType.CHINESE.language){
+              iv_language.setImageResource(R.drawable.ic_language_chinese)
+              tv_language.text = "中文"
+          }else{
+              iv_language.setImageResource(R.drawable.ic_language_english)
+              tv_language.text = "English"
+          }*/
 
         onClick()
     }
 
-    private fun onClick(){
+    private fun onClick() {
         iv_avatar.setOnClickListener {
             RouteUtil.start2UserInfo(requireContext())
         }
@@ -91,7 +95,7 @@ class MineFragment:BaseVMFragment<MineViewModel>() {
             RouteUtil.start2Sms(requireContext())
         }
         iv_fodderdetail.setOnClickListener {
-            RouteUtil.start2FodderDetail(requireContext(),3)
+            RouteUtil.start2FodderDetail(requireContext(), 3)
         }
         iv_password.setOnClickListener {
             RouteUtil.start2ChangePwd(requireContext())
@@ -115,10 +119,13 @@ class MineFragment:BaseVMFragment<MineViewModel>() {
             RouteUtil.start2TeamFund(requireContext())
         }
         iv_agencyincome.setOnClickListener {
-            RouteUtil.start2AgencyIncome(requireContext())
+            RouteUtil.start2TeamPromote(requireContext())
         }
         iv_setting.setOnClickListener {
             RouteUtil.start2Setting(requireContext())
+        }
+        iv_lcbank.setOnClickListener {
+            RouteUtil.start2LcBank(requireContext())
         }
         /*ll_language.setOnClickListener {
             if (!this::languagePop.isInitialized){
@@ -135,15 +142,26 @@ class MineFragment:BaseVMFragment<MineViewModel>() {
     /**
      * 更新数据 主要是各个金额
      */
-    fun updateData(){
-     //   mViewModel.getData()
+    fun updateData() {
+        //   mViewModel.getData()
     }
 
     override fun initData() {
         mViewModel.getData()
+        mViewModel.getMsgList()
+
+        receiveEvent<Int> {
+            unRead = it
+            if (it > 0) {
+                tv_unread.visible()
+                tv_unread.text = unRead.toString()
+            } else {
+                tv_unread.gone()
+            }
+        }
     }
 
-    private fun setUnLogin(){
+    private fun setUnLogin() {
         tv_userName.text = context?.getString(R.string.mine_unlogin)
         tv_userId.text = ""
         tv_balance.text = "0.00"
@@ -157,10 +175,10 @@ class MineFragment:BaseVMFragment<MineViewModel>() {
 
     override fun onResume() {
         super.onResume()
-        if (!kv.decodeBool(Constant.KEY_LOGIN_STATE,false)){
+        if (!kv.decodeBool(Constant.KEY_LOGIN_STATE, false)) {
             setUnLogin()
         }
-        mViewModel.getMsgList()
+        //
     }
 
     @SuppressLint("SetTextI18n")
@@ -172,37 +190,44 @@ class MineFragment:BaseVMFragment<MineViewModel>() {
 
                     }
             })*/
-            memberLiveData.observe(viewLifecycleOwner,{list ->
+            memberLiveData.observe(viewLifecycleOwner, { list ->
                 list.filter { it.userID == MMKV.defaultMMKV().decodeInt(KEY_USER_ID) }
                     .map {
-                        if (kv.decodeBool(Constant.KEY_LOGIN_STATE,false)){
+                        if (kv.decodeBool(Constant.KEY_LOGIN_STATE, false)) {
                             LogUtils.error("登录设置信息")
                             tv_userName.text = it.userName
                             tv_userId.text = "ID:${it.userID}"
-                            tv_balance.text = MathUtil.getTwoBigDecimal(it.balance)
-                            tv_lCoin.text = MathUtil.getTwoBigDecimal(it.lCoin)
-                            tv_fodder.text = MathUtil.getTwoBigDecimal(it.fodder)
-                            GlideUtils.loadAvatar(iv_avatar,it.headImg,R.mipmap.ic_avatar_default)
+//                            tv_balance.text = MathUtil.getTwoBigDecimal(it.balance)
+//                            tv_lCoin.text = MathUtil.getTwoBigDecimal(it.lCoin)
+//                            tv_fodder.text = MathUtil.getTwoBigDecimal(it.fodder)
+                            GlideUtils.loadAvatar(iv_avatar, it.headImg, R.mipmap.ic_avatar_default)
                             /*if (kv.decodeBool(KEY_LOGIN_STATE,false)){
                                 iv_signout.visable(true)
                             }else{
                                 iv_signout.visable(false)
                             }*/
-                            if (it.userType == 1){
+                            if (it.userType == 1) {
                                 iv_tx_type.setImageResource(R.drawable.ic_tx_hy)
                                 iv_tx_dlzm.visible()
                                 iv_tx_type.visible()
-                            }else{
+                            } else {
                                 iv_tx_type.setImageResource(R.drawable.ic_tx_dl)
                                 iv_tx_dlzm.gone()
                                 iv_tx_type.visible()
                             }
-                        }else{
+                        } else {
                             LogUtils.error("未登录设置")
                             setUnLogin()
                         }
 
                     }
+            })
+            yueLiveData.observe(viewLifecycleOwner, { list ->
+                if (list != null && list.isNotEmpty()) {
+                    tv_balance.text = MathUtil.getTwoBigDecimal(list[0].item1)
+                    tv_lCoin.text = MathUtil.getTwoBigDecimal(list[0].item2)
+                    tv_fodder.text = MathUtil.getTwoBigDecimal(list[0].item3)
+                }
             })
             /*signOutLiveData.observe(viewLifecycleOwner,{signOutState->
                 if (signOutState){
@@ -215,16 +240,17 @@ class MineFragment:BaseVMFragment<MineViewModel>() {
                     iv_avatar.setImageResource(R.mipmap.ic_avatar_default)
                 }
             })*/
-            unReadLiveData.observe(viewLifecycleOwner,{
-                if (it>0){
+            unReadLiveData.observe(viewLifecycleOwner, {
+                if (it > 0) {
                     tv_unread.visible()
-                    tv_unread.text = it.toInt().toString()
-                }else{
+                    unRead = it.toInt()
+                    tv_unread.text = unRead.toString()
+                } else {
                     tv_unread.gone()
                 }
             })
-
-
         }
     }
+
+
 }

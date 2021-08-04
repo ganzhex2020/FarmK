@@ -10,10 +10,7 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.jony.farm.R
 import com.jony.farm.model.entity.AnimalKindType
 import com.jony.farm.model.entity.KindEntity
-import com.jony.farm.util.CommonUtil
-import com.jony.farm.util.MathUtil
-import com.jony.farm.util.gone
-import com.jony.farm.util.visible
+import com.jony.farm.util.*
 
 /**
  *Author:ganzhe
@@ -35,26 +32,25 @@ class MarketAdapter :BaseQuickAdapter<KindEntity,BaseViewHolder>(R.layout.home_r
         val tv_name = holder.getView<TextView>(R.id.tv_name)
         val tv_price = holder.getView<TextView>(R.id.tv_price)
         val tv_profit = holder.getView<TextView>(R.id.tv_profit)
-        val tv_sale = holder.getView<TextView>(R.id.tv_sale)
         val tv_fodder = holder.getView<TextView>(R.id.tv_fodder)
-        val tv_supply = holder.getView<TextView>(R.id.tv_supply)
-        val tv_rushbuy = holder.getView<TextView>(R.id.tv_rushbuy)
+        val tv_sale = holder.getView<TextView>(R.id.tv_sale)
         val iv_soldout = holder.getView<ImageView>(R.id.iv_soldout)
         val fl_jjkf = holder.getView<FrameLayout>(R.id.fl_jjkf)
         val ll_animal = holder.getView<LinearLayout>(R.id.ll_animal)
-
-
-
-        tv_name.text = context.getString(AnimalKindType.getAnimalLabel(item.animalID))//item.animalName
-        tv_price.text = "${context.getString(R.string.market_price)}${item.price}"
-        tv_profit.text = String.format(context.getString(R.string.market_profit_content),item.profitRate.toString()+"%/",item.cycleDay,
-            MathUtil.getTwoBigDecimal(item.profitRate*item.price/item.cycleDay))//"${item.profitRate}%/${item.cycleDay}Days (${MathUtil.getTwoBigDecimal(item.profitRate*item.price/item.cycleDay)} per day)"
-        tv_sale.text = item.buyStartTime+"~"+item.buyEndTime
-        tv_fodder.text = String.format(context.getString(R.string.market_perday),item.needFodder.toString())//item.needFodder.toString()
-        tv_supply.text = String.format(context.getString(R.string.market_perday,item.sellCount.toString()))//item.sellCount.toString()
+        val tv_rushbuy = holder.getView<TextView>(R.id.tv_rushbuy)
+        /*
+        val tv_supply = holder.getView<TextView>(R.id.tv_supply)
+        */
         val resId = CommonUtil.getImgByAnimalId(item.animalID)
         iv_animal.setImageResource(resId)
-
+        tv_name.text = CommonUtil.getGameName(item.animalName)//context.getString(AnimalKindType.getAnimalLabel(item.animalID))//item.animalName
+        tv_price.text = "${item.price}"
+        tv_profit.text = String.format(context.getString(R.string.market_profit_content),item.profitRate.toString()+"%/",item.cycleDay,
+            MathUtil.getTwoBigDecimal(item.profitRate*item.price/item.cycleDay))//"${item.profitRate}%/${item.cycleDay}Days (${MathUtil.getTwoBigDecimal(item.profitRate*item.price/item.cycleDay)} per day)"
+        tv_fodder.text = String.format(context.getString(R.string.market_perday),item.needFodder.toString())//item.needFodder.toString()
+        tv_sale.text = item.buyStartTime.take(5)+"~"+item.buyEndTime.take(5)
+        /*
+        tv_supply.text = String.format(context.getString(R.string.market_perday,item.sellCount.toString()))//item.sellCount.toString()*/
         if(item.animalID<1||item.animalID>8){
             ll_animal.gone()
             fl_jjkf.visible()
@@ -67,11 +63,11 @@ class MarketAdapter :BaseQuickAdapter<KindEntity,BaseViewHolder>(R.layout.home_r
                     iv_soldout.gone()
                 }
                 2 ->{
-                    tv_rushbuy.gone()
+                    tv_rushbuy.invisible()
                     iv_soldout.gone()
                 }
                 3 ->{
-                    tv_rushbuy.gone()
+                    tv_rushbuy.invisible()
                     iv_soldout.visible()
                 }
             }

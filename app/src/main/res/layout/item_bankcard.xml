@@ -1,83 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cl_parent"
     android:layout_width="match_parent"
     android:layout_height="100dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_retc_default_bankcard"
-    android:id="@+id/cl_parent"
-    android:orientation="horizontal"
-    >
+    android:orientation="horizontal">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <ImageView
             android:id="@+id/iv_bankcard_logo"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
             android:src="@mipmap/ic_bankcard_default_logo"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/tv_bank_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
+            android:text="中国建设银行"
             android:textColor="@color/white"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/iv_bankcard_logo"
-            app:layout_constraintTop_toTopOf="@+id/iv_bankcard_logo"
-            android:text="中国建设银行"
-            />
+            app:layout_constraintTop_toTopOf="@+id/iv_bankcard_logo" />
 
         <TextView
             android:id="@+id/tv_bankcard_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@+id/tv_bank_name"
-            app:layout_constraintTop_toBottomOf="@+id/iv_bankcard_logo"
             android:text="**** **** **** 1888"
             android:textColor="@color/white"
             android:textSize="16sp"
-            />
+            app:layout_constraintStart_toStartOf="@+id/tv_bank_name"
+            app:layout_constraintTop_toBottomOf="@+id/iv_bankcard_logo" />
+
         <!--<TextView
-       android:id="@+id/tv_set_default"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintTop_toTopOf="parent"
-       app:layout_constraintBottom_toBottomOf="parent"
-       android:background="@drawable/bk_retc_gold"
-       android:paddingLeft="8dp"
-       android:paddingTop="3dp"
-       android:paddingRight="8dp"
-       android:paddingBottom="3dp"
-       android:text="@string/set_default_card"
-       android:textColor="#FFDF04"
-       android:textSize="12sp"
-       />-->
+            android:id="@+id/tv_set_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bk_retc_gold"
+            android:paddingLeft="8dp"
+            android:paddingTop="3dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="3dp"
+            android:text="@string/set_default_card"
+            android:textColor="#FFDF04"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />-->
+        <com.combodia.basemodule.view.roundview.RoundTextView
+            android:id="@+id/tv_set_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/set_default_card"
+            app:rv_backgroundColor="#E61480"
+            app:rv_cornerRadius="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textColor="@color/white"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
     <TextView
         android:id="@+id/tv_bank_modify"
         android:layout_width="60dp"
         android:layout_height="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/modify"
-        android:gravity="center"
         android:background="@drawable/bg_retc_bankcard_delete"
-        android:textStyle="bold"
+        android:gravity="center"
+        android:text="@string/modify"
         android:textSize="15sp"
-        />
-
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </LinearLayout>

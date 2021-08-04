@@ -31,11 +31,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.combodia.basemodule.view.CircleImageView
+      <!--  <com.combodia.basemodule.view.CircleImageView
             android:id="@+id/iv_rank"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@mipmap/ic_avatar_default" />
+            android:src="@mipmap/ic_avatar_default" />-->
+        <com.combodia.basemodule.view.roundview.RoundTextView
+            android:id="@+id/tv_rank"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:paddingBottom="5dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:rv_backgroundColor="#9C27B0"
+            app:rv_cornerRadius="50dp"
+            />
 
         <TextView
             android:id="@+id/tv_rank_name"

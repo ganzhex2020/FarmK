@@ -322,6 +322,15 @@ object RouteUtil {
             .forward()
     }
 
+    @JvmStatic
+    fun start2LcBank(context: Context) {
+        Router
+            .with(context)
+            .host(Const.MODULE_HOST_APP)
+            .path(Const.MODULE_PATH_APP_LCBANK)
+            .forward()
+    }
+
 
 
 

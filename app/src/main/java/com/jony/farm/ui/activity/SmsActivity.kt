@@ -10,6 +10,7 @@ import com.jony.farm.config.Const
 import com.jony.farm.ui.adapter.ZnMsgAdapter
 import com.jony.farm.util.DeviceUtil
 import com.jony.farm.util.RouteUtil
+import com.jony.farm.util.bus.sendEvent
 import com.jony.farm.view.VerticalDecoration
 import com.jony.farm.viewmodel.SmsViewModel
 import com.xiaojinzi.component.anno.RouterAnno
@@ -69,6 +70,14 @@ class SmsActivity : BaseVMActivity<SmsViewModel>() {
                 }
                 mAdapter.notifyItemChanged(position)
             }
+            var count =0
+            for (i in mAdapter.data.indices){
+                if (mAdapter.data[i].readed == 0){
+                    count++
+                }
+            }
+            sendEvent(count)
+
             RouteUtil.start2MsgDetail(this,mAdapter.data[position])
         }
 

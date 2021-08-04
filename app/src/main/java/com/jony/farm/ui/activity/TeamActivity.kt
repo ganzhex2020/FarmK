@@ -17,7 +17,6 @@ import com.xiaojinzi.component.anno.RouterAnno
 import kotlinx.android.synthetic.main.activity_funddetail.*
 import kotlinx.android.synthetic.main.activity_team.*
 import kotlinx.android.synthetic.main.activity_team.ll_parent
-import kotlinx.android.synthetic.main.activity_team.radio_group
 import kotlinx.android.synthetic.main.activity_team.recy
 import kotlinx.android.synthetic.main.activity_team.refreshLayout
 import kotlinx.android.synthetic.main.layout_common_header.*
@@ -86,7 +85,7 @@ class TeamActivity : BaseVMActivity<TeamViewModel>() {
     }
 
     private fun onClick() {
-        radio_group.setOnCheckedChangeListener { _, checkedId ->
+        /*radio_group.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 R.id.radio_btn1 -> {
                     pageIndex = 1
@@ -104,6 +103,71 @@ class TeamActivity : BaseVMActivity<TeamViewModel>() {
                     mViewModel.getTeamMemberList(pageSize, pageIndex, layer)
                 }
             }
+        }*/
+        tv_level1.setOnClickListener {
+
+            val param1 = tv_level1.layoutParams
+            param1.width = DeviceUtil.dip2px(this,120f)
+            param1.height = DeviceUtil.dip2px(this,80f)
+            tv_level1.layoutParams = param1
+
+            val param2 = tv_level2.layoutParams
+            param2.width = DeviceUtil.dip2px(this,90f)
+            param2.height = DeviceUtil.dip2px(this,60f)
+            tv_level2.layoutParams = param2
+
+            val param3 = tv_level3.layoutParams
+            param3.width = DeviceUtil.dip2px(this,90f)
+            param3.height = DeviceUtil.dip2px(this,60f)
+            tv_level3.layoutParams = param3
+
+            pageIndex = 1
+            layer = 1
+            mViewModel.getTeamMemberList(pageSize, pageIndex,layer)
+        }
+        tv_level2.setOnClickListener {
+
+            val param2 = tv_level2.layoutParams
+            param2.width = DeviceUtil.dip2px(this,120f)
+            param2.height = DeviceUtil.dip2px(this,80f)
+            tv_level2.layoutParams = param2
+
+            val param1 = tv_level1.layoutParams
+            param1.width = DeviceUtil.dip2px(this,90f)
+            param1.height = DeviceUtil.dip2px(this,60f)
+            tv_level1.layoutParams = param1
+
+            val param3 = tv_level3.layoutParams
+            param3.width = DeviceUtil.dip2px(this,90f)
+            param3.height = DeviceUtil.dip2px(this,60f)
+            tv_level3.layoutParams = param3
+
+            pageIndex = 1
+            layer = 2
+            mViewModel.getTeamMemberList(pageSize, pageIndex,layer)
+        }
+
+        tv_level3.setOnClickListener {
+
+            val param3 = tv_level3.layoutParams
+            param3.width = DeviceUtil.dip2px(this,120f)
+            param3.height = DeviceUtil.dip2px(this,80f)
+            tv_level3.layoutParams = param3
+
+            val param1 = tv_level1.layoutParams
+            param1.width = DeviceUtil.dip2px(this,90f)
+            param1.height = DeviceUtil.dip2px(this,60f)
+            tv_level1.layoutParams = param1
+
+            val param2 = tv_level2.layoutParams
+            param2.width = DeviceUtil.dip2px(this,90f)
+            param2.height = DeviceUtil.dip2px(this,60f)
+            tv_level2.layoutParams = param2
+
+            pageIndex = 1
+            layer = 3
+            mViewModel.getTeamMemberList(pageSize, pageIndex,layer)
+
         }
     }
 
@@ -116,6 +180,9 @@ class TeamActivity : BaseVMActivity<TeamViewModel>() {
             teamLiveData.observe(this@TeamActivity, {
                 if (pageIndex == 1) {
                     teamAdapter.setList(it)
+                    if (it.isEmpty()){
+                        teamAdapter.setEmptyView(R.layout.layout_empty_myteam)
+                    }
                 } else {
                     teamAdapter.addData(it)
                 }

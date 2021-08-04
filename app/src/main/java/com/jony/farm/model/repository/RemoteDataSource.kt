@@ -164,6 +164,11 @@ class RemoteDataSource(private val serviceApi: ServiceApi) {
         reqYue()
     }
 
+    suspend fun reqRate() =  handleResponse(serviceApi.getRate())
+    suspend fun getRate():SealedResult<RateEntity> = callRequest {
+        reqRate()
+    }
+
     /**
      * 购买动物
      */
@@ -428,6 +433,15 @@ class RemoteDataSource(private val serviceApi: ServiceApi) {
      */
     suspend fun setRead(id:Int):BaseResult<Any>{
         return serviceApi.setRead(id)
+    }
+
+    //lc兑换
+    suspend fun lcDh(body: RequestBody):BaseResult<Any>{
+        return serviceApi.lcDh(body)
+    }
+    //lc转账
+    suspend fun lcZz(body: RequestBody):BaseResult<Any>{
+        return serviceApi.lcZz(body)
     }
 
 }

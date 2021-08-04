@@ -92,14 +92,36 @@ class MarketViewModel(private val remoteRepo: RemoteDataSource) : BaseViewModel(
 
     fun getAnimalLeft(animalId: Int) {
         launchUI({
+            val farmAnimals = withContext(Dispatchers.IO) {
+                remoteRepo.getFarmAllAnimal()
+            }
             val result = withContext(Dispatchers.IO) {
                 remoteRepo.getAnimalLeft(animalId)
             }
+            var haveCount =0
+            farmAnimals.checkSuccess { list ->
+                val all = list.filter { it.animalID == animalId }
+                haveCount = all.size
+            }
             result.checkSuccess { leftCount ->
-                val map = HashMap<String, Int>()
-                map["animalId"] = animalId
-                map["leftCount"] = leftCount
-                animalLeftLiveData.value = map
+                //动物剩下的大于0
+                if (leftCount>0){
+                    val map = HashMap<String, Int>()
+                    map["animalId"] = animalId
+                    map["leftCount"] = leftCount
+                    map["haveCount"] = haveCount
+                    animalLeftLiveData.value = map
+                }else{
+                    //否则重新请求recy的数据 刷新页面
+                    val animalList = withContext(Dispatchers.IO) {
+                        remoteRepo.getAnimalList()
+                    }
+                    animalList.checkSuccess {
+                        animalLiveData.value = it
+                    }
+
+                }
+
             }
             result.checkError {
                 toast(it.errorMsg)

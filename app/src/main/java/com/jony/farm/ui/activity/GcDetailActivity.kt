@@ -63,8 +63,8 @@ class GcDetailActivity : BaseVMActivity<GcDetailViewModel>() {
             adapter = gcAdapter
             layoutManager = LinearLayoutManager(this@GcDetailActivity)
         }
-        val mDivider = ContextCompat.getDrawable(this, R.color.transparent)
-        recy.addItemDecoration(VerticalDecoration(this, mDivider, DeviceUtil.dip2px(this, 10f)))
+        val mDivider = ContextCompat.getDrawable(this, R.color.color_diver)
+        recy.addItemDecoration(VerticalDecoration(this, mDivider, DeviceUtil.dip2px(this, 0.5f)))
         gcAdapter.loadMoreModule.run {
             preLoadNumber = 3
             setOnLoadMoreListener {

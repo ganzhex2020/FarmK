@@ -5,18 +5,17 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    android:background="@mipmap/ic_main_bg1"
+    android:background="@drawable/bj_market"
     >
 
     <com.scwang.smart.refresh.layout.SmartRefreshLayout
         android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         >
 
 
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
+        <!--<androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -32,74 +31,20 @@
                     android:orientation="vertical"
                     app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed">
 
-                    <!-- app:banner_indicator_normal_color="@color/theme_text_color_primary_alpha_60"
-                     app:banner_indicator_selected_color="?attr/colorPrimary"-->
-                    <!--  <com.youth.banner.Banner
-                          android:id="@+id/home_banner"
-                          android:layout_width="match_parent"
-                          android:layout_height="200dp"
-                          android:layout_marginStart="8dp"
-                          android:layout_marginEnd="8dp"
-                         />-->
 
-                    <!-- <androidx.constraintlayout.widget.ConstraintLayout
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                         android:layout_marginTop="10dp"
-                         >
-                         <ImageView
-                             android:id="@+id/iv_recharge"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             app:layout_constraintTop_toTopOf="parent"
-                             app:layout_constraintBottom_toBottomOf="parent"
-                             app:layout_constraintStart_toStartOf="parent"
-                             app:layout_constraintEnd_toStartOf="@+id/iv_withdraw"
-                             android:src="@mipmap/ic_recharge"
-                             />
-
-                         <ImageView
-                             android:id="@+id/iv_withdraw"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             app:layout_constraintTop_toTopOf="parent"
-                             app:layout_constraintBottom_toBottomOf="parent"
-                             app:layout_constraintStart_toEndOf="@+id/iv_recharge"
-                             app:layout_constraintEnd_toStartOf="@+id/iv_invite"
-                             android:src="@mipmap/ic_withdraw"
-                             />
-                         <ImageView
-                             android:id="@+id/iv_invite"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             app:layout_constraintTop_toTopOf="parent"
-                             app:layout_constraintBottom_toBottomOf="parent"
-                             app:layout_constraintStart_toEndOf="@+id/iv_withdraw"
-                             app:layout_constraintEnd_toStartOf="@+id/iv_service"
-                             android:src="@mipmap/ic_invite"
-                             />
-                         <ImageView
-                             android:id="@+id/iv_service"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             app:layout_constraintTop_toTopOf="parent"
-                             app:layout_constraintBottom_toBottomOf="parent"
-                             app:layout_constraintStart_toEndOf="@+id/iv_invite"
-                             app:layout_constraintEnd_toEndOf="parent"
-                             android:src="@mipmap/ic_service"
-                             />
-
-                     </androidx.constraintlayout.widget.ConstraintLayout>-->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@mipmap/ic_bg_kuang"
+                        android:background="@drawable/ic_kuang_top_market"
                         android:orientation="vertical"
                         android:layout_marginStart="3dp"
                         android:layout_marginEnd="3dp"
-                        android:padding="12dp">
+                        android:paddingTop="60dp"
+                        android:paddingStart="25dp"
+                        android:paddingEnd="20dp"
+                        android:paddingBottom="20dp">
 
-                        <LinearLayout
+                    &lt;!&ndash;    <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
@@ -118,7 +63,7 @@
                                 android:textColor="#bc5a37"
                                 android:textSize="14sp"
                                 android:fontFamily="@font/arialbd" />
-                        </LinearLayout>
+                        </LinearLayout>&ndash;&gt;
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -349,11 +294,331 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/home_recy"
                 android:layout_marginTop="5dp"
+                android:paddingTop="100dp"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/ic_bg_market_recy"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_kuang_top_market"
+                        android:orientation="vertical"
+                        android:layout_marginStart="3dp"
+                        android:layout_marginEnd="3dp"
+                        android:paddingTop="60dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:paddingBottom="30dp">
+
+                        <!--    <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <View
+                                    android:layout_width="3dp"
+                                    android:layout_height="15dp"
+                                    android:background="@drawable/bg_gradient_hometips" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="@string/network_hashrate"
+                                    android:textColor="#bc5a37"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/arialbd" />
+                            </LinearLayout>-->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_horizontal"
+                            android:background="@drawable/bg_hash_item"
+                            >
+
+                            <TextView
+                                android:id="@+id/tv_allHash"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="5.123456"
+                                android:textColor="@color/white"
+                                android:textSize="24sp"
+                                android:fontFamily="@font/hkxzy"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:text="EIB"
+                                android:textColor="#ffe029"
+                                android:textSize="16sp"
+                                android:fontFamily="@font/hkxzy"
+                                 />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_vertical"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_hash_item"
+                                android:gravity="center_vertical"
+                                android:paddingStart="5dp"
+                                android:paddingEnd="5dp"
+                                >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/block_height"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/hkxzy"
+
+                                    />
+
+                                <TextView
+                                    android:id="@+id/tv_blockHight"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="0"
+                                    android:textColor="#ffe029"
+                                    android:textSize="10sp"
+                                    android:fontFamily="@font/hkxzy"/>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_marginStart="5dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_hash_item"
+                                android:gravity="center_vertical"
+                                android:paddingStart="5dp"
+                                >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/comput_power"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/hkxzy"/>
+
+                                <TextView
+                                    android:id="@+id/tv_hashProfit"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="0.0 FIL/TIB"
+                                    android:textColor="#ffe029"
+                                    android:textSize="10sp"
+                                    android:fontFamily="@font/hkxzy" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_hash_item"
+                                android:gravity="center_vertical"
+                                android:paddingStart="5dp"
+                                android:paddingEnd="5dp"
+                                >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/market_accounts"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/hkxzy"/>
+
+                                <TextView
+                                    android:id="@+id/tv_allAccount"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="0"
+                                    android:textColor="#ffe029"
+                                    android:textSize="10sp"
+                                    android:fontFamily="@font/hkxzy" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_hash_item"
+                                android:gravity="center_vertical"
+                                android:paddingStart="5dp"
+                                android:paddingEnd="5dp"
+                                android:layout_marginStart="5dp"
+                                >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/active_miners"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/hkxzy" />
+
+                                <TextView
+                                    android:id="@+id/tv_absenteeism"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="0"
+                                    android:textColor="#ffe029"
+                                    android:textSize="10sp"
+                                    android:fontFamily="@font/hkxzy" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_vertical"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_hash_item"
+                                android:gravity="center_vertical"
+                                android:paddingStart="5dp"
+                                android:paddingEnd="5dp"
+                                >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/block_generation_time"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/hkxzy"/>
+
+                                <TextView
+                                    android:id="@+id/tv_timeVal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="0.0 s"
+                                    android:textColor="#71f836"
+                                    android:textSize="10sp"
+                                    android:fontFamily="@font/hkxzy"/>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_hash_item"
+                                android:gravity="center_vertical"
+                                android:paddingStart="5dp"
+                                android:paddingEnd="5dp"
+                                android:layout_marginStart="5dp"
+                                >
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/block_coinbase"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:fontFamily="@font/hkxzy" />
+
+                                <TextView
+                                    android:id="@+id/tv_foundVal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:text="0 FIL"
+                                    android:textColor="#ffe029"
+                                    android:textSize="10sp"
+                                    android:fontFamily="@font/hkxzy" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/home_recy"
+                    android:layout_marginTop="5dp"
+                    android:paddingTop="180dp"
+                    android:paddingStart="40dp"
+                    android:paddingEnd="40dp"
+                    android:paddingBottom="30dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_bg_market_recy"
+                    android:nestedScrollingEnabled="false"
+                    />
+
+
+
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
 
 
     </com.scwang.smart.refresh.layout.SmartRefreshLayout>

@@ -33,6 +33,7 @@
     <string name="block_generation_time">Block Gen Time:</string>
     <string name="block_coinbase">Block Coinbase:</string>
 
+    <string name="market_level">Level:</string>
     <string name="market_price">Price:</string>
     <string name="market_profit">Profit:</string>
     <string name="market_profit_content">%s %sDays(%s per day)</string>
@@ -42,6 +43,7 @@
     <string name="market_perday">%s/Day</string>
     <string name="rush_buy">Rush Buy</string>
     <string name="buy_success">Buy success</string>
+    <string name="market_animal_normal">Normal</string>
 
     <!--动物种类-->
     <string name="hen">Hen</string>
@@ -185,6 +187,9 @@
     <string name="team_subnum">Sub</string>
     <string name="team_time">Time</string>
     <string name="team_farm">Farm</string>
+    <string name="team_level1">Level1</string>
+    <string name="team_level2">Level2</string>
+    <string name="team_level3">Level3</string>
 
     <!--LoginActivity-->
     <string name="login_username">UserName</string>
@@ -243,21 +248,45 @@
     <string name="credit_pls_enter_fund_passwd">Please enter fund password</string>
     <string name="credit_pls_confirm_fund_passwd">Please confirm fund password</string>
     <string name="credit_submit">Submit</string>
+    <string name="marquee_tip1">--Remember to feed your pet every day!*^____^*</string>
+    <string name="marquee_tip2">--Share more and invite more,obtain more fodder...</string>
+    <string name="marquee_tip3">-- I\'m hungry/(ㄒoㄒ)/, haven\'t fed me today-_-</string>
+    <string name="marquee_tip4">--Play lucky draw,you can draw lots of fodder</string>
+    <string name="marquee_tip5">--Prepare enough fodder to feed, it will affect the profit!</string>
+    <string name="marquee_tip6">--Remember to do sharing task getting free fodder every day(￣▽￣)</string>
 
     <!--TeamPromote-->
     <string name="teampromote_name">DEAR AGENT %s</string>
-    <string name="teampromote_tips1">1.You can now sharethe registration link to invite friends to join</string>
+    <string name="teampromote_tips1">You can now sharethe registration link to invite friends to join</string>
     <string name="teampromote_tips2">2.You can get top-up commission from each level member of the team,the more member,the more commission</string>
     <string name="teampromote_tips3">3.You can join the WhatsApp or Telegram group,and the professional instructor will guide you to make money quickly.We look forward to your joining</string>
     <string name="save_success">save success</string>
     <string name="copy_success">copy success</string>
+    <string name="teampromote_title1">Agency income</string>
+    <string name="teampromote_title1_1">Commission rebate for recharge  8%  4%  2%</string>
+    <string name="teampromote_title1_2">您可以邀请好友作为1级代理，您的1级代理可以邀请好友作为您的2级代理，同样您可以邀请到最高3级下级代理</string>
+    <string name="teampromote_title2">From every level invites</string>
+    <string name="teampromote_title3">Example:</string>
+    <string name="teampromote_title3_1">10 first-level invites</string>
+    <string name="teampromote_title3_2">100 second-level invites</string>
+    <string name="teampromote_title3_3">1000 third-level invites</string>
+    <string name="teampromote_title4">If every member recharge 10000</string>
+    <string name="teampromote_title5">Your commission source</string>
+    <string name="teampromote_title5_1">first-level: 10000*10*8%=8000</string>
+    <string name="teampromote_title5_2">second-level: 10000*100*4%=40000</string>
+    <string name="teampromote_title5_3">third-level: 10000*1000*2%=200000</string>
+    <string name="teampromote_title6">Total rebate:8000+40000+200000=248000</string>
+
+
+
 
     <!--AgentArchActivity-->
-    <string name="agentarch_name">Become an agent,invite friends to frow your team and get generous commissions</string>
-    <string name="agentarch_tips1">1.Becoming an agent can get commisions from lower-level users deposits.</string>
-    <string name="agentarch_tips2">2.You can develop up level 1-level 3 and 3 downline members.</string>
-    <string name="agentarch_tips3">3.Professional team guidance,allowing you to quickly and easily develop offline and obtain generous commission income.</string>
-    <string name="agentarch_tips4">4.To become an agent,you must recharge 1,000 yuan</string>
+    <string name="agentarch_name">Use your social circle, it’s better to create the future by yourself than just thinking!</string>
+    <string name="agentarch_tips1">1.Your input: Only if you have a mobile phone and social circle, you just need share 10 to 20 promotional information for 30 minutes a day.</string>
+    <string name="agentarch_tips2">2.How to get money: Share to your friends to make your team, as the team becoming large, you will get recharge rebate much.</string>
+    <string name="agentarch_tips3">3.Agency Privileges」：Join our community team，we have professional financial tutors to provide a full set of technical guarantees, join immediately, get profit immediately.
+        Suitable for everyone, full-time and part-time, zero risk, permanent income, you only need to stick to the implementation, there is no upper limit for monthly income over 10,000. Easily achieve financial freedom, your future is already here.</string>
+    <string name="agentarch_tips4">4.Join conditions: It just costs 10GC to be an official agent, limited spots!</string>
 
     <!--AgencyIncome-->
     <string name="agencyincome_name">Promotional Terms &amp; Details:</string>

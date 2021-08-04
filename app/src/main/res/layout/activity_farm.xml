@@ -142,7 +142,45 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <LinearLayout
+            android:id="@+id/ll_marquee"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="#fffcd8"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            >
+            <com.jony.farm.view.marqueeview.MarqueeView
+                android:id="@+id/tv_marquee"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                app:mvTextColor = "#ff6d2a"
+                app:mvTextSize = "12sp"
+                app:mvGravity = "left"
+                app:mvSingleLine = "true"
+                app:mvInterval="3000"
+                app:mvDirection="bottom_to_top"
+                android:layout_weight="1"
+                />
+
+            <ImageView
+                android:id="@+id/iv_marquee_close"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:padding="8dp"
+                android:src="@drawable/ic_marquee_close"
+                />
+
+
+        </LinearLayout>
+
+
     </LinearLayout>
+
 
     <!--<LinearLayout
         android:id="@+id/ll_surfview"

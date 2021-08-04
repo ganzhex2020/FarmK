@@ -3,6 +3,13 @@ package com.jony.farm.util
 import android.content.Context
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
+import android.view.animation.LinearInterpolator
+import android.widget.ImageView
+import com.combodia.httplib.config.LanguageType
+import com.combodia.httplib.ext.LanguageUtil
 import com.jony.farm.R
 import com.jony.farm.model.entity.AnimalType
 
@@ -116,11 +123,67 @@ object CommonUtil {
     }
 
     @JvmStatic
-    fun getLocalVersionName(context: Context):String {
+    fun getLocalVersionName(context: Context): String {
         val manager: PackageManager = context.packageManager
         val info: PackageInfo =
             manager.getPackageInfo(context.packageName, 0)
         return info.versionName
+    }
+
+    /**
+     * 字符串分割 用于多语言 "\\|" 分割
+     *
+     * @param str
+     * @param index
+     * @return
+     */
+    @JvmStatic
+    fun strSplit(str: String, index: Int): String {
+
+        val arry = str.split("|").toTypedArray()
+        return if (index < arry.size) {
+            arry[index]
+        } else {
+            arry[0]
+        }
+    }
+
+    /**
+     * 多语言获取彩种名
+     *
+     * @param gameName
+     * @return
+     */
+    fun getGameName(gameName: String): String {
+        val language: String = LanguageUtil.getDefaultLanguage()
+
+        return if (language == LanguageType.CHINESE.language) {
+            strSplit(gameName, 0)
+        } else if (language == LanguageType.ENGLISH.language) {
+            strSplit(gameName, 1)
+        } else {
+            strSplit(gameName, 0)
+        }
+    }
+
+    /**
+     * 旋转
+     *
+     * @param type : 1.向上 2.向下
+     */
+    fun rote(type: Int, view: View) {
+
+        var animation: Animation? = null
+        if (1 == type) {
+            animation = AnimationUtils.loadAnimation(view.context, R.anim.rote_playtype_up)
+        } else if (2 == type) {
+            animation = AnimationUtils.loadAnimation(view.context, R.anim.rote_playtype_down)
+        }
+        val lin = LinearInterpolator()
+        animation!!.interpolator = lin
+        animation.fillAfter = true
+        view.startAnimation(animation)
+
     }
 
 }

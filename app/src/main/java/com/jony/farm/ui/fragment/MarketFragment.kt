@@ -7,6 +7,7 @@ import com.combodia.basemodule.utils.LogUtils
 import com.jony.farm.R
 import com.jony.farm.model.entity.BannerEntity
 import com.jony.farm.ui.adapter.MarketAdapter
+import com.jony.farm.util.CommonUtil
 import com.jony.farm.util.DeviceUtil
 import com.jony.farm.view.GridSpaceItemDecoration
 import com.jony.farm.view.dialog.RushBuyDialog
@@ -22,17 +23,19 @@ import org.koin.android.viewmodel.ext.android.getViewModel
  */
 class MarketFragment :BaseVMFragment<MarketViewModel>() {
 
+    private var buyName:String = ""
+
+
     private val bannerList by lazy { mutableListOf<BannerEntity>() }
  //   private val bannerAdapter by lazy { HomeBannerAdapter(bannerList) }
 
     private val marketAdapter by lazy { MarketAdapter() }
-    private var rushBuyDialog :RushBuyDialog? = null
+
 
 
     override fun initVM(): MarketViewModel = getViewModel()
 
     override fun getLayoutResId(): Int = R.layout.fragment_market
-
 
     override fun initView() {
       /*  home_banner.run {
@@ -61,6 +64,7 @@ class MarketFragment :BaseVMFragment<MarketViewModel>() {
          }
         marketAdapter.setOnItemChildClickListener { _, view, position ->
             if (view.id == R.id.tv_rushbuy){
+                buyName = CommonUtil.getGameName(marketAdapter.getItem(position).animalName)
                 mViewModel.getAnimalLeft(marketAdapter.getItem(position).animalID)
             }
         }
@@ -96,16 +100,18 @@ class MarketFragment :BaseVMFragment<MarketViewModel>() {
             animalLiveData.observe(viewLifecycleOwner, {
                 marketAdapter.setList(it)
             })
+            //点击领养动物后 返回的剩下数量大于0
             animalLeftLiveData.observe(viewLifecycleOwner,{
-                it?.let {
-                    if(rushBuyDialog ==null){
-                        rushBuyDialog = RushBuyDialog(mViewModel,viewLifecycleOwner,requireContext())
-                    }
-                    rushBuyDialog?.show()
+                it?.let { map ->
+                    val leftCount =  map["leftCount"] as Int
+                    val haveCount =  map["haveCount"] as Int
+                    val animalId = map["animalId"] as Int
+                    val rushBuyDialog = RushBuyDialog(mViewModel,requireContext(),animalId,buyName,leftCount,haveCount)
+                    rushBuyDialog.show()
                 }
             })
             hashRateLiveData.observe(viewLifecycleOwner,{
-                tv_allHash.text = it.allHash.toString()
+                tv_allHash.text = if (it.allHash.toString().length>13){it.allHash.toString().take(13)}else{it.allHash.toString()}
                 tv_blockHight.text = it.blockHigh.toString()
                 tv_hashProfit.text = it.hashProfit.toString()+" FIL/TIB"
                 tv_allAccount.text = it.allAccount.toString()

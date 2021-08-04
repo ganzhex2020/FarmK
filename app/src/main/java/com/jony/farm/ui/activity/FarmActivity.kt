@@ -4,15 +4,16 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
-import androidx.core.animation.addListener
+import android.view.View
+import android.view.animation.DecelerateInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.chad.library.adapter.base.animation.ScaleInAnimation
 import com.combodia.basemodule.base.BaseVMActivity
 import com.combodia.basemodule.ext.toast
 import com.combodia.basemodule.ext.visable
 import com.combodia.basemodule.utils.GlideUtils
 import com.combodia.basemodule.utils.LogUtils
-import com.combodia.httplib.config.Constant
 import com.gyf.immersionbar.ktx.immersionBar
 import com.gyf.immersionbar.ktx.statusBarHeight
 import com.jony.farm.R
@@ -24,11 +25,12 @@ import com.jony.farm.ui.adapter.FilAdapter
 import com.jony.farm.util.DeviceUtil
 import com.jony.farm.util.MapJUtil
 import com.jony.farm.util.MathUtil
+import com.jony.farm.util.gone
 import com.jony.farm.view.dialog.FeedAllDialog
 import com.jony.farm.view.dialog.FeedSingleDialog
+import com.jony.farm.view.dialog.HelpDialog
 import com.jony.farm.view.dialog.QueueDialog
 import com.jony.farm.viewmodel.FarmViewModel
-import com.tencent.mmkv.MMKV
 import com.xiaojinzi.component.anno.RouterAnno
 import kotlinx.android.synthetic.main.activity_farm.*
 import org.koin.android.viewmodel.ext.android.getViewModel
@@ -62,7 +64,6 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
             statusBarColor(R.color.transparent)
         }
 
-
         ll_parent.setPadding(0, statusBarHeight, 0, 0)
 
         GlideUtils.loadRoundImage(iv_avatar, R.mipmap.ic_avatar_default)
@@ -79,13 +80,13 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
         GameConfig.animalFrame[1] =  DeviceUtil.resizeBitmap(BitmapFactory.decodeResource(resources,R.mipmap.a_1))
         GameConfig.animalFrame[2] =  DeviceUtil.resizeBitmap(BitmapFactory.decodeResource(resources,R.mipmap.a_2))*/
 
-
         //   val gameView = FarmSurfaceView(this)
         //    mycusview.addView(gameView)
         initRecy()
         initMenu()
         onClick()
-
+        val list = listOf(getString(R.string.marquee_tip1),getString(R.string.marquee_tip2),getString(R.string.marquee_tip3),getString(R.string.marquee_tip4),getString(R.string.marquee_tip5),getString(R.string.marquee_tip6))
+        tv_marquee.startWithList(list as List<Nothing>?)
     }
 
     private fun initRecy() {
@@ -93,7 +94,8 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
             adapter = kindAdapter
             layoutManager = LinearLayoutManager(this@FarmActivity)
         }
-        kindAdapter.setOnItemClickListener { _, _, position ->
+        kindAdapter.adapterAnimation = ScaleInAnimation(0.1f)
+        kindAdapter.setOnItemClickListener { _, view, position ->
             if (kindSelectIndex == -1) {
                 return@setOnItemClickListener
             }
@@ -101,6 +103,7 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
                 return@setOnItemClickListener
             }
             kindSelectIndex = position
+            clickKindAnim(view,0.5f)
             mViewModel.getFarmAnimal(kindAdapter.getItem(position).animalID, allAnimalList)
         }
 
@@ -147,13 +150,29 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
         recy_fil.start()
     }
 
+    private fun clickKindAnim(view: View,mFrom:Float){
+        val scaleX = ObjectAnimator.ofFloat(view, "scaleX", mFrom, 1.5f,1f)
+        scaleX.duration = 300L
+        scaleX.interpolator = DecelerateInterpolator()
+
+
+        val scaleY = ObjectAnimator.ofFloat(view, "scaleY", mFrom, 1.5f,1f)
+        scaleY.duration = 300L
+        scaleY.interpolator = DecelerateInterpolator()
+
+        scaleX.start()
+        scaleY.start()
+
+    }
+
     private fun initMenu(){
-        val menuItems = mutableListOf(R.mipmap.ic_farm_help,R.mipmap.ic_farm_gatherall,R.mipmap.ic_farm_feedall)
+        val menuItems = mutableListOf(R.mipmap.ic_farm_help,R.mipmap.ic_farm_feedall,R.mipmap.ic_farm_gatherall)
         archMenu.setMenuItems(menuItems)
         archMenu.setClickItemListener { resId ->
             when(resId){
                 R.mipmap.ic_farm_help ->{
-
+                    val helpDialog = HelpDialog(FarmActivity@this)
+                    helpDialog.show()
                 }
                 R.mipmap.ic_farm_gatherall ->{
                     val gatherList = allAnimalList.filter { it.animalID == kindAdapter.getItem(kindSelectIndex).animalID }
@@ -191,6 +210,9 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
     private fun onClick() {
         iv_farm_back.setOnClickListener {
             onBackPressed()
+        }
+        iv_marquee_close.setOnClickListener {
+            ll_marquee.gone()
         }
       /*  iv_farm_fodder.setOnClickListener {
 
@@ -327,13 +349,12 @@ class FarmActivity : BaseVMActivity<FarmViewModel>() {
 
                 filAdapter.notifyDataSetChanged()
             })
-            //member 用户信息 livedata
-            memberLiveData.observe(this@FarmActivity, { members ->
-                members.filter { it.userID == MMKV.defaultMMKV().decodeInt(Constant.KEY_USER_ID) }
-                        .map {
-                            tv_qc.text = MathUtil.getTwoBigDecimal(it.balance)
-                            tv_lc.text = MathUtil.getTwoBigDecimal(it.lCoin)
-                        }
+
+            yueLiveData.observe(this@FarmActivity,{list ->
+                if (list!=null &&list.isNotEmpty()){
+                    tv_qc.text = MathUtil.getTwoBigDecimal(list[0].item1)
+                    tv_lc.text = MathUtil.getTwoBigDecimal(list[0].item2)
+                }
 
             })
             feedAllStateLiveData.observe(this@FarmActivity, { map ->

@@ -56,11 +56,11 @@ class LuckDrawActivity:BaseVMActivity<LuckDrawViewModel>() {
         luckView.luckPanAnimEndCallBack = LuckPanAnimEndCallBack { index ->
             when(index){
                 0 ->{
-                    val luckTipDialog = LuckTipDialog(this,"很遗憾未中奖!","",BackState.WZJ)
+                    val luckTipDialog = LuckTipDialog(this,"很遗憾未中奖!",index,BackState.WZJ)
                     luckTipDialog.show()
                 }
                 else ->{
-                    val luckTipDialog = LuckTipDialog(this,"恭喜您!","抽奖奖励",BackState.ZJ)
+                    val luckTipDialog = LuckTipDialog(this,"恭喜您!",index,BackState.ZJ)
                     luckTipDialog.show()
                 }
             }
@@ -77,7 +77,7 @@ class LuckDrawActivity:BaseVMActivity<LuckDrawViewModel>() {
             }
             if (shareCountEntity?.luckDraw==0){
                 //toast(getString(R.string.luckdraw_nocount))
-                val luckTipDialog = LuckTipDialog(this,"今日抽奖次数已用完!","明日再来噢!",BackState.OUT)
+                val luckTipDialog = LuckTipDialog(this,"今日抽奖次数已用完!",0,BackState.OUT)
                 luckTipDialog.show()
                 return@setOnClickListener
             }
@@ -110,7 +110,6 @@ class LuckDrawActivity:BaseVMActivity<LuckDrawViewModel>() {
                     luckView.setLuckNumber(num-1)
                     luckView.startGo()
                 }
-
             })
 
         }

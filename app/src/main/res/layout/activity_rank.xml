@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@mipmap/ic_main_bg"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:id="@+id/ll_parent"
-    >
+    android:id="@+id/ll_parent">
     <include layout="@layout/layout_common_header" />
 
     <com.scwang.smart.refresh.layout.SmartRefreshLayout
@@ -25,6 +24,7 @@
                 android:orientation="horizontal"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
+                android:gravity="center_vertical"
                 >
                 <LinearLayout
                     android:layout_width="0dp"
@@ -49,13 +49,25 @@
 
                         >
 
-                        <com.combodia.basemodule.view.CircleImageView
+                        <!--<com.combodia.basemodule.view.CircleImageView
                             android:id="@+id/iv_rank2"
                             android:layout_marginTop="10dp"
                             android:layout_width="55dp"
                             android:layout_height="55dp"
                             android:src="@mipmap/ic_avatar_default"
-                            />
+                            />-->
+
+                        <com.combodia.basemodule.view.roundview.RoundTextView
+                            android:id="@+id/tv_rank2"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            app:rv_backgroundColor="#2196F3"
+                            app:rv_cornerRadius="50dp"/>
 
                         <TextView
                             android:id="@+id/tv_rank2_name"
@@ -81,8 +93,6 @@
                     </LinearLayout>
 
                 </LinearLayout>
-
-
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -106,12 +116,23 @@
                         android:gravity="center_horizontal"
                         >
 
-                        <com.combodia.basemodule.view.CircleImageView
+                        <!--<com.combodia.basemodule.view.CircleImageView
                             android:id="@+id/iv_rank1"
+                            android:layout_width="64dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:src="@mipmap/ic_avatar_default" />-->
+                        <com.combodia.basemodule.view.roundview.RoundTextView
+                            android:id="@+id/tv_rank1"
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:layout_marginTop="10dp"
-                            android:src="@mipmap/ic_avatar_default"
+                            app:rv_backgroundColor="#9C27B0"
+                            app:rv_cornerRadius="50dp"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
                             />
 
                         <TextView
@@ -161,12 +182,24 @@
                         android:gravity="center_horizontal"
                         >
 
-                        <com.combodia.basemodule.view.CircleImageView
+                        <!--<com.combodia.basemodule.view.CircleImageView
                             android:id="@+id/iv_rank3"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_marginTop="10dp"
                             android:src="@mipmap/ic_avatar_default"
+                            />-->
+                        <com.combodia.basemodule.view.roundview.RoundTextView
+                            android:id="@+id/tv_rank3"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            app:rv_backgroundColor="#823AB7"
+                            app:rv_cornerRadius="50dp"
                             />
 
                         <TextView
@@ -195,7 +228,6 @@
                     </LinearLayout>
 
                 </LinearLayout>
-
 
             </LinearLayout>
 

@@ -40,7 +40,8 @@ class FarmViewModel(private val remoteRepo: RemoteDataSource, private val localR
 
 
 
-    val memberLiveData = localRepo.getMemberLiveData()
+    //val memberLiveData = localRepo.getMemberLiveData()
+    val yueLiveData = localRepo.getYueLiveData()
 
     fun getData(isInit: Boolean) {
         viewModelScope.launch {
@@ -155,11 +156,13 @@ class FarmViewModel(private val remoteRepo: RemoteDataSource, private val localR
             }
             result.checkSuccess {
                 LogUtils.error("余额2：$it")
-                withContext(Dispatchers.IO) {
+                localRepo.deleteYue()
+                localRepo.insertYue(it)
+                /*withContext(Dispatchers.IO) {
                     val userId = kv.decodeInt(KEY_USER_ID)
                       localRepo.updateBalance(it.item1,it.item2,it.item3,userId)
                   //  localRepo.updateBalance(22222.0, 2222.0, 2222.0, userId)
-                }
+                }*/
             }
             result.checkError {
                 LogUtils.error("获取余额失败！！！")
@@ -177,7 +180,7 @@ class FarmViewModel(private val remoteRepo: RemoteDataSource, private val localR
                         remoteRepo.feedAnimals(map)
                     }
                     result.checkSuccess {
-                        toast("feed success")
+                        toast("喂养成功")
                       //  feedLiveData.value = true
                         val map = HashMap<String,Any>()
                         map["state"] = true
@@ -204,7 +207,7 @@ class FarmViewModel(private val remoteRepo: RemoteDataSource, private val localR
                         remoteRepo.feedAnimals(map)
                     }
                     result.checkSuccess {
-                        toast("feed success")
+                        toast("喂养成功")
                         //  feedLiveData.value = true
                         val map = HashMap<String,Any>()
                         map["state"] = true

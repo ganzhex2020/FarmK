@@ -16,12 +16,10 @@ import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.combodia.basemodule.ext.color
 import com.combodia.basemodule.ext.toast
 import com.combodia.basemodule.ext.visable
-import com.combodia.httplib.config.Constant
 import com.jony.farm.R
 import com.jony.farm.model.entity.AnimalEntity
 import com.jony.farm.util.DeviceUtil
 import com.jony.farm.viewmodel.FarmViewModel
-import com.tencent.mmkv.MMKV
 import kotlinx.android.synthetic.main.dialog_feedsingle.*
 
 
@@ -43,8 +41,8 @@ class FeedSingleDialog(private val viewModel: FarmViewModel, private val lifecyc
 
     init {
 
-        setCanceledOnTouchOutside(true)
-        setCanceledOnTouchOutside(true)
+        setCanceledOnTouchOutside(false)
+        setCancelable(false)
         val view = View.inflate(context, R.layout.dialog_feedsingle, null)
         val window = window
         window?.setContentView(view)
@@ -101,6 +99,9 @@ class FeedSingleDialog(private val viewModel: FarmViewModel, private val lifecyc
          */
         iv_feednow.setOnClickListener {
             Feed()
+        }
+        iv_delete.setOnClickListener {
+            dismiss()
         }
 
     }
@@ -166,11 +167,10 @@ class FeedSingleDialog(private val viewModel: FarmViewModel, private val lifecyc
     @SuppressLint("SetTextI18n")
     private fun observe() {
         viewModel.run {
-            memberLiveData.observe(lifecycleOwner, { members ->
-                members.filter { it.userID == MMKV.defaultMMKV().decodeInt(Constant.KEY_USER_ID) }
-                        .map {
-                            tv_inventory.text = "X" + it.fodder.toInt()
-                        }
+            yueLiveData.observe(lifecycleOwner, { list ->
+                if (list!=null&&list.isNotEmpty()){
+                    tv_inventory.text = "X" + list[0].item3.toInt()
+                }
             })
 
         }

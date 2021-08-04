@@ -28,14 +28,14 @@ class BankCardListAdapter:BaseQuickAdapter<BankCardEntity, BaseViewHolder>(R.lay
         val iv_bankcard_logo = holder.getView<ImageView>(R.id.iv_bankcard_logo)
         val tv_bank_name = holder.getView<TextView>(R.id.tv_bank_name)
         val tv_bankcard_account = holder.getView<TextView>(R.id.tv_bankcard_account)
-      //  val tv_set_default= holder.getView<TextView>(R.id.tv_set_default)
+        val tv_set_default= holder.getView<TextView>(R.id.tv_set_default)
 
         tv_bank_name.text = item.bankName
         if(item.bankNumber!=null){
             tv_bankcard_account.text = "**** **** **** "+item.bankNumber.takeLast(4)
         }
-     //   tv_set_default.visable(!item.isDefault)
-     //   GlideUtils.loadCircleImage(iv_bankcard_logo, item.disLogo)
+        tv_set_default.visable(!item.isDefault)
+        GlideUtils.loadCircleImage(iv_bankcard_logo, item.disLogo?:"")
 
        /* Glide.with(cl_parent.context).load(item.disBack).into(object : SimpleTarget<Drawable?>() {
 

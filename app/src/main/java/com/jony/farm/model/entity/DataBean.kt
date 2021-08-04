@@ -126,7 +126,8 @@ data class KindEntity(
     val sellCount: Int = 0,
     val sellType: Int = 0,
     val showOrder: Int = 0,
-    val state: Int = 0
+    val state: Int = 0,
+    val isNormalUser:Int =0
 )/*{
     constructor() : this("")
 }*/
@@ -184,8 +185,10 @@ data class AnimalEntity(
     val userName: String = "",
     var isFull: Boolean = false
 )
-
+@Entity(tableName = "yueEntity")
 data class YueEntity(
+    @PrimaryKey(autoGenerate = true) // 设置主键
+    val id: Int,
     val item1: Double, //Qc == balance
     val item2: Double,  //lc
     val item3: Double   //fodder
@@ -432,4 +435,10 @@ data class SafeInfoEntity(
     val safeLevel: Int,
     val tradePassLevel: Int,
     val trueName: String
+)
+
+data class RateEntity(
+    val drawPayCoin: Int,
+    val lcRate: Double,
+    val tranRate: Double
 )
